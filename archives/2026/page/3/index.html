@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
   
-  
+  <meta name="robots" content="noindex,follow">
   <meta name="generator" content="Hexo 7.3.0">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
@@ -17,18 +17,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>安装GCC/G++编辑器 - Hexo</title>
+  <title>Archives - Hexo</title>
 
   
-    <meta name="description" content="🛠️ 解决方案：安装并配置 GCC&#x2F;G++ 编译器在 Windows 上，最推荐的方法是使用 MSYS2 来安装 GCC。 第一步：下载并安装 MSYS2 访问 MSYS2 官网（https:&#x2F;&#x2F;www.msys2.org&#x2F;）下载安装包。  一路点击“下一步（Next）”完成安装，安装路径保持默认的 C:\msys64 即可。   第二步：安装 C++ 编译器工具链 安装完成后，会弹出">
-<meta property="og:type" content="article">
-<meta property="og:title" content="安装GCC&#x2F;G++编辑器">
-<meta property="og:url" content="https://hexo.hanruixuan.com/2026/06/18/%E5%AE%89%E8%A3%85GCC%E5%92%8CG++%E7%BC%96%E8%BE%91%E5%99%A8/">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Archives">
+<meta property="og:url" content="https://hexo.hanruixuan.com/archives/2026/page/3/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="🛠️ 解决方案：安装并配置 GCC&#x2F;G++ 编译器在 Windows 上，最推荐的方法是使用 MSYS2 来安装 GCC。 第一步：下载并安装 MSYS2 访问 MSYS2 官网（https:&#x2F;&#x2F;www.msys2.org&#x2F;）下载安装包。  一路点击“下一步（Next）”完成安装，安装路径保持默认的 C:\msys64 即可。   第二步：安装 C++ 编译器工具链 安装完成后，会弹出">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2026-06-18T02:02:24.000Z">
-<meta property="article:modified_time" content="2026-06-28T17:00:36.796Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -46,12 +42,12 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-06-18T10:02:24+08:00","dateModified":"2026-06-29T01:00:36+08:00","datePublished":"2026-06-18T10:02:24+08:00","description":"","headline":"安装GCC/G++编辑器","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/06/18/%E5%AE%89%E8%A3%85GCC%E5%92%8CG++%E7%BC%96%E8%BE%91%E5%99%A8/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/06/18/%E5%AE%89%E8%A3%85GCC%E5%92%8CG++%E7%BC%96%E8%BE%91%E5%99%A8/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://hexo.hanruixuan.com","author":{"@type":"Person","name":"John Doe","sameAs":[]},"name":"Hexo","description":"","url":"https://hexo.hanruixuan.com"}</script>
   
 </head>
 <body>
 
-<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+<div class="l_body index" id="start" layout="undefined" type="undefined" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/dlam.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">Hexo</div></a></div></header>
@@ -63,99 +59,21 @@
 <div class="widgets">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
 
-
-
 <widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/"><span class="title">软件测试基础day2作业</span></a><a class="item title" href="/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/"><span class="title">软件测试基础day1作业</span></a><a class="item title" href="/2026/06/24/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E8%AE%BF%E9%97%AE%E4%B8%A4%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/"><span class="title">如何配置双密钥访问两个github账户</span></a><a class="item title" href="/2026/06/11/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2/"><span class="title">如何搭建一个hexo博客</span></a><a class="item title" href="/2026/06/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85cloudflare%E9%9A%A7%E9%81%93/"><span class="title">如何安装cloudflare隧道</span></a><a class="item title" href="/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/"><span class="title">一个新文件</span></a><a class="item title" href="/2026/06/11/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"><span class="title">如何配置反向代理</span></a><a class="item title" href="/2026/06/24/%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/"><span class="title">配置双密钥如何上传文件</span></a><a class="item title" href="/2026/07/04/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/%E6%9F%A5%E7%9C%8Bgit%E7%94%A8%E6%88%B7%E5%90%8D%E9%82%AE%E7%AE%B1%E5%92%8C%E6%8E%A8%E9%80%81%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80/"><span class="title">查看git用户名邮箱和推送仓库地址</span></a><a class="item title" href="/2026/06/21/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/%E4%BF%AE%E6%94%B9git%E5%88%86%E6%94%AF%E5%90%8D%E7%A7%B0/"><span class="title">修改git分支名称</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
 
+<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/dlam.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">Hexo</div></a></div></header>
+
+ 
 
 
-
-
-<div class="article banner top">
-  <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-06-18T02:02:24.000Z">2026-06-18</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-06-28T17:00:36.796Z">2026-06-29</time></span></div></div></div>
-    
-    <div class="bottom only-title">
-      
-      <div class="text-area">
-        <h1 class="text title"><span>安装GCC/G++编辑器</span></h1>
-        
-      </div>
-    </div>
-    
-  </div>
-  </div><article class="md-text content"><h3 id="🛠️-解决方案：安装并配置-GCC-G-编译器"><a href="#🛠️-解决方案：安装并配置-GCC-G-编译器" class="headerlink" title="🛠️ 解决方案：安装并配置 GCC&#x2F;G++ 编译器"></a>🛠️ 解决方案：安装并配置 GCC&#x2F;G++ 编译器</h3><p>在 Windows 上，最推荐的方法是使用 <strong>MSYS2</strong> 来安装 GCC。</p>
-<h4 id="第一步：下载并安装-MSYS2"><a href="#第一步：下载并安装-MSYS2" class="headerlink" title="第一步：下载并安装 MSYS2"></a>第一步：下载并安装 MSYS2</h4><ol>
-<li><p>访问 MSYS2 官网（<a target="_blank" rel="noopener" href="https://www.msys2.org/">https://www.msys2.org/</a>）下载安装包。</p>
-</li>
-<li><p>一路点击“下一步（Next）”完成安装，安装路径保持默认的 <code>C:\msys64</code> 即可。</p>
-</li>
-</ol>
-<h4 id="第二步：安装-C-编译器工具链"><a href="#第二步：安装-C-编译器工具链" class="headerlink" title="第二步：安装 C++ 编译器工具链"></a>第二步：安装 C++ 编译器工具链</h4><ol>
-<li><p>安装完成后，会弹出一个类似终端的黑色窗口（如果没有弹出，在 Windows 开始菜单里搜索并打开 **”MSYS2 UCRT64”**）。</p>
-</li>
-<li><p>在窗口中输入以下命令并回车：</p>
-<p> Bash</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu</span><br></pre></td></tr></table></figure>
-<p> _(如果提示确认，输入 <code>y</code> 并回车。中途窗口可能会关闭，重新打开 MSYS2 UCRT64 即可)_。</p>
-</li>
-<li><p>接着输入以下命令安装完整的 C++ 开发工具包：</p>
-<p> Bash</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain</span><br></pre></td></tr></table></figure>
-<p> _(遇到提示时，直接按<strong>回车（Enter）选择全部</strong>，然后再输入 <code>y</code> 确认安装)_。</p>
-</li>
-</ol>
-<h4 id="第三步：配置环境变量（关键步骤）"><a href="#第三步：配置环境变量（关键步骤）" class="headerlink" title="第三步：配置环境变量（关键步骤）"></a>第三步：配置环境变量（关键步骤）</h4><p>让 Windows 系统知道你的编译器在哪里：</p>
-<ol>
-<li><p>在 Windows 搜索栏输入 <strong>“环境变量”</strong>，选择 <strong>“编辑系统环境变量”</strong>。</p>
-</li>
-<li><p>点击右下角的 <strong>“环境变量”</strong> 按钮。</p>
-</li>
-<li><p>在下方“系统变量”列表中找到 **<code>Path</code>**，双击它。</p>
-</li>
-<li><p>点击右侧的 <strong>“新建”</strong>，将这个路径粘贴进去：<code>C:\msys64\ucrt64\bin</code>。</p>
-</li>
-<li><p>一路点击 <strong>“确定”</strong> 保存退出。</p>
-</li>
-</ol>
-<h3 id="🔄-校验与运行"><a href="#🔄-校验与运行" class="headerlink" title="🔄 校验与运行"></a>🔄 校验与运行</h3><ol>
-<li><p><strong>重启 VS Code</strong>（这一步非常重要，必须重启才能加载新的环境变量）。</p>
-</li>
-<li><p>再次点击右上角的运行按钮，你的 “Hello, World!” 就能顺利跑出来啦！</p>
-</li>
-</ol>
-</article>
-<div class="article-footer">
-    <section id="license">
-      <div class="header"><span>License</span></div>
-      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
-</div>
-    </section>
-    
-
-</div>
-
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/06/21/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/%E4%BF%AE%E6%94%B9git%E5%88%86%E6%94%AF%E5%90%8D%E7%A7%B0/">修改git分支名称</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/06/14/nginx%E7%9A%84%E4%BD%BF%E7%94%A8/">nginx的使用</a></div></section></div>
-
-
-
-
-
-
+<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">Recent</a><a href="/categories/">Categories</a><a href="/tags/">Tags</a><a class="active" href="/archives/">Archives</a></nav></div></div></div><div class="post-list archives"><article class="" id="archive"><div class='archive-header h4'>2026</div><div class="archive-list"><a class='post fs14' href="/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/"><time>07-23</time><span>软件测试基础day2作业</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/"><time>07-21</time><span>软件测试基础day1作业</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/07/04/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/%E6%9F%A5%E7%9C%8Bgit%E7%94%A8%E6%88%B7%E5%90%8D%E9%82%AE%E7%AE%B1%E5%92%8C%E6%8E%A8%E9%80%81%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80/"><time>07-04</time><span>查看git用户名邮箱和推送仓库地址</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85cloudflare%E9%9A%A7%E9%81%93/"><time>06-29</time><span>如何安装cloudflare隧道</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/29/hello-world/"><time>06-29</time><span>Hello World</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/27/%E7%BB%99windows11%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E8%AE%BF%E9%97%AE%E6%88%91%E7%9A%84r2s/"><time>06-27</time><span>给windows11电脑配置端口转发访问我的r2s</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/24/%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/"><time>06-24</time><span>配置双密钥如何上传文件</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/24/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E8%AE%BF%E9%97%AE%E4%B8%A4%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/"><time>06-24</time><span>如何配置双密钥访问两个github账户</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/"><time>06-22</time><span>一个新文件</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/"><time>06-21</time><span>给终端配置代理</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/21/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/%E4%BF%AE%E6%94%B9git%E5%88%86%E6%94%AF%E5%90%8D%E7%A7%B0/"><time>06-21</time><span>修改git分支名称</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/18/%E5%AE%89%E8%A3%85GCC%E5%92%8CG++%E7%BC%96%E8%BE%91%E5%99%A8/"><time>06-18</time><span>安装GCC/G++编辑器</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/14/nginx%E7%9A%84%E4%BD%BF%E7%94%A8/"><time>06-14</time><span>nginx的使用</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/12/%E5%A6%82%E4%BD%95%E5%A4%87%E4%BB%BDhexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81/"><time>06-12</time><span>如何备份hexo博客源码</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/11/warp%E5%AE%89%E8%A3%85/"><time>06-11</time><span>warp安装</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/11/x-%E9%9D%A2%E6%9D%BF%E9%85%8D%E7%BD%AE%E8%8F%9C%E5%8D%95/"><time>06-11</time><span>x-面板配置菜单</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/11/warp%E9%9A%A7%E9%81%93%E5%87%BA%E7%8E%B0%E7%9A%84ip%E9%97%AE%E9%A2%98/"><time>06-11</time><span>warp隧道出现的ip问题</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/11/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2/"><time>06-11</time><span>如何搭建一个hexo博客</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/11/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"><time>06-11</time><span>如何配置反向代理</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/11/%E6%90%AD%E5%BB%BA%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B/"><time>06-11</time><span>搭建节点教程</span></a></div><div class="archive-list"><a class='post fs14' href="/2026/06/11/%E6%9F%A5%E7%9C%8Blinux%E7%AB%AF%E5%8F%A3%E7%9A%84%E6%96%B9%E6%B3%95/"><time>06-11</time><span>查看linux端口的方法</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2018</div><div class="archive-list"><a class='post fs14' href="/2018/12/12/Hexo-Theme-Sakura/"><time>12-12</time><span>Hexo-Theme-Sakura</span></a></div></article></div>
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
-
-
-
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AE-GCC-G-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">🛠️ 解决方案：安装并配置 GCC&#x2F;G++ 编译器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85-MSYS2"><span class="toc-text">第一步：下载并安装 MSYS2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%AE%89%E8%A3%85-C-%E7%BC%96%E8%AF%91%E5%99%A8%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="toc-text">第二步：安装 C++ 编译器工具链</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%88%E5%85%B3%E9%94%AE%E6%AD%A5%E9%AA%A4%EF%BC%89"><span class="toc-text">第三步：配置环境变量（关键步骤）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%84-%E6%A0%A1%E9%AA%8C%E4%B8%8E%E8%BF%90%E8%A1%8C"><span class="toc-text">🔄 校验与运行</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>Scroll to Top</span></a></div></widget>
-</div></aside><div class='float-panel'>
+</aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
