@@ -17,25 +17,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>软件测试基础day1作业 - Hexo</title>
+  <title>vi and vim - Hexo</title>
 
   
-    <meta name="description" content="1. 描述软件生命周期，以及各个环节的产物（1）计划阶段确定软件开发总目标；研究项目可行性，探讨问题解决方案；对开发资源、成本、效益和开发进度进行估计；制定完成开发任务的实施计划。 （2）需求分析阶段对开发的软件进行详细定义，由需求分析人员和用户共同讨论确定可满足的需求，并进行准确描述，形成软件需求说明书（SRS）。 （3）设计阶段设计是软件工程的技术核心，需要完成设计说明书。    概要设计（H">
+    <meta name="description" content="Linux vi &#x2F; vim 编辑器笔记1. vi 的作用vi 是 Linux 系统中常用的文本编辑器，可以用于：  新建文件 修改文件 查看文件  例如： 1234567891011121314151617181920212223vi test.txt&#96;&#96;&#96;&#96;如果文件不存在：- 创建新文件    如果文件存在：- 打开文件编辑    ---# 2. vi 的三种模式（重点）Vim 最大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件测试基础day1作业">
-<meta property="og:url" content="https://hexo.hanruixuan.com/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/">
+<meta property="og:title" content="vi and vim">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2026/08/07/linux/vi-and-vim/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 描述软件生命周期，以及各个环节的产物（1）计划阶段确定软件开发总目标；研究项目可行性，探讨问题解决方案；对开发资源、成本、效益和开发进度进行估计；制定完成开发任务的实施计划。 （2）需求分析阶段对开发的软件进行详细定义，由需求分析人员和用户共同讨论确定可满足的需求，并进行准确描述，形成软件需求说明书（SRS）。 （3）设计阶段设计是软件工程的技术核心，需要完成设计说明书。    概要设计（H">
+<meta property="og:description" content="Linux vi &#x2F; vim 编辑器笔记1. vi 的作用vi 是 Linux 系统中常用的文本编辑器，可以用于：  新建文件 修改文件 查看文件  例如： 1234567891011121314151617181920212223vi test.txt&#96;&#96;&#96;&#96;如果文件不存在：- 创建新文件    如果文件存在：- 打开文件编辑    ---# 2. vi 的三种模式（重点）Vim 最大">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2026-07-21T10:35:00.000Z">
-<meta property="article:modified_time" content="2026-07-23T12:28:47.684Z">
+<meta property="article:published_time" content="2026-08-07T03:07:58.000Z">
+<meta property="article:modified_time" content="2026-08-07T04:15:49.075Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="技术">
 <meta property="article:tag" content="软测作业">
 <meta name="twitter:card" content="summary">
   
   
   
-  <meta name="keywords" content="软测作业">
+  <meta name="keywords" content="技术,软测作业">
 
   <!-- feed -->
   
@@ -47,7 +48,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-07-21T18:35:00+08:00","dateModified":"2026-07-23T20:28:47+08:00","datePublished":"2026-07-21T18:35:00+08:00","description":"","headline":"软件测试基础day1作业","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/","keywords":"软测作业","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-08-07T11:07:58+08:00","dateModified":"2026-08-07T12:15:49+08:00","datePublished":"2026-08-07T11:07:58+08:00","description":"","headline":"vi and vim","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/08/07/linux/vi-and-vim/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/08/07/linux/vi-and-vim/","keywords":"技术, 软测作业","image":[]}</script>
   
 </head>
 <body>
@@ -79,210 +80,361 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-07-21T10:35:00.000Z">2026-07-21</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-07-23T12:28:47.684Z">2026-07-23</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-08-07T03:07:58.000Z">2026-08-07</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-08-07T04:15:49.075Z">2026-08-07</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>软件测试基础day1作业</span></h1>
+        <h1 class="text title"><span>vi and vim</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><h2 id="1-描述软件生命周期，以及各个环节的产物"><a href="#1-描述软件生命周期，以及各个环节的产物" class="headerlink" title="1. 描述软件生命周期，以及各个环节的产物"></a>1. 描述软件生命周期，以及各个环节的产物</h2><h3 id="（1）计划阶段"><a href="#（1）计划阶段" class="headerlink" title="（1）计划阶段"></a>（1）计划阶段</h3><p>确定软件开发总目标；研究项目可行性，探讨问题解决方案；对开发资源、成本、效益和开发进度进行估计；制定完成开发任务的实施计划。</p>
-<h3 id="（2）需求分析阶段"><a href="#（2）需求分析阶段" class="headerlink" title="（2）需求分析阶段"></a>（2）需求分析阶段</h3><p>对开发的软件进行详细定义，由需求分析人员和用户共同讨论确定可满足的需求，并进行准确描述，形成软件需求说明书（SRS）。</p>
-<h3 id="（3）设计阶段"><a href="#（3）设计阶段" class="headerlink" title="（3）设计阶段"></a>（3）设计阶段</h3><p>设计是软件工程的技术核心，需要完成设计说明书。</p>
+  </div><article class="md-text content"><h1 id="Linux-vi-vim-编辑器笔记"><a href="#Linux-vi-vim-编辑器笔记" class="headerlink" title="Linux vi &#x2F; vim 编辑器笔记"></a>Linux vi &#x2F; vim 编辑器笔记</h1><h2 id="1-vi-的作用"><a href="#1-vi-的作用" class="headerlink" title="1. vi 的作用"></a>1. vi 的作用</h2><p><code>vi</code> 是 Linux 系统中常用的文本编辑器，可以用于：</p>
+<ol>
+<li>新建文件</li>
+<li>修改文件</li>
+<li>查看文件</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">vi test.txt</span><br><span class="line">````</span><br><span class="line"></span><br><span class="line">如果文件不存在：</span><br><span class="line"></span><br><span class="line">- 创建新文件</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">如果文件存在：</span><br><span class="line"></span><br><span class="line">- 打开文件编辑</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. vi 的三种模式（重点）</span></span><br><span class="line"></span><br><span class="line">Vim 最大特点：</span><br><span class="line"></span><br><span class="line">&gt; **不同模式负责不同事情**</span><br><span class="line"></span><br><span class="line">记忆：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>打开文件<br>   |<br>   ↓<br>命令模式（默认）<br>   |<br>   | i<br>   ↓<br>插入模式（写文字）<br>   |<br>   | Esc<br>   ↓<br>命令模式<br>   |<br>   | :<br>   ↓<br>底行模式（保存退出）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 2.1 命令模式（普通模式）</span><br><span class="line"></span><br><span class="line">进入方式：</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">vi 文件名</span><br></pre></td></tr></table></figure>
+
+<p>打开后默认就是命令模式。</p>
+<p>作用：</p>
 <ul>
-<li><p>  概要设计（HLD）：将需求转换成软件体系结构，每个部分对应明确功能模块。</p>
+<li><p>移动光标</p>
 </li>
-<li><p>  详细设计（LLD）：具体描述每个模块的实现工作。</p>
+<li><p>删除</p>
+</li>
+<li><p>复制</p>
+</li>
+<li><p>粘贴</p>
+</li>
+<li><p>查找</p>
 </li>
 </ul>
-<h3 id="（4）编码阶段"><a href="#（4）编码阶段" class="headerlink" title="（4）编码阶段"></a>（4）编码阶段</h3><p>将软件设计转换为计算机可执行程序，使用程序设计语言编写源代码，并使用数据库工具建立数据库。</p>
-<h3 id="（5）测试阶段"><a href="#（5）测试阶段" class="headerlink" title="（5）测试阶段"></a>（5）测试阶段</h3><p>测试用于检验软件是否满足客户需求，保证软件质量。主要包括：</p>
-<ul>
-<li><p>  单元测试</p>
-</li>
-<li><p>  集成测试</p>
-</li>
-<li><p>  系统测试</p>
-</li>
-</ul>
-<h3 id="（6）运行和维护阶段"><a href="#（6）运行和维护阶段" class="headerlink" title="（6）运行和维护阶段"></a>（6）运行和维护阶段</h3><p>软件交付用户使用后进入维护阶段，根据软件错误、系统升级、功能增强、性能提升等需求进行修改。</p>
+<p>注意：</p>
+<p>命令模式下直接输入字母不会写入文件，<br>而是执行 Vim 命令。</p>
 <hr>
-<h1 id="2-软件研发模型及区别"><a href="#2-软件研发模型及区别" class="headerlink" title="2. 软件研发模型及区别"></a>2. 软件研发模型及区别</h1><table>
+<h1 id="2-2-插入模式"><a href="#2-2-插入模式" class="headerlink" title="2.2 插入模式"></a>2.2 插入模式</h1><p>作用：</p>
+<blockquote>
+<p>输入文字，修改文件内容</p>
+</blockquote>
+<p>进入方法：</p>
+<table>
 <thead>
 <tr>
-<th>模型</th>
-<th>核心思想</th>
-<th>特点</th>
-<th>适用场景</th>
+<th>按键</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>瀑布模型</td>
-<td>按阶段一次完成开发</td>
-<td>流程严格，需求→设计→编码→测试依次进行</td>
-<td>需求明确、变化少的项目</td>
+<td>i</td>
+<td>光标前插入</td>
 </tr>
 <tr>
-<td>原型模型</td>
-<td>先制作样品让用户确认</td>
-<td>快速制作原型，根据反馈修改需求</td>
-<td>用户需求不明确的项目</td>
+<td>a</td>
+<td>光标后插入</td>
 </tr>
 <tr>
-<td>迭代模型</td>
-<td>不断重复开发过程，逐步完善</td>
-<td>每轮经历分析、设计、开发、测试</td>
-<td>复杂系统，需要持续优化</td>
+<td>o</td>
+<td>下一行插入</td>
 </tr>
 <tr>
-<td>增量模型</td>
-<td>分批增加系统功能</td>
-<td>每次交付部分可运行功能</td>
-<td>大型软件，需要快速上线</td>
+<td>O</td>
+<td>上一行插入</td>
 </tr>
 <tr>
-<td>敏捷模型</td>
-<td>小步快跑，快速响应变化</td>
-<td>高频迭代、持续沟通、快速交付</td>
-<td>互联网产品、需求变化快的项目</td>
+<td>I</td>
+<td>行首插入</td>
+</tr>
+<tr>
+<td>A</td>
+<td>行尾插入</td>
+</tr>
+</tbody></table>
+<p>进入后：</p>
+<p>可以像普通编辑器一样输入文字。</p>
+<p>退出插入模式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Esc</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="2-3-底行模式"><a href="#2-3-底行模式" class="headerlink" title="2.3 底行模式"></a>2.3 底行模式</h1><p>进入：</p>
+<p>先按：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Esc</span><br></pre></td></tr></table></figure>
+
+<p>然后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:</span><br></pre></td></tr></table></figure>
+
+<p>作用：</p>
+<ul>
+<li><p>保存</p>
+</li>
+<li><p>退出</p>
+</li>
+<li><p>查找</p>
+</li>
+<li><p>设置</p>
+</li>
+</ul>
+<p>常用：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:wq</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>不保存强制退出</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>保存</td>
+</tr>
+</tbody></table>
+<p>记忆：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">w = write 保存</span><br><span class="line">q = quit 退出</span><br><span class="line">! = 强制</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="3-vi-打开文件方式"><a href="#3-vi-打开文件方式" class="headerlink" title="3. vi 打开文件方式"></a>3. vi 打开文件方式</h1><h2 id="3-1-打开文件"><a href="#3-1-打开文件" class="headerlink" title="3.1 打开文件"></a>3.1 打开文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi 文件名</span><br></pre></td></tr></table></figure>
+
+<p>作用：</p>
+<p>打开或创建文件</p>
+<hr>
+<h2 id="3-2-打开文件并定位到第-n-行"><a href="#3-2-打开文件并定位到第-n-行" class="headerlink" title="3.2 打开文件并定位到第 n 行"></a>3.2 打开文件并定位到第 n 行</h2><p>格式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi +n 文件名</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi +50 test.txt</span><br></pre></td></tr></table></figure>
+
+<p>打开文件后直接跳到第50行。</p>
+<hr>
+<h2 id="3-3-打开文件并定位到最后一行"><a href="#3-3-打开文件并定位到最后一行" class="headerlink" title="3.3 打开文件并定位到最后一行"></a>3.3 打开文件并定位到最后一行</h2><p>格式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi + 文件名</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi + test.txt</span><br></pre></td></tr></table></figure>
+
+<p>打开后光标在最后一行。</p>
+<hr>
+<h1 id="4-vi-常用快捷操作（命令模式）"><a href="#4-vi-常用快捷操作（命令模式）" class="headerlink" title="4. vi 常用快捷操作（命令模式）"></a>4. vi 常用快捷操作（命令模式）</h1><h2 id="4-1-复制"><a href="#4-1-复制" class="headerlink" title="4.1 复制"></a>4.1 复制</h2><h3 id="复制当前行"><a href="#复制当前行" class="headerlink" title="复制当前行"></a>复制当前行</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yy</span><br></pre></td></tr></table></figure>
+
+<p>记忆：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = yank（复制）</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<p>复制当前这一行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yy</span><br></pre></td></tr></table></figure>
+
+<p>粘贴：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">p</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="复制多行"><a href="#复制多行" class="headerlink" title="复制多行"></a>复制多行</h3><p>格式：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nyy</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>yy</span><br></pre></td></tr></table></figure>
+
+<p>表示：</p>
+<p>复制当前行开始的 5 行。</p>
+<hr>
+<h1 id="4-2-删除"><a href="#4-2-删除" class="headerlink" title="4.2 删除"></a>4.2 删除</h1><h3 id="删除当前行"><a href="#删除当前行" class="headerlink" title="删除当前行"></a>删除当前行</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd</span><br></pre></td></tr></table></figure>
+
+<p>记忆：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d = delete</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="删除多行"><a href="#删除多行" class="headerlink" title="删除多行"></a>删除多行</h3><p>格式：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ndd</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>dd</span><br></pre></td></tr></table></figure>
+
+<p>表示：</p>
+<p>删除当前行开始的 3 行。</p>
+<hr>
+<h1 id="4-3-光标快速移动"><a href="#4-3-光标快速移动" class="headerlink" title="4.3 光标快速移动"></a>4.3 光标快速移动</h1><h2 id="跳到文件最后一行"><a href="#跳到文件最后一行" class="headerlink" title="跳到文件最后一行"></a>跳到文件最后一行</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">G</span><br></pre></td></tr></table></figure>
+
+<p>记忆：</p>
+<p>G &#x3D; Go（去）</p>
+<hr>
+<h2 id="跳到文件第一行"><a href="#跳到文件第一行" class="headerlink" title="跳到文件第一行"></a>跳到文件第一行</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gg</span><br></pre></td></tr></table></figure>
+
+<p>记忆：</p>
+<p>两个 g &#x3D; 回到开头</p>
+<hr>
+<h1 id="4-4-撤销"><a href="#4-4-撤销" class="headerlink" title="4.4 撤销"></a>4.4 撤销</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">u</span></span><br></pre></td></tr></table></figure>
+
+<p>作用：</p>
+<p>撤销上一次操作。</p>
+<p>记忆：</p>
+<p>u &#x3D; undo</p>
+<hr>
+<h1 id="5-查找内容（底行模式）"><a href="#5-查找内容（底行模式）" class="headerlink" title="5. 查找内容（底行模式）"></a>5. 查找内容（底行模式）</h1><p>进入：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<p>查找 error：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/error</span><br></pre></td></tr></table></figure>
+
+<p>按 Enter。</p>
+<p>用途：</p>
+<p>查看日志时非常常用。</p>
+<p>例如：</p>
+<p>查看 nginx 日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /var/log/nginx/error.log</span><br></pre></td></tr></table></figure>
+
+<p>查找：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/error</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="查找下一个"><a href="#查找下一个" class="headerlink" title="查找下一个"></a>查找下一个</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n</span><br></pre></td></tr></table></figure>
+
+<p>作用：</p>
+<p>跳到下一个匹配内容。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/error</span><br><span class="line"></span><br><span class="line">n</span><br><span class="line"></span><br><span class="line">n</span><br></pre></td></tr></table></figure>
+
+<p>不断查找下一个 error。</p>
+<hr>
+<h1 id="6-显示文件行号"><a href="#6-显示文件行号" class="headerlink" title="6. 显示文件行号"></a>6. 显示文件行号</h1><h2 id="显示行号"><a href="#显示行号" class="headerlink" title="显示行号"></a>显示行号</h2><p>底行模式：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">set</span> <span class="keyword">nu</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 hello</span><br><span class="line">2 linux</span><br><span class="line">3 test</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="取消行号"><a href="#取消行号" class="headerlink" title="取消行号"></a>取消行号</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">set</span> nonu</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="7-常用操作流程（牢记）"><a href="#7-常用操作流程（牢记）" class="headerlink" title="7. 常用操作流程（牢记）"></a>7. 常用操作流程（牢记）</h1><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>步骤：</p>
+<h3 id="①-打开文件"><a href="#①-打开文件" class="headerlink" title="① 打开文件"></a>① 打开文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi 文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="②-进入编辑"><a href="#②-进入编辑" class="headerlink" title="② 进入编辑"></a>② 进入编辑</h3><p>按：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i</span><br></pre></td></tr></table></figure>
+
+<p>修改内容。</p>
+<h3 id="③-退出编辑"><a href="#③-退出编辑" class="headerlink" title="③ 退出编辑"></a>③ 退出编辑</h3><p>按：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Esc</span><br></pre></td></tr></table></figure>
+
+<h3 id="④-保存退出"><a href="#④-保存退出" class="headerlink" title="④ 保存退出"></a>④ 保存退出</h3><p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="8-vi-高频命令速记表"><a href="#8-vi-高频命令速记表" class="headerlink" title="8. vi 高频命令速记表"></a>8. vi 高频命令速记表</h1><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>插入编辑</td>
+<td>i</td>
+</tr>
+<tr>
+<td>返回命令模式</td>
+<td>Esc</td>
+</tr>
+<tr>
+<td>保存退出</td>
+<td>:wq</td>
+</tr>
+<tr>
+<td>强制退出</td>
+<td>:q!</td>
+</tr>
+<tr>
+<td>保存</td>
+<td>:w</td>
+</tr>
+<tr>
+<td>复制一行</td>
+<td>yy</td>
+</tr>
+<tr>
+<td>粘贴</td>
+<td>p</td>
+</tr>
+<tr>
+<td>复制 n 行</td>
+<td>nyy</td>
+</tr>
+<tr>
+<td>删除一行</td>
+<td>dd</td>
+</tr>
+<tr>
+<td>删除 n 行</td>
+<td>ndd</td>
+</tr>
+<tr>
+<td>撤销</td>
+<td>u</td>
+</tr>
+<tr>
+<td>第一行</td>
+<td>gg</td>
+</tr>
+<tr>
+<td>最后一行</td>
+<td>G</td>
+</tr>
+<tr>
+<td>查找</td>
+<td>&#x2F;关键词</td>
+</tr>
+<tr>
+<td>下一个匹配</td>
+<td>n</td>
+</tr>
+<tr>
+<td>显示行号</td>
+<td>:set nu</td>
+</tr>
+<tr>
+<td>取消行号</td>
+<td>:set nonu</td>
 </tr>
 </tbody></table>
 <hr>
-<h1 id="3-敏捷研发模型中测试的作用"><a href="#3-敏捷研发模型中测试的作用" class="headerlink" title="3. 敏捷研发模型中测试的作用"></a>3. 敏捷研发模型中测试的作用</h1><p>在敏捷研发模型中，测试不再是项目末尾的独立阶段，而是贯穿整个软件生命周期的重要活动。</p>
-<p>主要作用：</p>
-<ol>
-<li> <strong>质量保证与内建质量</strong></li>
-</ol>
-<p>    测试人员与开发人员、产品经理协作，通过测试驱动开发（TDD）或行为驱动开发（BDD）提前明确验收标准。</p>
-<ol start="2">
-<li> <strong>推动持续交付与自动化</strong></li>
-</ol>
-<p>    敏捷开发周期短，需要依靠自动化测试支持持续集成（CI&#x2F;CD）和快速发布。</p>
-<ol start="3">
-<li> <strong>提供快速反馈</strong></li>
-</ol>
-<p>    测试人员验证每次迭代功能，帮助团队及时发现问题并调整。</p>
-<hr>
-<h1 id="4-什么是软件测试"><a href="#4-什么是软件测试" class="headerlink" title="4. 什么是软件测试"></a>4. 什么是软件测试</h1><p>IEEE（电气与电子工程师协会）定义：</p>
-<p>软件测试是使用人工或自动化手段运行或测试某个系统的过程，其目的在于检验系统是否满足规定需求，或者发现预期结果与实际结果之间的差异。</p>
-<hr>
-<h1 id="5-软件测试的目的"><a href="#5-软件测试的目的" class="headerlink" title="5. 软件测试的目的"></a>5. 软件测试的目的</h1><ul>
-<li><p>  发现软件与用户需求之间的差异，即缺陷。</p>
-</li>
-<li><p>  通过测试发现并解决缺陷，提高用户对软件质量的信心。</p>
-</li>
-<li><p>  了解软件质量状况，为决策提供数据依据。</p>
-</li>
-<li><p>  积累经验，预防缺陷产生，降低软件失败风险。</p>
-</li>
-</ul>
-<hr>
-<h1 id="6-软件测试模型及区别"><a href="#6-软件测试模型及区别" class="headerlink" title="6. 软件测试模型及区别"></a>6. 软件测试模型及区别</h1><h2 id="V模型"><a href="#V模型" class="headerlink" title="V模型"></a>V模型</h2><p>V模型是一种软件测试模型，将开发过程和测试过程对应起来。开发完成需求分析、系统设计和编码后，再进行单元测试、集成测试、系统测试和验收测试。</p>
-<p>特点：</p>
+<h1 id="9-记忆口诀"><a href="#9-记忆口诀" class="headerlink" title="9. 记忆口诀"></a>9. 记忆口诀</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">i 写入</span><br><span class="line">Esc 返回</span><br><span class="line"></span><br><span class="line">yy 复制</span><br><span class="line">dd 删除</span><br><span class="line">p 粘贴</span><br><span class="line"></span><br><span class="line">gg 开头</span><br><span class="line">G 结尾</span><br><span class="line"></span><br><span class="line">u 撤销</span><br><span class="line"></span><br><span class="line">/ 查找</span><br><span class="line">n 下一个</span><br><span class="line"></span><br><span class="line">:w 保存</span><br><span class="line">:q 退出</span><br><span class="line">:wq 保存退出</span><br><span class="line">:q! 强制退出</span><br></pre></td></tr></table></figure>
+
+<h2 id="Linux-运维建议"><a href="#Linux-运维建议" class="headerlink" title="Linux 运维建议"></a>Linux 运维建议</h2><p>日常服务器操作：</p>
+<p>80% 用到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">i</span><br><span class="line">Esc</span><br><span class="line">:wq</span><br><span class="line">:q!</span><br><span class="line">yy</span><br><span class="line">dd</span><br><span class="line">p</span><br><span class="line">/关键词</span><br><span class="line">:set nu</span><br></pre></td></tr></table></figure>
+
+<p>掌握这些即可完成：</p>
 <ul>
-<li><p>  测试与开发阶段一一对应。</p>
+<li><p>修改 nginx 配置</p>
 </li>
-<li><p>  测试计划较早确定。</p>
+<li><p>修改 ssh 配置</p>
 </li>
-<li><p>  适合需求明确、变化较少的软件项目。</p>
+<li><p>修改网站配置</p>
 </li>
-</ul>
-<h2 id="W模型"><a href="#W模型" class="headerlink" title="W模型"></a>W模型</h2><p>W模型是在V模型基础上的改进，强调测试活动提前开始。</p>
-<p>特点：</p>
-<ul>
-<li><p>  在需求分析、设计和编码阶段，测试人员就参与项目。</p>
+<li><p>查看日志文件</p>
 </li>
-<li><p>  可以更早发现问题，降低后期修改成本。</p>
-</li>
-<li><p>  适合大型、高可靠性软件项目。</p>
+<li><p>修改 Linux 系统文件</p>
 </li>
 </ul>
-<h2 id="敏捷测试模型"><a href="#敏捷测试模型" class="headerlink" title="敏捷测试模型"></a>敏捷测试模型</h2><p>敏捷测试模型强调开发和测试同步进行，通过短周期迭代持续开发、测试和改进。</p>
-<p>特点：</p>
-<ul>
-<li><p>  测试人员全程参与开发。</p>
-</li>
-<li><p>  快速发现问题。</p>
-</li>
-<li><p>  能适应需求变化。</p>
-</li>
-</ul>
-<h2 id="区别总结"><a href="#区别总结" class="headerlink" title="区别总结"></a>区别总结</h2><ul>
-<li><p>  V模型：开发完成后进行对应测试。</p>
-</li>
-<li><p>  W模型：测试提前介入，与开发同步。</p>
-</li>
-<li><p>  敏捷测试模型：开发和测试持续循环，快速响应变化。</p>
-</li>
-</ul>
-<hr>
-<h1 id="7-如何定义缺陷"><a href="#7-如何定义缺陷" class="headerlink" title="7. 如何定义缺陷"></a>7. 如何定义缺陷</h1><p>软件缺陷包括：</p>
-<ol>
-<li><p> 需求要求的功能没有实现。</p>
-</li>
-<li><p> 实现了需求没有要求的功能。</p>
-</li>
-<li><p> 软件出现不应出现的错误。</p>
-</li>
-<li><p> 未明确要求但应该实现的功能没有实现。</p>
-</li>
-<li><p> 软件难以使用、难以理解、运行缓慢等影响用户体验的问题。</p>
-</li>
-</ol>
-<hr>
-<h1 id="8-软件分类"><a href="#8-软件分类" class="headerlink" title="8. 软件分类"></a>8. 软件分类</h1><ol>
-<li> 按层次：</li>
-</ol>
-<p>    -   系统软件</p>
-<p>    -   应用软件</p>
-<ol start="2">
-<li> 按结构：</li>
-</ol>
-<p>    -   C&#x2F;S软件</p>
-<p>    -   B&#x2F;S软件</p>
-<ol start="3">
-<li> 按组织：</li>
-</ol>
-<p>    -   开源软件</p>
-<p>    -   商业软件</p>
-<ol start="4">
-<li> 按研发目的：</li>
-</ol>
-<p>    -   产品</p>
-<p>    -   项目</p>
-<hr>
-<h1 id="9-软件测试原则"><a href="#9-软件测试原则" class="headerlink" title="9. 软件测试原则"></a>9. 软件测试原则</h1><p>软件测试主要遵循七大原则：</p>
-<ol>
-<li> <strong>测试证明软件存在缺陷</strong></li>
-</ol>
-<p>    测试可以发现缺陷，但不能证明软件不存在缺陷。</p>
-<ol start="2">
-<li> <strong>测试应尽早启动、尽早介入</strong></li>
-</ol>
-<p>    缺陷发现越早，修复成本越低。</p>
-<ol start="3">
-<li> <strong>不可能执行穷尽测试</strong></li>
-</ol>
-<p>    由于输入组合复杂，无法测试所有情况，需要根据风险选择重点。</p>
-<ol start="4">
-<li> <strong>缺陷存在群集现象</strong></li>
-</ol>
-<p>    软件中部分复杂模块往往集中大量缺陷。</p>
-<ol start="5">
-<li> <strong>杀虫剂悖论</strong></li>
-</ol>
-<p>    重复使用相同测试用例可能无法发现新的缺陷，需要不断更新测试用例。</p>
-<ol start="6">
-<li><p> <strong>不同测试活动依赖不同测试背景</strong><br>不同软件类型需要采用不同测试方法。</p>
-</li>
-<li><p> <strong>不存在缺陷的谬论</strong><br>    软件没有缺陷并不代表成功，还需要满足用户需求。</p>
-</li>
-</ol>
-</article>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这份笔记按照**Linux服务器实际使用顺序**重新整理，比单纯背命令更容易形成操作习惯。你后面学习 CentOS、Ubuntu、Nginx、MySQL 配置时会经常用到这些 Vim 命令。</span><br></pre></td></tr></table></figure></article>
 <div class="article-footer">
     <section id="license">
       <div class="header"><span>License</span></div>
@@ -293,7 +445,7 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/">软件测试基础day2作业</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/07/04/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/%E6%9F%A5%E7%9C%8Bgit%E7%94%A8%E6%88%B7%E5%90%8D%E9%82%AE%E7%AE%B1%E5%92%8C%E6%8E%A8%E9%80%81%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80/">查看git用户名邮箱和推送仓库地址</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/08/04/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95linux%E7%AC%94%E8%AE%B0/">软件测试linux笔记</a></div></section></div>
 
 
 
@@ -307,7 +459,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8F%8F%E8%BF%B0%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%90%84%E4%B8%AA%E7%8E%AF%E8%8A%82%E7%9A%84%E4%BA%A7%E7%89%A9"><span class="toc-text">1. 描述软件生命周期，以及各个环节的产物</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E8%AE%A1%E5%88%92%E9%98%B6%E6%AE%B5"><span class="toc-text">（1）计划阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E9%98%B6%E6%AE%B5"><span class="toc-text">（2）需求分析阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E8%AE%BE%E8%AE%A1%E9%98%B6%E6%AE%B5"><span class="toc-text">（3）设计阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E7%BC%96%E7%A0%81%E9%98%B6%E6%AE%B5"><span class="toc-text">（4）编码阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E6%B5%8B%E8%AF%95%E9%98%B6%E6%AE%B5"><span class="toc-text">（5）测试阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%886%EF%BC%89%E8%BF%90%E8%A1%8C%E5%92%8C%E7%BB%B4%E6%8A%A4%E9%98%B6%E6%AE%B5"><span class="toc-text">（6）运行和维护阶段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E7%A0%94%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%8C%BA%E5%88%AB"><span class="toc-text">2. 软件研发模型及区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%AD%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">3. 敏捷研发模型中测试的作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="toc-text">4. 什么是软件测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">5. 软件测试的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%8C%BA%E5%88%AB"><span class="toc-text">6. 软件测试模型及区别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#V%E6%A8%A1%E5%9E%8B"><span class="toc-text">V模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W%E6%A8%A1%E5%9E%8B"><span class="toc-text">W模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%8F%E6%8D%B7%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B"><span class="toc-text">敏捷测试模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB%E6%80%BB%E7%BB%93"><span class="toc-text">区别总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E7%BC%BA%E9%99%B7"><span class="toc-text">7. 如何定义缺陷</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E8%BD%AF%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="toc-text">8. 软件分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8E%9F%E5%88%99"><span class="toc-text">9. 软件测试原则</span></a></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>Scroll to Top</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-vi-vim-%E7%BC%96%E8%BE%91%E5%99%A8%E7%AC%94%E8%AE%B0"><span class="toc-text">Linux vi &#x2F; vim 编辑器笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-vi-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">1. vi 的作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-2-%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.2 插入模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-3-%E5%BA%95%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.3 底行模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-vi-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F"><span class="toc-text">3. vi 打开文件方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6"><span class="toc-text">3.1 打开文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%B9%B6%E5%AE%9A%E4%BD%8D%E5%88%B0%E7%AC%AC-n-%E8%A1%8C"><span class="toc-text">3.2 打开文件并定位到第 n 行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%B9%B6%E5%AE%9A%E4%BD%8D%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E8%A1%8C"><span class="toc-text">3.3 打开文件并定位到最后一行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-vi-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%93%8D%E4%BD%9C%EF%BC%88%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-text">4. vi 常用快捷操作（命令模式）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%A4%8D%E5%88%B6"><span class="toc-text">4.1 复制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%BD%93%E5%89%8D%E8%A1%8C"><span class="toc-text">复制当前行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%A4%9A%E8%A1%8C"><span class="toc-text">复制多行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-2-%E5%88%A0%E9%99%A4"><span class="toc-text">4.2 删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%BD%93%E5%89%8D%E8%A1%8C"><span class="toc-text">删除当前行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%A4%9A%E8%A1%8C"><span class="toc-text">删除多行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-3-%E5%85%89%E6%A0%87%E5%BF%AB%E9%80%9F%E7%A7%BB%E5%8A%A8"><span class="toc-text">4.3 光标快速移动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E5%88%B0%E6%96%87%E4%BB%B6%E6%9C%80%E5%90%8E%E4%B8%80%E8%A1%8C"><span class="toc-text">跳到文件最后一行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E5%88%B0%E6%96%87%E4%BB%B6%E7%AC%AC%E4%B8%80%E8%A1%8C"><span class="toc-text">跳到文件第一行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-4-%E6%92%A4%E9%94%80"><span class="toc-text">4.4 撤销</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%9F%A5%E6%89%BE%E5%86%85%E5%AE%B9%EF%BC%88%E5%BA%95%E8%A1%8C%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-text">5. 查找内容（底行模式）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E4%B8%8B%E4%B8%80%E4%B8%AA"><span class="toc-text">查找下一个</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E8%A1%8C%E5%8F%B7"><span class="toc-text">6. 显示文件行号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E8%A1%8C%E5%8F%B7"><span class="toc-text">显示行号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%B6%88%E8%A1%8C%E5%8F%B7"><span class="toc-text">取消行号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%88%E7%89%A2%E8%AE%B0%EF%BC%89"><span class="toc-text">7. 常用操作流程（牢记）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">修改配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6"><span class="toc-text">① 打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1-%E8%BF%9B%E5%85%A5%E7%BC%96%E8%BE%91"><span class="toc-text">② 进入编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2-%E9%80%80%E5%87%BA%E7%BC%96%E8%BE%91"><span class="toc-text">③ 退出编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A3-%E4%BF%9D%E5%AD%98%E9%80%80%E5%87%BA"><span class="toc-text">④ 保存退出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-vi-%E9%AB%98%E9%A2%91%E5%91%BD%E4%BB%A4%E9%80%9F%E8%AE%B0%E8%A1%A8"><span class="toc-text">8. vi 高频命令速记表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E8%AE%B0%E5%BF%86%E5%8F%A3%E8%AF%80"><span class="toc-text">9. 记忆口诀</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E8%BF%90%E7%BB%B4%E5%BB%BA%E8%AE%AE"><span class="toc-text">Linux 运维建议</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>Scroll to Top</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
