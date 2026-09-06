@@ -1,0 +1,2186 @@
+
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>测试复习 - Hexo</title>
+
+  <meta name="description" content="软件测试第一次考试复习资料 本资料根据原目录中的 44 个实体文件及 6 个压缩包内的 43 个文件整理，共检查 87 个逻辑文件条目；并结合后来补充的 1 份汇智云商数据库表字典校准 SQL。排序依据是老师最新资料、资料重复频率、是否有完整题目或答案、是否适合考试命题。 标记说明：★★★★★ 必背 &#x2F; 极高概率重点；★★★★☆ 重点掌握；★★★☆☆ 理解即可。 【资料重点】表示资料明确出现；【补">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试复习">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2026/09/06/%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="软件测试第一次考试复习资料 本资料根据原目录中的 44 个实体文件及 6 个压缩包内的 43 个文件整理，共检查 87 个逻辑文件条目；并结合后来补充的 1 份汇智云商数据库表字典校准 SQL。排序依据是老师最新资料、资料重复频率、是否有完整题目或答案、是否适合考试命题。 标记说明：★★★★★ 必背 &#x2F; 极高概率重点；★★★★☆ 重点掌握；★★★☆☆ 理解即可。 【资料重点】表示资料明确出现；【补">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-09-06T09:26:35.000Z">
+<meta property="article:modified_time" content="2026-09-06T10:03:52.275Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="软测作业">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="测试复习">
+  
+  
+  <meta name="keywords" content="技术,软测作业">
+
+  <!-- feed -->
+  
+
+  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+
+
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-06T17:26:35+08:00","dateModified":"2026-09-06T18:03:52+08:00","datePublished":"2026-09-06T17:26:35+08:00","description":"软件测试第一次考试复习资料\n本资料根据原目录中的 44 个实体文件及 6 个压缩包内的 43 个文件整理，共检查 87 个逻辑文件条目；并结合后来补充的 1 份汇智云商数据库表字典校准 SQL。排序依据是老师最新资料、资料重复频率、是否有完整题目或答案、是否适合考试命题。\n标记说明：★★★★★ 必背 / 极高概率重点；★★★★☆ 重点掌握；★★★☆☆ 理解即可。\n【资料重点】表示资料明确出现...","headline":"测试复习","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/06/%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/06/%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/","keywords":"技术, 软测作业","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  
+
+  <!-- icons.yml 驱动的 CSS 装饰图标 -->
+  
+  
+  <style>:root {
+  --icon-h3-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M17.75%2019a.75.75%200%200%201-1.32.488l-6-7a.75.75%200%200%201%200-.976l6-7A.75.75%200%200%201%2017.75%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M13.488%2019.57a.75.75%200%200%200%20.081-1.058L7.988%2012l5.581-6.512a.75.75%200%201%200-1.138-.976l-6%207a.75.75%200%200%200%200%20.976l6%207a.75.75%200%200%200%201.057.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-h3-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M6.25%2019a.75.75%200%200%200%201.32.488l6-7a.75.75%200%200%200%200-.976l-6-7A.75.75%200%200%200%206.25%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M10.512%2019.57a.75.75%200%200%201-.081-1.058L16.012%2012l-5.581-6.512a.75.75%200%201%201%201.139-.976l6%207a.75.75%200%200%201%200%20.976l-6%207a.75.75%200%200%201-1.058.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M3.691%206.292C5.094%204.771%207.217%204%2010%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%206.925%2010H10a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202H3a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789M20%2020h-6a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789C16.094%204.771%2018.217%204%2021%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%2017.925%2010H21a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M20.309%2017.708C22.196%2015.66%2022.006%2013.03%2022%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292m-11.007%200C11.19%2015.66%2010.999%2013.03%2010.993%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292%22%2F%3E%3C%2Fsvg%3E");
+  --icon-loading: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.67%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.33%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%220%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
+}</style>
+  
+</head>
+<body><div id="l_cover"></div><div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left leftbar-card" data-ui-surface="card"><div class="sidebg"></div><div class="leftbar-container">
+
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/"><div class="bg"></div><img no-lazy class="avatar" src="/images/dlam.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">Hexo</div></a></div></header>
+
+
+<div class="search-wrapper" id="search-wrapper"><div class="search-form" role="search"><label class="search-button" for="search-input" aria-hidden="true"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></label><input type="search" class="search-input" id="search-input" aria-label="Search" placeholder="Search"></div><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+<div class="widgets">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="leftbar-active-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+<div class="nav-area">
+
+
+</div>
+
+
+
+<widget class="widget-wrapper recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">Recent Update</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/06/%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/" title="测试复习">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">测试复习</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/28/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day4%E4%BD%9C%E4%B8%9A/" title="软件测试基础day4作业">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件测试基础day4作业</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/27/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="测试图片">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">测试图片</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/" title="一个新文件">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">一个新文件</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/08/04/linux/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95linux%E7%AC%94%E8%AE%B0/" title="软件测试linux笔记">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件测试linux笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/08/07/linux/vi-and-vim/" title="vi and vim">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">vi and vim</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/26/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day3%E4%BD%9C%E4%B8%9A/" title="软件测试基础day3作业">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件测试基础day3作业</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/" title="软件测试基础day2作业">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件测试基础day2作业</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/" title="软件测试基础day1作业">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件测试基础day1作业</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/24/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E8%AE%BF%E9%97%AE%E4%B8%A4%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/" title="如何配置双密钥访问两个github账户">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">如何配置双密钥访问两个github账户</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div>
+
+</div></aside><div class="l_main" id="main" data-ui-surface="content">
+
+
+
+
+
+
+<div class="article-banner-wrap"><div class="article banner top">
+  <div class="content">
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-06T09:26:35.000Z">2026-09-06</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-06T10:03:52.275Z">2026-09-06</time></span></div>
+</div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>测试复习</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div></div>
+<article class="md-text content"><h1 id="软件测试第一次考试复习资料"><a href="#软件测试第一次考试复习资料" class="headerlink" title="软件测试第一次考试复习资料"></a>软件测试第一次考试复习资料</h1><blockquote>
+<p>本资料根据原目录中的 <strong>44 个实体文件</strong>及 6 个压缩包内的 <strong>43 个文件</strong>整理，共检查 <strong>87 个逻辑文件条目</strong>；并结合后来补充的 <strong>1 份汇智云商数据库表字典</strong>校准 SQL。排序依据是老师最新资料、资料重复频率、是否有完整题目或答案、是否适合考试命题。</p>
+<p>标记说明：<strong>★★★★★ 必背 / 极高概率重点</strong>；<strong>★★★★☆ 重点掌握</strong>；<strong>★★★☆☆ 理解即可</strong>。</p>
+<p><code>【资料重点】</code>表示资料明确出现；<code>【补充理解】</code>表示为方便答题所作的通用补充。商城 SQL 已结合后来补充的 <code>汇智云商平台数据库表字典（部分）.docx</code>，使用真实表名、字段名和枚举值。</p>
+</blockquote>
+<h2 id="1-考试重点总览"><a href="#1-考试重点总览" class="headerlink" title="1. 考试重点总览"></a>1. 考试重点总览</h2><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">重要程度</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">模块</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">主要考点</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">可能题型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">项目测试流程</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">需求评审、计划、设计、实现、执行、报告；准入/准出、挂起/恢复、通过/失败</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">简答、案例</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">SQL 综合查询</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">条件、排序、聚合、分组、连接、子查询、日期、分页</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">SQL 编程</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试用例</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">用例要素、优先级、用例评审、用例与缺陷关联</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">填空、简答</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">缺陷管理</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">缺陷判定、要素、严重级别、生命周期、开发不认可的处理</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">简答、案例</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">用例设计方法</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">等价类、边界值、判定表、场景/流程、正交、错误推测、状态迁移</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">设计题</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">冒烟与回归</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">冒烟 100% 通过；确认测试；部分/完全回归；三轮策略</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">简答、选择</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试分类与阶段</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">黑白灰盒、静态/动态、手工/自动化；单元/集成/系统/验收</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">选择、填空</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">系统测试类型</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">功能、性能、安全、兼容、GUI、可用性、异常、接口等</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">简答、案例</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">软件测试基础</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">定义、目的、七项原则、软件生命周期、V/W/敏捷模型</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">选择、简答</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★☆☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">数据库基础</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">SQL 分类、数据类型、约束、事务、索引、视图、备份恢复</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">选择、填空</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★☆☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">Linux 与环境部署</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">常用命令、日志、进程、端口、权限、Tomcat/MySQL/JDK 部署</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">简答、操作</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★☆☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">计算机与网络基础</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">OS、C/S 与 B/S、IP/端口、URL、OSI/TCP-IP、进制</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">选择、填空</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<p>优先复习顺序：先背第 3 节的 20 道题，再做第 6 节的 15 类 SQL，随后掌握第 4 节的用例设计模板，最后用第 8、9 节速记和第 10 节自测。</p>
+<h2 id="2-必背理论知识"><a href="#2-必背理论知识" class="headerlink" title="2. 必背理论知识"></a>2. 必背理论知识</h2><h3 id="2-1-软件、软件测试与缺陷-★★★★★"><a href="#2-1-软件、软件测试与缺陷-★★★★★" class="headerlink" title="2.1 软件、软件测试与缺陷 ★★★★★"></a>2.1 软件、软件测试与缺陷 ★★★★★</h3><blockquote>
+<p><strong>软件 = 程序 + 数据 + 文档。软件测试是使用人工或自动化手段对被测对象进行测试操作，检查实际结果与预期结果是否存在差异。</strong></p>
+</blockquote>
+<ul>
+<li>测试对象不仅是可执行程序，也包括数据、需求、设计、安装手册、用户文档等。</li>
+<li>测试目的：发现被测对象与用户需求之间的差异；了解质量状况并为决策提供依据；积累经验并预防缺陷；降低产品失败风险。</li>
+<li>关键词：<strong>人工或自动化、被测对象、实际结果、预期结果、差异</strong>。</li>
+<li>易错点：测试能证明缺陷存在，却不能证明软件完全没有缺陷。</li>
+</ul>
+<p><strong>缺陷判定五条：</strong></p>
+<ol>
+<li>需求要求的功能没有实现。</li>
+<li>出现了需求明确指出不应出现的错误。</li>
+<li>实现了需求没有要求的功能。</li>
+<li>需求没有明说，但合理、必要的隐含功能没有实现。</li>
+<li>软件难理解、不易使用、运行缓慢，或用户体验明显不好。</li>
+</ol>
+<blockquote>
+<p><strong>来源：</strong> <code>0、软件与软件测试概述.pptx</code>、<code>3、软件测试基础-软件测试入门V2.0.pptx</code>、软件测试基础作业。</p>
+</blockquote>
+<h3 id="2-2-软件测试七项原则-★★★★☆"><a href="#2-2-软件测试七项原则-★★★★☆" class="headerlink" title="2.2 软件测试七项原则 ★★★★☆"></a>2.2 软件测试七项原则 ★★★★☆</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">原则</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">一句话答案</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">做题关键词</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试证明缺陷存在</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试只能降低漏测风险，不能证明不存在缺陷</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">不能证无错</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">尽早测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">缺陷发现越早，修复成本越低</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">早介入、评审</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">穷尽测试不可能</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">输入、路径和环境组合过多，应按风险选重点</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">风险、优先级</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">缺陷群集</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">少数复杂或重要模块往往集中多数缺陷</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">二八原理</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">杀虫剂悖论</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">重复同一组用例会逐渐失效，应定期评审和更新</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">更新用例</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试依赖背景</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">不同业务、目标和风险需要不同测试策略</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">因项目而异</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">不存在缺陷的谬论</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">没发现 Bug 但不能满足用户需求，产品仍然失败</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">用户价值</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<blockquote>
+<p><strong>来源：</strong> <code>3、软件测试基础-软件测试入门V2.0.pptx</code>、<code>韩瑞轩软件测试基础-day03作业.txt</code>。</p>
+</blockquote>
+<h3 id="2-3-软件生命周期和测试阶段-★★★★☆"><a href="#2-3-软件生命周期和测试阶段-★★★★☆" class="headerlink" title="2.3 软件生命周期和测试阶段 ★★★★☆"></a>2.3 软件生命周期和测试阶段 ★★★★☆</h3><p>软件生命周期：<strong>计划 → 需求分析 → 设计 → 编码 → 测试 → 运行维护</strong>。主要产物依次包括项目计划、SRS、HLD/LLD、源程序与数据库、测试产物、运行版本与维护记录。</p>
+<div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">测试阶段</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">对象/重点</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">依据</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">典型方法</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">单元测试 UT</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">最小程序单元、内部逻辑</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">详细设计说明书 LLD</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">白盒</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">集成测试 IT</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">模块接口、数据传递和组合功能</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">概要设计说明书 HLD</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">灰盒</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">系统测试 ST</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">完整系统对需求的符合度</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">需求规格说明书 SRS</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">黑盒</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">验收测试 AT</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">成品是否满足用户/合同要求</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">合同、SRS、验收计划</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">用户主导</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<ul>
+<li>α：用户在开发环境或内部模拟环境测试，开发人员在场，环境受控。</li>
+<li>β：多个真实用户在实际环境测试，开发人员通常不在现场，环境不可控。</li>
+<li>UAT：终端用户或利益相关方验证系统是否可接受，也可能依据法规和行业标准。</li>
+</ul>
+<blockquote>
+<p><strong>来源：</strong> <code>1、软件生命周期V2.0.pptx</code>、<code>4、软件测试基础-测试阶段V2.0(!).pptx</code>。</p>
+</blockquote>
+<h3 id="2-4-测试分类-★★★★☆"><a href="#2-4-测试分类-★★★★☆" class="headerlink" title="2.4 测试分类 ★★★★☆"></a>2.4 测试分类 ★★★★☆</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">划分依据</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">分类</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">核心区别</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">是否关注内部结构</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">黑盒、白盒、灰盒</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">黑盒看输入输出；白盒看代码结构；灰盒兼顾外部行为和内部信息</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">是否运行被测对象</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">静态、动态</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">静态不运行，如评审；动态实际运行并比较结果</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">执行方式</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">手工、自动化</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">人工操作与判断；工具或脚本自动执行</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<ul>
+<li>黑盒又称基于规格说明的测试、数据驱动测试。</li>
+<li>白盒又称结构测试、逻辑驱动测试。</li>
+<li>灰盒典型场景是集成测试、接口测试，常借助日志、接口灌数、打桩。</li>
+<li>自动化适合重复、稳定、高频的冒烟和回归，也适合性能等人工难以完成的测试；它依赖测试设计和软件稳定性，不能完全替代人工探索与体验判断。</li>
+</ul>
+<blockquote>
+<p><strong>来源：</strong> <code>5、软件测试基础 - 测试方法v2.0(!).pptx</code>。</p>
+</blockquote>
+<h3 id="2-5-测试模型-★★★☆☆"><a href="#2-5-测试模型-★★★☆☆" class="headerlink" title="2.5 测试模型 ★★★☆☆"></a>2.5 测试模型 ★★★☆☆</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">模型</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">核心</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">优点</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">局限</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">V 模型</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">开发阶段与测试级别对应</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">阶段清楚，覆盖底层到高层</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">早期缺陷可能到后期才发现，变更返工大</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">W 模型</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试与研发并行，测试需求和设计文档</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">尽早介入，测试对象含程序和文档</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">技术与组织要求较高</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">敏捷测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">短迭代、持续测试、持续反馈</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">响应变化快，质量责任共享</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">需要紧密协作与持续调整</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<blockquote>
+<p><strong>来源：</strong> <code>6、软件测试模型V2.0.pptx</code>、<code>2、软件研发模型V2.0.pptx</code>。</p>
+</blockquote>
+<h3 id="2-6-系统测试类型-★★★★☆"><a href="#2-6-系统测试类型-★★★★☆" class="headerlink" title="2.6 系统测试类型 ★★★★☆"></a>2.6 系统测试类型 ★★★★☆</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">类型</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">核心检查点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">功能测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">功能是否正确、完整、符合明确及隐含需求；输入输出和业务流程是否正确</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">性能测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">响应时间、成功率、CPU、内存、磁盘、并发量</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">负载测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">在不同负载下观察性能，找到临界点</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">压力测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">在超负荷或恶劣条件下寻找薄弱点、极限及恢复能力</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">容量测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">最大用户数、连接数、数据量、文件量等容量</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">稳定性测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">一定负载下长时间运行，关注泄漏、数据不一致和性能下降</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">安全性测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">登录、权限、加密、完整性、日志、身份认证、越权</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">兼容性测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">操作系统、浏览器、硬件、分辨率、网络、第三方软件</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">GUI / 可用性</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">与设计一致、美观统一；易识别、易学习、易操作、错误提示清楚</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">异常测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">断网、宕机、资源不足等异常下的容错、排错和恢复</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">文档测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">文档正确、完整、一致，步骤可执行</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">安装卸载测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">安装前/中/后、异常安装、日志、卸载后重装</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">接口测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">系统/模块之间的数据交换、传递、控制及逻辑依赖</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<p>可靠性常用指标：<code>MTBF = 总工作时间 ÷ 总失效次数</code>，数值越大通常表示越可靠。</p>
+<blockquote>
+<p><strong>来源：</strong> <code>7、系统测试类型v2.0.pptx</code>。</p>
+</blockquote>
+<h2 id="3-项目实战理论题重点"><a href="#3-项目实战理论题重点" class="headerlink" title="3. 项目实战理论题重点"></a>3. 项目实战理论题重点</h2><blockquote>
+<p><strong>🔥 老师最新资料重点</strong>　来源：<code>项目实战理论题.txt</code>，并结合测试流程课件、作业和测试用例表格补全。</p>
+</blockquote>
+<h3 id="3-1-软件测试流程是什么？-★★★★★"><a href="#3-1-软件测试流程是什么？-★★★★★" class="headerlink" title="3.1 软件测试流程是什么？ ★★★★★"></a>3.1 软件测试流程是什么？ ★★★★★</h3><p><strong>标准答案：</strong></p>
+<ol>
+<li>需求评审：确认 SRS 完整、准确、可测试，各角色理解一致。</li>
+<li>测试计划：确定范围、人员、资源、进度、标准和交付物。</li>
+<li>测试设计：进行测试需求分析，确定测试项/子项，编写测试方案。</li>
+<li>测试实现：分析模块、提取测试点、编写并评审用例、准备数据、搭建环境。</li>
+<li>测试执行：版本提测后先冒烟；通过后执行用例、记录结果、提交和跟踪缺陷、回归。</li>
+<li>测试收尾：达到准出标准后统计数据、评估质量、处理遗留缺陷并提交测试报告。</li>
+</ol>
+<p><strong>关键词：</strong> 需求评审、计划、需求分析、方案、用例、环境、冒烟、执行、缺陷、回归、报告。</p>
+<p><strong>速记：</strong> <strong>评需求 → 定计划 → 析需求/定方案 → 写用例/搭环境 → 冒烟/执行/缺陷/回归 → 报告。</strong></p>
+<p><strong>可能的变体问法：</strong> 各阶段产物是什么？答：需求评审表、测试计划、测试方案/思维导图、测试用例、缺陷报告、测试总结报告。</p>
+<h3 id="3-2-需求评审怎么做？关注什么？-★★★★★"><a href="#3-2-需求评审怎么做？关注什么？-★★★★★" class="headerlink" title="3.2 需求评审怎么做？关注什么？ ★★★★★"></a>3.2 需求评审怎么做？关注什么？ ★★★★★</h3><p><strong>标准答案：</strong> 产品、项目、开发、测试等相关人员参加；先发评审通知和材料，各角色预审并记录问题，再召开会议讨论；产品负责人确认结论并修改，最后跟踪问题闭环。测试人员要确认自己理解无疑问，确认文档能指导测试，并对不合理、不可测处提出建议。</p>
+<p><strong>关注点：</strong> <strong>完整性、一致性、可行性、正确性</strong>；还应检查明确性、可测试性、边界/异常、角色权限、业务流程、数据规则、性能安全等非功能要求。</p>
+<p><strong>速记：</strong> <strong>先预审，后开会；查“完、一、可、正”，问题要闭环。</strong></p>
+<h3 id="3-3-用例评审怎么做？评审什么？-★★★★★"><a href="#3-3-用例评审怎么做？评审什么？-★★★★★" class="headerlink" title="3.3 用例评审怎么做？评审什么？ ★★★★★"></a>3.3 用例评审怎么做？评审什么？ ★★★★★</h3><p><strong>标准答案：</strong> 测试人员完成用例后组织产品、开发、测试共同评审；逐条确认用例与需求的对应关系、覆盖、正确性和可执行性；记录意见，修改后复核关闭。</p>
+<p><strong>评审内容：</strong> 需求和测试点是否覆盖；正向、反向、边界、异常、流程和权限是否覆盖；前置条件、数据、步骤、预期是否清楚且可执行；优先级是否合理；用例是否重复、遗漏或相互矛盾。</p>
+<p><strong>速记：</strong> <strong>覆盖全、写得对、跑得通、优先级合理、无重漏矛盾。</strong></p>
+<h3 id="3-4-测试计划包含什么？-★★★★★"><a href="#3-4-测试计划包含什么？-★★★★★" class="headerlink" title="3.4 测试计划包含什么？ ★★★★★"></a>3.4 测试计划包含什么？ ★★★★★</h3><p><strong>标准答案：</strong> 测试目标和范围、资源准备（人员、软硬件、工具）、组织分工、工作安排与进度、风险、测试标准（准入/准出、挂起/恢复、通过/失败）、交付物。</p>
+<p><strong>速记：</strong> <strong>范围、资源、人员、进度、风险、标准、交付物。</strong></p>
+<h3 id="3-5-准入和准出标准是什么？-★★★★★"><a href="#3-5-准入和准出标准是什么？-★★★★★" class="headerlink" title="3.5 准入和准出标准是什么？ ★★★★★"></a>3.5 准入和准出标准是什么？ ★★★★★</h3><p><strong>准入示例：</strong> 需求已基线；用例已编写并评审；开发提交提测单、版本、配置和数据库脚本；测试环境和数据就绪；冒烟用例 100% 通过。</p>
+<p><strong>准出/通过示例：</strong> 需求覆盖率和计划用例执行率达到约定目标；致命、严重缺陷全部解决；一般和轻微缺陷达到项目约定解决率或已有获批的遗留方案；无阻塞发布的问题；测试报告完成。</p>
+<p><strong>易错点：</strong> 资料作业写有“用例执行率达到 100% 及以上”，正确上限是 **100%**。资料中的“严重缺陷 100%，一般/轻微 95%”属于示例阈值，考试若给定项目标准，应按题目作答。</p>
+<h3 id="3-6-测试通过和失败标准是什么？-★★★★★"><a href="#3-6-测试通过和失败标准是什么？-★★★★★" class="headerlink" title="3.6 测试通过和失败标准是什么？ ★★★★★"></a>3.6 测试通过和失败标准是什么？ ★★★★★</h3><p><strong>通过：</strong> 达到项目约定的需求覆盖、用例执行与通过标准；关键缺陷关闭；遗留风险获确认；没有影响发布的阻塞问题。</p>
+<p><strong>失败：</strong> 任一强制标准未达到，如冒烟失败、关键流程不通、致命/严重缺陷未关闭、执行或覆盖不足、遗留风险不可接受。</p>
+<p><strong>速记：</strong> <strong>通过看覆盖、执行、缺陷、风险；硬指标不达即失败。</strong></p>
+<h3 id="3-7-挂起和恢复标准是什么？-★★★★★"><a href="#3-7-挂起和恢复标准是什么？-★★★★★" class="headerlink" title="3.7 挂起和恢复标准是什么？ ★★★★★"></a>3.7 挂起和恢复标准是什么？ ★★★★★</h3><p><strong>挂起：</strong> 需求频繁或重大变更；版本质量过差/冒烟失败；阻塞缺陷使测试无法继续；环境、数据或关键设备不可用；出现更高优先级任务。</p>
+<p><strong>恢复：</strong> 需求稳定；新版本主要流程通过冒烟；阻塞缺陷已修复；环境和数据恢复；高优任务完成并重新具备测试资源。</p>
+<p><strong>速记：</strong> <strong>需求、版本、环境、资源不具备就挂起；问题解除并复验后恢复。</strong></p>
+<h3 id="3-8-测试方案包含什么？用了哪些设计方法？-★★★★★"><a href="#3-8-测试方案包含什么？用了哪些设计方法？-★★★★★" class="headerlink" title="3.8 测试方案包含什么？用了哪些设计方法？ ★★★★★"></a>3.8 测试方案包含什么？用了哪些设计方法？ ★★★★★</h3><p><strong>标准答案：</strong> 测试环境、测试范围和重点、测试类型/维度、测试方法、测试数据和工具、执行策略、用例优先级标准、缺陷严重级别标准。</p>
+<p><strong>项目举例：</strong> 商城注册用等价类和边界值覆盖用户名 3～10 位、密码 6～15 位、手机号 11 位；外卖优惠组合用判定表；订单和请假状态用状态迁移/场景法；多条件查询用正交法；登录历史高发问题用错误推测法。</p>
+<p><strong>速记：</strong> <strong>方案回答“怎么测”；计划回答“谁在何时用什么资源测什么”。</strong></p>
+<h3 id="3-9-测试报告包含什么？测试结论怎么写？-★★★★★"><a href="#3-9-测试报告包含什么？测试结论怎么写？-★★★★★" class="headerlink" title="3.9 测试报告包含什么？测试结论怎么写？ ★★★★★"></a>3.9 测试报告包含什么？测试结论怎么写？ ★★★★★</h3><p><strong>标准答案：</strong> 实际测试环境和版本、测试范围、测试过程数据及分析、需求覆盖和用例执行情况、缺陷统计与趋势、遗留缺陷及风险、版本质量评估、后续建议、测试结论。</p>
+<p><strong>结论模板：</strong> “本轮完成约定范围测试，核心业务流程通过，致命/严重缺陷已关闭，现存一般/轻微缺陷及影响为……。根据准出标准，本版本【通过/有条件通过/不通过】测试，建议【发布/修复后回归/暂缓发布】。”</p>
+<h3 id="3-10-合格测试用例有哪些要素？-★★★★★"><a href="#3-10-合格测试用例有哪些要素？-★★★★★" class="headerlink" title="3.10 合格测试用例有哪些要素？ ★★★★★"></a>3.10 合格测试用例有哪些要素？ ★★★★★</h3><p><strong>标准答案：</strong> 测试项、测试子项、用例 ID、用例标题、测试类型、重要级别/优先级、预置条件、测试数据、步骤描述、预期结果；执行时还记录轮次、实际结果、执行人、时间和备注，并关联需求与缺陷。</p>
+<p><strong>速记：</strong> <strong>编号标题定身份，前置数据备条件，步骤预期可执行，优先类型便管理。</strong></p>
+<h3 id="3-11-用例优先级如何划分？-★★★★★"><a href="#3-11-用例优先级如何划分？-★★★★★" class="headerlink" title="3.11 用例优先级如何划分？ ★★★★★"></a>3.11 用例优先级如何划分？ ★★★★★</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">优先级</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">资料口径</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">项目例子</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">高</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">核心功能正向用例</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">正常登录、下单支付、订单主状态流转</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">中</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">核心功能反向；次要功能正向</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">密码错误、余额不足、取消订单</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">低</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">次要功能反向、易用性、容错和低风险异常</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">非关键提示文字、少见显示问题</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<p><strong>易错点：</strong> 用例优先级表示先执行什么；缺陷优先级表示先修复什么；缺陷严重程度表示影响有多大。</p>
+<h3 id="3-12-合格缺陷有哪些要素？-★★★★★"><a href="#3-12-合格缺陷有哪些要素？-★★★★★" class="headerlink" title="3.12 合格缺陷有哪些要素？ ★★★★★"></a>3.12 合格缺陷有哪些要素？ ★★★★★</h3><p><strong>标准答案：</strong> 产品/项目/模块、影响版本、标题、缺陷类型、严重程度、优先级、指派人、操作系统/浏览器、前置条件、复现步骤、实际结果、预期结果、复现概率、截图/录屏/日志等附件。接口缺陷还应写接口地址、请求方式、参数、响应和必要的请求头。</p>
+<p><strong>好标题：</strong> “位置 + 操作 + 实际问题”，一条缺陷只描述一个问题。描述遵循 5C：准确、清晰、简洁、完整、一致。</p>
+<h3 id="3-13-缺陷严重级别如何划分？-★★★★★"><a href="#3-13-缺陷严重级别如何划分？-★★★★★" class="headerlink" title="3.13 缺陷严重级别如何划分？ ★★★★★"></a>3.13 缺陷严重级别如何划分？ ★★★★★</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">级别</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">判定</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">致命</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">系统崩溃、宕机、无法启动/登录、主流程完全阻断，测试无法继续</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">商城无法登录或支付系统整体不可用</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">严重</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">主要功能丧失、关键数据不能保存，服务明显受影响，但存在部分测试空间</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">支付成功但订单未生成</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">一般</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">次要功能错误或兼容问题，不影响主要流程继续</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">某浏览器图片不显示</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">轻微</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">文字、样式、美观、操作建议等低影响问题</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">错别字、轻微错位</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<p><strong>Severity 与 Priority：</strong> Severity 看影响，Priority 看修复紧急度。首页错别字严重度低但发布前优先级可能高；极少触发的数据损坏严重度高，但若当前无法触发，修复排期可能由项目决定。</p>
+<h3 id="3-14-缺陷管理流程是什么？-★★★★★"><a href="#3-14-缺陷管理流程是什么？-★★★★★" class="headerlink" title="3.14 缺陷管理流程是什么？ ★★★★★"></a>3.14 缺陷管理流程是什么？ ★★★★★</h3><p><strong>标准答案：</strong> 测试新建并指派 → 开发确认；不是缺陷则拒绝，是缺陷则打开 → 开发修复或延期 → 修复后标为已修复并指回测试 → 测试回归；通过则关闭，不通过则重新打开。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建 → 被拒绝</span><br><span class="line">新建 → 打开 → 延迟解决</span><br><span class="line">新建 → 打开 → 已修复 → 关闭</span><br><span class="line">新建 → 打开 → 已修复 → 重新打开 → 已修复 → 关闭</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-15-用例和缺陷是什么关联？-★★★★★"><a href="#3-15-用例和缺陷是什么关联？-★★★★★" class="headerlink" title="3.15 用例和缺陷是什么关联？ ★★★★★"></a>3.15 用例和缺陷是什么关联？ ★★★★★</h3><p><strong>标准答案：</strong> 用例指导执行并定义预期；实际结果与预期不一致时创建缺陷。缺陷应关联触发它的用例和需求，形成“需求 → 用例 → 执行 → 缺陷 → 回归”的可追踪链。一个用例可能发现多个缺陷，一个缺陷也可能影响多个用例。</p>
+<h3 id="3-16-开发不认可缺陷怎么办？-★★★★★"><a href="#3-16-开发不认可缺陷怎么办？-★★★★★" class="headerlink" title="3.16 开发不认可缺陷怎么办？ ★★★★★"></a>3.16 开发不认可缺陷怎么办？ ★★★★★</h3><p><strong>标准答案：</strong> 先检查版本、环境、数据和步骤，补充截图、日志或录屏并稳定复现；与开发沟通事实和影响；对“设计如此”找产品/需求确认；对“无法复现”当面复现或补充条件；仍有分歧时在禅道记录双方依据，重新激活并请产品、测试负责人或项目负责人裁决。不要私下删除或关闭争议记录。</p>
+<p><strong>速记：</strong> <strong>先自证，后沟通；需求找产品，技术找证据，分歧留记录并升级。</strong></p>
+<h3 id="3-17-版本提测流程是什么？-★★★★★"><a href="#3-17-版本提测流程是什么？-★★★★★" class="headerlink" title="3.17 版本提测流程是什么？ ★★★★★"></a>3.17 版本提测流程是什么？ ★★★★★</h3><p><strong>标准答案：</strong> 开发完成自测 → 提交提测单和版本包、变更说明、安装/配置说明、数据库脚本及已知问题 → 配置/部署到测试环境 → 测试核对版本和环境 → 执行冒烟 → 通过则正式测试，不通过则拒收并退回开发重提。</p>
+<h3 id="3-18-回归测试策略是什么？-★★★★★"><a href="#3-18-回归测试策略是什么？-★★★★★" class="headerlink" title="3.18 回归测试策略是什么？ ★★★★★"></a>3.18 回归测试策略是什么？ ★★★★★</h3><p><strong>标准答案：</strong> 完全回归执行所有用例；选择性回归按变更影响、风险、核心流程和历史缺陷选择用例。资料给出的三轮策略：第一轮验证已修复缺陷；第二轮验证关联度高的功能；第三轮执行全部用例。</p>
+<p><strong>确认测试与回归：</strong> 确认测试看“原问题是否修好”；狭义回归看“修改是否引入新问题”。实际项目常统称回归测试。</p>
+<h3 id="3-19-冒烟测试策略是什么？-★★★★★"><a href="#3-19-冒烟测试策略是什么？-★★★★★" class="headerlink" title="3.19 冒烟测试策略是什么？ ★★★★★"></a>3.19 冒烟测试策略是什么？ ★★★★★</h3><p><strong>标准答案：</strong> 对新版本的主要功能和主要业务流程做短时间预测试，判断版本是否可进入正式测试。老师资料要求冒烟用例 <strong>100% 通过</strong>；失败说明版本存在重大倒退，应退回开发重构版本。</p>
+<h3 id="3-20-为什么测试执行比用例设计时间长？-★★★★★"><a href="#3-20-为什么测试执行比用例设计时间长？-★★★★★" class="headerlink" title="3.20 为什么测试执行比用例设计时间长？ ★★★★★"></a>3.20 为什么测试执行比用例设计时间长？ ★★★★★</h3><p><strong>标准答案：</strong> 用例通常只设计一次或按变更维护，而执行会跨多个版本和多轮重复；每轮还包括环境/数据准备、执行记录、缺陷复现与提交、开发沟通、修复验证、关联回归、兼容或多配置重复验证，以及阻塞等待。因此总执行工时通常大于一次设计工时。</p>
+<p><strong>速记：</strong> <strong>设计一次，版本多轮；执行还带环境、数据、缺陷、回归和等待。</strong></p>
+<h2 id="4-测试用例设计方法"><a href="#4-测试用例设计方法" class="headerlink" title="4. 测试用例设计方法"></a>4. 测试用例设计方法</h2><h3 id="4-1-等价类划分法-★★★★★"><a href="#4-1-等价类划分法-★★★★★" class="headerlink" title="4.1 等价类划分法 ★★★★★"></a>4.1 等价类划分法 ★★★★★</h3><p><strong>定义：</strong> 把输入域划分成若干内部行为相同的集合，每个集合选代表值测试；分为有效等价类和无效等价类。</p>
+<p><strong>适用：</strong> 有明确输入范围、长度、类型、格式、必填和取值集合的表单。</p>
+<p><strong>步骤：</strong> 提取每个输入条件 → 划分有效/无效等价类并编号 → 每个有效类至少选一个代表值 → 每个无效类通常单独成例，其他字段保持有效 → 写出预期结果。</p>
+<p><strong>资料案例：商城注册。</strong> 用户名有效类包括 3～10 位、中文/数字/字母、必填、不含空格；无效类包括少于 3 位、多于 10 位、空、纯空格、含空格、含符号。密码要求 6～15 位，数字/字母/符号至少两种。</p>
+<p><strong>易错点：</strong> 把一个用例同时放入多个无效条件，失败后无法判断原因；漏掉空值、纯空格；把边界点当成等价类的全部。</p>
+<p><strong>答题模板：</strong></p>
+<div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">条件</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">有效等价类</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">代表值</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">无效等价类</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">代表值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">用户名长度</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">3～10 位</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>abc</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">小于3；大于10</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>ab</code>；11位字符</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<p>然后注明：“有效类可合理组合；无效类每次只改变一个条件，其他输入均合法。”</p>
+<blockquote>
+<p><strong>来源：</strong> <code>韩瑞轩的测试用例作业day1.xlsx</code>。</p>
+</blockquote>
+<h3 id="4-2-边界值分析法-★★★★★"><a href="#4-2-边界值分析法-★★★★★" class="headerlink" title="4.2 边界值分析法 ★★★★★"></a>4.2 边界值分析法 ★★★★★</h3><p><strong>定义：</strong> 缺陷容易集中在边界及其附近，重点选择最小值、最小值附近、最大值和最大值附近。</p>
+<p><strong>适用：</strong> 长度、数值、日期、数量、次数、容量等连续范围。</p>
+<p><strong>步骤：</strong> 找上下界 → 判断边界是否包含 → 取 <code>min-1、min、min+1、max-1、max、max+1</code> → 加正常值 → 写预期。</p>
+<p><strong>资料案例：</strong> 用户名 3～10 位可取 2、3、4、9、10、11 位；密码 6～15 位可取 5、6、7、14、15、16 位；订单第二页每页 5 条的偏移量是 5。</p>
+<p><strong>易错点：</strong> 只测上下界，不测边界外；忽略“包含/不包含”；日期跨月和金额小数精度常被漏掉。</p>
+<p><strong>答题模板：</strong> “范围为 <code>[a,b]</code>，选择 <code>a-1、a、a+1、b-1、b、b+1</code>，分别验证拦截或接受及提示。”</p>
+<h3 id="4-3-判定表法-★★★★★"><a href="#4-3-判定表法-★★★★★" class="headerlink" title="4.3 判定表法 ★★★★★"></a>4.3 判定表法 ★★★★★</h3><p><strong>定义：</strong> 把多个条件组合与对应动作整理成表，每一列规则形成一条用例。</p>
+<p><strong>适用：</strong> 多个布尔/枚举条件共同决定不同结果，组合逻辑复杂。</p>
+<p><strong>步骤：</strong> 列条件桩 → 列动作桩 → 枚举或约束条件组合 → 删除不可能/重复组合 → 为每条有效规则写用例。</p>
+<p><strong>资料案例：</strong></p>
+<ul>
+<li>美团外卖：新/老顾客、是否使用优惠券、是否满足店铺满减、节日金额区间共同决定立减、优惠券、满减、八折/七折。</li>
+<li>用户删除：未选择、单条/批量、启用/禁用、确认/取消决定能否删除。</li>
+<li>快递计费与共享单车支付优先级也适合判定表。</li>
+</ul>
+<p><strong>易错点：</strong> 条件互斥却仍做笛卡尔组合；忘记动作顺序；未说明冲突优惠的优先规则。</p>
+<p><strong>答题模板：</strong> 先画“条件项/规则1…n”和“动作项/规则1…n”表，再说明“一列一用例”，补齐前置、数据、步骤和预期。</p>
+<h3 id="4-4-因果图法-★★★☆☆"><a href="#4-4-因果图法-★★★☆☆" class="headerlink" title="4.4 因果图法 ★★★☆☆"></a>4.4 因果图法 ★★★☆☆</h3><p><strong>定义：</strong> 用图描述输入条件（因）与输出动作（果）的逻辑关系，再转换为判定表。</p>
+<p><strong>适用：</strong> 条件和结果多、存在与/或/非以及互斥、唯一、包含等约束。</p>
+<p><strong>步骤：</strong> 找原因和结果并编号 → 画逻辑关系和约束 → 转换成判定表 → 每条规则生成用例。</p>
+<p><strong>易错点：</strong> 因果图是分析工具，最后仍需落到可执行用例；不能遗漏条件之间的约束。</p>
+<p><strong>答题模板：</strong> “列因 C1…Cn 和果 E1…En，标注逻辑与约束，转判定表，按规则生成用例。”</p>
+<blockquote>
+<p><strong>来源：</strong> <code>2. 测试需求分析.pptx</code>列出“判定表&amp;因果图”；资料没有独立完整因果图案例，因此本节为补充理解。</p>
+</blockquote>
+<h3 id="4-5-场景法-流程分析法-★★★★★"><a href="#4-5-场景法-流程分析法-★★★★★" class="headerlink" title="4.5 场景法 / 流程分析法 ★★★★★"></a>4.5 场景法 / 流程分析法 ★★★★★</h3><p><strong>定义：</strong> 围绕用户完成业务的基本流和备选流设计端到端用例。</p>
+<p><strong>适用：</strong> 登录、支付、取款、下单、审批等有清晰业务流程的功能。</p>
+<p><strong>步骤：</strong> 画主流程 → 找每个节点的分支和异常 → 一条完整路径形成一个场景 → 覆盖基本流、各备选流及关键组合 → 检查数据和状态变化。</p>
+<p><strong>资料案例：</strong> ATM 正常取款为基本流；密码错误、卡无效、余额不足、金额超限、ATM 余额不足为备选流。共享单车支付按卡包 → 余额 → 红包 → 充值逐级判断。</p>
+<p><strong>易错点：</strong> 只测页面操作，不检查金额、库存、订单状态和日志；把零散步骤写成多个不完整用例。</p>
+<p><strong>答题模板：</strong> “基本流 A-B-C-D；备选流在节点 B/C 分支。为每条从起点到终点的有效路径设计用例，并验证界面、状态和数据一致性。”</p>
+<h3 id="4-6-状态迁移法-★★★★★"><a href="#4-6-状态迁移法-★★★★★" class="headerlink" title="4.6 状态迁移法 ★★★★★"></a>4.6 状态迁移法 ★★★★★</h3><p><strong>定义：</strong> 根据对象当前状态、触发事件和下一状态设计合法及非法迁移测试。</p>
+<p><strong>适用：</strong> 订单、缺陷、审批、账户等状态明显的对象。</p>
+<p><strong>步骤：</strong> 列状态 → 列事件 → 画状态图/表 → 覆盖每条合法迁移 → 测关键非法迁移 → 验证状态、可用操作、历史记录。</p>
+<p><strong>资料案例：</strong> 订单 <code>待付款 → 待发货 → 待收货 → 待评价 → 已完成</code>；缺陷 <code>新建 → 打开 → 已修复 → 关闭/重新打开</code>；请假 <code>草稿 → 待审批 → 通过/不通过</code>。</p>
+<p><strong>易错点：</strong> 只覆盖正常状态；未验证非法跳转；只看页面标签而不查后台数据和历史记录。</p>
+<p><strong>答题模板：</strong> 写出“当前状态 + 事件 → 目标状态”，每条合法边一例，每条关键禁止边一例。</p>
+<h3 id="4-7-正交试验法-★★★★☆"><a href="#4-7-正交试验法-★★★★☆" class="headerlink" title="4.7 正交试验法 ★★★★☆"></a>4.7 正交试验法 ★★★★☆</h3><p><strong>定义：</strong> 利用正交表从多因素、多水平组合中选出分布均匀、有代表性的组合，减少用例数。</p>
+<p><strong>适用：</strong> 参数很多、组合数爆炸，且希望覆盖各因素水平之间的代表性搭配。</p>
+<p><strong>步骤：</strong> 列因素和水平 → 计算最大水平数 → 选合适正交表 → 将因素映射到列 → 生成组合 → 补充业务必测、异常和全空组合。</p>
+<p><strong>资料案例：</strong> 组合查询有“姓名填/不填、账号填/不填、状态启用/禁用/不选、地点北京/上海/广州/西安/不选”，资料用代表组合生成 15 条用例。</p>
+<p><strong>易错点：</strong> 正交表不能自动覆盖边界、业务禁配和高风险组合；<code>~填</code>等临时标记要转成实际数据。</p>
+<p><strong>答题模板：</strong> 先列因素水平表，再列正交组合表，最后将每行改写成完整用例并补特殊组合。</p>
+<h3 id="4-8-错误推测法-★★★☆☆"><a href="#4-8-错误推测法-★★★☆☆" class="headerlink" title="4.8 错误推测法 ★★★☆☆"></a>4.8 错误推测法 ★★★☆☆</h3><p><strong>定义：</strong> 根据经验、历史缺陷和系统薄弱点推测容易出错的位置并设计用例。</p>
+<p><strong>适用：</strong> 需求不完整、已有同类缺陷、时间有限，需要补充其他方法覆盖不到的风险。</p>
+<p><strong>示例：</strong> 重复点击提交、返回后再次支付、断网重连、刷新导致重复订单、特殊字符、超长文本、并发修改、缓存状态不一致。</p>
+<p><strong>易错点：</strong> 只凭感觉，没有结合历史缺陷和业务风险；它应补充系统方法，不能完全替代等价类、边界或流程分析。</p>
+<h2 id="5-SQL-核心知识"><a href="#5-SQL-核心知识" class="headerlink" title="5. SQL 核心知识"></a>5. SQL 核心知识</h2><blockquote>
+<p><strong>资料范围：</strong> MySQL；重点来源为 <code>数据库笔记day02～day05.txt</code>、数据库作业、<code>汇智云商SQL题目.txt</code>和补充的数据库表字典。本章中的 <code>member/goods/orders</code> 等短表名只用于演示通用语法；第 6 章使用汇智云商真实表名。</p>
+</blockquote>
+<h3 id="5-1-基本执行顺序-★★★★★"><a href="#5-1-基本执行顺序-★★★★★" class="headerlink" title="5.1 基本执行顺序 ★★★★★"></a>5.1 基本执行顺序 ★★★★★</h3><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM / JOIN → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT</span><br></pre></td></tr></tbody></table></figure>
+
+<p>写题时按“需要哪些表 → 如何关联 → 行筛选 → 分组 → 组筛选 → 显示什么 → 排序 → 分页”思考。</p>
+<h3 id="5-2-条件、模糊、范围与空值-★★★★★"><a href="#5-2-条件、模糊、范围与空值-★★★★★" class="headerlink" title="5.2 条件、模糊、范围与空值 ★★★★★"></a>5.2 条件、模糊、范围与空值 ★★★★★</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段</span><br><span class="line"><span class="keyword">FROM</span> 表</span><br><span class="line"><span class="keyword">WHERE</span> 条件<span class="number">1</span> <span class="keyword">AND</span> (条件<span class="number">2</span> <span class="keyword">OR</span> 条件<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> goods <span class="keyword">WHERE</span> goods_name <span class="keyword">LIKE</span> <span class="string">'%西服%'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">WHERE</span> level_id <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> orders <span class="keyword">WHERE</span> order_amount <span class="keyword">BETWEEN</span> <span class="number">100</span> <span class="keyword">AND</span> <span class="number">200</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">WHERE</span> phone <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>%</code>匹配 0 个或多个字符，<code>_</code>匹配恰好 1 个字符。</li>
+<li><code>BETWEEN a AND b</code>包含两端。</li>
+<li>空值用 <code>IS NULL</code> / <code>IS NOT NULL</code>，不能写 <code>= NULL</code>。</li>
+<li><code>NULL</code>与空字符串 <code>''</code>不同。</li>
+<li><code>AND</code>优先于<code>OR</code>，复杂条件主动加括号。</li>
+</ul>
+<h3 id="5-3-去重、排序与分页-★★★★★"><a href="#5-3-去重、排序与分页-★★★★★" class="headerlink" title="5.3 去重、排序与分页 ★★★★★"></a>5.3 去重、排序与分页 ★★★★★</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> level_id <span class="keyword">FROM</span> <span class="keyword">member</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> goods</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> sales_count <span class="keyword">ASC</span>, goods_id <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">5</span>, <span class="number">5</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>多字段 <code>DISTINCT</code>要求所选字段组合完全相同才去重。</li>
+<li>多字段排序先按第一字段，同值时才按第二字段。</li>
+<li>MySQL：第 n 页、每页 m 条，<code>LIMIT m * (n - 1), m</code>。第二页每页 5 条即 <code>LIMIT 5, 5</code>。</li>
+<li>分页必须配稳定排序，否则不同执行间可能出现重复/遗漏。</li>
+</ul>
+<h3 id="5-4-聚合、分组和-HAVING-★★★★★"><a href="#5-4-聚合、分组和-HAVING-★★★★★" class="headerlink" title="5.4 聚合、分组和 HAVING ★★★★★"></a>5.4 聚合、分组和 HAVING ★★★★★</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> level_id, <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> member_count</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">member</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> level_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="operator">&gt;=</span> <span class="number">2</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">函数</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">含义</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">NULL 行为</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>COUNT(*)</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">统计结果行数</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">包含字段为 NULL 的行</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>COUNT(col)</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">统计该字段非 NULL 的行数</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">忽略 NULL</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>SUM/AVG(col)</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">求和/平均</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">忽略 NULL</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>MAX/MIN(col)</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">最大/最小</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">忽略 NULL</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>ROUND(n,d)</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">四舍五入到 d 位小数</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">—</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<p><code>WHERE</code>筛选分组前的原始行，通常不能直接写聚合函数；<code>HAVING</code>筛选分组后的结果，可写聚合函数。</p>
+<h3 id="5-5-连接查询-★★★★★"><a href="#5-5-连接查询-★★★★★" class="headerlink" title="5.5 连接查询 ★★★★★"></a>5.5 连接查询 ★★★★★</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> m.username, o.order_id</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> orders <span class="keyword">AS</span> o <span class="keyword">ON</span> o.member_id <span class="operator">=</span> m.member_id;</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>INNER JOIN</code>只保留两边能匹配的行。</li>
+<li><code>LEFT JOIN</code>保留左表全部行，右表匹配不到的列补 <code>NULL</code>。</li>
+<li><code>RIGHT JOIN</code>保留右表全部行；通常交换表顺序改成更易读的 <code>LEFT JOIN</code>。</li>
+<li>查询“未匹配数据”：左连接后筛选右表主键为空。</li>
+</ul>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> a</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> b.a_id <span class="operator">=</span> a.id</span><br><span class="line"><span class="keyword">WHERE</span> b.a_id <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>统计“没有商品的供应商也显示为 0”必须 <code>LEFT JOIN</code>，并 <code>COUNT(右表主键)</code>，不能用 <code>COUNT(*)</code>。</p>
+<h3 id="5-6-子查询与-EXISTS-★★★★☆"><a href="#5-6-子查询与-EXISTS-★★★★☆" class="headerlink" title="5.6 子查询与 EXISTS ★★★★☆"></a>5.6 子查询与 EXISTS ★★★★☆</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> student</span><br><span class="line"><span class="keyword">WHERE</span> age <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(age) <span class="keyword">FROM</span> student);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> s.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> student <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="number">1</span> <span class="keyword">FROM</span> score <span class="keyword">AS</span> sc</span><br><span class="line">  <span class="keyword">WHERE</span> sc.sid <span class="operator">=</span> s.sid <span class="keyword">AND</span> sc.cid <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>标量子查询返回一个值，可配 <code>=</code>、<code>&gt;</code>。</li>
+<li>多行子查询通常配 <code>IN</code>。</li>
+<li><code>EXISTS</code>只判断相关行是否存在；<code>NOT EXISTS</code>很适合“没有学过/没有订单/没有匹配记录”。</li>
+<li><code>NOT IN</code>子查询若含 <code>NULL</code>可能导致结果意外为空，反向存在性优先考虑 <code>NOT EXISTS</code>。</li>
+</ul>
+<h3 id="5-7-日期查询-★★★★★"><a href="#5-7-日期查询-★★★★★" class="headerlink" title="5.7 日期查询 ★★★★★"></a>5.7 日期查询 ★★★★★</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> created_at <span class="operator">&gt;=</span> DATE_FORMAT(CURDATE(), <span class="string">'%Y-%m-01'</span>)</span><br><span class="line">  <span class="keyword">AND</span> created_at <span class="operator">&lt;</span>  DATE_FORMAT(CURDATE() <span class="operator">+</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>, <span class="string">'%Y-%m-01'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用“月初闭区间、下月月初开区间”能包含本月所有带时分秒的数据，也有利于使用日期索引。不要写 <code>created_at &lt;= '本月最后一天'</code>而漏掉当天非零时间。</p>
+<h3 id="5-8-增删改、DDL-与事务-★★★☆☆"><a href="#5-8-增删改、DDL-与事务-★★★☆☆" class="headerlink" title="5.8 增删改、DDL 与事务 ★★★☆☆"></a>5.8 增删改、DDL 与事务 ★★★☆☆</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> cart(member_id, goods_id, quantity) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="number">101</span>, <span class="number">150</span>);</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">member</span> <span class="keyword">SET</span> experience <span class="operator">=</span> experience <span class="operator">+</span> <span class="number">10</span> <span class="keyword">WHERE</span> member_id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> cart <span class="keyword">WHERE</span> member_id <span class="operator">=</span> <span class="number">2</span> <span class="keyword">AND</span> goods_id <span class="operator">=</span> <span class="number">101</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">命令</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">删除内容</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">表结构</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">自增计数</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">WHERE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>DELETE</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">指定/全部数据行</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">保留</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">通常不重置</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">可用</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>TRUNCATE</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">全部数据行</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">保留</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">通常重置</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">不可用</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>DROP</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">表及数据</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">删除</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">表不存在</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">不可用</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<p>事务用于维护数据一致性：<code>BEGIN</code>开始，<code>COMMIT</code>提交，<code>ROLLBACK</code>回滚。</p>
+<h2 id="6-汇智云商-SQL-重点题型"><a href="#6-汇智云商-SQL-重点题型" class="headerlink" title="6. 汇智云商 SQL 重点题型"></a>6. 汇智云商 SQL 重点题型</h2><blockquote>
+<p><strong>🔥 老师最新资料重点</strong>　题目来源：<code>汇智云商SQL题目.txt</code>；表和字段来源：<code>汇智云商平台数据库表字典（部分）.docx</code>。以下 SQL 已按字典中的真实表名、字段名和枚举值改写。</p>
+<p>字典是“部分”结构，且没有主外键、索引、默认值的完整建表语句。执行前仍应使用 <code>SHOW TABLES;</code>、<code>DESC 表名;</code>核对实际数据库。字典中时间字段多为 <code>int</code>，下文按 Unix 时间戳处理。</p>
+</blockquote>
+<h3 id="6-1-各等级会员分别有多少人"><a href="#6-1-各等级会员分别有多少人" class="headerlink" title="6.1 各等级会员分别有多少人"></a>6.1 各等级会员分别有多少人</h3><p><strong>考点：</strong> <code>LEFT JOIN + GROUP BY + COUNT(右表主键)</code>，保留人数为 0 的等级。</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> g.id <span class="keyword">AS</span> group_id,</span><br><span class="line">       g.name <span class="keyword">AS</span> group_name,</span><br><span class="line">       <span class="built_in">COUNT</span>(m.id) <span class="keyword">AS</span> member_count</span><br><span class="line"><span class="keyword">FROM</span> hd_member_group <span class="keyword">AS</span> g</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.group_id <span class="operator">=</span> g.id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> g.id, g.name</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> g.id;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>为什么：</strong> 从等级表出发可显示没有会员的等级；<code>COUNT(m.id)</code>对未匹配产生的 NULL 不计数。</p>
+<p><strong>易错点：</strong> 用 <code>INNER JOIN</code>会丢失 0 人等级；用 <code>COUNT(*)</code>会把空等级算成 1。</p>
+<p><strong>同类套路：</strong> “每个 X 有多少 Y，包括 0 个”均用 <code>X LEFT JOIN Y ... GROUP BY X</code>。</p>
+<h3 id="6-2-查询-wangwu-的经验值"><a href="#6-2-查询-wangwu-的经验值" class="headerlink" title="6.2 查询 wangwu 的经验值"></a>6.2 查询 wangwu 的经验值</h3><p><strong>考点：</strong> 精确条件查询。</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> exp</span><br><span class="line"><span class="keyword">FROM</span> hd_member</span><br><span class="line"><span class="keyword">WHERE</span> username <span class="operator">=</span> <span class="string">'wangwu'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>易错点：</strong> 用户名是字符串，必须加引号；若用户名不唯一，应使用唯一账号字段或同时返回会员 ID 核对。</p>
+<h3 id="6-3-查询经验值在-5000-以上的用户"><a href="#6-3-查询经验值在-5000-以上的用户" class="headerlink" title="6.3 查询经验值在 5000 以上的用户"></a>6.3 查询经验值在 5000 以上的用户</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> hd_member</span><br><span class="line"><span class="keyword">WHERE</span> exp <span class="operator">&gt;</span> <span class="number">5000</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>易错点：</strong> “以上”在自然语言中有时含 5000，但原题写“在5000以上”通常解释为 <code>&gt; 5000</code>；若题目写“大于等于”才用 <code>&gt;=</code>。</p>
+<h3 id="6-4-查询“手机”顶级分类下所有三级分类"><a href="#6-4-查询“手机”顶级分类下所有三级分类" class="headerlink" title="6.4 查询“手机”顶级分类下所有三级分类"></a>6.4 查询“手机”顶级分类下所有三级分类</h3><p><strong>考点：</strong> 同一分类表的三层自连接。</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c3.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> hd_goods_category <span class="keyword">AS</span> c1</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_goods_category <span class="keyword">AS</span> c2 <span class="keyword">ON</span> c2.parent_id <span class="operator">=</span> c1.id</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_goods_category <span class="keyword">AS</span> c3 <span class="keyword">ON</span> c3.parent_id <span class="operator">=</span> c2.id</span><br><span class="line"><span class="keyword">WHERE</span> c1.name <span class="operator">=</span> <span class="string">'手机'</span></span><br><span class="line">  <span class="keyword">AND</span> c1.parent_id <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>为什么：</strong> <code>c1</code>、<code>c2</code>、<code>c3</code>分别代表顶级、二级、三级分类，每一层用子级 <code>parent_id = 父级 id</code>连接。</p>
+<p><strong>易错点：</strong> 连接方向写反；只连两次却返回二级；分类名可能重复，需限定顶级。</p>
+<h3 id="6-5-所有新品按商品序号降序取前-5-个"><a href="#6-5-所有新品按商品序号降序取前-5-个" class="headerlink" title="6.5 所有新品按商品序号降序取前 5 个"></a>6.5 所有新品按商品序号降序取前 5 个</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> hd_goods_sku</span><br><span class="line"><span class="keyword">WHERE</span> status_ext <span class="operator">=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> sku_id <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">5</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>字典依据：</strong> <code>hd_goods_sku.status_ext=3</code>表示新品；<code>sku_id</code>为子商品编号。若老师把“商品序号”特指货号，则将排序字段改为 <code>sn</code>。</p>
+<h3 id="6-6-名称包含“西服”的商品，按销量升序"><a href="#6-6-名称包含“西服”的商品，按销量升序" class="headerlink" title="6.6 名称包含“西服”的商品，按销量升序"></a>6.6 名称包含“西服”的商品，按销量升序</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s.<span class="operator">*</span>, i.sales</span><br><span class="line"><span class="keyword">FROM</span> hd_goods_sku <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_goods_index <span class="keyword">AS</span> i <span class="keyword">ON</span> i.sku_id <span class="operator">=</span> s.sku_id</span><br><span class="line"><span class="keyword">WHERE</span> s.sku_name <span class="keyword">LIKE</span> <span class="string">'%西服%'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> i.sales <span class="keyword">ASC</span>, s.sku_id <span class="keyword">ASC</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>为什么：</strong> 两侧 <code>%</code>表示任意位置包含；追加主键排序使同销量结果稳定。</p>
+<h3 id="6-7-向-ID-2-用户购物车添加-150-种商品"><a href="#6-7-向-ID-2-用户购物车添加-150-种商品" class="headerlink" title="6.7 向 ID=2 用户购物车添加 150 种商品"></a>6.7 向 ID=2 用户购物车添加 150 种商品</h3><p>“150 种”表示 150 个不同 SKU，每种默认加入 1 件：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> hd_cart(buyer_id, sku_id, nums, <span class="built_in">system_time</span>)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="number">2</span>, s.sku_id, <span class="number">1</span>, UNIX_TIMESTAMP()</span><br><span class="line"><span class="keyword">FROM</span> hd_goods_sku <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">WHERE</span> s.status <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">AND</span> s.number <span class="operator">&gt;</span> <span class="number">0</span></span><br><span class="line">  <span class="keyword">AND</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">FROM</span> hd_cart <span class="keyword">AS</span> c</span><br><span class="line">    <span class="keyword">WHERE</span> c.buyer_id <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">      <span class="keyword">AND</span> c.sku_id <span class="operator">=</span> s.sku_id</span><br><span class="line">  )</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> s.sku_id</span><br><span class="line">LIMIT <span class="number">150</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>易错点：</strong> 字典中的购物车商品字段是 <code>sku_id</code>，数量字段是 <code>nums</code>。不足 150 个在售且有库存的未加入 SKU 时，插入数会少于 150；若实际表没有唯一约束，并发执行仍可能重复。</p>
+<h3 id="6-8-向-ID-2-用户收藏列表添加-300-种商品"><a href="#6-8-向-ID-2-用户收藏列表添加-300-种商品" class="headerlink" title="6.8 向 ID=2 用户收藏列表添加 300 种商品"></a>6.8 向 ID=2 用户收藏列表添加 300 种商品</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> hd_member_favorite</span><br><span class="line">       (mid, sku_id, sku_price, datetime, clientip, sku_name)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="number">2</span>,</span><br><span class="line">       s.sku_id,</span><br><span class="line">       s.shop_price,</span><br><span class="line">       UNIX_TIMESTAMP(),</span><br><span class="line">       <span class="string">'127.0.0.1'</span>,</span><br><span class="line">       s.sku_name</span><br><span class="line"><span class="keyword">FROM</span> hd_goods_sku <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">WHERE</span> s.status <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">AND</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">FROM</span> hd_member_favorite <span class="keyword">AS</span> f</span><br><span class="line">    <span class="keyword">WHERE</span> f.mid <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">      <span class="keyword">AND</span> f.sku_id <span class="operator">=</span> s.sku_id</span><br><span class="line">  )</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> s.sku_id</span><br><span class="line">LIMIT <span class="number">300</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>为什么：</strong> 左连接排除已收藏商品，避免违反“会员+商品”唯一约束。</p>
+<p><strong>易错点：</strong> 数据库中不足 300 个未收藏商品时，实际插入数会少于 300；应用接口可能限制批量写入。</p>
+<h3 id="6-9-查询-lisi-购物车中所有已失效商品"><a href="#6-9-查询-lisi-购物车中所有已失效商品" class="headerlink" title="6.9 查询 lisi 购物车中所有已失效商品"></a>6.9 查询 lisi 购物车中所有已失效商品</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.<span class="operator">*</span>, s.sku_name, s.status</span><br><span class="line"><span class="keyword">FROM</span> hd_member <span class="keyword">AS</span> m</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_cart <span class="keyword">AS</span> c <span class="keyword">ON</span> c.buyer_id <span class="operator">=</span> m.id</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> hd_goods_sku <span class="keyword">AS</span> s <span class="keyword">ON</span> s.sku_id <span class="operator">=</span> c.sku_id</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'lisi'</span></span><br><span class="line">  <span class="keyword">AND</span> (s.sku_id <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="keyword">OR</span> s.status <span class="operator">&lt;&gt;</span> <span class="number">1</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>字典依据：</strong> <code>hd_cart</code>没有“是否有效”字段，SKU 状态为 <code>-1</code>删除、<code>0</code>下架、<code>1</code>上架；因此用“SKU 不存在或不是上架状态”判定失效。若项目把库存为 0 也定义为失效，应再加 <code>OR s.number &lt;= 0</code>。</p>
+<h3 id="6-10-删除-lisi-购物车中已售罄商品"><a href="#6-10-删除-lisi-购物车中已售罄商品" class="headerlink" title="6.10 删除 lisi 购物车中已售罄商品"></a>6.10 删除 lisi 购物车中已售罄商品</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> c</span><br><span class="line"><span class="keyword">FROM</span> hd_cart <span class="keyword">AS</span> c</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.id <span class="operator">=</span> c.buyer_id</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_goods_sku <span class="keyword">AS</span> s <span class="keyword">ON</span> s.sku_id <span class="operator">=</span> c.sku_id</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'lisi'</span></span><br><span class="line">  <span class="keyword">AND</span> s.number <span class="operator">&lt;=</span> <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>为什么：</strong> MySQL 多表删除指定删除别名 <code>c</code>，商品和会员仅用于定位。</p>
+<p><strong>易错点：</strong> 先用相同连接条件执行 <code>SELECT c.*</code>核对范围；库存小于等于 0 时可按实际规则用 <code>g.stock &lt;= 0</code>。</p>
+<h3 id="6-11-查询-lisi-收藏的商品数量"><a href="#6-11-查询-lisi-收藏的商品数量" class="headerlink" title="6.11 查询 lisi 收藏的商品数量"></a>6.11 查询 lisi 收藏的商品数量</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> favorite_count</span><br><span class="line"><span class="keyword">FROM</span> hd_member_favorite <span class="keyword">AS</span> f</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.id <span class="operator">=</span> f.mid</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'lisi'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>若收藏表可能重复，改为 <code>COUNT(DISTINCT f.sku_id)</code>。</p>
+<h3 id="6-12-统计-lisi-好评、中评、差评各多少条"><a href="#6-12-统计-lisi-好评、中评、差评各多少条" class="headerlink" title="6.12 统计 lisi 好评、中评、差评各多少条"></a>6.12 统计 lisi 好评、中评、差评各多少条</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.mood,</span><br><span class="line">       <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> comment_count</span><br><span class="line"><span class="keyword">FROM</span> hd_comment <span class="keyword">AS</span> c</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.id <span class="operator">=</span> c.mid</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'lisi'</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> c.mood;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>需要 0 条类别也显示：</strong></p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> x.mood, <span class="built_in">COUNT</span>(c.id) <span class="keyword">AS</span> comment_count</span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="string">'positive'</span> <span class="keyword">AS</span> mood</span><br><span class="line">  <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="string">'neutral'</span></span><br><span class="line">  <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="string">'negative'</span></span><br><span class="line">) <span class="keyword">AS</span> x</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> hd_comment <span class="keyword">AS</span> c</span><br><span class="line">  <span class="keyword">ON</span> c.mood <span class="operator">=</span> x.mood</span><br><span class="line"> <span class="keyword">AND</span> c.mid <span class="operator">=</span> (</span><br><span class="line">   <span class="keyword">SELECT</span> id <span class="keyword">FROM</span> hd_member <span class="keyword">WHERE</span> username <span class="operator">=</span> <span class="string">'lisi'</span></span><br><span class="line"> )</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> x.mood;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>字典依据：</strong> <code>mood</code>枚举值为 <code>positive</code>（好评）、<code>neutral</code>（中评）、<code>negative</code>（差评）。第一种写法不显示数量为 0 的等级，第二种会显示。</p>
+<h3 id="6-13-查询-lisi-本月订单"><a href="#6-13-查询-lisi-本月订单" class="headerlink" title="6.13 查询 lisi 本月订单"></a>6.13 查询 lisi 本月订单</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> o.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> hd_order <span class="keyword">AS</span> o</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.id <span class="operator">=</span> o.buyer_id</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'lisi'</span></span><br><span class="line">  <span class="keyword">AND</span> o.system_time <span class="operator">&gt;=</span> UNIX_TIMESTAMP(DATE_FORMAT(CURDATE(), <span class="string">'%Y-%m-01'</span>))</span><br><span class="line">  <span class="keyword">AND</span> o.system_time <span class="operator">&lt;</span>  UNIX_TIMESTAMP(DATE_FORMAT(CURDATE() <span class="operator">+</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>, <span class="string">'%Y-%m-01'</span>))</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> o.system_time <span class="keyword">DESC</span>, o.id <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>易错点：</strong> 字典中 <code>system_time</code>是 Unix 时间戳整数。<code>MONTH(FROM_UNIXTIME(system_time))=MONTH(CURDATE())</code>会混入其他年份同月数据，并使字段上的普通索引难以直接利用。</p>
+<h3 id="6-14-lisi-全部订单第二页，每页-5-条"><a href="#6-14-lisi-全部订单第二页，每页-5-条" class="headerlink" title="6.14 lisi 全部订单第二页，每页 5 条"></a>6.14 lisi 全部订单第二页，每页 5 条</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> o.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> hd_order <span class="keyword">AS</span> o</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.id <span class="operator">=</span> o.buyer_id</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'lisi'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> o.system_time <span class="keyword">DESC</span>, o.id <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">5</span>, <span class="number">5</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>为什么：</strong> 偏移量为 <code>5 × (2-1) = 5</code>。</p>
+<h3 id="6-15-lisi-本月共消费多少钱"><a href="#6-15-lisi-本月共消费多少钱" class="headerlink" title="6.15 lisi 本月共消费多少钱"></a>6.15 lisi 本月共消费多少钱</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(o.paid_amount), <span class="number">0</span>) <span class="keyword">AS</span> total_spent</span><br><span class="line"><span class="keyword">FROM</span> hd_order <span class="keyword">AS</span> o</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.id <span class="operator">=</span> o.buyer_id</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'lisi'</span></span><br><span class="line">  <span class="keyword">AND</span> o.system_time <span class="operator">&gt;=</span> UNIX_TIMESTAMP(DATE_FORMAT(CURDATE(), <span class="string">'%Y-%m-01'</span>))</span><br><span class="line">  <span class="keyword">AND</span> o.system_time <span class="operator">&lt;</span>  UNIX_TIMESTAMP(DATE_FORMAT(CURDATE() <span class="operator">+</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>, <span class="string">'%Y-%m-01'</span>))</span><br><span class="line">  <span class="keyword">AND</span> o.status <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">AND</span> o.pay_status <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>为什么：</strong> 字典中 <code>paid_amount</code>是实付总额，<code>pay_status</code>表示是否支付，主状态 <code>status=1</code>表示正常；<code>SUM</code>无匹配行时返回 NULL，<code>COALESCE</code>转为 0。</p>
+<p><strong>易错点：</strong> “消费”口径必须确认：下单金额、实付金额、退款后净额、运费是否包含。若有支付/退款表，应按题目业务口径计算净消费。</p>
+<h3 id="6-16-商城项目功能的测试思路-★★★★☆"><a href="#6-16-商城项目功能的测试思路-★★★★☆" class="headerlink" title="6.16 商城项目功能的测试思路 ★★★★☆"></a>6.16 商城项目功能的测试思路 ★★★★☆</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">功能</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">功能/数据重点</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">其他维度与异常</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">登录</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">正确账号密码；账号/密码空、错、格式；退出和会话</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">浏览器兼容；响应；连续失败锁定；断网；越权</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">注册</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">用户名 3～10 位；密码 6～15 位且至少两类字符；确认密码；手机号；邮箱</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">重复账号；空格/特殊字符；边界；前后端校验一致；敏感信息加密</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">商品/分类</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">分类层级、搜索、筛选、排序、详情、上下架、库存</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">空结果、特殊字符、分页稳定、图片兼容、接口返回</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">购物车</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">添加、数量修改、删除、勾选、价格/库存同步、失效商品</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">重复点击、并发改库存、上限、断网、跨端一致性</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">收藏</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">添加/取消、重复收藏、数量、已下架商品</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">幂等、批量操作、跨端一致性</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">订单</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">创建、支付、发货、收货、评价、取消、售后、超时</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">非法状态跳转、重复支付、金额/库存事务、断网补偿</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">支付</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">成功/失败/取消、余额不足、重复回调、退款、对账</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">安全认证、并发、超时、幂等、数据一致性</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">地址</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">新增/改/删/默认地址；必填、长度、地区联动</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">删除已引用地址、特殊字符、权限、兼容性</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">后台管理</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">角色权限、商品/订单/会员管理、查询和批量操作</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">越权、审计日志、大数据分页、误操作确认</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<p>资料中的订单状态重点：<code>待付款 → 待发货 → 待收货 → 待评价 → 已完成</code>；待付款可主动或超时取消；签收满 7 天自动确认，确认收货满 30 天自动评价。设计题要同时覆盖正常迁移和“已取消再付款、未付款发货、未收货评价”等非法迁移。</p>
+<blockquote>
+<p><strong>来源：</strong> <code>韩瑞轩的测试用例作业day1.xlsx</code>、<code>韩瑞轩作业day04 -t82.xlsx</code>、测试类型课件与流程课件。</p>
+</blockquote>
+<h2 id="7-高频易错点"><a href="#7-高频易错点" class="headerlink" title="7. 高频易错点"></a>7. 高频易错点</h2><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">对比</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">正确区分</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">常见错误</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>WHERE</code> / <code>HAVING</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">WHERE 筛原始行；HAVING 筛分组结果</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">在 WHERE 中写 <code>COUNT(*) &gt; 2</code></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>GROUP BY</code> / <code>ORDER BY</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">前者分组统计；后者排列结果</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">以为 GROUP BY 保证展示顺序</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>INNER JOIN</code> / <code>LEFT JOIN</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">内连接只留匹配；左连接保留左表全部</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">要显示 0 条记录却用内连接</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>IN</code> / <code>EXISTS</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">IN 比较集合；EXISTS 判断相关行存在</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>NOT IN</code>子查询含 NULL 导致无结果</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>COUNT(*)</code> / <code>COUNT(col)</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">前者数行；后者忽略 col 为 NULL 的行</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">左连接统计 0 项时使用 <code>COUNT(*)</code></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>DELETE</code> / <code>TRUNCATE</code> / <code>DROP</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">删行 / 清空表 / 删除表</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">把 TRUNCATE 当成带 WHERE 的删除</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>NULL</code> / <code>''</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">未知或缺失 / 长度为0的字符串</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">写 <code>col = NULL</code></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>AND</code> / <code>OR</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">AND 优先级更高，复杂表达式加括号</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>A OR B AND C</code>误当成<code>(A OR B) AND C</code></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">等价类 / 边界值</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">分集合选代表 / 测边界附近</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">只选一个合法值就称覆盖边界</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">场景法 / 判定表</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">覆盖业务路径 / 覆盖条件组合</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">有先后流程却只列条件组合</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">严重程度 / 优先级</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">影响程度 / 修复紧急度</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">默认两者永远相同</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">阻塞 / Bug</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">阻塞是无法继续的状态；Bug 是产品差异</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">任一普通 Bug 都称阻塞</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试计划 / 测试方案</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">组织管理和进度 / 技术策略与怎么测</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">内容互换</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">冒烟 / 回归</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">新版本核心流程准入 / 修改后的确认与影响验证</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">冒烟失败仍开始全面执行</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">确认 / 回归</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">原 Bug 是否修好 / 是否引入新问题</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">两者概念不分；实际项目可统称回归</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<h3 id="资料中需要留意的答案问题"><a href="#资料中需要留意的答案问题" class="headerlink" title="资料中需要留意的答案问题"></a>资料中需要留意的答案问题</h3><ul>
+<li><code>salegrade</code>插入样例把第 4 档最高工资写成 1400，与结构数据“2001～3000”矛盾，正确应为 <code>3000</code>。</li>
+<li>个别作业 SQL 缺少 <code>SELECT</code>、<code>FROM</code>、括号或重复 <code>ON</code>，不能直接抄写；本资料按标准语法重组。</li>
+<li>“所有学生及其选课情况”应从 <code>student LEFT JOIN sc</code>出发；从 <code>sc LEFT JOIN student</code>会漏掉未选课学生。</li>
+<li>“每门课程选修人数，包括 0”应 <code>course LEFT JOIN score</code>并 <code>COUNT(score.sid)</code>。</li>
+<li>学号等标识符即使全是数字，也应按字段类型使用引号，例如 <code>studentno='007'</code>，避免丢失前导零。</li>
+<li>测试阈值必须来自项目计划。资料里的 95%、100%是课堂示例，不应在未知项目中冒充统一行业标准。</li>
+</ul>
+<h2 id="8-考前速记表"><a href="#8-考前速记表" class="headerlink" title="8. 考前速记表"></a>8. 考前速记表</h2><h3 id="8-1-理论-30-分钟速记"><a href="#8-1-理论-30-分钟速记" class="headerlink" title="8.1 理论 30 分钟速记"></a>8.1 理论 30 分钟速记</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">知识点</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">一句话记忆</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">软件测试</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">人工或自动化操作被测对象，找实际与预期差异</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试目的</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">找差异、知质量、供决策、积经验、降风险</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试原则</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">证缺陷、早测试、不可穷尽、缺陷群集、杀虫剂、依背景、重用户</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试流程</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">评需求、定计划、析需求/方案、写用例/搭环境、执行回归、出报告</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">需求评审</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">完整、一致、可行、正确、明确、可测试，问题闭环</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试计划</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测什么、谁测、何时测、用什么资源、达到什么标准</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试方案</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">环境、方法、重点、维度、优先级和严重级别策略</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试报告</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">环境、数据、缺陷、质量、遗留风险、建议、结论</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">准入</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">需求/用例/版本/环境就绪，冒烟 100%通过</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">挂起</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">需求、版本、环境或资源导致测试无法有效继续</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">冒烟</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">短时间测核心功能和主流程，决定是否正式测试</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">回归</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">修复/变更后确认问题解决且未引入新问题</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">用例要素</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">ID、标题、类型、优先级、前置、数据、步骤、预期</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">缺陷要素</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">环境版本、标题、级别、步骤、实际、预期、证据、指派</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">缺陷流程</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">新建→打开→已修复→关闭；失败则重开；可拒绝或延期</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">Severity</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">问题造成多大影响</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">Priority</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">问题多快需要修</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">等价类</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">把输入划成行为相同的有效/无效集合</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">边界值</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测上下界及其内外相邻值</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">判定表</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">一列条件与动作规则对应一条用例</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">场景法</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">基本流加备选流，每条完整路径成用例</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">状态迁移</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测合法边，也测关键非法跳转</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">正交法</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">从多因素多水平中选代表组合，再补高风险场景</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">单元/集成/系统</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">LLD白盒 / HLD灰盒 / SRS黑盒</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">α/β</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">内部受控且开发在场 / 用户真实环境且开发通常不在场</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<h3 id="8-2-项目答题万能检查框架"><a href="#8-2-项目答题万能检查框架" class="headerlink" title="8.2 项目答题万能检查框架"></a>8.2 项目答题万能检查框架</h3><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">维度</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">要问的问题</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">功能</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">正常、异常、边界、空值、重复、状态、权限是否正确？</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">UI/易用性</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">布局、文字、提示、操作、反馈是否清楚一致？</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">兼容性</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">浏览器、系统、设备、分辨率、网络是否兼容？</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">性能</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">响应、并发、资源、容量、长稳是否达标？</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">安全</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">认证、授权、加密、越权、注入、日志是否可靠？</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">异常/可靠性</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">断网、宕机、超时、重试后是否恢复且数据一致？</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<h2 id="9-SQL-考前速查表"><a href="#9-SQL-考前速查表" class="headerlink" title="9. SQL 考前速查表"></a>9. SQL 考前速查表</h2><h3 id="条件和模糊查询"><a href="#条件和模糊查询" class="headerlink" title="条件和模糊查询"></a>条件和模糊查询</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段</span><br><span class="line"><span class="keyword">FROM</span> 表</span><br><span class="line"><span class="keyword">WHERE</span> 条件<span class="number">1</span> <span class="keyword">AND</span> (条件<span class="number">2</span> <span class="keyword">OR</span> 条件<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> 表 <span class="keyword">WHERE</span> 名称 <span class="keyword">LIKE</span> <span class="string">'%关键字%'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> 表 <span class="keyword">WHERE</span> 字段 <span class="keyword">IN</span> (值<span class="number">1</span>, 值<span class="number">2</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> 表 <span class="keyword">WHERE</span> 字段 <span class="keyword">BETWEEN</span> 小值 <span class="keyword">AND</span> 大值;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> 表 <span class="keyword">WHERE</span> 字段 <span class="keyword">IS</span> <span class="keyword">NOT NULL</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="聚合与分组"><a href="#聚合与分组" class="headerlink" title="聚合与分组"></a>聚合与分组</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 分组字段, <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> 数量,</span><br><span class="line">       ROUND(<span class="built_in">AVG</span>(数值字段), <span class="number">2</span>) <span class="keyword">AS</span> 平均值</span><br><span class="line"><span class="keyword">FROM</span> 表</span><br><span class="line"><span class="keyword">WHERE</span> 行条件</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> 分组字段</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="operator">&gt;=</span> <span class="number">2</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="内连接、左连接和未匹配数据"><a href="#内连接、左连接和未匹配数据" class="headerlink" title="内连接、左连接和未匹配数据"></a>内连接、左连接和未匹配数据</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.<span class="operator">*</span>, b.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> a</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> b.a_id <span class="operator">=</span> a.id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> a.id, <span class="built_in">COUNT</span>(b.id)</span><br><span class="line"><span class="keyword">FROM</span> a</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> b.a_id <span class="operator">=</span> a.id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> a.id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> a.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> a</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> b.a_id <span class="operator">=</span> a.id</span><br><span class="line"><span class="keyword">WHERE</span> b.id <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="子查询与不存在"><a href="#子查询与不存在" class="headerlink" title="子查询与不存在"></a>子查询与不存在</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> a</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">value</span> <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(<span class="keyword">value</span>) <span class="keyword">FROM</span> a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> a.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> a</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="number">1</span> <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> b.a_id <span class="operator">=</span> a.id</span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="日期与分页"><a href="#日期与分页" class="headerlink" title="日期与分页"></a>日期与分页</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> hd_order</span><br><span class="line"><span class="keyword">WHERE</span> <span class="built_in">system_time</span> <span class="operator">&gt;=</span> UNIX_TIMESTAMP(DATE_FORMAT(CURDATE(), <span class="string">'%Y-%m-01'</span>))</span><br><span class="line">  <span class="keyword">AND</span> <span class="built_in">system_time</span> <span class="operator">&lt;</span>  UNIX_TIMESTAMP(DATE_FORMAT(CURDATE() <span class="operator">+</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>, <span class="string">'%Y-%m-01'</span>))</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">system_time</span> <span class="keyword">DESC</span>, id <span class="keyword">DESC</span></span><br><span class="line">LIMIT 每页条数 <span class="operator">*</span> (页码 <span class="operator">-</span> <span class="number">1</span>), 每页条数;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>考试时不能直接写数学表达式占位；例如第 3 页、每页 10 条应写 <code>LIMIT 20, 10</code>。</p>
+<h2 id="10-考前自测题"><a href="#10-考前自测题" class="headerlink" title="10. 考前自测题"></a>10. 考前自测题</h2><h3 id="10-1-选择题"><a href="#10-1-选择题" class="headerlink" title="10.1 选择题"></a>10.1 选择题</h3><ol>
+<li>测试可以证明的是（　）。A. 软件没有缺陷　B. 软件存在缺陷　C. 所有路径正确　D. 用户一定满意</li>
+<li>新版本进入全面测试前，对核心主流程做短时间验证称为（　）。A. 压力测试　B. 验收测试　C. 冒烟测试　D. 单元测试</li>
+<li>保留左表全部数据、右表无匹配时补 NULL，应使用（　）。A. INNER JOIN　B. LEFT JOIN　C. CROSS JOIN　D. UNION</li>
+<li>分组后筛选 <code>COUNT(*) &gt; 5</code>应写在（　）。A. WHERE　B. ON　C. HAVING　D. ORDER BY</li>
+<li>登录页一个明显错别字临近发布急需修复，说明缺陷的（　）。A. 严重程度和优先级必相同　B. 优先级可高于严重程度　C. 严重程度一定致命　D. 不是缺陷</li>
+<li>多个条件组合决定优惠动作，最适合优先采用（　）。A. 判定表　B. 边界值　C. 白盒覆盖　D. 随机测试</li>
+<li>查询没有匹配记录的数据，最稳妥的结构之一是（　）。A. <code>NOT IN</code>任意子查询　B. <code>NOT EXISTS</code>相关子查询　C. <code>= NULL</code>　D. <code>COUNT(*)=NULL</code></li>
+<li>系统测试的主要依据是（　）。A. LLD　B. HLD　C. SRS　D. 源代码注释</li>
+</ol>
+<h3 id="10-2-填空题"><a href="#10-2-填空题" class="headerlink" title="10.2 填空题"></a>10.2 填空题</h3><ol>
+<li>测试流程四大阶段是测试计划、______、测试实现、______。</li>
+<li>单元测试依据______，集成测试依据______，系统测试依据______。</li>
+<li><code>%</code>匹配______个或多个任意字符，<code>_</code>匹配______个任意字符。</li>
+<li><code>COUNT(*)</code>统计______；<code>COUNT(col)</code>不统计 <code>col</code>为______的行。</li>
+<li>第 n 页每页 m 条的偏移量为______。</li>
+<li>缺陷回归通过后状态变为______；不通过则______。</li>
+<li>MTBF 的计算式为______。</li>
+<li>MySQL 默认端口号是______，SSH 默认端口号是______。</li>
+</ol>
+<h3 id="10-3-简答题"><a href="#10-3-简答题" class="headerlink" title="10.3 简答题"></a>10.3 简答题</h3><ol>
+<li>按老师资料口径说明完整测试流程及主要产物。</li>
+<li>需求评审的目的、参与角色和测试人员关注点是什么？</li>
+<li>测试计划、测试方案、测试报告有什么区别？</li>
+<li>描述冒烟测试和回归测试，并说明回归的三轮策略。</li>
+<li>一个合格测试用例和一个合格缺陷各包含哪些要素？</li>
+<li>开发人员在禅道中拒绝了你的缺陷，你如何处理？</li>
+<li>说明 Severity 和 Priority 的区别并各举一例。</li>
+</ol>
+<h3 id="10-4-测试用例设计题"><a href="#10-4-测试用例设计题" class="headerlink" title="10.4 测试用例设计题"></a>10.4 测试用例设计题</h3><ol>
+<li>注册用户名要求 3～10 位，只能包含中文、数字、字母且必填。使用等价类和边界值设计测试数据。</li>
+<li>待付款订单可支付进入待发货，也可取消；30 分钟未支付自动取消。使用状态迁移法设计合法和非法用例。</li>
+<li>用户只有在“禁用”状态才可删除，支持单条/批量，删除前有确认/取消。使用判定表列出规则。</li>
+<li>登录功能从功能、UI、兼容、安全、性能和异常方面各列至少两个测试点。</li>
+</ol>
+<h3 id="10-5-SQL-题"><a href="#10-5-SQL-题" class="headerlink" title="10.5 SQL 题"></a>10.5 SQL 题</h3><p>使用第 6 节的汇智云商真实表结构：</p>
+<ol>
+<li>查询每个会员等级的人数，包括人数为 0 的等级。</li>
+<li>查询商品名包含“手机”、销量大于 100 的商品，按销量降序、商品 ID 升序排列。</li>
+<li>查询平均消费额大于 500 元的会员 ID 和平均消费额。</li>
+<li>查询从未下过订单的会员。</li>
+<li>查询 lisi 本月已完成订单的总金额，无订单时显示 0。</li>
+<li>每页 10 条，查询 wangwu 第 3 页订单，按创建时间倒序。</li>
+<li>查询每个商品的收藏人数，包括收藏人数为 0 的商品。</li>
+</ol>
+<h1 id="参考答案"><a href="#参考答案" class="headerlink" title="参考答案"></a>参考答案</h1><h2 id="选择题答案"><a href="#选择题答案" class="headerlink" title="选择题答案"></a>选择题答案</h2><ol>
+<li>B　2. C　3. B　4. C　5. B　6. A　7. B　8. C</li>
+</ol>
+<h2 id="填空题答案"><a href="#填空题答案" class="headerlink" title="填空题答案"></a>填空题答案</h2><ol>
+<li>测试设计；测试执行</li>
+<li>详细设计说明书 LLD；概要设计说明书 HLD；需求规格说明书 SRS</li>
+<li>0；1</li>
+<li>结果行数；NULL</li>
+<li><code>m × (n - 1)</code></li>
+<li>关闭；重新打开</li>
+<li><code>总工作时间 ÷ 总失效次数</code></li>
+<li>3306；22</li>
+</ol>
+<h2 id="简答题参考要点"><a href="#简答题参考要点" class="headerlink" title="简答题参考要点"></a>简答题参考要点</h2><ol>
+<li>见 3.1：评审、计划、设计、实现、执行、收尾；产物依次为评审表、计划、方案/思维导图、用例、缺陷报告和测试报告。</li>
+<li>目的为完整准确和理解一致；产品、项目、开发、测试参加；关注完整、一致、可行、正确、明确、可测试以及边界异常。</li>
+<li>计划偏组织管理；方案偏技术策略；报告总结实际执行和版本质量。</li>
+<li>冒烟决定是否可测且资料要求 100%通过；回归验证修复并检查影响。三轮为原缺陷、关联功能、全部用例。</li>
+<li>用例要素见 3.10；缺陷要素见 3.12。</li>
+<li>核对并复现、补证据、沟通；设计争议找产品，技术争议看日志/环境；记录依据，必要时重开并升级裁决。</li>
+<li>Severity 是影响，Priority 是紧急度；首页错字可低严重高优先，罕见数据损坏可高严重但排期由风险决定。</li>
+</ol>
+<h2 id="测试用例设计题参考要点"><a href="#测试用例设计题参考要点" class="headerlink" title="测试用例设计题参考要点"></a>测试用例设计题参考要点</h2><ol>
+<li>有效：长度 3～10，字符为允许集合且非空；无效：2 位、11 位、空、纯空格、含空格、含符号。边界取 2、3、4、9、10、11 位；每个无效类单独成例。</li>
+<li>合法：待付款→待发货、待付款→主动取消、待付款→超时取消；非法：已取消→待发货、已取消→再次取消等；验证按钮、状态、库存和历史。</li>
+<li>至少覆盖：未选择；单条禁用+确认/取消；单条启用；批量全禁用+确认/取消；批量全启用；批量混合。每列规则对应一例。</li>
+<li>功能覆盖正常/错误/空值/状态；UI覆盖布局提示；兼容覆盖浏览器和系统；安全覆盖加密、暴力破解和越权；性能覆盖响应及并发；异常覆盖断网、服务异常和恢复。</li>
+</ol>
+<h2 id="SQL-题参考答案"><a href="#SQL-题参考答案" class="headerlink" title="SQL 题参考答案"></a>SQL 题参考答案</h2><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1</span></span><br><span class="line"><span class="keyword">SELECT</span> g.id, g.name, <span class="built_in">COUNT</span>(m.id) <span class="keyword">AS</span> member_count</span><br><span class="line"><span class="keyword">FROM</span> hd_member_group <span class="keyword">AS</span> g</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.group_id <span class="operator">=</span> g.id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> g.id, g.name;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2</span></span><br><span class="line"><span class="keyword">SELECT</span> s.<span class="operator">*</span>, i.sales</span><br><span class="line"><span class="keyword">FROM</span> hd_goods_sku <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">JOIN</span> hd_goods_index <span class="keyword">AS</span> i <span class="keyword">ON</span> i.sku_id <span class="operator">=</span> s.sku_id</span><br><span class="line"><span class="keyword">WHERE</span> s.sku_name <span class="keyword">LIKE</span> <span class="string">'%手机%'</span> <span class="keyword">AND</span> i.sales <span class="operator">&gt;</span> <span class="number">100</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> i.sales <span class="keyword">DESC</span>, s.sku_id <span class="keyword">ASC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3</span></span><br><span class="line"><span class="keyword">SELECT</span> buyer_id, <span class="built_in">AVG</span>(paid_amount) <span class="keyword">AS</span> avg_amount</span><br><span class="line"><span class="keyword">FROM</span> hd_order</span><br><span class="line"><span class="keyword">WHERE</span> status <span class="operator">=</span> <span class="number">1</span> <span class="keyword">AND</span> pay_status <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> buyer_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">AVG</span>(paid_amount) <span class="operator">&gt;</span> <span class="number">500</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4</span></span><br><span class="line"><span class="keyword">SELECT</span> m.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> hd_member <span class="keyword">AS</span> m</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="number">1</span> <span class="keyword">FROM</span> hd_order <span class="keyword">AS</span> o <span class="keyword">WHERE</span> o.buyer_id <span class="operator">=</span> m.id</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 5</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(o.paid_amount), <span class="number">0</span>) <span class="keyword">AS</span> total_amount</span><br><span class="line"><span class="keyword">FROM</span> hd_order <span class="keyword">AS</span> o</span><br><span class="line"><span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.id <span class="operator">=</span> o.buyer_id</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'lisi'</span></span><br><span class="line">  <span class="keyword">AND</span> o.system_time <span class="operator">&gt;=</span> UNIX_TIMESTAMP(DATE_FORMAT(CURDATE(), <span class="string">'%Y-%m-01'</span>))</span><br><span class="line">  <span class="keyword">AND</span> o.system_time <span class="operator">&lt;</span> UNIX_TIMESTAMP(DATE_FORMAT(CURDATE() <span class="operator">+</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>, <span class="string">'%Y-%m-01'</span>))</span><br><span class="line">  <span class="keyword">AND</span> o.status <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">AND</span> o.pay_status <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">AND</span> o.finish_status <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 6</span></span><br><span class="line"><span class="keyword">SELECT</span> o.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> hd_order <span class="keyword">AS</span> o</span><br><span class="line"><span class="keyword">JOIN</span> hd_member <span class="keyword">AS</span> m <span class="keyword">ON</span> m.id <span class="operator">=</span> o.buyer_id</span><br><span class="line"><span class="keyword">WHERE</span> m.username <span class="operator">=</span> <span class="string">'wangwu'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> o.system_time <span class="keyword">DESC</span>, o.id <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">20</span>, <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 7</span></span><br><span class="line"><span class="keyword">SELECT</span> s.sku_id, s.sku_name, <span class="built_in">COUNT</span>(f.id) <span class="keyword">AS</span> favorite_count</span><br><span class="line"><span class="keyword">FROM</span> hd_goods_sku <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> hd_member_favorite <span class="keyword">AS</span> f <span class="keyword">ON</span> f.sku_id <span class="operator">=</span> s.sku_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> s.sku_id, s.sku_name;</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="附录-A：其他资料中的考前补充"><a href="#附录-A：其他资料中的考前补充" class="headerlink" title="附录 A：其他资料中的考前补充"></a>附录 A：其他资料中的考前补充</h2><p>这些内容不是两份重点题库的主轴，但在环境题、基础选择题或综合题中可能出现。</p>
+<h3 id="A-1-软件运行环境与-Web-基础"><a href="#A-1-软件运行环境与-Web-基础" class="headerlink" title="A.1 软件运行环境与 Web 基础"></a>A.1 软件运行环境与 Web 基础</h3><ul>
+<li><strong>C/S 架构</strong>：客户端承担较多逻辑，通常需要安装与升级；测试时关注客户端版本、操作系统兼容、网络中断和服务端交互。</li>
+<li><strong>B/S 架构</strong>：通过浏览器访问；测试时重点关注浏览器兼容、分辨率、前后端交互、Cookie/Session、URL、缓存和网络异常。</li>
+<li><strong>URL 基本结构</strong>：<code>协议://主机:端口/路径?查询参数#片段</code>。例如 <code>https://example.com:443/goods?id=1</code>。</li>
+<li><strong>常用端口</strong>：HTTP 80、HTTPS 443、SSH 22、MySQL 3306。实际项目以部署配置为准。</li>
+<li><strong>HTML 表单</strong>：输入框、单选、复选、下拉框、文件上传和提交按钮都需要检查默认值、必填、长度、格式、重复提交及异常输入。</li>
+<li><strong>前端校验不能替代后端校验</strong>：前端校验改善体验，后端校验保障数据与安全；接口请求可绕过页面校验。</li>
+</ul>
+<h3 id="A-2-网络基础"><a href="#A-2-网络基础" class="headerlink" title="A.2 网络基础"></a>A.2 网络基础</h3><ul>
+<li><strong>集线器</strong>：收到数据后向其他端口广播，冲突域较大。</li>
+<li><strong>交换机</strong>：根据 MAC 地址表转发局域网数据帧，每个端口可形成独立冲突域。</li>
+<li><strong>路由器</strong>：根据 IP 和路由表在不同网络之间转发数据包，并隔离广播域。</li>
+<li><strong>常见拓扑</strong>：星型便于管理、单点链路故障影响局部；总线型结构简单但主干故障影响大；环型节点依次连接；网状拓扑冗余高但成本高。</li>
+<li><strong>排查思路</strong>：先判断本机、局域网、网关、DNS、目标服务器还是应用服务异常，再结合连通性、端口、日志和进程状态定位。</li>
+</ul>
+<h3 id="A-3-Linux-与测试环境"><a href="#A-3-Linux-与测试环境" class="headerlink" title="A.3 Linux 与测试环境"></a>A.3 Linux 与测试环境</h3><ul>
+<li><strong>查看文件/日志</strong>：理解按关键字、时间、行数定位错误信息的思路；考试常考日志分析目的，而非只背命令。</li>
+<li><strong>进程与端口</strong>：环境无法访问时，依次确认服务进程、监听端口、防火墙、配置、依赖服务和日志。</li>
+<li><strong>权限</strong>：区分文件所有者、用户组、其他用户的读/写/执行权限；权限不足可能导致启动、上传、写日志或读取配置失败。</li>
+<li><strong>部署后验证</strong>：服务启动成功后，还应做端口检查、页面或接口检查、数据库连接检查和核心业务冒烟测试。</li>
+<li><strong>环境记录</strong>：记录系统版本、应用版本、数据库版本、浏览器、配置、账号和测试数据，保证缺陷可复现。</li>
+</ul>
+<h3 id="A-4-进制与数据表示"><a href="#A-4-进制与数据表示" class="headerlink" title="A.4 进制与数据表示"></a>A.4 进制与数据表示</h3><ul>
+<li>二进制转十进制：按位权展开，例如 <code>1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 11₁₀</code>。</li>
+<li>十进制转二进制：整数连续除 2 取余，余数倒序排列。</li>
+<li>二进制与十六进制：从右向左每 4 位一组，例如 <code>1111 1010₂ = FA₁₆</code>。</li>
+<li>测试中的应用：颜色值、权限位、掩码、编码和底层数据可能使用十六进制或二进制表示。</li>
+</ul>
+<h3 id="A-5-HTML-JavaScript-作业对测试设计的启示"><a href="#A-5-HTML-JavaScript-作业对测试设计的启示" class="headerlink" title="A.5 HTML/JavaScript 作业对测试设计的启示"></a>A.5 HTML/JavaScript 作业对测试设计的启示</h3><ul>
+<li>页面行为可能同时受 HTML 属性、JavaScript 校验、接口规则和数据库约束影响，应分层验证。</li>
+<li>输入类控件要覆盖空值、合法值、非法值、边界值、超长值、特殊字符、粘贴、刷新和重复提交。</li>
+<li>JavaScript 动态效果要检查初始状态、操作顺序、快速连续操作、浏览器兼容以及脚本报错后的降级表现。</li>
+<li>页面展示正确仍需核对数据库或接口结果，防止只改了界面而数据未落库。</li>
+</ul>
+<hr>
+<h2 id="附录-B：资料清单与处理说明"><a href="#附录-B：资料清单与处理说明" class="headerlink" title="附录 B：资料清单与处理说明"></a>附录 B：资料清单与处理说明</h2><p>原目录共检查 <strong>44 个实体文件</strong>；展开 6 个 ZIP 后，共形成 <strong>87 个逻辑条目</strong>。随后又检查用户补充的 <strong>1 份数据库表字典</strong>，累计分析 45 个实体资料来源。PPTX、DOCX、XLSX、XLS、TXT、HTML、图片及压缩包内文档均按其格式提取或查看。复习资料按“重点题库优先、表字典确定字段、课程讲义校准、作业案例补充”的方式合并。</p>
+<h3 id="B-0-后补资料（1-个）"><a href="#B-0-后补资料（1-个）" class="headerlink" title="B.0 后补资料（1 个）"></a>B.0 后补资料（1 个）</h3><ol>
+<li><code>汇智云商平台数据库表字典（部分）.docx</code>：共列出 35 张表；已用于校准第 6 章和模拟卷 SQL 的表名、字段名、时间格式及状态值。</li>
+</ol>
+<h3 id="B-1-教学资料（24-个）"><a href="#B-1-教学资料（24-个）" class="headerlink" title="B.1 教学资料（24 个）"></a>B.1 教学资料（24 个）</h3><ol>
+<li><code>0、软件与软件测试概述.pptx</code></li>
+<li><code>01集线器，交换机、路由器.docx</code></li>
+<li><code>03.网络拓扑分类.docx</code></li>
+<li><code>1、软件生命周期V2.0.pptx</code></li>
+<li><code>1. 需求评审.pptx</code></li>
+<li><code>2、软件研发模型V2.0.pptx</code></li>
+<li><code>2. 测试需求分析.pptx</code></li>
+<li><code>3、软件测试基础-软件测试入门V2.0.pptx</code></li>
+<li><code>4、软件测试基础-测试阶段V2.0(!).pptx</code></li>
+<li><code>5、软件测试基础 - 测试方法v2.0(!).pptx</code></li>
+<li><code>6、软件测试模型V2.0.pptx</code></li>
+<li><code>7、系统测试类型v2.0.pptx</code></li>
+<li><code>8、软件测试流程V2.0.pptx</code></li>
+<li><code>环境搭建总结.txt</code></li>
+<li><code>汇智云商SQL题目.txt</code>（最高优先级）</li>
+<li><code>进制转换.docx</code></li>
+<li><code>软件技术基础_2.0.pptx</code></li>
+<li><code>数据库笔记day02.txt</code></li>
+<li><code>数据库笔记day03.txt</code></li>
+<li><code>数据库笔记day04.txt</code></li>
+<li><code>数据库笔记day05.txt</code></li>
+<li><code>项目实战理论题.txt</code>（最高优先级）</li>
+<li><code>linux笔记第三天.txt</code></li>
+<li><code>linux笔记第一天.txt</code></li>
+</ol>
+<h3 id="B-2-作业资料（20-个）"><a href="#B-2-作业资料（20-个）" class="headerlink" title="B.2 作业资料（20 个）"></a>B.2 作业资料（20 个）</h3><ol>
+<li><code>韩瑞轩.zip</code></li>
+<li><code>韩瑞轩8-13.zip</code></li>
+<li><code>韩瑞轩的测试用例作业day1.xlsx</code></li>
+<li><code>韩瑞轩软件测试基础-第三天作业.txt</code></li>
+<li><code>韩瑞轩软件测试基础-第四天作业.txt</code></li>
+<li><code>韩瑞轩软件测试基础-day02-作业.txt</code></li>
+<li><code>韩瑞轩软件测试基础-day03作业.txt</code></li>
+<li><code>韩瑞轩星期五作业.zip</code></li>
+<li><code>韩瑞轩作业.zip</code></li>
+<li><code>韩瑞轩作业day01.docx</code></li>
+<li><code>韩瑞轩作业day01.txt</code></li>
+<li><code>韩瑞轩作业day02.txt</code></li>
+<li><code>韩瑞轩作业day04 -t82.xlsx</code></li>
+<li><code>韩瑞轩day03作业 t82.xls</code></li>
+<li><code>韩瑞轩html作业2.zip</code></li>
+<li><code>韩瑞轩js作业2.zip</code></li>
+<li><code>韩瑞轩linux第二天作业 .docx</code></li>
+<li><code>韩瑞轩linux第三天作业.docx</code></li>
+<li><code>韩瑞轩linux第四天作业.docx</code></li>
+<li><code>韩瑞轩linux第一天作业.docx</code></li>
+</ol>
+<h3 id="B-3-压缩包检查结果"><a href="#B-3-压缩包检查结果" class="headerlink" title="B.3 压缩包检查结果"></a>B.3 压缩包检查结果</h3><ul>
+<li><code>韩瑞轩.zip</code>：展开并检查 2 份数据库作业文档。</li>
+<li><code>韩瑞轩8-13.zip</code>：展开并检查 3 份数据库作业文档。</li>
+<li><code>韩瑞轩星期五作业.zip</code>：展开并检查 4 份数据库作业文档。</li>
+<li><code>韩瑞轩作业.zip</code>：展开并检查 HTML 页面、图片、项目配置及作业文档。</li>
+<li><code>韩瑞轩html作业2.zip</code>：展开并检查 HTML 页面、图片、项目配置及文档。</li>
+<li><code>韩瑞轩js作业2.zip</code>：展开并检查 HTML/JavaScript 页面、图片、项目配置及文档。</li>
+</ul>
+<h3 id="B-4-内容冲突与纠错原则"><a href="#B-4-内容冲突与纠错原则" class="headerlink" title="B.4 内容冲突与纠错原则"></a>B.4 内容冲突与纠错原则</h3><ul>
+<li>讲义、题库和作业答案冲突时，以题目语义、SQL 规则和讲义中的完整定义为准。</li>
+<li>个别作业 SQL 存在漏写 <code>SELECT</code>/<code>FROM</code>、括号不完整、连接条件重复等问题，正文已给出可复用的正确写法。</li>
+<li>工资案例中“4 级最高工资为 1400”的示例与数据不符，正确最大值应为 3000；复习资料按正确结果整理。</li>
+<li>用例执行率不得超过 100%；涉及百分比时要先检查分子、分母口径。</li>
+<li>讲义中的通过率或缺陷率阈值属于课程/项目示例，实际工作应以项目退出准则为准。</li>
+<li><code>LEFT JOIN</code> 后在 <code>WHERE</code> 中限制右表字段，可能把外连接变成内连接；需要保留左表全集时，应把相应条件放入 <code>ON</code> 或允许右表为空。</li>
+</ul>
+<h3 id="B-5-无法读取或读取受限的内容"><a href="#B-5-无法读取或读取受限的内容" class="headerlink" title="B.5 无法读取或读取受限的内容"></a>B.5 无法读取或读取受限的内容</h3><ul>
+<li>没有发现整份无法读取的有效教学文件。</li>
+<li><code>韩瑞轩linux第二天作业 .docx</code> 实际为旧版 OLE Word 格式，已按旧版 Word 文档解析。</li>
+<li>压缩包中的 <code>~$业day03.doc</code> 是 Office 临时锁文件，不含有效学习内容。</li>
+<li>少量 WMF/EMF 矢量图无法直接 OCR；其所在 PPT 的标题、正文和备注文本已从演示文稿结构中提取，未影响主要知识点整理。</li>
+</ul>
+<hr>
+<h2 id="附录-C：资料重要度-TOP-10"><a href="#附录-C：资料重要度-TOP-10" class="headerlink" title="附录 C：资料重要度 TOP 10"></a>附录 C：资料重要度 TOP 10</h2><div style="overflow-x: auto;">
+<div class="md-table-scroll"><table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">排名</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">资料</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">重要度</th>
+      <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">主要用途</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">1</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>项目实战理论题.txt</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">20 道项目理论题的直接考试范围</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">2</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>汇智云商SQL题目.txt</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">15 道商城 SQL 题的直接考试范围</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">3</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>汇智云商平台数据库表字典（部分）.docx</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">确定商城 SQL 的真实表名、字段名和枚举值</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">4</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>8、软件测试流程V2.0.pptx</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试流程、准入准出、冒烟、回归、报告</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">5</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>1. 需求评审.pptx</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">需求评审流程、角色、检查维度</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">6</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>2. 测试需求分析.pptx</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">测试分析与用例设计方法入口</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">7</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>数据库笔记day03.txt</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">查询、条件、排序、聚合、分组等 SQL 主干</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">8</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>数据库笔记day04.txt</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★★</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">多表连接、子查询及易错点</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">9</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>韩瑞轩作业day04 -t82.xlsx</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">状态迁移、缺陷、判定表、正交案例</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">10</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;"><code>韩瑞轩day03作业 t82.xls</code></td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">★★★★☆</td>
+      <td style="border: 1px solid #888; padding: 6px 10px; vertical-align: top;">场景法、流程法与 ATM/支付案例</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+<blockquote>
+<p>冲刺顺序：先背第 3 章 20 题，再手写第 6 章 15 条 SQL，然后复习第 4、7、8、9 章，最后用第 10 章模拟卷检验。</p>
+</blockquote>
+</article>
+
+<div class="article-tags"><a class="tag" href="/tags/%E6%8A%80%E6%9C%AF/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>技术</a><a class="tag" href="/tags/%E8%BD%AF%E6%B5%8B%E4%BD%9C%E4%B8%9A/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>软测作业</a></div>
+
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/08/07/linux/vi-and-vim/">vi and vim</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
+
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">On This Page</span>
+      <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99"><span class="toc-text">软件测试第一次考试复习资料</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%80%83%E8%AF%95%E9%87%8D%E7%82%B9%E6%80%BB%E8%A7%88"><span class="toc-text">1. 考试重点总览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BF%85%E8%83%8C%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86"><span class="toc-text">2. 必背理论知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E8%BD%AF%E4%BB%B6%E3%80%81%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%B8%8E%E7%BC%BA%E9%99%B7-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">2.1 软件、软件测试与缺陷 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%B8%83%E9%A1%B9%E5%8E%9F%E5%88%99-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86"><span class="toc-text">2.2 软件测试七项原则 ★★★★☆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E6%B5%8B%E8%AF%95%E9%98%B6%E6%AE%B5-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86"><span class="toc-text">2.3 软件生命周期和测试阶段 ★★★★☆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86"><span class="toc-text">2.4 测试分类 ★★★★☆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B-%E2%98%85%E2%98%85%E2%98%85%E2%98%86%E2%98%86"><span class="toc-text">2.5 测试模型 ★★★☆☆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86"><span class="toc-text">2.6 系统测试类型 ★★★★☆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E7%90%86%E8%AE%BA%E9%A2%98%E9%87%8D%E7%82%B9"><span class="toc-text">3. 项目实战理论题重点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.1 软件测试流程是什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%9C%80%E6%B1%82%E8%AF%84%E5%AE%A1%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F%E5%85%B3%E6%B3%A8%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.2 需求评审怎么做？关注什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E7%94%A8%E4%BE%8B%E8%AF%84%E5%AE%A1%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F%E8%AF%84%E5%AE%A1%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.3 用例评审怎么做？评审什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.4 测试计划包含什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%87%86%E5%85%A5%E5%92%8C%E5%87%86%E5%87%BA%E6%A0%87%E5%87%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.5 准入和准出标准是什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E6%B5%8B%E8%AF%95%E9%80%9A%E8%BF%87%E5%92%8C%E5%A4%B1%E8%B4%A5%E6%A0%87%E5%87%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.6 测试通过和失败标准是什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E6%8C%82%E8%B5%B7%E5%92%8C%E6%81%A2%E5%A4%8D%E6%A0%87%E5%87%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.7 挂起和恢复标准是什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%EF%BC%9F%E7%94%A8%E4%BA%86%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.8 测试方案包含什么？用了哪些设计方法？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%EF%BC%9F%E6%B5%8B%E8%AF%95%E7%BB%93%E8%AE%BA%E6%80%8E%E4%B9%88%E5%86%99%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.9 测试报告包含什么？测试结论怎么写？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10-%E5%90%88%E6%A0%BC%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%9C%89%E5%93%AA%E4%BA%9B%E8%A6%81%E7%B4%A0%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.10 合格测试用例有哪些要素？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-11-%E7%94%A8%E4%BE%8B%E4%BC%98%E5%85%88%E7%BA%A7%E5%A6%82%E4%BD%95%E5%88%92%E5%88%86%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.11 用例优先级如何划分？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-12-%E5%90%88%E6%A0%BC%E7%BC%BA%E9%99%B7%E6%9C%89%E5%93%AA%E4%BA%9B%E8%A6%81%E7%B4%A0%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.12 合格缺陷有哪些要素？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-13-%E7%BC%BA%E9%99%B7%E4%B8%A5%E9%87%8D%E7%BA%A7%E5%88%AB%E5%A6%82%E4%BD%95%E5%88%92%E5%88%86%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.13 缺陷严重级别如何划分？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-14-%E7%BC%BA%E9%99%B7%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.14 缺陷管理流程是什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-15-%E7%94%A8%E4%BE%8B%E5%92%8C%E7%BC%BA%E9%99%B7%E6%98%AF%E4%BB%80%E4%B9%88%E5%85%B3%E8%81%94%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.15 用例和缺陷是什么关联？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-16-%E5%BC%80%E5%8F%91%E4%B8%8D%E8%AE%A4%E5%8F%AF%E7%BC%BA%E9%99%B7%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.16 开发不认可缺陷怎么办？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-17-%E7%89%88%E6%9C%AC%E6%8F%90%E6%B5%8B%E6%B5%81%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.17 版本提测流程是什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-18-%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.18 回归测试策略是什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-19-%E5%86%92%E7%83%9F%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.19 冒烟测试策略是什么？ ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-20-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B5%8B%E8%AF%95%E6%89%A7%E8%A1%8C%E6%AF%94%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%97%B6%E9%97%B4%E9%95%BF%EF%BC%9F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">3.20 为什么测试执行比用例设计时间长？ ★★★★★</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="toc-text">4. 测试用例设计方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E6%B3%95-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">4.1 等价类划分法 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E8%BE%B9%E7%95%8C%E5%80%BC%E5%88%86%E6%9E%90%E6%B3%95-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">4.2 边界值分析法 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%88%A4%E5%AE%9A%E8%A1%A8%E6%B3%95-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">4.3 判定表法 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%9B%A0%E6%9E%9C%E5%9B%BE%E6%B3%95-%E2%98%85%E2%98%85%E2%98%85%E2%98%86%E2%98%86"><span class="toc-text">4.4 因果图法 ★★★☆☆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E5%9C%BA%E6%99%AF%E6%B3%95-%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90%E6%B3%95-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">4.5 场景法 &#x2F; 流程分析法 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E7%8A%B6%E6%80%81%E8%BF%81%E7%A7%BB%E6%B3%95-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">4.6 状态迁移法 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-%E6%AD%A3%E4%BA%A4%E8%AF%95%E9%AA%8C%E6%B3%95-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86"><span class="toc-text">4.7 正交试验法 ★★★★☆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E9%94%99%E8%AF%AF%E6%8E%A8%E6%B5%8B%E6%B3%95-%E2%98%85%E2%98%85%E2%98%85%E2%98%86%E2%98%86"><span class="toc-text">4.8 错误推测法 ★★★☆☆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-SQL-%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86"><span class="toc-text">5. SQL 核心知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E5%9F%BA%E6%9C%AC%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">5.1 基本执行顺序 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E6%9D%A1%E4%BB%B6%E3%80%81%E6%A8%A1%E7%B3%8A%E3%80%81%E8%8C%83%E5%9B%B4%E4%B8%8E%E7%A9%BA%E5%80%BC-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">5.2 条件、模糊、范围与空值 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%8E%BB%E9%87%8D%E3%80%81%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">5.3 去重、排序与分页 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E8%81%9A%E5%90%88%E3%80%81%E5%88%86%E7%BB%84%E5%92%8C-HAVING-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">5.4 聚合、分组和 HAVING ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">5.5 连接查询 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%B8%8E-EXISTS-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86"><span class="toc-text">5.6 子查询与 EXISTS ★★★★☆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E6%97%A5%E6%9C%9F%E6%9F%A5%E8%AF%A2-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">5.7 日期查询 ★★★★★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-%E5%A2%9E%E5%88%A0%E6%94%B9%E3%80%81DDL-%E4%B8%8E%E4%BA%8B%E5%8A%A1-%E2%98%85%E2%98%85%E2%98%85%E2%98%86%E2%98%86"><span class="toc-text">5.8 增删改、DDL 与事务 ★★★☆☆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%B1%87%E6%99%BA%E4%BA%91%E5%95%86-SQL-%E9%87%8D%E7%82%B9%E9%A2%98%E5%9E%8B"><span class="toc-text">6. 汇智云商 SQL 重点题型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E5%90%84%E7%AD%89%E7%BA%A7%E4%BC%9A%E5%91%98%E5%88%86%E5%88%AB%E6%9C%89%E5%A4%9A%E5%B0%91%E4%BA%BA"><span class="toc-text">6.1 各等级会员分别有多少人</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%9F%A5%E8%AF%A2-wangwu-%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%80%BC"><span class="toc-text">6.2 查询 wangwu 的经验值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E6%9F%A5%E8%AF%A2%E7%BB%8F%E9%AA%8C%E5%80%BC%E5%9C%A8-5000-%E4%BB%A5%E4%B8%8A%E7%9A%84%E7%94%A8%E6%88%B7"><span class="toc-text">6.3 查询经验值在 5000 以上的用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-%E6%9F%A5%E8%AF%A2%E2%80%9C%E6%89%8B%E6%9C%BA%E2%80%9D%E9%A1%B6%E7%BA%A7%E5%88%86%E7%B1%BB%E4%B8%8B%E6%89%80%E6%9C%89%E4%B8%89%E7%BA%A7%E5%88%86%E7%B1%BB"><span class="toc-text">6.4 查询“手机”顶级分类下所有三级分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-%E6%89%80%E6%9C%89%E6%96%B0%E5%93%81%E6%8C%89%E5%95%86%E5%93%81%E5%BA%8F%E5%8F%B7%E9%99%8D%E5%BA%8F%E5%8F%96%E5%89%8D-5-%E4%B8%AA"><span class="toc-text">6.5 所有新品按商品序号降序取前 5 个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-6-%E5%90%8D%E7%A7%B0%E5%8C%85%E5%90%AB%E2%80%9C%E8%A5%BF%E6%9C%8D%E2%80%9D%E7%9A%84%E5%95%86%E5%93%81%EF%BC%8C%E6%8C%89%E9%94%80%E9%87%8F%E5%8D%87%E5%BA%8F"><span class="toc-text">6.6 名称包含“西服”的商品，按销量升序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7-%E5%90%91-ID-2-%E7%94%A8%E6%88%B7%E8%B4%AD%E7%89%A9%E8%BD%A6%E6%B7%BB%E5%8A%A0-150-%E7%A7%8D%E5%95%86%E5%93%81"><span class="toc-text">6.7 向 ID&#x3D;2 用户购物车添加 150 种商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8-%E5%90%91-ID-2-%E7%94%A8%E6%88%B7%E6%94%B6%E8%97%8F%E5%88%97%E8%A1%A8%E6%B7%BB%E5%8A%A0-300-%E7%A7%8D%E5%95%86%E5%93%81"><span class="toc-text">6.8 向 ID&#x3D;2 用户收藏列表添加 300 种商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-9-%E6%9F%A5%E8%AF%A2-lisi-%E8%B4%AD%E7%89%A9%E8%BD%A6%E4%B8%AD%E6%89%80%E6%9C%89%E5%B7%B2%E5%A4%B1%E6%95%88%E5%95%86%E5%93%81"><span class="toc-text">6.9 查询 lisi 购物车中所有已失效商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-10-%E5%88%A0%E9%99%A4-lisi-%E8%B4%AD%E7%89%A9%E8%BD%A6%E4%B8%AD%E5%B7%B2%E5%94%AE%E7%BD%84%E5%95%86%E5%93%81"><span class="toc-text">6.10 删除 lisi 购物车中已售罄商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-11-%E6%9F%A5%E8%AF%A2-lisi-%E6%94%B6%E8%97%8F%E7%9A%84%E5%95%86%E5%93%81%E6%95%B0%E9%87%8F"><span class="toc-text">6.11 查询 lisi 收藏的商品数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-12-%E7%BB%9F%E8%AE%A1-lisi-%E5%A5%BD%E8%AF%84%E3%80%81%E4%B8%AD%E8%AF%84%E3%80%81%E5%B7%AE%E8%AF%84%E5%90%84%E5%A4%9A%E5%B0%91%E6%9D%A1"><span class="toc-text">6.12 统计 lisi 好评、中评、差评各多少条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-13-%E6%9F%A5%E8%AF%A2-lisi-%E6%9C%AC%E6%9C%88%E8%AE%A2%E5%8D%95"><span class="toc-text">6.13 查询 lisi 本月订单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-14-lisi-%E5%85%A8%E9%83%A8%E8%AE%A2%E5%8D%95%E7%AC%AC%E4%BA%8C%E9%A1%B5%EF%BC%8C%E6%AF%8F%E9%A1%B5-5-%E6%9D%A1"><span class="toc-text">6.14 lisi 全部订单第二页，每页 5 条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-15-lisi-%E6%9C%AC%E6%9C%88%E5%85%B1%E6%B6%88%E8%B4%B9%E5%A4%9A%E5%B0%91%E9%92%B1"><span class="toc-text">6.15 lisi 本月共消费多少钱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-16-%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%8A%9F%E8%83%BD%E7%9A%84%E6%B5%8B%E8%AF%95%E6%80%9D%E8%B7%AF-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86"><span class="toc-text">6.16 商城项目功能的测试思路 ★★★★☆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E9%AB%98%E9%A2%91%E6%98%93%E9%94%99%E7%82%B9"><span class="toc-text">7. 高频易错点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E4%B8%AD%E9%9C%80%E8%A6%81%E7%95%99%E6%84%8F%E7%9A%84%E7%AD%94%E6%A1%88%E9%97%AE%E9%A2%98"><span class="toc-text">资料中需要留意的答案问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E8%80%83%E5%89%8D%E9%80%9F%E8%AE%B0%E8%A1%A8"><span class="toc-text">8. 考前速记表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E7%90%86%E8%AE%BA-30-%E5%88%86%E9%92%9F%E9%80%9F%E8%AE%B0"><span class="toc-text">8.1 理论 30 分钟速记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E9%A1%B9%E7%9B%AE%E7%AD%94%E9%A2%98%E4%B8%87%E8%83%BD%E6%A3%80%E6%9F%A5%E6%A1%86%E6%9E%B6"><span class="toc-text">8.2 项目答题万能检查框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-SQL-%E8%80%83%E5%89%8D%E9%80%9F%E6%9F%A5%E8%A1%A8"><span class="toc-text">9. SQL 考前速查表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%92%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-text">条件和模糊查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84"><span class="toc-text">聚合与分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5%E3%80%81%E5%B7%A6%E8%BF%9E%E6%8E%A5%E5%92%8C%E6%9C%AA%E5%8C%B9%E9%85%8D%E6%95%B0%E6%8D%AE"><span class="toc-text">内连接、左连接和未匹配数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%B8%8E%E4%B8%8D%E5%AD%98%E5%9C%A8"><span class="toc-text">子查询与不存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E4%B8%8E%E5%88%86%E9%A1%B5"><span class="toc-text">日期与分页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E8%80%83%E5%89%8D%E8%87%AA%E6%B5%8B%E9%A2%98"><span class="toc-text">10. 考前自测题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-%E9%80%89%E6%8B%A9%E9%A2%98"><span class="toc-text">10.1 选择题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-%E5%A1%AB%E7%A9%BA%E9%A2%98"><span class="toc-text">10.2 填空题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-%E7%AE%80%E7%AD%94%E9%A2%98"><span class="toc-text">10.3 简答题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E9%A2%98"><span class="toc-text">10.4 测试用例设计题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-5-SQL-%E9%A2%98"><span class="toc-text">10.5 SQL 题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88"><span class="toc-text">参考答案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E9%A2%98%E7%AD%94%E6%A1%88"><span class="toc-text">选择题答案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A1%AB%E7%A9%BA%E9%A2%98%E7%AD%94%E6%A1%88"><span class="toc-text">填空题答案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E7%AD%94%E9%A2%98%E5%8F%82%E8%80%83%E8%A6%81%E7%82%B9"><span class="toc-text">简答题参考要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E9%A2%98%E5%8F%82%E8%80%83%E8%A6%81%E7%82%B9"><span class="toc-text">测试用例设计题参考要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-%E9%A2%98%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88"><span class="toc-text">SQL 题参考答案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95-A%EF%BC%9A%E5%85%B6%E4%BB%96%E8%B5%84%E6%96%99%E4%B8%AD%E7%9A%84%E8%80%83%E5%89%8D%E8%A1%A5%E5%85%85"><span class="toc-text">附录 A：其他资料中的考前补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-1-%E8%BD%AF%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E4%B8%8E-Web-%E5%9F%BA%E7%A1%80"><span class="toc-text">A.1 软件运行环境与 Web 基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-2-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-text">A.2 网络基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-3-Linux-%E4%B8%8E%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="toc-text">A.3 Linux 与测试环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-4-%E8%BF%9B%E5%88%B6%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA"><span class="toc-text">A.4 进制与数据表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-5-HTML-JavaScript-%E4%BD%9C%E4%B8%9A%E5%AF%B9%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%90%AF%E7%A4%BA"><span class="toc-text">A.5 HTML&#x2F;JavaScript 作业对测试设计的启示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95-B%EF%BC%9A%E8%B5%84%E6%96%99%E6%B8%85%E5%8D%95%E4%B8%8E%E5%A4%84%E7%90%86%E8%AF%B4%E6%98%8E"><span class="toc-text">附录 B：资料清单与处理说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#B-0-%E5%90%8E%E8%A1%A5%E8%B5%84%E6%96%99%EF%BC%881-%E4%B8%AA%EF%BC%89"><span class="toc-text">B.0 后补资料（1 个）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-1-%E6%95%99%E5%AD%A6%E8%B5%84%E6%96%99%EF%BC%8824-%E4%B8%AA%EF%BC%89"><span class="toc-text">B.1 教学资料（24 个）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-2-%E4%BD%9C%E4%B8%9A%E8%B5%84%E6%96%99%EF%BC%8820-%E4%B8%AA%EF%BC%89"><span class="toc-text">B.2 作业资料（20 个）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-3-%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%A3%80%E6%9F%A5%E7%BB%93%E6%9E%9C"><span class="toc-text">B.3 压缩包检查结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-4-%E5%86%85%E5%AE%B9%E5%86%B2%E7%AA%81%E4%B8%8E%E7%BA%A0%E9%94%99%E5%8E%9F%E5%88%99"><span class="toc-text">B.4 内容冲突与纠错原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-5-%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E6%88%96%E8%AF%BB%E5%8F%96%E5%8F%97%E9%99%90%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">B.5 无法读取或读取受限的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95-C%EF%BC%9A%E8%B5%84%E6%96%99%E9%87%8D%E8%A6%81%E5%BA%A6-TOP-10"><span class="toc-text">附录 C：资料重要度 TOP 10</span></a></li></ol></li></ol></div>
+  <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>Scroll to Top</span></a></div>
+</widget>
+
+
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  window.canonical["param"] = {"permalink":"https://hexo.hanruixuan.com/2026/09/06/%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/","checklink":"/js/plugins/video.js"};
+  // Fix: Ensure page is at the correct top position on data load
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'auto';
+  }
+  (function() {
+    const scrollHandler = () => {
+      // 存在有效锚点时，等待布局稳定后滚动到目标
+      // （浏览器原生锚点滚动发生在布局完成前，长文章的懒加载图片/异步组件会把目标顶偏）
+      const hash = window.location.hash;
+      if (hash.length > 1) {
+        let anchorId = hash.slice(1);
+        try {
+          anchorId = decodeURIComponent(anchorId);
+        } catch (e) {
+          // 片段含非法编码时按原样查找
+        }
+        const anchor = document.getElementById(anchorId);
+        if (anchor) {
+          // #start 锚点贴顶，不预留 offset；其余锚点与 TOC 点击滚动保持一致
+          const offset = anchorId === 'start' ? 0 : 32;
+          const targetY = () => anchor.getBoundingClientRect().top + window.scrollY - offset;
+          let timer = null;
+          let lastY = null;
+          let quiet = 0;
+          let attempts = 0;
+          // 记录最近一次资源加载完成时间，判断异步数据/图片是否仍在改变布局
+          let lastResourceTime = performance.now();
+          let observer = null;
+          try {
+            observer = new PerformanceObserver(function (list) {
+              lastResourceTime = performance.now();
+            });
+            observer.observe({ entryTypes: ['resource'] });
+          } catch (e) {}
+          // 统计进行中的 fetch/XHR 请求，异步组件（timeline 等）未完成前不判定布局稳定
+          let pendingRequests = 0;
+          const trackRequest = (fn) => {
+            pendingRequests++;
+            try {
+              const result = fn();
+              if (result && typeof result.finally === 'function') {
+                result.finally(function () {
+                  pendingRequests = Math.max(0, pendingRequests - 1);
+                });
+              } else {
+                pendingRequests = Math.max(0, pendingRequests - 1);
+              }
+              return result;
+            } catch (e) {
+              pendingRequests = Math.max(0, pendingRequests - 1);
+              throw e;
+            }
+          };
+          if (typeof window.fetch === 'function') {
+            const origFetch = window.fetch.bind(window);
+            window.fetch = function () {
+              const args = arguments;
+              return trackRequest(function () {
+                return origFetch.apply(window, args);
+              });
+            };
+          }
+          if (window.XMLHttpRequest) {
+            const origOpen = window.XMLHttpRequest.prototype.open;
+            const origSend = window.XMLHttpRequest.prototype.send;
+            window.XMLHttpRequest.prototype.open = function () {
+              this.__anchorTracked = true;
+              return origOpen.apply(this, arguments);
+            };
+            window.XMLHttpRequest.prototype.send = function () {
+              if (this.__anchorTracked) {
+                pendingRequests++;
+                const done = () => {
+                  if (this.__anchorTracked) {
+                    this.__anchorTracked = false;
+                    pendingRequests = Math.max(0, pendingRequests - 1);
+                  }
+                };
+                this.addEventListener('loadend', done);
+              }
+              return origSend.apply(this, arguments);
+            };
+          }
+          const cancel = () => {
+            if (timer !== null) {
+              clearInterval(timer);
+              timer = null;
+            }
+            if (observer !== null) {
+              try {
+                observer.disconnect();
+              } catch (e) {}
+            }
+          };
+          const adjust = () => {
+            const y = targetY();
+            const atTarget = Math.abs(window.scrollY - y) <= 2;
+            if (!atTarget || lastY === null || Math.abs(y - lastY) > 2) {
+              window.scrollTo({ top: y, behavior: 'instant' });
+              lastY = y;
+              quiet = 0;
+            } else {
+              quiet++;
+            }
+            attempts++;
+            const resourceQuiet = performance.now() - lastResourceTime > 3000;
+            // 位置连续 1.8 秒无变化、无进行中的请求且最近 3 秒无资源加载才视为稳定；最长等待 30 秒
+            if ((quiet >= 3 && pendingRequests === 0 && resourceQuiet) || attempts >= 50) {
+              cancel();
+            }
+          };
+          requestAnimationFrame(() => {
+            // 锚点链接打开时直接定位，不做动画；用户主动点击（如 TOC）仍走平滑滚动
+            window.scrollTo({ top: targetY(), behavior: 'instant' });
+            timer = setInterval(adjust, 600);
+          });
+          // 用户主动滚动时停止自动校正
+          window.addEventListener('wheel', cancel, { passive: true });
+          window.addEventListener('touchstart', cancel, { passive: true });
+          window.addEventListener('mousedown', cancel, { passive: true });
+          window.addEventListener('keydown', cancel, { passive: true });
+          return;
+        }
+      }
+      // 没有锚点时始终保持页面顶部；Wiki Hero 只在用户显式访问 #start 时定位正文。
+      window.scrollTo(0, 0);
+    };
+    if (document.readyState !== 'loading') scrollHandler();
+    else document.addEventListener('DOMContentLoaded', scrollHandler);
+  })();
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    },
+    // 图标由构建期生成的 /js/stellar-icons.js 填充（defer，早于 DOMContentLoaded 就绪）
+    icons: {},
+    services: {"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"},"rss":{"js":"/js/services/rss.js"}},
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    data_cache: {"enable":true,"default_ttl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"max_entries":200},
+  };
+  const deps = {
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js`
+  }
+
+  // 主题切换提示文案（供 /js/theme.js 使用）
+  window.__STELLAR_I18N__ = {
+    light: `Switched to Light Mode`,
+    dark: `Switched to Dark Mode`,
+    auto: `Switched to Auto Mode`,
+  };
+
+  // 搜索跳转高亮：URL 带 ?kw= 时按需加载，定位正文中的匹配词
+  (function () {
+    try {
+      if (!window.location.search) return;
+      if (!new URLSearchParams(window.location.search).has('kw')) return;
+      document.addEventListener('DOMContentLoaded', function () {
+        // utils 由 /js/utils.js 定义（同时暴露 window.utils）；
+        // 未就绪时由 bootstrap 队列兜底，此处按就绪状态判断
+        if (typeof utils === 'object' && typeof utils.js === 'function') {
+          utils.js('/js/search/highlight.js', { defer: true }).catch(function () {});
+        }
+      });
+    } catch (e) {}
+  })();
+</script>
+
+
+<script>
+  // 插件注册队列：utils.js 尚未就绪时先缓存注册请求，就绪后统一补跑，
+  // 保证解析期注册的插件不因加载时序丢失。
+  window.stellar = window.stellar || {};
+  window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+  window.stellar.initPlugin = function (fn, name, options) {
+    if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+      return utils.initPlugin(fn, name, options);
+    }
+    window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+  };
+  window.stellar._flushPlugins = function () {
+    var pending = window.stellar._pluginQueue.splice(0);
+    if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+    for (var i = 0; i < pending.length; i++) {
+      try {
+        utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+      } catch (e) {
+        console.error('[Stellar] 插件补注册失败:', e);
+      }
+    }
+  };
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof utils === 'object') return;
+    // utils 未就绪时补载；加载成功后由 utils.js 内部补跑插件队列
+    var s = document.createElement('script');
+    // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
+    // （图片懒加载 / 脚本延迟优化器）误改写
+    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.async = false;
+    s.onerror = function () {
+      console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
+      document.documentElement.classList.add('sr-fallback');
+    };
+    document.head.appendChild(s);
+  });
+</script>
+
+
+<!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
+<script src="/js/utils.js?v=1.44.0"></script>
+<script>
+  // 解析期检测 utils 是否已就绪；未就绪时同步补载，
+  // 保证「utils 先于页尾插件片段定义」的不变量。
+  if (typeof utils === 'undefined') {
+    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+  }
+</script>
+<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
+<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
+<script src="/js/main.js?v=1.44.0" defer></script>
+<script defer src="/js/theme.js?v=1.44.0"></script>
+
+
+
+<script>
+  // 先声明配置与初始化监听，再异步加载库：
+  // 保证库执行时 lazyLoadOptions 已就绪，避免 async 脚本抢先执行导致自初始化失败
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      // {% image %} 没有 .lazy-box 包裹，回退到父元素查找加载图标
+      const wrapper = el.closest('.lazy-box') || el.parentElement;
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // 监听初始化事件，获取 LazyLoad 实例
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  // 兜底：动态插入的 .lazy 元素（如站点自定义脚本在 update() 之后追加的图片）
+  // 不会被 vanilla-lazyload 自动扫描，未注册的 img.lazy 会被 CSS opacity:0 永久隐藏。
+  // MutationObserver 检测到新增 .lazy 元素后自动调用 update() 重新注册。
+  if (window.MutationObserver) {
+    window.lazyMutationObserver = new MutationObserver((mutations) => {
+      if (window.lazyMutationObserver._pending) return;
+      const hasLazy = mutations.some((m) =>
+        Array.prototype.some.call(m.addedNodes, (node) =>
+          node.nodeType === 1 &&
+          (node.matches?.('.lazy') || !!node.querySelector?.('.lazy'))
+        )
+      );
+      if (!hasLazy) return;
+      window.lazyMutationObserver._pending = requestAnimationFrame(() => {
+        window.lazyMutationObserver._pending = null;
+        window.lazyLoadInstance?.update();
+      });
+    });
+    window.lazyMutationObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+</script>
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+
+
+<!-- optional -->
+
+
+
+<script defer src="/js/services.js?v=1.44.0"></script>
+<script>
+  // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
+  // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。
+  if (typeof window.stellar === 'undefined' || typeof window.stellar.initPlugin !== 'function') {
+    window.stellar = window.stellar || {};
+    window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+    window.stellar.initPlugin = function (fn, name, options) {
+      if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+        return utils.initPlugin(fn, name, options);
+      }
+      window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+    };
+    window.stellar._flushPlugins = function () {
+      var pending = window.stellar._pluginQueue.splice(0);
+      if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+      for (var i = 0; i < pending.length; i++) {
+        try {
+          utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+        } catch (e) {
+          console.error('[Stellar] 插件补注册失败:', e);
+        }
+      }
+    };
+  }
+</script>
+
+<script>window.addEventListener('DOMContentLoaded', function () { utils.js('/js/search/shortcut.js', { defer: true }); });</script><script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = Object.assign({}, ctx.search, {
+      path: `/search.json`,
+      local_search: {"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"},
+    });
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script>
+<script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    mode: `auto`,
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  // auto=按需：页面存在可弹窗图片才加载；global=全局：所有页面加载
+  const isGlobal = ctx.fancybox.mode === 'global';
+  // 评论区图片（artalk/twikoo/waline）显示较小，自动支持放大；
+  // 仅绑定各评论服务的评论内容区，编辑器、表情面板等非内容区图片不弹窗
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .tk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .wl-content img:not([atk-emoticon]):not([class*="emo"])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = isGlobal;
+  if (!needFancybox) {
+    needFancybox = document.querySelectorAll(selector).length !== 0;
+    if (!needFancybox) {
+      // 图片型评论系统容器：评论区图片小图需要 fancybox
+      const withFancybox = document.getElementsByClassName('with-fancybox');
+      if (withFancybox != undefined && withFancybox.length > 0) {
+        needFancybox = true;
+      }
+    }
+    if (!needFancybox) {
+      // 动态数据服务：memos 渲染的图片需要 fancybox
+      const memos = document.getElementsByClassName('ds-memos');
+      if (memos != undefined && memos.length > 0) {
+        needFancybox = true;
+      }
+    }
+  }
+  if (needFancybox) {
+    utils.css(`/css/plugins/fancybox.css?v=1.44.0`);
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      if (isGlobal) {
+        // 全局模式：正文所有非内联图片均可弹窗
+        selector += ', .md-text img:not(.inline):not([atk-emoticon])';
+      }
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`/css/plugins/swiper.css?v=1.44.0`);
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  }, 'swiper');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const codeElements = document.querySelectorAll('.code');
+    if (codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js', { defer: true }).then(() => {
+        if (typeof createCopyButtons === 'function') {
+          createCopyButtons(codeElements);
+        }
+      });
+    }
+  }, 'copycode');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-text-adaptive]'));
+    if (els.length === 0) return;
+    utils.js('/js/color.js').then(() => utils.js('/js/plugins/adaptive-text.js')).then(() => {
+      if (typeof applyAdaptiveText === 'function') {
+        applyAdaptiveText(els);
+      }
+    });
+  }, 'adaptive-text');
+</script>
+
+
+
+<!-- inject -->
+
+</div></body></html>
