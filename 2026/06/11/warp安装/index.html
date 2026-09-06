@@ -37,8 +37,8 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
@@ -302,12 +302,12 @@
   </div></div>
 <article class="md-text content"><h1 id="warp安装"><a href="#warp安装" class="headerlink" title="warp安装"></a>warp安装</h1><p>首先要使用<a target="_blank" rel="noopener" href="http://p3terx.com/">p3terx</a>编写的<a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC93YXJwLnNo">Cloudflare WARP 一键安装脚本</a></p>
 <p>通过warp可以让你的服务器走cloudflare的ip作为出口，不仅可以增加服务器的安全性，减少ip暴露，防止服务器IP被封锁，还能解锁一些流媒体的服务，不过由于滥用，wireguard获取warp接口比以前要困难许多了，如果你的机器地区未被影响，也可以尝试获取双栈接口，ipv4也套上</p>
-<h1 id="安装warp"><a href="#安装warp" class="headerlink" title="安装warp"></a>安装warp</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh) 6</span><br></pre></td></tr></table></figure>
+<h1 id="安装warp"><a href="#安装warp" class="headerlink" title="安装warp"></a>安装warp</h1><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh) 6</span><br></pre></td></tr></tbody></table></figure>
 
-<h1 id="自动配置-WARP-官方客户端-SOCKS5-代理"><a href="#自动配置-WARP-官方客户端-SOCKS5-代理" class="headerlink" title="自动配置 WARP 官方客户端 SOCKS5 代理"></a>自动配置 WARP 官方客户端 SOCKS5 代理</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh) s5</span><br></pre></td></tr></table></figure>
-<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh) uninstall</span><br></pre></td></tr></table></figure>
-<h1 id="配置分流"><a href="#配置分流" class="headerlink" title="配置分流"></a>配置分流</h1><p>通过指定标记分流实现指定目标走ipv6&#x2F;warp，普通流量走ipv4&#x2F;源服务器<br>xray</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#路由部分</span><br><span class="line">&#123; </span><br><span class="line">            &#123; // 网站分流流媒体等需要原生ip的网站走warp</span><br><span class="line">                &quot;domain&quot;: [</span><br><span class="line">                    &quot;geosite:google&quot;,</span><br><span class="line">                    &quot;geosite:netflix&quot;,</span><br><span class="line">                    &quot;geosite:openai&quot;</span><br><span class="line">                ],</span><br><span class="line">                &quot;outboundTag&quot;: &quot;WARP_out&quot;,</span><br><span class="line">                &quot;type&quot;: &quot;field&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123; // IP 分流。指定 IP 走 ipv6</span><br><span class="line">                &quot;ip&quot;: [</span><br><span class="line">                    &quot;geoip:cn&quot;</span><br><span class="line">                ],</span><br><span class="line">                &quot;outboundTag&quot;: &quot;WARP_out&quot;,</span><br><span class="line">                &quot;type&quot;: &quot;field&quot;</span><br><span class="line">            &#125;</span><br><span class="line">#出站部分</span><br><span class="line">&#123;</span><br><span class="line">  &quot;tag&quot;: &quot;WARP_out&quot;,</span><br><span class="line">  &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">  &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;domainStrategy&quot;: &quot;UseIPv6&quot;//若双栈可选择使用UseIP</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="自动配置-WARP-官方客户端-SOCKS5-代理"><a href="#自动配置-WARP-官方客户端-SOCKS5-代理" class="headerlink" title="自动配置 WARP 官方客户端 SOCKS5 代理"></a>自动配置 WARP 官方客户端 SOCKS5 代理</h1><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh) s5</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh) uninstall</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="配置分流"><a href="#配置分流" class="headerlink" title="配置分流"></a>配置分流</h1><p>通过指定标记分流实现指定目标走ipv6/warp，普通流量走ipv4/源服务器<br>xray</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#路由部分</span><br><span class="line">{ </span><br><span class="line">            { // 网站分流流媒体等需要原生ip的网站走warp</span><br><span class="line">                "domain": [</span><br><span class="line">                    "geosite:google",</span><br><span class="line">                    "geosite:netflix",</span><br><span class="line">                    "geosite:openai"</span><br><span class="line">                ],</span><br><span class="line">                "outboundTag": "WARP_out",</span><br><span class="line">                "type": "field"</span><br><span class="line">            },</span><br><span class="line">            { // IP 分流。指定 IP 走 ipv6</span><br><span class="line">                "ip": [</span><br><span class="line">                    "geoip:cn"</span><br><span class="line">                ],</span><br><span class="line">                "outboundTag": "WARP_out",</span><br><span class="line">                "type": "field"</span><br><span class="line">            }</span><br><span class="line">#出站部分</span><br><span class="line">{</span><br><span class="line">  "tag": "WARP_out",</span><br><span class="line">  "protocol": "freedom",</span><br><span class="line">  "settings": {</span><br><span class="line">    "domainStrategy": "UseIPv6"//若双栈可选择使用UseIP</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 </article>
 
 
@@ -322,7 +322,7 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/06/12/%E5%A6%82%E4%BD%95%E5%A4%87%E4%BB%BDhexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81/">如何备份hexo博客源码</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/06/11/x-%E9%9D%A2%E6%9D%BF%E9%85%8D%E7%BD%AE%E8%8F%9C%E5%8D%95/">x-面板配置菜单</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/06/12/%E5%A6%82%E4%BD%95%E5%A4%87%E4%BB%BDhexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81/">如何备份hexo博客源码</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/06/11/warp%E9%9A%A7%E9%81%93%E5%87%BA%E7%8E%B0%E7%9A%84ip%E9%97%AE%E9%A2%98/">warp隧道出现的ip问题</a></div></section></div>
 
 
 
@@ -579,7 +579,7 @@
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -591,20 +591,20 @@
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -703,7 +703,7 @@
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。

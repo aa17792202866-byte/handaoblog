@@ -37,8 +37,8 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
@@ -305,7 +305,7 @@
 <h3 id="1-使用-ss-命令（推荐）"><a href="#1-使用-ss-命令（推荐）" class="headerlink" title="1. 使用 ss 命令（推荐）"></a>1. 使用 <code>ss</code> 命令（推荐）</h3><p><code>ss</code>（Socket Statistics）是现代 Linux 系统中推荐使用的工具，它非常快且完全取代了旧的 <code>netstat</code>。</p>
 <p>打开终端并输入以下命令：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -tunlp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -tunlp</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>参数解析：</strong></p>
 <ul>
@@ -323,18 +323,18 @@
 <hr>
 <h3 id="2-使用-netstat-命令（经典）"><a href="#2-使用-netstat-命令（经典）" class="headerlink" title="2. 使用 netstat 命令（经典）"></a>2. 使用 <code>netstat</code> 命令（经典）</h3><p>如果你的系统上没有 <code>ss</code>，或者你更习惯老派的做法，可以使用 <code>netstat</code>。如果系统提示找不到该命令，可以通过 <code>sudo apt install net-tools</code> 安装。</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunlp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunlp</span><br></pre></td></tr></tbody></table></figure>
 
 <p>参数含义与 <code>ss</code> 完全相同，输出格式也非常相似，可以清晰地看到本地地址、端口以及对应的程序。</p>
 <hr>
 <h3 id="3-使用-lsof-命令（查看特定或所有端口）"><a href="#3-使用-lsof-命令（查看特定或所有端口）" class="headerlink" title="3. 使用 lsof 命令（查看特定或所有端口）"></a>3. 使用 <code>lsof</code> 命令（查看特定或所有端口）</h3><p><code>lsof</code>（List Open Files）可以列出所有打开的文件和网络连接。用来查看端口也非常方便。</p>
 <p>查看<strong>所有</strong>正在监听的网络端口：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i -P -n | grep LISTEN</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i -P -n | grep LISTEN</span><br></pre></td></tr></tbody></table></figure>
 
 <p>如果你只想检查<strong>某一个特定端口</strong>（例如 80 端口）是否被占用，可以这样用：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i :80</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i :80</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>参数解析：</strong></p>
 <ul>
@@ -348,7 +348,7 @@
 <hr>
 <h3 id="快捷提示：如何关闭占用端口的程序？"><a href="#快捷提示：如何关闭占用端口的程序？" class="headerlink" title="快捷提示：如何关闭占用端口的程序？"></a>快捷提示：如何关闭占用端口的程序？</h3><p>如果你发现某个端口被无用程序占用了，想要释放它，可以先通过上述命令找到该进程的 <strong>PID</strong>（进程 ID），然后使用 <code>kill</code> 命令关闭它：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kill -9 &lt;PID&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kill -9 &lt;PID&gt;</span><br></pre></td></tr></tbody></table></figure>
 
 <p><em>（将 <code>&lt;PID&gt;</code> 替换为实际的数字，例如 <code>sudo kill -9 1234</code>）</em></p>
 </article>
@@ -622,7 +622,7 @@
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -634,20 +634,20 @@
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -746,7 +746,7 @@
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。

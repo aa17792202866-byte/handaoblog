@@ -39,8 +39,8 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
@@ -302,34 +302,34 @@
     
   </div>
   </div></div>
-<article class="md-text content"><h3 id="安装必须组件Node-js和Git"><a href="#安装必须组件Node-js和Git" class="headerlink" title="安装必须组件Node.js和Git"></a>安装必须组件Node.js和Git</h3><h3 id="新建一个github仓库：https-github-com-aa17792202866-byte-handaoblog2-git"><a href="#新建一个github仓库：https-github-com-aa17792202866-byte-handaoblog2-git" class="headerlink" title="新建一个github仓库：https://github.com/aa17792202866-byte/handaoblog2.git"></a>新建一个github仓库：<a target="_blank" rel="noopener" href="https://github.com/aa17792202866-byte/handaoblog2.git">https://github.com/aa17792202866-byte/handaoblog2.git</a></h3><h3 id="安装完成之后："><a href="#安装完成之后：" class="headerlink" title="安装完成之后："></a>安装完成之后：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli </span><br><span class="line">  </span><br><span class="line">hexo init blog  </span><br><span class="line">cd blog2 </span><br><span class="line">npm install  </span><br><span class="line"></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<article class="md-text content"><h3 id="安装必须组件Node-js和Git"><a href="#安装必须组件Node-js和Git" class="headerlink" title="安装必须组件Node.js和Git"></a>安装必须组件Node.js和Git</h3><h3 id="新建一个github仓库：https-github-com-aa17792202866-byte-handaoblog2-git"><a href="#新建一个github仓库：https-github-com-aa17792202866-byte-handaoblog2-git" class="headerlink" title="新建一个github仓库：https://github.com/aa17792202866-byte/handaoblog2.git"></a>新建一个github仓库：<a target="_blank" rel="noopener" href="https://github.com/aa17792202866-byte/handaoblog2.git">https://github.com/aa17792202866-byte/handaoblog2.git</a></h3><h3 id="安装完成之后："><a href="#安装完成之后：" class="headerlink" title="安装完成之后："></a>安装完成之后：</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli </span><br><span class="line">  </span><br><span class="line">hexo init blog  </span><br><span class="line">cd blog2 </span><br><span class="line">npm install  </span><br><span class="line"></span><br><span class="line">hexo server</span><br></pre></td></tr></tbody></table></figure>
 
-<h4 id="浏览器访问："><a href="#浏览器访问：" class="headerlink" title="浏览器访问："></a>浏览器访问：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000</span><br></pre></td></tr></table></figure>
+<h4 id="浏览器访问："><a href="#浏览器访问：" class="headerlink" title="浏览器访问："></a>浏览器访问：</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000</span><br></pre></td></tr></tbody></table></figure>
 <p>即可看到博客</p>
-<h3 id="给git配置本地v2rayn的代理："><a href="#给git配置本地v2rayn的代理：" class="headerlink" title="给git配置本地v2rayn的代理："></a>给git配置本地v2rayn的代理：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:10808</span><br><span class="line">git config --global https.proxy http://127.0.0.1:10808</span><br></pre></td></tr></table></figure>
+<h3 id="给git配置本地v2rayn的代理："><a href="#给git配置本地v2rayn的代理：" class="headerlink" title="给git配置本地v2rayn的代理："></a>给git配置本地v2rayn的代理：</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:10808</span><br><span class="line">git config --global https.proxy http://127.0.0.1:10808</span><br></pre></td></tr></tbody></table></figure>
 
 <p>测试是否代理成功：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ls-remote https://github.com/hexojs/hexo-starter.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ls-remote https://github.com/hexojs/hexo-starter.git</span><br></pre></td></tr></tbody></table></figure>
 <p>如果能返回一大堆 commit 哈希值，就成功了</p>
 <p>如果以后不需要Git代理：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="Hexo部署到Github-Pages"><a href="#Hexo部署到Github-Pages" class="headerlink" title="Hexo部署到Github Pages"></a>Hexo部署到Github Pages</h3><p>创建博客后安装部署插件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="修改blog2文件夹的-config-yml文件"><a href="#修改blog2文件夹的-config-yml文件" class="headerlink" title="修改blog2文件夹的_config.yml文件"></a>修改blog2文件夹的<code>_config.yml</code>文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/你的用户名/你的仓库名.git</span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure>
+<h3 id="修改blog2文件夹的-config-yml文件"><a href="#修改blog2文件夹的-config-yml文件" class="headerlink" title="修改blog2文件夹的_config.yml文件"></a>修改blog2文件夹的<code>_config.yml</code>文件</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/你的用户名/你的仓库名.git</span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></tbody></table></figure>
 
 
-<h4 id="如果终端连接不上Github，运行以下命令"><a href="#如果终端连接不上Github，运行以下命令" class="headerlink" title="如果终端连接不上Github，运行以下命令"></a>如果终端连接不上Github，运行以下命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:10808</span><br><span class="line">set https_proxy=http://127.0.0.1:10808</span><br></pre></td></tr></table></figure>
+<h4 id="如果终端连接不上Github，运行以下命令"><a href="#如果终端连接不上Github，运行以下命令" class="headerlink" title="如果终端连接不上Github，运行以下命令"></a>如果终端连接不上Github，运行以下命令</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:10808</span><br><span class="line">set https_proxy=http://127.0.0.1:10808</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="Git配置github的用户信息"><a href="#Git配置github的用户信息" class="headerlink" title="Git配置github的用户信息"></a>Git配置github的用户信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub邮箱&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="Git配置github的用户信息"><a href="#Git配置github的用户信息" class="headerlink" title="Git配置github的用户信息"></a>Git配置github的用户信息</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "你的GitHub用户名"</span><br><span class="line">git config --global user.email "你的GitHub邮箱"</span><br></pre></td></tr></tbody></table></figure>
 <p>检查是否执行成功</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --list</span><br></pre></td></tr></tbody></table></figure>
 <p>应该能看到</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user.name=你的GitHub用户名</span><br><span class="line">user.email=xxxx@example.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user.name=你的GitHub用户名</span><br><span class="line">user.email=xxxx@example.com</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="修改-config-yml文件里的url为pages页面的连接"><a href="#修改-config-yml文件里的url为pages页面的连接" class="headerlink" title="修改_config.yml文件里的url为pages页面的连接"></a>修改_config.yml文件里的url为pages页面的连接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://aa17792202866-byte.github.io/handaoblog2  #handaoblog2后面不能有&#x27;/&#x27;</span><br><span class="line">root: /handaoblog2/</span><br></pre></td></tr></table></figure>
-<h3 id="部署："><a href="#部署：" class="headerlink" title="部署："></a>部署：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="修改-config-yml文件里的url为pages页面的连接"><a href="#修改-config-yml文件里的url为pages页面的连接" class="headerlink" title="修改_config.yml文件里的url为pages页面的连接"></a>修改_config.yml文件里的url为pages页面的连接</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://aa17792202866-byte.github.io/handaoblog2  #handaoblog2后面不能有'/'</span><br><span class="line">root: /handaoblog2/</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="部署："><a href="#部署：" class="headerlink" title="部署："></a>部署：</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="如果想要用自己的域名绑定博客"><a href="#如果想要用自己的域名绑定博客" class="headerlink" title="如果想要用自己的域名绑定博客"></a>如果想要用自己的域名绑定博客</h3><ol>
 <li><p>在你的域名管理商修改CNAME记录，主机记录改为@,记录值为自己的github用户名称加上github.io，例如：aa17792202866-byte.github.io</p>
@@ -339,11 +339,11 @@
 <li>打开你电脑上的 Hexo 博客根目录，进入 <strong><code>source</code></strong> 文件夹（如果没有就新建一个）。</li>
 <li>在 <code>source</code> 文件夹内，新建一个没有任何后缀的纯文本文件，命名为 **<code>CNAME</code>**（必须全大写，没有任何扩展名，如 <code>.txt</code>）。</li>
 <li>用记事本或 VS Code 打开这个 <code>CNAME</code> 文件，在里面<strong>只写上你的独立域名</strong>，不要加任何前缀或斜杠。例如：<a target="_blank" rel="noopener" href="http://www.yourdomain.com/">www.yourdomain.com</a></li>
-<li>保存文件，像往常一样发布博客 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g </span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>保存文件，像往常一样发布博客 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g </span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 </li>
 <li><p>修改 Hexo 的 <code>_config.yml</code> 路径<br> 因为你换了新域名，别忘了把我们上一步改过的根目录 <code>_config.yml</code> 文件内的 <code>url</code> 和 <code>root</code> 重新修正过来：</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">url: https://www.yourdomain.com</span><br><span class="line">root: /</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">url: https://www.yourdomain.com</span><br><span class="line">root: /</span><br></pre></td></tr></tbody></table></figure>
 <p> <strong>注意：</strong> 因为绑定独立域名后，你的博客就不再是 GitHub 的二级子目录了，它变成了顶级网站。所以 <code>root</code> 必须重新改回 <code>/</code></p>
 </li>
 </ol>
@@ -361,7 +361,7 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/06/11/warp%E9%9A%A7%E9%81%93%E5%87%BA%E7%8E%B0%E7%9A%84ip%E9%97%AE%E9%A2%98/">warp隧道出现的ip问题</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/06/11/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">如何配置反向代理</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/06/11/x-%E9%9D%A2%E6%9D%BF%E9%85%8D%E7%BD%AE%E8%8F%9C%E5%8D%95/">x-面板配置菜单</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/06/11/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">如何配置反向代理</a></div></section></div>
 
 
 
@@ -618,7 +618,7 @@
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -630,20 +630,20 @@
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -742,7 +742,7 @@
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。

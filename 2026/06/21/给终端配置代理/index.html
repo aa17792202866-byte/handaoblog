@@ -19,12 +19,12 @@
   <meta name="theme-color" content="#f9fafb">
   <title>给终端配置代理 - Hexo</title>
 
-  <meta name="description" content="在powershell中运行这个命令1notepad $PROFILE 粘贴以下内容，端口换成你自己的1234567891011121314function proxy &#123;    $env:HTTP_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:10809&quot;    $env:HTTPS_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:10809&quot;">
+  <meta name="description" content="在powershell中运行这个命令1notepad $PROFILE 粘贴以下内容，端口换成你自己的1234567891011121314function proxy {    $env:HTTP_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:10809&quot;    $env:HTTPS_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:10809&quot;    Write-Host &quot;代理已启用&quot; -F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给终端配置代理">
 <meta property="og:url" content="https://hexo.hanruixuan.com/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在powershell中运行这个命令1notepad $PROFILE 粘贴以下内容，端口换成你自己的1234567891011121314function proxy &#123;    $env:HTTP_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:10809&quot;    $env:HTTPS_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:10809&quot;">
+<meta property="og:description" content="在powershell中运行这个命令1notepad $PROFILE 粘贴以下内容，端口换成你自己的1234567891011121314function proxy {    $env:HTTP_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:10809&quot;    $env:HTTPS_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:10809&quot;    Write-Host &quot;代理已启用&quot; -F">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-06-21T01:55:50.000Z">
 <meta property="article:modified_time" content="2026-06-28T17:00:36.798Z">
@@ -37,15 +37,15 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-06-21T09:55:50+08:00","dateModified":"2026-06-29T01:00:36+08:00","datePublished":"2026-06-21T09:55:50+08:00","description":"在powershell中运行这个命令1notepad $PROFILE\n粘贴以下内容，端口换成你自己的1234567891011121314function proxy &#123;    $env:HTTP_PROXY=&quot;http://127.0.0.1:10809&quot;    $env:HTTPS_PROXY=&quot;http://127.0.0.1:10809&qu...","headline":"给终端配置代理","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-06-21T09:55:50+08:00","dateModified":"2026-06-29T01:00:36+08:00","datePublished":"2026-06-21T09:55:50+08:00","description":"在powershell中运行这个命令1notepad $PROFILE\n粘贴以下内容，端口换成你自己的1234567891011121314function proxy {    $env:HTTP_PROXY=\"http://127.0.0.1:10809\"    $env:HTTPS_PROXY=\"http://127.0.0.1:10809\"    Write-Host \"代理已启用\"...","headline":"给终端配置代理","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -300,9 +300,9 @@
     
   </div>
   </div></div>
-<article class="md-text content"><h1 id="在powershell中运行这个命令"><a href="#在powershell中运行这个命令" class="headerlink" title="在powershell中运行这个命令"></a>在powershell中运行这个命令</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad $PROFILE</span><br></pre></td></tr></table></figure>
-<h1 id="粘贴以下内容，端口换成你自己的"><a href="#粘贴以下内容，端口换成你自己的" class="headerlink" title="粘贴以下内容，端口换成你自己的"></a>粘贴以下内容，端口换成你自己的</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function proxy &#123;</span><br><span class="line">    $env:HTTP_PROXY=&quot;http://127.0.0.1:10809&quot;</span><br><span class="line">    $env:HTTPS_PROXY=&quot;http://127.0.0.1:10809&quot;</span><br><span class="line">    Write-Host &quot;代理已启用&quot; -ForegroundColor Green</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function unproxy &#123;</span><br><span class="line">    Remove-Item env:HTTP_PROXY</span><br><span class="line">    Remove-Item env:HTTPS_PROXY</span><br><span class="line">    Write-Host &quot;代理已禁用&quot; -ForegroundColor Red</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 如果你想【每次打开终端都默认开启】代理，把下面这一行的注释(#)删掉：</span><br><span class="line">#proxy</span><br></pre></td></tr></table></figure>
-<h1 id="测试ip地址是否被代理"><a href="#测试ip地址是否被代理" class="headerlink" title="测试ip地址是否被代理"></a>测试ip地址是否被代理</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl.exe https://api.ipify.org</span><br></pre></td></tr></table></figure></article>
+<article class="md-text content"><h1 id="在powershell中运行这个命令"><a href="#在powershell中运行这个命令" class="headerlink" title="在powershell中运行这个命令"></a>在powershell中运行这个命令</h1><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad $PROFILE</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="粘贴以下内容，端口换成你自己的"><a href="#粘贴以下内容，端口换成你自己的" class="headerlink" title="粘贴以下内容，端口换成你自己的"></a>粘贴以下内容，端口换成你自己的</h1><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function proxy {</span><br><span class="line">    $env:HTTP_PROXY="http://127.0.0.1:10809"</span><br><span class="line">    $env:HTTPS_PROXY="http://127.0.0.1:10809"</span><br><span class="line">    Write-Host "代理已启用" -ForegroundColor Green</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function unproxy {</span><br><span class="line">    Remove-Item env:HTTP_PROXY</span><br><span class="line">    Remove-Item env:HTTPS_PROXY</span><br><span class="line">    Write-Host "代理已禁用" -ForegroundColor Red</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"># 如果你想【每次打开终端都默认开启】代理，把下面这一行的注释(#)删掉：</span><br><span class="line">#proxy</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="测试ip地址是否被代理"><a href="#测试ip地址是否被代理" class="headerlink" title="测试ip地址是否被代理"></a>测试ip地址是否被代理</h1><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl.exe https://api.ipify.org</span><br></pre></td></tr></tbody></table></figure></article>
 
 
 
@@ -573,7 +573,7 @@
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -585,20 +585,20 @@
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -697,7 +697,7 @@
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。

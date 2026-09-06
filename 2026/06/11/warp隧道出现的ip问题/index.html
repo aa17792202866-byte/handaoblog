@@ -37,8 +37,8 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
@@ -301,27 +301,27 @@
   </div>
   </div></div>
 <article class="md-text content"><h1 id="如何切换warp的IP"><a href="#如何切换warp的IP" class="headerlink" title="如何切换warp的IP"></a>如何切换warp的IP</h1><h2 id="尝试断开连接后再次恢复连接（发现并没有什么用处）"><a href="#尝试断开连接后再次恢复连接（发现并没有什么用处）" class="headerlink" title="尝试断开连接后再次恢复连接（发现并没有什么用处）"></a>尝试断开连接后再次恢复连接（发现并没有什么用处）</h2><ol>
-<li>停止旧连接： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wg-quick down wgcf</span><br><span class="line"> ```  </span><br><span class="line">   </span><br><span class="line">2. 启动新连接：</span><br></pre></td></tr></table></figure>
-wg-quick up wgcf<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 检查warp的ip</span><br></pre></td></tr></table></figure>
-curl -s <a target="_blank" rel="noopener" href="https://www.cloudflare.com/cdn-cgi/trace">https://www.cloudflare.com/cdn-cgi/trace</a> | grep ip<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 执行上一步后 ip 没有任何变化，所以删除之前的配置文件，然后重新安装warp，发现ip还是没有换</span><br><span class="line">4. 删除旧的配置文件</span><br></pre></td></tr></table></figure>
-rm &#x2F;etc&#x2F;wireguard&#x2F;wgcf.conf<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5. 检查当前服务器真实ip出口</span><br></pre></td></tr></table></figure>
-curl ipinfo.io<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">由于我使用的是 `warp.sh` 脚本，它生成的配置存储在 `/etc/wireguard/wgcf.conf`。要换 IP，最有效的方法是**删除旧配置并重新注册**：</span><br><span class="line">所以执行如下指令</span><br></pre></td></tr></table></figure>
-bash &lt;(curl -fsSL git.io&#x2F;warp.sh) 4<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	在运行过程中，脚本会发现配置丢失，从而触发 **wgcf 重新注册（Register）**。这会向 Cloudflare 申请一个新的 Device ID，通常这样分配到的 IP 更有可能是新的。但是实际执行下来发现还是没有改变ip</span><br><span class="line"></span><br><span class="line">6. 如果运行之前的`curl ipinfo.io`检测不到ip的话，**这意味着：** 由于 WARP 的出口 IP 是共享的，在同一时间可能有成千上万的人在使用同一个 Cloudflare IP 访问 `ipinfo.io`，导致该网站暂时封锁了来自这个 IP 的查询请求。或者也可以使用下面这两个查询ip。</span><br></pre></td></tr></table></figure>
-curl -s <a target="_blank" rel="noopener" href="https://ifconfig.me/">https://ifconfig.me</a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">curl -s https://api.ip.sb/ip</span><br></pre></td></tr></table></figure></li>
+<li>停止旧连接： <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wg-quick down wgcf</span><br><span class="line"> ```  </span><br><span class="line">   </span><br><span class="line">2. 启动新连接：</span><br></pre></td></tr></tbody></table></figure>
+wg-quick up wgcf<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 检查warp的ip</span><br></pre></td></tr></tbody></table></figure>
+curl -s <a target="_blank" rel="noopener" href="https://www.cloudflare.com/cdn-cgi/trace">https://www.cloudflare.com/cdn-cgi/trace</a> | grep ip<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 执行上一步后 ip 没有任何变化，所以删除之前的配置文件，然后重新安装warp，发现ip还是没有换</span><br><span class="line">4. 删除旧的配置文件</span><br></pre></td></tr></tbody></table></figure>
+rm /etc/wireguard/wgcf.conf<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5. 检查当前服务器真实ip出口</span><br></pre></td></tr></tbody></table></figure>
+curl ipinfo.io<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">由于我使用的是 `warp.sh` 脚本，它生成的配置存储在 `/etc/wireguard/wgcf.conf`。要换 IP，最有效的方法是**删除旧配置并重新注册**：</span><br><span class="line">所以执行如下指令</span><br></pre></td></tr></tbody></table></figure>
+bash &lt;(curl -fsSL git.io/warp.sh) 4<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	在运行过程中，脚本会发现配置丢失，从而触发 **wgcf 重新注册（Register）**。这会向 Cloudflare 申请一个新的 Device ID，通常这样分配到的 IP 更有可能是新的。但是实际执行下来发现还是没有改变ip</span><br><span class="line"></span><br><span class="line">6. 如果运行之前的`curl ipinfo.io`检测不到ip的话，**这意味着：** 由于 WARP 的出口 IP 是共享的，在同一时间可能有成千上万的人在使用同一个 Cloudflare IP 访问 `ipinfo.io`，导致该网站暂时封锁了来自这个 IP 的查询请求。或者也可以使用下面这两个查询ip。</span><br></pre></td></tr></tbody></table></figure>
+curl -s <a target="_blank" rel="noopener" href="https://ifconfig.me/">https://ifconfig.me</a><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">curl -s https://api.ip.sb/ip</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 <h2 id="上述方法没有改变warp的ip，选择采用ipv6模式尝试是否能正确访问grok"><a href="#上述方法没有改变warp的ip，选择采用ipv6模式尝试是否能正确访问grok" class="headerlink" title="上述方法没有改变warp的ip，选择采用ipv6模式尝试是否能正确访问grok"></a>上述方法没有改变warp的ip，选择采用ipv6模式尝试是否能正确访问grok</h2><h3 id="第一步：恢复网络（先连上网）"><a href="#第一步：恢复网络（先连上网）" class="headerlink" title="第一步：恢复网络（先连上网）"></a>第一步：恢复网络（先连上网）</h3><p>我们需要把刚才改错的配置删掉，让脚本重新生成一个默认能用的。</p>
 <ol>
 <li><strong>停止 WARP：</strong></li>
 </ol>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wg-quick down wgcf</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wg-quick down wgcf</span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="2">
 <li><strong>删除那个“坏掉”的配置文件：</strong></li>
 </ol>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /etc/wireguard/wgcf.conf</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /etc/wireguard/wgcf.conf</span><br></pre></td></tr></tbody></table></figure>
 <ol start="3">
-<li>运行这个命令彻底删除warp<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh)</span><br></pre></td></tr></table></figure></li>
-<li>自动配置 WARP WireGuard IPv6 网络（IPv6 出站流量走 WARP 网络）|<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh) 6</span><br></pre></td></tr></table></figure></li>
+<li>运行这个命令彻底删除warp<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh)</span><br></pre></td></tr></tbody></table></figure></li>
+<li>自动配置 WARP WireGuard IPv6 网络（IPv6 出站流量走 WARP 网络）|<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL git.io/warp.sh) 6</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 </article>
 
@@ -337,7 +337,7 @@ curl -s <a target="_blank" rel="noopener" href="https://ifconfig.me/">https://if
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/06/11/x-%E9%9D%A2%E6%9D%BF%E9%85%8D%E7%BD%AE%E8%8F%9C%E5%8D%95/">x-面板配置菜单</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/06/11/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2/">如何搭建一个hexo博客</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/06/11/warp%E5%AE%89%E8%A3%85/">warp安装</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/06/11/x-%E9%9D%A2%E6%9D%BF%E9%85%8D%E7%BD%AE%E8%8F%9C%E5%8D%95/">x-面板配置菜单</a></div></section></div>
 
 
 
@@ -594,7 +594,7 @@ curl -s <a target="_blank" rel="noopener" href="https://ifconfig.me/">https://if
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -606,20 +606,20 @@ curl -s <a target="_blank" rel="noopener" href="https://ifconfig.me/">https://if
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -718,7 +718,7 @@ curl -s <a target="_blank" rel="noopener" href="https://ifconfig.me/">https://if
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。

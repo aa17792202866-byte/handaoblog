@@ -37,8 +37,8 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
@@ -305,13 +305,13 @@
 <hr>
 <h3 id="第一步：安装-Nginx"><a href="#第一步：安装-Nginx" class="headerlink" title="第一步：安装 Nginx"></a>第一步：安装 Nginx</h3><p>首先，确保你的服务器上安装了 Nginx：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install nginx -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install nginx -y</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="第二步：配置-Nginx-反向代理"><a href="#第二步：配置-Nginx-反向代理" class="headerlink" title="第二步：配置 Nginx 反向代理"></a>第二步：配置 Nginx 反向代理</h3><p>你需要创建一个新的 Nginx 配置文件。假设你的域名是 <code>panel.yourdomain.com</code>。</p>
 <ol>
 <li><p><strong>创建配置文件：</strong></p>
 <p> Bash</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/3xui</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/3xui</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>粘贴以下配置内容：</strong></p>
 <blockquote>
@@ -320,7 +320,7 @@
 </li>
 </ol>
 <p>Nginx</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name panel.yourdomain.com;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://127.0.0.1:8080; # 3X-UI 的默认端口</span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">            </span><br><span class="line">            # 支持 WebSocket (3X-UI 实时更新需要)</span><br><span class="line">            proxy_http_version 1.1;</span><br><span class="line">            proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">            proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ```</span><br><span class="line">3.  **启用配置并重启 Nginx：**</span><br><span class="line">    ```bash</span><br><span class="line">    sudo ln -s /etc/nginx/sites-available/3xui /etc/nginx/sites-enabled/</span><br><span class="line">    sudo nginx -t  # 检查语法是否正确</span><br><span class="line">    sudo systemctl restart nginx</span><br><span class="line">    ```</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 第三步：配置 3X-UI 面板</span><br><span class="line">为了让反向代理工作更顺畅，建议进入 3X-UI 面板设置：</span><br><span class="line">1.  **设置 Web 根路径 (Base Path)**：如果你想通过 `域名/myadmin` 访问，可以在面板设置里加上根路径。如果是直接域名访问，保持 `/` 即可。</span><br><span class="line">2.  **监听 IP**：建议将面板的监听 IP 从 `0.0.0.0` 改为 `127.0.0.1`。这样面板就只能通过 Nginx 访问，外部无法直接通过 `IP:端口` 访问，安全性更高。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 第四步：申请 SSL 证书（可选但强烈建议）</span><br><span class="line">既然已经用了域名，一定要上 HTTPS。可以使用 Certbot 免费申请：</span><br><span class="line">```bash</span><br><span class="line">sudo apt install certbot python3-certbot-nginx -y</span><br><span class="line">sudo certbot --nginx -d panel.yourdomain.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">    server {</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name panel.yourdomain.com;</span><br><span class="line"></span><br><span class="line">        location / {</span><br><span class="line">            proxy_pass http://127.0.0.1:8080; # 3X-UI 的默认端口</span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">            </span><br><span class="line">            # 支持 WebSocket (3X-UI 实时更新需要)</span><br><span class="line">            proxy_http_version 1.1;</span><br><span class="line">            proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">            proxy_set_header Connection "upgrade";</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    ```</span><br><span class="line">3.  **启用配置并重启 Nginx：**</span><br><span class="line">    ```bash</span><br><span class="line">    sudo ln -s /etc/nginx/sites-available/3xui /etc/nginx/sites-enabled/</span><br><span class="line">    sudo nginx -t  # 检查语法是否正确</span><br><span class="line">    sudo systemctl restart nginx</span><br><span class="line">    ```</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 第三步：配置 3X-UI 面板</span><br><span class="line">为了让反向代理工作更顺畅，建议进入 3X-UI 面板设置：</span><br><span class="line">1.  **设置 Web 根路径 (Base Path)**：如果你想通过 `域名/myadmin` 访问，可以在面板设置里加上根路径。如果是直接域名访问，保持 `/` 即可。</span><br><span class="line">2.  **监听 IP**：建议将面板的监听 IP 从 `0.0.0.0` 改为 `127.0.0.1`。这样面板就只能通过 Nginx 访问，外部无法直接通过 `IP:端口` 访问，安全性更高。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 第四步：申请 SSL 证书（可选但强烈建议）</span><br><span class="line">既然已经用了域名，一定要上 HTTPS。可以使用 Certbot 免费申请：</span><br><span class="line">```bash</span><br><span class="line">sudo apt install certbot python3-certbot-nginx -y</span><br><span class="line">sudo certbot --nginx -d panel.yourdomain.com</span><br></pre></td></tr></tbody></table></figure>
 
 <p>按照提示操作，Certbot 会自动帮你修改 Nginx 配置并开启 HTTPS。</p>
 <hr>
@@ -604,7 +604,7 @@
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -616,20 +616,20 @@
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -728,7 +728,7 @@
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。

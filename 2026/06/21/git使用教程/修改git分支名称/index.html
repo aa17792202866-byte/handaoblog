@@ -37,8 +37,8 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
@@ -303,16 +303,16 @@
 <article class="md-text content"><p>将 Git 默认上传或初始化的分支从 <code>master</code> 改为 <code>main</code> 非常简单。根据你的实际需求，可以分为以下几种场景来处理：</p>
 <h3 id="1-修改本地全局默认分支（一劳永逸）"><a href="#1-修改本地全局默认分支（一劳永逸）" class="headerlink" title="1. 修改本地全局默认分支（一劳永逸）"></a>1. 修改本地全局默认分支（一劳永逸）</h3><p>如果你希望以后每次执行 <code>git init</code> 初始化新项目时，默认的分支名都是 <code>main</code>，可以运行以下命令：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global init.defaultBranch main</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global init.defaultBranch main</span><br></pre></td></tr></tbody></table></figure>
 
 <p><em>注：此操作只对以后新建立的仓库生效，不会影响现有的仓库。</em></p>
 <h3 id="2-将当前已有仓库的-master-重命名为-main"><a href="#2-将当前已有仓库的-master-重命名为-main" class="headerlink" title="2. 将当前已有仓库的 master 重命名为 main"></a>2. 将当前已有仓库的 <code>master</code> 重命名为 <code>main</code></h3><p>如果你当前的项目已经是 <code>master</code> 分支，想把它换成 <code>main</code>，请按以下步骤操作：</p>
 <h4 id="步骤一：在本地重命名分支"><a href="#步骤一：在本地重命名分支" class="headerlink" title="步骤一：在本地重命名分支"></a>步骤一：在本地重命名分支</h4><p>如果当前正处于 <code>master</code> 分支，直接运行：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m master main</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m master main</span><br></pre></td></tr></tbody></table></figure>
 
-<h4 id="步骤二：将新分支推送到远程仓库（如-GitHub-Gitee）"><a href="#步骤二：将新分支推送到远程仓库（如-GitHub-Gitee）" class="headerlink" title="步骤二：将新分支推送到远程仓库（如 GitHub&#x2F;Gitee）"></a>步骤二：将新分支推送到远程仓库（如 GitHub&#x2F;Gitee）</h4><p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<h4 id="步骤二：将新分支推送到远程仓库（如-GitHub-Gitee）"><a href="#步骤二：将新分支推送到远程仓库（如-GitHub-Gitee）" class="headerlink" title="步骤二：将新分支推送到远程仓库（如 GitHub/Gitee）"></a>步骤二：将新分支推送到远程仓库（如 GitHub/Gitee）</h4><p>Bash</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></tbody></table></figure>
 
 <h4 id="步骤三：修改远程仓库的默认分支（关键）"><a href="#步骤三：修改远程仓库的默认分支（关键）" class="headerlink" title="步骤三：修改远程仓库的默认分支（关键）"></a>步骤三：修改远程仓库的默认分支（关键）</h4><p>仅仅推过去是不够的，你还需要去你的代码托管平台（以 GitHub 为例）调整设置，否则直接 <code>git push</code> 依然可能会报错：</p>
 <ol>
@@ -325,11 +325,11 @@
 </ol>
 <h4 id="步骤四：删除远程的-master-分支（可选）"><a href="#步骤四：删除远程的-master-分支（可选）" class="headerlink" title="步骤四：删除远程的 master 分支（可选）"></a>步骤四：删除远程的 <code>master</code> 分支（可选）</h4><p>当默认分支切换好后，你可以安全地删除远程的旧分支了：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete master</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="3-如果是刚建好的本地新仓库"><a href="#3-如果是刚建好的本地新仓库" class="headerlink" title="3. 如果是刚建好的本地新仓库"></a>3. 如果是刚建好的本地新仓库</h3><p>如果你刚写完代码，执行了 <code>git init</code>，还没有进行任何推送：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line"></span><br><span class="line"># 1. 在本地直接新建并切换到 main 分支</span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line"># 2. 关联远程仓库并推送</span><br><span class="line">git remote add origin &lt;你的远程仓库地址&gt;</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m "first commit"</span><br><span class="line"></span><br><span class="line"># 1. 在本地直接新建并切换到 main 分支</span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line"># 2. 关联远程仓库并推送</span><br><span class="line">git remote add origin &lt;你的远程仓库地址&gt;</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这里的 <code>-M</code> 参数强制将当前分支重命名为 <code>main</code>，随后通过 <code>-u</code>（<code>--set-upstream</code>）参数绑定，以后你只需要简单地输入 <code>git push</code>，Git 就会默认上传到 <code>main</code> 分支了。</p>
 </article>
@@ -603,7 +603,7 @@
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -615,20 +615,20 @@
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -727,7 +727,7 @@
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。

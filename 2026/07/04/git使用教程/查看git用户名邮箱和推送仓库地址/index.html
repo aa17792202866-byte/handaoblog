@@ -37,8 +37,8 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
@@ -305,32 +305,32 @@
 <ul>
 <li><p><strong>查看当前项目生效的配置（推荐）：</strong></p>
 <p>  Bash</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>查看全局（所有项目默认）的配置：</strong></p>
 <p>  Bash</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>一键查看所有配置列表（包含用户名、邮箱和其他设置）：</strong></p>
 <p>  Bash</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
-<h3 id="2-查看推送（Push）和下载（Fetch-Pull）的远程仓库"><a href="#2-查看推送（Push）和下载（Fetch-Pull）的远程仓库" class="headerlink" title="2. 查看推送（Push）和下载（Fetch&#x2F;Pull）的远程仓库"></a>2. 查看推送（Push）和下载（Fetch&#x2F;Pull）的远程仓库</h3><p>你需要在<strong>项目根目录</strong>下运行以下命令：</p>
+<h3 id="2-查看推送（Push）和下载（Fetch-Pull）的远程仓库"><a href="#2-查看推送（Push）和下载（Fetch-Pull）的远程仓库" class="headerlink" title="2. 查看推送（Push）和下载（Fetch/Pull）的远程仓库"></a>2. 查看推送（Push）和下载（Fetch/Pull）的远程仓库</h3><p>你需要在<strong>项目根目录</strong>下运行以下命令：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>运行后的输出示例：</strong></p>
 <p>Plaintext</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  https://github.com/username/repo.git (fetch)</span><br><span class="line">origin  https://github.com/username/repo.git (push)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  https://github.com/username/repo.git (fetch)</span><br><span class="line">origin  https://github.com/username/repo.git (push)</span><br></pre></td></tr></tbody></table></figure>
 
 <blockquote>
 <p>💡 <strong>如何解读输出结果？</strong></p>
 <ul>
 <li><p><code>origin</code>：这是远程仓库在本地的<strong>别名</strong>（Git 默认叫 origin）。</p>
 </li>
-<li><p><code>(fetch)</code>：后面对应的 URL 是你<strong>下载&#x2F;拉取</strong>代码的仓库地址。</p>
+<li><p><code>(fetch)</code>：后面对应的 URL 是你<strong>下载/拉取</strong>代码的仓库地址。</p>
 </li>
-<li><p><code>(push)</code>：后面对应的 URL 是你<strong>推送&#x2F;上传</strong>代码的仓库地址。</p>
+<li><p><code>(push)</code>：后面对应的 URL 是你<strong>推送/上传</strong>代码的仓库地址。</p>
 </li>
 <li><p><em>注意：通常这两个地址是一样的，但在某些特殊工作流（如 Fork 开源项目）中，它们可能会指向不同的仓库。</em></p>
 </li>
@@ -338,7 +338,7 @@
 </blockquote>
 <h3 id="3-查看更详细的仓库分支对应关系"><a href="#3-查看更详细的仓库分支对应关系" class="headerlink" title="3. 查看更详细的仓库分支对应关系"></a>3. 查看更详细的仓库分支对应关系</h3><p>如果你不仅想看仓库地址，还想看本地分支正在和远程的哪个分支进行同步，可以使用：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote show origin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote show origin</span><br></pre></td></tr></tbody></table></figure>
 
 <p><em>(注：如果你的远程仓库别名不是 origin，请将命令最后的 origin 替换为你的实际别名。)</em></p>
 <p>这个命令会清晰地显示出：</p>
@@ -621,7 +621,7 @@
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -633,20 +633,20 @@
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -745,7 +745,7 @@
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。

@@ -37,8 +37,8 @@
   <!-- feed -->
   
 
-  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
 
 
   
@@ -302,32 +302,32 @@
   </div></div>
 <article class="md-text content"><pre><code>启用站点（创建软链接）
 </code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /etc/nginx/sites-available/game.hanruixuan.com /etc/nginx/sites-enabled/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /etc/nginx/sites-available/game.hanruixuan.com /etc/nginx/sites-enabled/</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>禁用站点（删除软链接，不影响原文件）
 </code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo unlink /etc/nginx/sites-enabled/game.hanruixuan.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo unlink /etc/nginx/sites-enabled/game.hanruixuan.com</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>验证软链接是否创建成功
 </code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -la /etc/nginx/sites-enabled/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -la /etc/nginx/sites-enabled/</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>输出类似：
 </code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">game.hanruixuan.com -&gt; /etc/nginx/sites-available/game.hanruixuan.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">game.hanruixuan.com -&gt; /etc/nginx/sites-available/game.hanruixuan.com</span><br></pre></td></tr></tbody></table></figure>
 
-<p>在 Nginx 的这种标准目录结构中（常见于 Ubuntu&#x2F;Debian 系统），管理网站配置的最佳实践是：<strong>在 <code>sites-available</code> 中创建实际的配置文件，然后通过“软链接（Symbolic Link）”将其投射到 <code>sites-enabled</code> 中来启用它。</strong></p>
+<p>在 Nginx 的这种标准目录结构中（常见于 Ubuntu/Debian 系统），管理网站配置的最佳实践是：<strong>在 <code>sites-available</code> 中创建实际的配置文件，然后通过“软链接（Symbolic Link）”将其投射到 <code>sites-enabled</code> 中来启用它。</strong></p>
 <p>这样做的好处是，以后如果你想临时关闭某个网站，只需删除 <code>sites-enabled</code> 里的快捷方式即可，真实的配置文件还会安全地保留在 <code>sites-available</code> 中。</p>
 <p>以下是完整的操作步骤：</p>
 <h3 id="步骤-1：在-sites-available-中创建配置文件"><a href="#步骤-1：在-sites-available-中创建配置文件" class="headerlink" title="步骤 1：在 sites-available 中创建配置文件"></a>步骤 1：在 <code>sites-available</code> 中创建配置文件</h3><p>你可以直接在你截图中的图形化界面里操作，或者在 Linux 终端中运行以下命令。假设我们要创建一个名为 <code>my_blog</code> 的配置：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/my_blog</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/my_blog</span><br></pre></td></tr></tbody></table></figure>
 
 <p>在文件中写入你的 Nginx 配置（例如你的 Hexo 博客配置）：</p>
 <p>Nginx</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name yourdomain.com; # 换成你的域名或IP</span><br><span class="line"></span><br><span class="line">    root /var/www/hexo; # 换成你 Hexo 静态文件的实际存放路径</span><br><span class="line">    index index.html index.htm;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files $uri $uri/ =404;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name yourdomain.com; # 换成你的域名或IP</span><br><span class="line"></span><br><span class="line">    root /var/www/hexo; # 换成你 Hexo 静态文件的实际存放路径</span><br><span class="line">    index index.html index.htm;</span><br><span class="line"></span><br><span class="line">    location / {</span><br><span class="line">        try_files $uri $uri/ =404;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>保存并退出（如果用的是 <code>nano</code>，按 <code>Ctrl + O</code> 保存，<code>Ctrl + X</code> 退出）。</p>
 <h3 id="步骤-2：创建软链接以“启用”它"><a href="#步骤-2：创建软链接以“启用”它" class="headerlink" title="步骤 2：创建软链接以“启用”它"></a>步骤 2：创建软链接以“启用”它</h3><p>这是最关键的一步。我们需要在 <code>sites-enabled</code> 文件夹中创建一个指向刚才那个文件的软链接（相当于 Windows 的快捷方式）：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /etc/nginx/sites-available/my_blog /etc/nginx/sites-enabled/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /etc/nginx/sites-available/my_blog /etc/nginx/sites-enabled/</span><br></pre></td></tr></tbody></table></figure>
 
 <blockquote>
 <p><strong>⚠️ 注意：</strong> 建立软链接时，<strong>强烈建议使用绝对路径</strong>（即以 <code>/etc/...</code> 开头），使用相对路径很容易导致 Nginx 找不到文件。</p>
@@ -337,18 +337,18 @@
 <ol>
 <li><p><strong>测试配置：</strong></p>
 <p> Bash</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -t</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -t</span><br></pre></td></tr></tbody></table></figure>
 <p> 如果看到 <code>syntax is ok</code> 和 <code>test is successful</code>，说明配置没问题。</p>
 </li>
 <li><p><strong>重启 Nginx 让配置生效：</strong></p>
 <p> Bash</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></tbody></table></figure>
 <p> <em>(或者使用 <code>sudo systemctl reload nginx</code> 进行无缝重载)</em></p>
 </li>
 </ol>
 <h3 id="💡-进阶：如何禁用该网站？"><a href="#💡-进阶：如何禁用该网站？" class="headerlink" title="💡 进阶：如何禁用该网站？"></a>💡 进阶：如何禁用该网站？</h3><p>如果以后你不想运行这个网站了，直接删除 <code>sites-enabled</code> 里的软链接即可，无需删除源文件：</p>
 <p>Bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /etc/nginx/sites-enabled/my_blog</span><br><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure></article>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /etc/nginx/sites-enabled/my_blog</span><br><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></tbody></table></figure></article>
 
 
 
@@ -619,7 +619,7 @@
     var s = document.createElement('script');
     // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
     // （图片懒加载 / 脚本延迟优化器）误改写
-    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
     s.async = false;
     s.onerror = function () {
       console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
@@ -631,20 +631,20 @@
 
 
 <!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
-<script src="/js/utils.js?v=1.44.0"></script>
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
 <script>
   // 解析期检测 utils 是否已就绪；未就绪时同步补载，
   // 保证「utils 先于页尾插件片段定义」的不变量。
   if (typeof utils === 'undefined') {
-    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
   }
 </script>
-<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
 <!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
-<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
-<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
-<script src="/js/main.js?v=1.44.0" defer></script>
-<script defer src="/js/theme.js?v=1.44.0"></script>
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
 
 
 
@@ -743,7 +743,7 @@
 
 
 
-<script defer src="/js/services.js?v=1.44.0"></script>
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
 <script>
   // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
   // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。
