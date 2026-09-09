@@ -17,20 +17,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>match-case 结构 - Hexo</title>
+  <title>python中数据类型转换有哪些函数 - Hexo</title>
 
-  <meta name="description" content="在 Python 中，数据类型转换（也称为类型铸造 &#x2F; Type Casting）主要分为显式类型转换（使用内置转换函数）和**[[隐式转换|隐式类型转换]]**（Python 自动进行）。 常见的类型转换函数Python 提供了丰富的内置函数用于不同类型之间的转换： 1. 基础标量类型转换   函数 说明 示例    int(x) 将 $x$ 转换为整数 int(&quot;123&quot;) $\rightar">
+  <meta name="description" content="在 Python 中，数据类型转换（也称为类型铸造 &#x2F; Type Casting）主要分为显式类型转换（使用内置转换函数）和隐式类型转换（Python 自动进行）。 常见的类型转换函数Python 提供了丰富的内置函数用于不同类型之间的转换： 1. 基础标量类型转换   函数 说明 示例    int(x) 将 x 转换为整数 int(&quot;123&quot;) → 123；int(3.99) → 3（截断小数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="match-case 结构">
+<meta property="og:title" content="python中数据类型转换有哪些函数">
 <meta property="og:url" content="https://hexo.hanruixuan.com/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在 Python 中，数据类型转换（也称为类型铸造 &#x2F; Type Casting）主要分为显式类型转换（使用内置转换函数）和**[[隐式转换|隐式类型转换]]**（Python 自动进行）。 常见的类型转换函数Python 提供了丰富的内置函数用于不同类型之间的转换： 1. 基础标量类型转换   函数 说明 示例    int(x) 将 $x$ 转换为整数 int(&quot;123&quot;) $\rightar">
+<meta property="og:description" content="在 Python 中，数据类型转换（也称为类型铸造 &#x2F; Type Casting）主要分为显式类型转换（使用内置转换函数）和隐式类型转换（Python 自动进行）。 常见的类型转换函数Python 提供了丰富的内置函数用于不同类型之间的转换： 1. 基础标量类型转换   函数 说明 示例    int(x) 将 x 转换为整数 int(&quot;123&quot;) → 123；int(3.99) → 3（截断小数">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-09-09T10:48:04.000Z">
-<meta property="article:modified_time" content="2026-09-09T11:06:32.048Z">
+<meta property="article:modified_time" content="2026-09-09T16:22:13.687Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="match-case 结构">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="python中数据类型转换有哪些函数">
   
   
   <meta name="keywords" content="python">
@@ -46,7 +46,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-09T18:48:04+08:00","dateModified":"2026-09-09T19:06:32+08:00","datePublished":"2026-09-09T18:48:04+08:00","description":"在 Python 中，数据类型转换（也称为类型铸造 / Type Casting）主要分为显式类型转换（使用内置转换函数）和**[[隐式转换|隐式类型转换]]**（Python 自动进行）。\n常见的类型转换函数Python 提供了丰富的内置函数用于不同类型之间的转换：\n1. 基础标量类型转换\n\n\n函数\n说明\n示例\n\n\n\nint(x)\n将 $x$ 转换为整数\nint(\"123\") $\\righ...","headline":"match-case 结构","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/","keywords":"python","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-09T18:48:04+08:00","dateModified":"2026-09-10T00:22:13+08:00","datePublished":"2026-09-09T18:48:04+08:00","description":"在 Python 中，数据类型转换（也称为类型铸造 / Type Casting）主要分为显式类型转换（使用内置转换函数）和隐式类型转换（Python 自动进行）。\n常见的类型转换函数Python 提供了丰富的内置函数用于不同类型之间的转换：\n1. 基础标量类型转换\n\n\n函数\n说明\n示例\n\n\n\nint(x)\n将 x 转换为整数\nint(\"123\") → 123；int(3.99) → 3（截...","headline":"python中数据类型转换有哪些函数","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/","keywords":"python","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -89,13 +89,31 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/" title="match-case 结构">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/" title="python中数据类型转换有哪些函数">
   
   
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">match-case 结构</span>
+      <span class="ui-collection__title">python中数据类型转换有哪些函数</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="隐式转换">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">隐式转换</span>
       
       
     </span>
@@ -132,24 +150,6 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">银行家舍入法</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="match-case 结构">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">match-case 结构</span>
       
       
     </span>
@@ -288,53 +288,48 @@
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a>
 </div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-09T10:48:04.000Z">2026-09-09</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-09T11:06:32.048Z">2026-09-09</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-09T10:48:04.000Z">2026-09-09</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-09T16:22:13.687Z">2026-09-10</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>match-case 结构</span></h1>
+        <h1 class="text title"><span>python中数据类型转换有哪些函数</span></h1>
         
       </div>
     </div>
     
   </div>
   </div></div>
-<article class="md-text content"><p>在 Python 中，数据类型转换（也称为类型铸造 / Type Casting）主要分为<strong>显式类型转换</strong>（使用内置转换函数）和**[[隐式转换|隐式类型转换]]**（Python 自动进行）。</p>
+<article class="md-text content"><p>在 Python 中，数据类型转换（也称为类型铸造 / Type Casting）主要分为<strong>显式类型转换</strong>（使用内置转换函数）和<strong>隐式类型转换</strong>（Python 自动进行）。</p>
 <h2 id="常见的类型转换函数"><a href="#常见的类型转换函数" class="headerlink" title="常见的类型转换函数"></a>常见的类型转换函数</h2><p>Python 提供了丰富的内置函数用于不同类型之间的转换：</p>
 <h3 id="1-基础标量类型转换"><a href="#1-基础标量类型转换" class="headerlink" title="1. 基础标量类型转换"></a>1. 基础标量类型转换</h3><div class="md-table-scroll"><table>
 <thead>
 <tr>
-<th><strong>函数</strong></th>
-<th><strong>说明</strong></th>
-<th><strong>示例</strong></th>
+<th>函数</th>
+<th>说明</th>
+<th>示例</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><code>int(x)</code></td>
-<td>将 $x$ 转换为整数</td>
-<td><code>int("123")</code> $\rightarrow$ <code>123</code><br><br>  <br>  <br><br><code>int(3.99)</code> $\rightarrow$ <code>3</code>（截断小数）</td>
+<td>将 <code>x</code> 转换为整数</td>
+<td><code>int("123")</code> → <code>123</code>；<code>int(3.99)</code> → <code>3</code>（截断小数）</td>
 </tr>
 <tr>
 <td><code>float(x)</code></td>
-<td>将 $x$ 转换为浮点数</td>
-<td><code>float("3.14")</code> $\rightarrow$ <code>3.14</code><br><br>  <br>  <br><br><code>float(5)</code> $\rightarrow$ <code>5.0</code></td>
+<td>将 <code>x</code> 转换为浮点数</td>
+<td><code>float("3.14")</code> → <code>3.14</code>；<code>float(5)</code> → <code>5.0</code></td>
 </tr>
 <tr>
 <td><code>str(x)</code></td>
-<td>将任意对象 $x$ 转换为字符串</td>
-<td><code>str(100)</code> $\rightarrow$ <code>"100"</code><br><br>  <br>  <br><br><code>str([1, 2])</code> $\rightarrow$ <code>"[1, 2]"</code></td>
+<td>将对象 <code>x</code> 转换为字符串</td>
+<td><code>str(100)</code> → <code>"100"</code>；<code>str([1, 2])</code> → <code>"[1, 2]"</code></td>
 </tr>
 <tr>
 <td><code>bool(x)</code></td>
-<td>将 $x$ 转换为布尔值 (<code>True</code>/<code>False</code>)</td>
-<td><code>bool(0)</code> $\rightarrow$ <code>False</code><br><br>  <br>  <br><br><code>bool("hello")</code> $\rightarrow$ <code>True</code></td>
-</tr>
-<tr>
-<td><code>complex(real, [imag])</code></td>
-<td>创建或转换为复数</td>
-<td><code>complex(3, 4)</code> $\rightarrow$ <code>(3+4j)</code></td>
+<td>将 <code>x</code> 转换为布尔值</td>
+<td><code>bool(0)</code> → <code>False</code>；<code>bool("hello")</code> → <code>True</code></td>
 </tr>
 </tbody></table></div>
 <h3 id="2-进制转换函数"><a href="#2-进制转换函数" class="headerlink" title="2. 进制转换函数"></a>2. 进制转换函数</h3><div class="md-table-scroll"><table>
@@ -454,7 +449,7 @@
 <li><p><strong>字典转换要求：</strong> <code>dict()</code> 转换的参数必须是<strong>双值子序列</strong>（如元组列表 <code>[(k1, v1), (k2, v2)]</code>）或使用关键字参数。</p>
 </li>
 </ul>
-<h3 id="5-隐式转换-隐式类型转换-（Implicit-Conversion）"><a href="#5-隐式转换-隐式类型转换-（Implicit-Conversion）" class="headerlink" title="5. [[隐式转换|隐式类型转换]]（Implicit Conversion）"></a>5. [[隐式转换|隐式类型转换]]（Implicit Conversion）</h3><p>Python 在进行混合类型运算时，会自动将较低精度的类型提升为较高精度的类型，以防止数据丢失：</p>
+<h3 id="5-隐式类型转换（Implicit-Conversion）"><a href="#5-隐式类型转换（Implicit-Conversion）" class="headerlink" title="5. 隐式类型转换（Implicit Conversion）"></a>5. <strong>隐式类型转换</strong>（Implicit Conversion）</h3><p>Python 在进行混合类型运算时，会自动将较低精度的类型提升为较高精度的类型，以防止数据丢失：</p>
 <p>Python</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = 10     # int</span><br><span class="line">b = 2.5    # float</span><br><span class="line">c = a + b  # c 自动变为 float (12.5)</span><br></pre></td></tr></tbody></table></figure></article>
 
@@ -491,7 +486,7 @@
       <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-text">常见的类型转换函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E6%A0%87%E9%87%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">1. 基础标量类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-text">2. 进制转换函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%B9%E5%99%A8-%E5%BA%8F%E5%88%97%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">3. 容器&#x2F;序列类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AD%97%E7%AC%A6%E4%B8%8E-ASCII-Unicode-%E7%A0%81%E5%80%BC%E8%BD%AC%E6%8D%A2"><span class="toc-text">4. 字符与 ASCII &#x2F; Unicode 码值转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">数据类型转换的注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%80%BC%E7%9A%84%E5%90%88%E6%B3%95%E6%80%A7%E4%B8%8E-ValueError"><span class="toc-text">1. 值的合法性与 ValueError</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98"><span class="toc-text">2. 精度丢失问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B8%83%E5%B0%94%E5%80%BC%EF%BC%88Truthy-Falsy%EF%BC%89%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="toc-text">3. 布尔值（Truthy &#x2F; Falsy）转换规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%B9%E5%99%A8%E8%BD%AC%E6%8D%A2%E6%98%AF%E7%9A%84%E2%80%9C%E9%9D%9E%E5%8E%9F%E4%BD%8D%E2%80%9D%E7%89%B9%E6%80%A7%E4%B8%8E%E5%8E%BB%E9%87%8D"><span class="toc-text">4. 容器转换是的“非原位”特性与去重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2-%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2-%EF%BC%88Implicit-Conversion%EF%BC%89"><span class="toc-text">5. [[隐式转换|隐式类型转换]]（Implicit Conversion）</span></a></li></ol></li></ol></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-text">常见的类型转换函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E6%A0%87%E9%87%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">1. 基础标量类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-text">2. 进制转换函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%B9%E5%99%A8-%E5%BA%8F%E5%88%97%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">3. 容器&#x2F;序列类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AD%97%E7%AC%A6%E4%B8%8E-ASCII-Unicode-%E7%A0%81%E5%80%BC%E8%BD%AC%E6%8D%A2"><span class="toc-text">4. 字符与 ASCII &#x2F; Unicode 码值转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">数据类型转换的注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%80%BC%E7%9A%84%E5%90%88%E6%B3%95%E6%80%A7%E4%B8%8E-ValueError"><span class="toc-text">1. 值的合法性与 ValueError</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98"><span class="toc-text">2. 精度丢失问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B8%83%E5%B0%94%E5%80%BC%EF%BC%88Truthy-Falsy%EF%BC%89%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="toc-text">3. 布尔值（Truthy &#x2F; Falsy）转换规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%B9%E5%99%A8%E8%BD%AC%E6%8D%A2%E6%98%AF%E7%9A%84%E2%80%9C%E9%9D%9E%E5%8E%9F%E4%BD%8D%E2%80%9D%E7%89%B9%E6%80%A7%E4%B8%8E%E5%8E%BB%E9%87%8D"><span class="toc-text">4. 容器转换是的“非原位”特性与去重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%88Implicit-Conversion%EF%BC%89"><span class="toc-text">5. 隐式类型转换（Implicit Conversion）</span></a></li></ol></li></ol></div>
   <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>Scroll to Top</span></a></div>
 </widget>
 

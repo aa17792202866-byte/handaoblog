@@ -17,20 +17,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>match-case 结构 - Hexo</title>
+  <title>隐式转换 - Hexo</title>
 
   <meta name="description" content="隐式类型转换（Implicit Type Conversion），也叫自动类型转换（Automatic Type Conversion &#x2F; Coercion），是指在编程语言中，编译器或解释器在不需要程序员显式编写代码转换函数的情况下，自动将一种数据类型转换为另一种数据类型的机制。 它的核心目的是：在混合类型的运算或操作中，保证程序能够顺利运行，同时尽量防止数据精度丢失。 一、 隐式转换是如何发生">
 <meta property="og:type" content="article">
-<meta property="og:title" content="match-case 结构">
+<meta property="og:title" content="隐式转换">
 <meta property="og:url" content="https://hexo.hanruixuan.com/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="隐式类型转换（Implicit Type Conversion），也叫自动类型转换（Automatic Type Conversion &#x2F; Coercion），是指在编程语言中，编译器或解释器在不需要程序员显式编写代码转换函数的情况下，自动将一种数据类型转换为另一种数据类型的机制。 它的核心目的是：在混合类型的运算或操作中，保证程序能够顺利运行，同时尽量防止数据精度丢失。 一、 隐式转换是如何发生">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-09-09T10:53:04.000Z">
-<meta property="article:modified_time" content="2026-09-09T10:53:08.603Z">
+<meta property="article:modified_time" content="2026-09-09T16:12:58.368Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="match-case 结构">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="隐式转换">
   
   
   <meta name="keywords" content="python">
@@ -46,7 +46,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-09T18:53:04+08:00","dateModified":"2026-09-09T18:53:08+08:00","datePublished":"2026-09-09T18:53:04+08:00","description":"隐式类型转换（Implicit Type Conversion），也叫自动类型转换（Automatic Type Conversion / Coercion），是指在编程语言中，编译器或解释器在不需要程序员显式编写代码转换函数的情况下，自动将一种数据类型转换为另一种数据类型的机制。\n它的核心目的是：在混合类型的运算或操作中，保证程序能够顺利运行，同时尽量防止数据精度丢失。\n一、 隐式转换是如...","headline":"match-case 结构","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/","keywords":"python","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-09T18:53:04+08:00","dateModified":"2026-09-10T00:12:58+08:00","datePublished":"2026-09-09T18:53:04+08:00","description":"隐式类型转换（Implicit Type Conversion），也叫自动类型转换（Automatic Type Conversion / Coercion），是指在编程语言中，编译器或解释器在不需要程序员显式编写代码转换函数的情况下，自动将一种数据类型转换为另一种数据类型的机制。\n它的核心目的是：在混合类型的运算或操作中，保证程序能够顺利运行，同时尽量防止数据精度丢失。\n一、 隐式转换是如...","headline":"隐式转换","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/","keywords":"python","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -89,13 +89,31 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/" title="match-case 结构">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/" title="python中数据类型转换有哪些函数">
   
   
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">match-case 结构</span>
+      <span class="ui-collection__title">python中数据类型转换有哪些函数</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="隐式转换">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">隐式转换</span>
       
       
     </span>
@@ -132,24 +150,6 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">银行家舍入法</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="match-case 结构">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">match-case 结构</span>
       
       
     </span>
@@ -288,13 +288,13 @@
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a>
 </div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-09T10:53:04.000Z">2026-09-09</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-09T10:53:08.603Z">2026-09-09</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-09T10:53:04.000Z">2026-09-09</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-09T16:12:58.368Z">2026-09-10</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>match-case 结构</span></h1>
+        <h1 class="text title"><span>隐式转换</span></h1>
         
       </div>
     </div>
