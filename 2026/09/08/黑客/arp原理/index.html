@@ -17,23 +17,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>软件测试基础day2作业 - Hexo</title>
+  <title>arp原理 - Hexo</title>
 
-  <meta name="description" content="软件测试的阶段？      单元测试：单元测试又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试工作。单元测试需要从程序内部结构出发设计测试用例。多个模块可以平行地独立进行单元测试。     集成测试：集成测试又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的、递增的测试。     系统测试：系统测试指的是将整个软件系统整合为一个整体进行测试，测试的依据是软件需">
+  <meta name="description" content="ARP 攻击（ARP 欺骗&#x2F;投毒）的原理一、先理解 ARP 协议本身ARP（地址解析协议）工作在局域网二层，作用是把 IP 地址映射到 MAC 地址。基本流程：  A 要发包给 B，发现网关 IP 不在本机 ARP 缓存中 A 广播 ARP Request：”谁是 192.168.1.1？请告诉我你的 MAC” 网关收到后单播回复：”我是 192.168.1.1，我的 MAC 是 xx:xx” A">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件测试基础day2作业">
-<meta property="og:url" content="https://hexo.hanruixuan.com/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/">
+<meta property="og:title" content="arp原理">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2026/09/08/%E9%BB%91%E5%AE%A2/arp%E5%8E%9F%E7%90%86/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="软件测试的阶段？      单元测试：单元测试又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试工作。单元测试需要从程序内部结构出发设计测试用例。多个模块可以平行地独立进行单元测试。     集成测试：集成测试又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的、递增的测试。     系统测试：系统测试指的是将整个软件系统整合为一个整体进行测试，测试的依据是软件需">
+<meta property="og:description" content="ARP 攻击（ARP 欺骗&#x2F;投毒）的原理一、先理解 ARP 协议本身ARP（地址解析协议）工作在局域网二层，作用是把 IP 地址映射到 MAC 地址。基本流程：  A 要发包给 B，发现网关 IP 不在本机 ARP 缓存中 A 广播 ARP Request：”谁是 192.168.1.1？请告诉我你的 MAC” 网关收到后单播回复：”我是 192.168.1.1，我的 MAC 是 xx:xx” A">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2026-07-23T12:27:09.000Z">
-<meta property="article:modified_time" content="2026-07-24T17:42:20.991Z">
+<meta property="article:published_time" content="2026-09-07T18:33:28.000Z">
+<meta property="article:modified_time" content="2026-09-09T10:50:23.240Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="软测作业">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="软件测试基础day2作业">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="arp原理">
   
   
-  <meta name="keywords" content="软测作业">
+  
 
   <!-- feed -->
   
@@ -46,7 +45,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-07-23T20:27:09+08:00","dateModified":"2026-07-25T01:42:20+08:00","datePublished":"2026-07-23T20:27:09+08:00","description":"\n 软件测试的阶段？\n\n    单元测试：单元测试又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试工作。单元测试需要从程序内部结构出发设计测试用例。多个模块可以平行地独立进行单元测试。\n    集成测试：集成测试又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的、递增的测试。\n    系统测试：系统测试指的是将整个软件系统整合为一个整体进行测试，测试的依据是...","headline":"软件测试基础day2作业","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/","keywords":"软测作业","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-08T02:33:28+08:00","dateModified":"2026-09-09T18:50:23+08:00","datePublished":"2026-09-08T02:33:28+08:00","description":"ARP 攻击（ARP 欺骗/投毒）的原理一、先理解 ARP 协议本身ARP（地址解析协议）工作在局域网二层，作用是把 IP 地址映射到 MAC 地址。基本流程：\n\nA 要发包给 B，发现网关 IP 不在本机 ARP 缓存中\nA 广播 ARP Request：”谁是 192.168.1.1？请告诉我你的 MAC”\n网关收到后单播回复：”我是 192.168.1.1，我的 MAC 是 xx:xx...","headline":"arp原理","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/08/%E9%BB%91%E5%AE%A2/arp%E5%8E%9F%E7%90%86/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/08/%E9%BB%91%E5%AE%A2/arp%E5%8E%9F%E7%90%86/","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -89,7 +88,133 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/06/%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/" title="测试复习">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/" title="match-case 结构">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">match-case 结构</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="数据类型">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">数据类型</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/" title="银行家舍入法">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">银行家舍入法</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="match-case 结构">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">match-case 结构</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/08/%E9%BB%91%E5%AE%A2/arp/" title="arp">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">arp</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/08/%E9%BB%91%E5%AE%A2/arp%E5%8E%9F%E7%90%86/" title="arp原理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">arp原理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/match-case-%E7%BB%93%E6%9E%84/" title="match-case 结构">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">match-case 结构</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/06/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/" title="测试复习">
   
   
   
@@ -107,115 +232,7 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/28/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day4%E4%BD%9C%E4%B8%9A/" title="软件测试基础day4作业">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">软件测试基础day4作业</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/27/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="测试图片">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">测试图片</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/" title="一个新文件">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">一个新文件</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/08/04/linux/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95linux%E7%AC%94%E8%AE%B0/" title="软件测试linux笔记">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">软件测试linux笔记</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/08/07/linux/vi-and-vim/" title="vi and vim">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">vi and vim</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/26/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day3%E4%BD%9C%E4%B8%9A/" title="软件测试基础day3作业">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">软件测试基础day3作业</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/" title="软件测试基础day2作业">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/" title="软件测试基础day2作业">
   
   
   
@@ -233,31 +250,13 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/" title="软件测试基础day1作业">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/26/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day3%E4%BD%9C%E4%B8%9A/" title="软件测试基础day3作业">
   
   
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">软件测试基础day1作业</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/24/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E8%AE%BF%E9%97%AE%E4%B8%A4%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/" title="如何配置双密钥访问两个github账户">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">如何配置双密钥访问两个github账户</span>
+      <span class="ui-collection__title">软件测试基础day3作业</span>
       
       
     </span>
@@ -288,203 +287,68 @@
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a>
 </div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-07-23T12:27:09.000Z">2026-07-23</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-07-24T17:42:20.991Z">2026-07-25</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-07T18:33:28.000Z">2026-09-08</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-09T10:50:23.240Z">2026-09-09</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>软件测试基础day2作业</span></h1>
+        <h1 class="text title"><span>arp原理</span></h1>
         
       </div>
     </div>
     
   </div>
   </div></div>
-<article class="md-text content"><ol start="6">
-<li> 软件测试的阶段？</li>
-</ol>
-<p>    单元测试：单元测试又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试工作。单元测试需要从程序内部结构出发设计测试用例。多个模块可以平行地独立进行单元测试。</p>
-<p>    集成测试：集成测试又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的、递增的测试。</p>
-<p>    系统测试：系统测试指的是将整个软件系统整合为一个整体进行测试，测试的依据是软件需求说明书</p>
-<p>    验收测试：单元测试、集成测试、系统测试是软件开发过程中在软件组织内部进行的测试阶段，在系统测试完成后，软件正式发布前一般都需要进行验收测试。验收测试通常有以下分类：</p>
-<p>    α（ALPHA)测试：</p>
-<p>    α测试是由用户在开发环境下进行的测试，也可以是开发机构内部的用户在模拟实际操作环境下进行的测试</p>
-<p>    α测试时，软件在一个自然设置状态下使用。开发者坐在用户旁，随时记下错误情况和使用中的问题。这是在受控制的环境下进行的测试</p>
-<p>    α测试的目的主要是评价软件产品的FLURPS（即功能、局域化、可用性、可靠性、性能和技术支持</p>
-<p>    β（BETA)测试：β测试是由软件的多个用户在一个或多个用户的实际使用环境下进行的测试</p>
-<p>    与α测试不同的是，β测试时开发者通常不在测试现场。因而，β测试是在开发者无法控制的环境下进行的软件现场应用</p>
-<p>    UAT（User Acceptance Test）测试：UAT测试即用户接受度测试。一般用于商业用户验收系统的可用性。</p>
-<p>    一般用于商业用户验证系统的可用性，通常情况由终端用户或利益相关方对被测试对象进行选择性功能验证。</p>
-<p>    也有可能根据法律法规、行业现行标准进行验收测试。</p>
-<ol start="7">
-<li> 描述单元、集成、系统测试的区别？ 测试方法不同：</li>
-</ol>
-<p>    单元测试属于白盒测试范畴<br>   <br>    集成测试属于灰盒测试范畴<br>   <br>    系统测试属于黑盒测试范畴</p>
-<p>   测试对象不同： 单元测试主要测试代码内部的数据结构、逻辑控制、异常处理等</p>
-<p>   集成测试主要测试模块之间的接口和接口数据传递关系，以及模块组合后的整体功能</p>
-<p>   系统测试主要测试整个系统相对于需求的符合度</p>
-<p>   判断标准不同： 单元测试判断标准是详细设计说明书</p>
-<p>   集成测试的判断标准是概要设计说明书</p>
-<p>   系统测试的判断标准是软件需求规格说明书</p>
-<ol start="8">
-<li> 描述α测试和β测试的区别？</li>
-</ol>
-<p>    α测试（Alpha测试）与 β测试（Beta测试）的主要区别在于<strong>测试人员的身份、运行环境以及侧重点</strong>。α测试是由开发组织内部的测试人员、开发人员及员工在<strong>受控的内部环境</strong>中进行的，主要采用黑盒与白盒相结合的方法，旨在尽早发现系统崩溃、核心功能失效等严重Bug，是产品发布前的首轮内部验收。而</p>
-<p>    </p>
-<p>    β 测试则是在 α测试通过后，将软件分发给<strong>外部真实的终端用户</strong>，在他们各自千差万别的<strong>真实生活和工作环境</strong>中进行。它完全依赖黑盒测试，核心目的不再是找深层技术Bug，而是通过用户的自由操作来检验产品的真实体验、易用性、兼容性以及在复杂网络下的表现，从而收集宝贵的外部反馈。简单来说，α测试是”关起门来自己查错”，而 β测试则是”把产品放到真实世界里接受大众检验”。</p>
-<ol start="10">
-<li><p> 软件测试的方法都有哪些？</p>
-<p>    黑盒测试、灰盒测试、白盒测试（按照是否关注内部逻辑划分）</p>
-<p>    黑盒测试：完全不考虑程序内部结构和代码实现，只通过输入与输出验证软件功能是否符合需求。</p>
-<p>    灰盒测试：介于黑盒与白盒之间，对程序内部结构和局部代码有一定了解，但主要基于整体逻辑和接口进行测试。</p>
-<p>    白盒测试：需要了解程序的内部结构、算法和代码逻辑，通过设计测试用例来检查代码分支、路径和状态。</p>
-<p>   静态测试和动态测试（按照是否运行被测对象划分）</p>
-<p>   静态测试：不运行代码，通过人工审查（如代码走查、评审）或使用静态分析工具检查代码、设计文档是否符合规范。</p>
-<p>   动态测试：通过实际运行程序，输入测试数据并观察输出结果来发现软件中的缺陷。</p>
-<p>   手工测试和自动化测试（按照执行方式不同划分）</p>
-<p>   手工测试：由测试人员一步步按照测试用例手动操作软件、观察结果并记录Bug，适合探索性测试和UI体验测试。</p>
-<p>   自动化测试：使用脚本或测试工具代替人工执行测试用例，适合回归测试、性能测试以及重复性高的任务。</p>
-</li>
-<li><p>黑盒、白盒、灰盒测试划分的依据？黑盒、白盒、灰盒测试的区别？</p>
-</li>
-</ol>
-<p>    划分的依据：黑盒、白盒、灰盒测试划分的主要依据是对程序内部结构和代码可见程度（或了解程度）的不同。</p>
-<p>    区别：</p>
-<p>    黑盒测试：完全不考虑程序的内部结构和代码实现，只关注软件的输入与输出，通过验证外部功能是否符合需求来发现缺陷。</p>
-<p>    白盒测试：完全了解程序的内部结构、算法和代码逻辑，通过设计测试用例来直接检查代码的分支、路径和内部状态是否正确。</p>
-<p>    灰盒测试：介于黑盒与白盒之间，测试人员对程序的内部结构和局部代码有一定程度的了解，但主要还是基于整体逻辑、结构和接口来进行测试。</p>
-<ol start="12">
-<li>静态测试、动态测试划分的依据？列举常见的静态测试都有哪些？</li>
-</ol>
-<p>    划分的依据：静态测试和动态测试划分的主要依据是程序是否需要实际运行。静态测试不需要执行程序，而动态测试必须通过运行程序来完成。</p>
-<p>常见的静态测试： 代码走查（Code</p>
-<p>Walkthrough）：由开发人员和评审人员组成小组，对代码进行逐行通读和检查，以发现逻辑错误和不规范之处。</p>
-<p>代码审查（Code Review &#x2F; Peer</p>
-<p>Review）：同行或资深开发人员对编写好的代码进行系统性检查，评估代码质量、可读性和规范性。</p>
-<p>静态代码分析（Static Code Analysis）：使用自动化工具（如</p>
-<p>SonarQube、ESLint</p>
-<p>等）扫描源代码，直接检测出潜在的语法错误、代码异味、安全漏洞以及违背编码规范的地方。</p>
-<p>文档评审（Documentation</p>
-<p>Review）：在编码前或编码阶段，对需求规格说明书、设计文档、架构设计图等进行人工评审，尽早在源头发现设计缺陷和逻辑矛盾。</p>
-<ol start="13">
-<li>人工和自动化测试划分的依据？你如何看待自动化测试？</li>
-</ol>
-<p>    划分的依据：手工测试和自动化测试划分的主要依据是测试执行的主体与方式。手工测试由人类测试人员亲自动手操作、观察并记录结果；而自动化测试则是借助软件工具或编写测试脚本，由机器自动执行测试用例并输出结果。</p>
-<p>如何看待自动化测试</p>
-<p>自动化测试在现代软件开发中扮演着不可或缺的角色，但它并非”万灵药”，需要理性看待其价值与局限性：</p>
-<p>它是效率的加速器（优势）：</p>
-<p>高效回归：在频繁迭代的敏捷开发中，每次修改代码后都需要进行大量的回归测试。自动化测试可以在极短时间内重复执行这些用例，极大地节省了人力成本。</p>
-<p>擅长高强度任务：对于性能测试、压力测试以及需要模拟海量并发数据的场景，手工测试几乎无法完成，必须依赖自动化工具。</p>
-<p>减少人为失误：脚本严格按照既定逻辑执行，避免了人工测试时因疲劳或疏忽导致的漏测。</p>
-<p>它并非全能的替代品（局限）：</p>
-<p>无法完全取代手工测试：探索性测试、UI界面的视觉美观度评估、用户体验（UX）的直观感受等，依然高度依赖人类的直觉和主观判断。</p>
-<p>初期投入成本高：编写和维护测试脚本需要消耗大量的时间和技术成本，如果需求频繁变更，脚本也需要不断重构，可能导致维护成本高于收益。</p>
-<p>不能发现全新的未知问题：自动化脚本只能验证”是否符合预设代码逻辑”，无法像具有创造性思维的手工测试人员那样去发掘意料之外的系统盲点。</p>
-<p>总结：自动化测试是手工测试的强力延伸而非完全替代。理想的测试策略是将两者有机结合——将高频、重复、固定的回归测试交由自动化完成，而将富有探索性、体验性的测试留给人工，从而达到最佳的质量保障效益。</p>
-<ol start="14">
-<li>描述什么是冒烟测试？什么是回归测试？回归测试的策略？</li>
-</ol>
-<p>    什么是冒烟测试：冒烟测试是在软件构建（Build）完成后、进行正式的全面测试之前执行的最基本、最核心的验证测试。</p>
-<p>它的目的类似于硬件工程中的”通电测试”，主要用来确认软件的主干流程和核心功能是否畅通，系统是否存在会导致无法进行后续测试的致命性崩溃或严重缺陷。如果冒烟测试不通过，版本会直接被打回。</p>
-<p>什么是回归测试：</p>
-<p>回归测试是指在软件发生修改（如修复了Bug、修改了代码、增加了新功能或进行了环境调整）之后，重新进行测试的行为。</p>
-<p>它的目的是确认这些代码修改没有引入新的缺陷，也没有破坏原有的、原本运行正常的功用。</p>
-<p>回归测试的策略：</p>
-<p>完全回归测试：执行所有的历史测试用例。这种方法覆盖面最广、最安全，但耗费的时间和人力成本极高，通常只适用于规模较小或生命周期初期的项目。</p>
-<p>选择性回归测试：根据代码修改的影响范围和风险评估，挑选出受影响的模块及核心功能对应的测试用例进行执行。这是最常用的策略，兼顾了效率与风险。</p>
-<p>基于风险的选择：优先测试高风险、高业务价值或修改频繁的区域。</p>
-<p>优先&#x2F;关键测试用例：挑选出能够覆盖核心业务路径的用例集（如冒烟测试用例或关键路径用例）优先执行。</p>
-<p>修改优先策略：重点测试那些近期发生过代码变动或修复过Bug的区域及其周边关联模块。</p>
-<ol start="15">
-<li>描述常见的测试类型？</li>
-</ol>
-<p>    功能测试：验证软件各项功能是否符合需求规格说明书，检查业务逻辑、表单提交和数据流转是否正确。</p>
-<p>性能测试：检查系统在各种条件下的响应速度、吞吐量和效率。</p>
-<p>负载测试：让系统在不同程度的负载（如不断增加用户数或并发数）下运行，观察系统性能变化，找出性能瓶颈。</p>
-<p>压力测试：在超负荷或极限状态下（如远超预期的并发或极少资源）运行系统，测试系统的崩溃点、极限承受能力以及恢复能力。</p>
-<p>容量测试：测试系统在指定的数据规模、存储容量或并发用户数上限下的运行表现。</p>
-<p>稳定性测试（也称可靠性&#x2F;长稳测试）：让系统在正常负载或一定压力下连续运行较长时间，检查系统是否会出现内存泄漏、性能下降或崩溃。</p>
-<p>安全性测试：检查系统防范漏洞、防止越权访问、抵抗恶意攻击及保护数据安全的能力。</p>
-<p>兼容性测试：验证软件在不同的操作系统、浏览器、硬件设备或网络环境下的表现是否一致。</p>
-<p>GUI测试（图形用户界面测试）：检查软件的界面布局、菜单、按钮、字体及交互视觉效果是否美观、规范且符合设计标准。</p>
-<p>可用性测试（易用性测试）：评估软件的操作是否直观、简单、符合用户习惯，用户上手和完成任务的难易程度。</p>
-<p>异常测试：模拟异常场景（如断网、断电、服务器宕机、非法输入等），验证系统的容错能力和错误处理机制是否完善。</p>
-<p>文档测试：检查软件相关的文档（如用户手册、安装指南、帮助文档、需求说明等）的准确性、完整性和易读性。</p>
-<p>安装与卸载测试：验证软件在不同平台上的安装、配置、升级以及干净卸载的过程是否顺利，是否有残留或报错。</p>
-<p>接口测试：测试模块与模块之间、系统与系统之间（如</p>
-<p>API、数据库接口）的数据传输、通信协议和交互是否正确。</p>
-<ol start="16">
-<li>写出以下场景的测试点（按照测试类型进行划分） 1)登录如何测试</li>
-</ol>
-<p>    2)抖音点赞功能如何测试 3)微信私发红包功能如何测试</p>
+<article class="md-text content"><h1 id="ARP-攻击（ARP-欺骗-投毒）的原理"><a href="#ARP-攻击（ARP-欺骗-投毒）的原理" class="headerlink" title="ARP 攻击（ARP 欺骗/投毒）的原理"></a>ARP 攻击（ARP 欺骗/投毒）的原理</h1><h2 id="一、先理解-ARP-协议本身"><a href="#一、先理解-ARP-协议本身" class="headerlink" title="一、先理解 ARP 协议本身"></a>一、先理解 ARP 协议本身</h2><p>ARP（地址解析协议）工作在局域网二层，作用是把 <strong>IP 地址映射到 MAC 地址</strong>。基本流程：</p>
 <ol>
-<li> 登录功能测试点 功能性 (Functional Suitability)</li>
+<li>A 要发包给 B，发现网关 IP 不在本机 ARP 缓存中</li>
+<li>A 广播 <code>ARP Request</code>：”谁是 192.168.1.1？请告诉我你的 MAC”</li>
+<li>网关收到后<strong>单播回复</strong>：”我是 192.168.1.1，我的 MAC 是 xx:xx”</li>
+<li>A 把这条映射存入本地 ARP 缓存表（有老化时间）</li>
 </ol>
-<p>正确输入：输入正确的用户名和密码（或手机号加验证码），验证是否能成功登录并跳转至主页。</p>
-<p>错误输入：输入错误的密码、不存在的用户名、格式错误（如邮箱&#x2F;手机号格式不符）的账号，检查系统是否给出明确的错误提示。</p>
-<p>边界与空值：用户名或密码为空、输入框含有非法字符或空格时，系统是否能进行有效拦截。</p>
-<p>状态验证：验证”记住密码”、”自动登录”以及”退出登录”后状态的清除与保存是否正常。</p>
-<p>性能效率 (Performance Efficiency)</p>
-<p>响应时间：测试提交登录请求后，服务器返回结果和页面跳转的速度是否在可接受范围内。</p>
-<p>并发登录：在高并发（如大量用户同时登录）情况下，系统的响应时间和吞吐量表现。</p>
-<p>兼容性 (Compatibility)</p>
-<p>跨平台&#x2F;设备：在不同的操作系统（iOS、Android、Windows、macOS）以及主流浏览器（Chrome、Safari、Edge等）上能否正常登录。</p>
-<p>易用性 (Usability)</p>
-<p>界面交互：输入框、登录按钮布局是否合理，密码是否支持明文&#x2F;密文切换查看，提示信息是否清晰易读。</p>
-<p>可靠性 (Reliability)</p>
-<p>异常恢复：在登录过程中突然断网或服务器宕机，系统是否能妥善处理并允许用户重新发起请求。</p>
-<p>安全性 (Security)</p>
-<p>密码保护：密码在传输和存储时是否经过加密处理（如 HTTPS、不可逆加密）。</p>
-<p>防暴力破解：测试连续输错密码多次后，系统是否会触发锁定账号、限制IP或弹出图形验证码机制。</p>
-<p>可维护性 (Maintainability)</p>
-<p>检查登录模块的日志记录是否规范，以便后续跟踪登录异常或安全审计。</p>
-<p>可移植性 (Portability)</p>
-<p>验证登录功能在迁移至不同运行环境（如云端不同区域服务器）时是否能顺利配置和部署。</p>
-<ol start="2">
-<li> 抖音点赞功能测试点 功能性 (Functional Suitability)</li>
-</ol>
-<p>基础交互：双击视频或点击点赞图标，图标是否高亮变红、点赞数是否实时加1；再次点击是否能成功取消点赞且数字减 1。</p>
-<p>数据持久化：点赞后刷新页面、退出App重新登录或更换设备，点赞状态和点赞总数是否保持一致。</p>
-<p>性能效率 (Performance Efficiency)</p>
-<p>响应延迟：在弱网环境下，用户触发点赞后图标变红及计数更新的反馈速度。</p>
-<p>高赞并发：热门视频在瞬间收到大量用户同时点赞时，服务器的数据处理与计数累加是否准确，有无丢包或延迟严重现象。</p>
-<p>兼容性 (Compatibility)</p>
-<p>不同屏幕尺寸、不同分辨率的手机及平板设备上，点赞按钮的触控区域和动画效果是否正常。</p>
-<p>易用性 (Usability)</p>
-<p>点赞图标的位置、大小是否符合用户单手操作习惯，点赞时的动效反馈是否流畅自然。</p>
-<p>可靠性 (Reliability)</p>
-<p>在网络不稳定的情况下频繁点击点赞&#x2F;取消点赞，系统状态是否会发生错乱（如点赞数与实际状态不符）。</p>
-<p>安全性 (Security)</p>
-<p>防止通过抓包工具恶意篡改点赞请求（如越权帮他人点赞或单账号异常刷赞）。</p>
-<p>可维护性 (Maintainability)</p>
-<p>点赞埋点数据是否准确发送，便于后续进行数据分析。</p>
-<p>可移植性 (Portability)</p>
-<p>点赞功能在不同操作系统（Android 与iOS）客户端上的逻辑和表现是否保持一致。</p>
-<ol start="3">
-<li> 微信私发红包功能测试点 功能性 (Functional Suitability)</li>
-</ol>
-<p>正常收发：输入合法金额（如 0.01元起）和祝福语，成功扣款并生成红包；接收方点击并成功拆开红包，金额正确存入零钱。</p>
-<p>边界值与限制：测试单笔红包金额上限、单日转账&#x2F;红包限额、零钱余额不足时的拦截提示。</p>
-<p>退款机制：普通红包在超过 24</p>
-<p>小时未被领取时，系统是否自动退款至发送方账户。</p>
-<p>性能效率 (Performance Efficiency)</p>
-<p>支付扣款及红包生成过程中的响应时间，确保高峰期（如除夕、节日）抢红包时高并发下的系统流畅度。</p>
-<p>兼容性 (Compatibility)</p>
-<p>不同微信版本、不同手机操作系统间收发红包时的界面渲染和金额对账是否兼容。</p>
-<p>易用性 (Usability)</p>
-<p>发红包的交互流程是否简便，输入金额、选择支付方式的引导是否清晰，避免用户误操作。</p>
-<p>可靠性 (Reliability)</p>
-<p>支付扣款成功但因网络中断导致红包未生成的极端场景下，系统的事务一致性与自动冲正&#x2F;退款机制是否可靠。</p>
-<p>安全性 (Security)</p>
-<p>支付环节的安全验证（如输入支付密码、面容&#x2F;指纹认证），防止资金被盗刷或金额在传输中被篡改。</p>
-<p>可维护性 (Maintainability)</p>
-<p>资金交易日志是否完整、准确且不可篡改，以便出现财务纠纷时进行对账和排查。</p>
-<p>可移植性 (Portability)</p>
-<p>红包核心支付逻辑在不同运行平台和底层支付网关切换时是否具备良好的适应能力。</p>
+<p><strong>协议层面的关键弱点：</strong></p>
+<ul>
+<li>ARP <strong>没有任何认证机制</strong>——回复不需要先收到请求，任何主机都可以主动发送”ARP 回复”（unsolicited / gratuitous ARP）</li>
+<li>缓存表是”后到覆盖先到”：新条目直接覆盖旧条目</li>
+<li>交换机不校验 ARP 内容是否合法</li>
+</ul>
+<h2 id="二、攻击原理"><a href="#二、攻击原理" class="headerlink" title="二、攻击原理"></a>二、攻击原理</h2><p>攻击者（假设 MAC 为 <code>AA:AA</code>，IP 为 192.168.1.66）想成为目标主机 T 和网关 G 之间的<strong>中间人</strong>，需要双向欺骗：</p>
+<p><strong>① 欺骗目标主机（让 T 的出向流量经过攻击者）</strong></p>
+<p>持续向局域网广播伪造回复：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"192.18.1.1（网关）的 MAC 是 AA:AA"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>T 收到后把缓存中”网关 → 真实网关MAC”这条覆盖掉。之后 T 发往外网的包全部发给攻击者。</p>
+<p><strong>② 欺骗网关（让 G 到 T 的回包也经过攻击者）</strong></p>
+<p>持续广播：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"192.168.1.50（目标T）的 MAC 是 AA:AA"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>G 收到后，发往 T 的包全部发给攻击者。</p>
+<p><strong>③ 透明转发</strong></p>
+<p>攻击者开启 IP 转发（Linux 下 <code>net.ipv4.ip_forward=1</code>），把两个方向的流量原样转发给对方。目标主机感觉网络完全正常，只是流量被”路过”了——此时可以嗅探明文数据、注入内容、做会话劫持等。</p>
+<p><strong>为什么必须持续发包？</strong> 因为 ARP 缓存有老化时间，且目标可能刷新缓存，所以脚本会每隔几秒重发伪造回复，维持污染状态。这就是所谓”ARP 攻击脚本”的核心逻辑：<strong>循环发送未经请求的伪造 ARP 回复</strong>。</p>
+<h2 id="三、为什么有效（一句话总结）"><a href="#三、为什么有效（一句话总结）" class="headerlink" title="三、为什么有效（一句话总结）"></a>三、为什么有效（一句话总结）</h2><blockquote>
+<p>ARP 协议假设”局域网内所有主机都是可信的”，回复无需验证来源，且缓存可被任意覆盖——于是攻击者只需不断广播假映射，就能把流量引向自己。</p>
+</blockquote>
+<h2 id="四、如何检测与防御"><a href="#四、如何检测与防御" class="headerlink" title="四、如何检测与防御"></a>四、如何检测与防御</h2><p><strong>检测：</strong></p>
+<ul>
+<li>同一 IP 对应多个不同 MAC（<code>arp -a</code> / <code>ip neigh show</code> 观察）</li>
+<li>用 Wireshark 抓包，看是否有大量未经请求的 ARP Reply</li>
+<li>工具：arpwatch、交换机日志、SIEM 告警</li>
+</ul>
+<p><strong>防御：</strong></p>
+<ul>
+<li><strong>DAI（Dynamic ARP Inspection）</strong>：交换机配合 DHCP Snooping 绑定表，丢弃非法 ARP 报文——企业网络最主流的方案</li>
+<li><strong>静态 ARP 绑定</strong>：关键主机/服务器手动配置 <code>arp -s</code> 静态映射</li>
+<li><strong>Port Security</strong>：限制端口允许学习的 MAC 数量</li>
+<li><strong>802.1X 端口认证</strong>：从准入层面控制</li>
+<li>对无法改造的二层广播域，至少做到<strong>分段缩小广播域</strong>，降低影响范围</li>
+</ul>
+<hr>
+<p>简单说：ARP 攻击本质上是”利用协议无认证的信任缺陷 + 缓存覆盖机制”做流量劫持，防御核心是<strong>在网络设备上验证 ARP 的真实性</strong>（DAI），而不是指望主机自己抵抗。</p>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E8%BD%AF%E6%B5%8B%E4%BD%9C%E4%B8%9A/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>软测作业</a></div>
+
 
 <div class="article-footer">
     <section id="license">
@@ -496,7 +360,7 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/07/26/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day3%E4%BD%9C%E4%B8%9A/">软件测试基础day3作业</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/">软件测试基础day1作业</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/09/09/python/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">数据类型</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/09/08/%E9%BB%91%E5%AE%A2/arp/">arp</a></div></section></div>
 
 
 
@@ -505,7 +369,24 @@
 
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"></aside><div class='float-panel'>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
+
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">On This Page</span>
+      <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link" href="#ARP-%E6%94%BB%E5%87%BB%EF%BC%88ARP-%E6%AC%BA%E9%AA%97-%E6%8A%95%E6%AF%92%EF%BC%89%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">ARP 攻击（ARP 欺骗&#x2F;投毒）的原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E7%90%86%E8%A7%A3-ARP-%E5%8D%8F%E8%AE%AE%E6%9C%AC%E8%BA%AB"><span class="toc-text">一、先理解 ARP 协议本身</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86"><span class="toc-text">二、攻击原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%95%88%EF%BC%88%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93%EF%BC%89"><span class="toc-text">三、为什么有效（一句话总结）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1"><span class="toc-text">四、如何检测与防御</span></a></li></ol></li></ol></div>
+  <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>Scroll to Top</span></a></div>
+</widget>
+
+
+</div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -518,7 +399,7 @@
 
 <script type="text/javascript">
   window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  window.canonical["param"] = {"permalink":"https://hexo.hanruixuan.com/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/","checklink":"/js/plugins/video.js"};
+  window.canonical["param"] = {"permalink":"https://hexo.hanruixuan.com/2026/09/08/%E9%BB%91%E5%AE%A2/arp%E5%8E%9F%E7%90%86/","checklink":"/js/plugins/video.js"};
   // Fix: Ensure page is at the correct top position on data load
   if (history.scrollRestoration) {
     history.scrollRestoration = 'auto';

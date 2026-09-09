@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>软件测试基础day2作业 - Hexo</title>
+
+  <meta name="description" content="软件测试的阶段？      单元测试：单元测试又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试工作。单元测试需要从程序内部结构出发设计测试用例。多个模块可以平行地独立进行单元测试。     集成测试：集成测试又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的、递增的测试。     系统测试：系统测试指的是将整个软件系统整合为一个整体进行测试，测试的依据是软件需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试基础day2作业">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="软件测试的阶段？      单元测试：单元测试又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试工作。单元测试需要从程序内部结构出发设计测试用例。多个模块可以平行地独立进行单元测试。     集成测试：集成测试又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的、递增的测试。     系统测试：系统测试指的是将整个软件系统整合为一个整体进行测试，测试的依据是软件需">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-07-23T12:27:09.000Z">
+<meta property="article:modified_time" content="2026-09-07T14:33:28.132Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="软测作业">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="软件测试基础day2作业">
+  
+  
+  <meta name="keywords" content="软测作业">
+
+  <!-- feed -->
+  
+
+  <link rel="preload" href="/css/main.css?v=1.44.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0-20260906">
+
+
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-07-23T20:27:09+08:00","dateModified":"2026-09-07T22:33:28+08:00","datePublished":"2026-07-23T20:27:09+08:00","description":"\n 软件测试的阶段？\n\n    单元测试：单元测试又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试工作。单元测试需要从程序内部结构出发设计测试用例。多个模块可以平行地独立进行单元测试。\n    集成测试：集成测试又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的、递增的测试。\n    系统测试：系统测试指的是将整个软件系统整合为一个整体进行测试，测试的依据是...","headline":"软件测试基础day2作业","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/","keywords":"软测作业","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  
+
+  <!-- icons.yml 驱动的 CSS 装饰图标 -->
+  
+  
+  <style>:root {
+  --icon-h3-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M17.75%2019a.75.75%200%200%201-1.32.488l-6-7a.75.75%200%200%201%200-.976l6-7A.75.75%200%200%201%2017.75%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M13.488%2019.57a.75.75%200%200%200%20.081-1.058L7.988%2012l5.581-6.512a.75.75%200%201%200-1.138-.976l-6%207a.75.75%200%200%200%200%20.976l6%207a.75.75%200%200%200%201.057.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-h3-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M6.25%2019a.75.75%200%200%200%201.32.488l6-7a.75.75%200%200%200%200-.976l-6-7A.75.75%200%200%200%206.25%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M10.512%2019.57a.75.75%200%200%201-.081-1.058L16.012%2012l-5.581-6.512a.75.75%200%201%201%201.139-.976l6%207a.75.75%200%200%201%200%20.976l-6%207a.75.75%200%200%201-1.058.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M3.691%206.292C5.094%204.771%207.217%204%2010%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%206.925%2010H10a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202H3a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789M20%2020h-6a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789C16.094%204.771%2018.217%204%2021%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%2017.925%2010H21a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M20.309%2017.708C22.196%2015.66%2022.006%2013.03%2022%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292m-11.007%200C11.19%2015.66%2010.999%2013.03%2010.993%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292%22%2F%3E%3C%2Fsvg%3E");
+  --icon-loading: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.67%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.33%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%220%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
+}</style>
+  
+</head>
+<body><div id="l_cover"></div><div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left leftbar-card" data-ui-surface="card"><div class="sidebg"></div><div class="leftbar-container">
+
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/"><div class="bg"></div><img no-lazy class="avatar" src="/images/dlam.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">Hexo</div></a></div></header>
+
+
+<div class="search-wrapper" id="search-wrapper"><div class="search-form" role="search"><label class="search-button" for="search-input" aria-hidden="true"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></label><input type="search" class="search-input" id="search-input" aria-label="Search" placeholder="Search"></div><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+<div class="widgets">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="leftbar-active-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+<div class="nav-area">
+
+
+</div>
+
+
+
+<widget class="widget-wrapper recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">Recent Update</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/" title="match-case 结构">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">match-case 结构</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="数据类型">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">数据类型</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/" title="银行家舍入法">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">银行家舍入法</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="match-case 结构">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">match-case 结构</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/08/%E9%BB%91%E5%AE%A2/arp/" title="arp">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">arp</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/08/%E9%BB%91%E5%AE%A2/arp%E5%8E%9F%E7%90%86/" title="arp原理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">arp原理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/match-case-%E7%BB%93%E6%9E%84/" title="match-case 结构">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">match-case 结构</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/06/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/" title="测试复习">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">测试复习</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/" title="软件测试基础day2作业">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件测试基础day2作业</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/26/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day3%E4%BD%9C%E4%B8%9A/" title="软件测试基础day3作业">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件测试基础day3作业</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div>
+
+</div></aside><div class="l_main" id="main" data-ui-surface="content">
+
+
+
+
+
+
+<div class="article-banner-wrap"><div class="article banner top">
+  <div class="content">
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-07-23T12:27:09.000Z">2026-07-23</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-07T14:33:28.132Z">2026-09-07</time></span></div>
+</div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>软件测试基础day2作业</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div></div>
+<article class="md-text content"><ol start="6">
+<li> 软件测试的阶段？</li>
+</ol>
+<p>    单元测试：单元测试又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试工作。单元测试需要从程序内部结构出发设计测试用例。多个模块可以平行地独立进行单元测试。</p>
+<p>    集成测试：集成测试又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的、递增的测试。</p>
+<p>    系统测试：系统测试指的是将整个软件系统整合为一个整体进行测试，测试的依据是软件需求说明书</p>
+<p>    验收测试：单元测试、集成测试、系统测试是软件开发过程中在软件组织内部进行的测试阶段，在系统测试完成后，软件正式发布前一般都需要进行验收测试。验收测试通常有以下分类：</p>
+<p>    α（ALPHA)测试：</p>
+<p>    α测试是由用户在开发环境下进行的测试，也可以是开发机构内部的用户在模拟实际操作环境下进行的测试</p>
+<p>    α测试时，软件在一个自然设置状态下使用。开发者坐在用户旁，随时记下错误情况和使用中的问题。这是在受控制的环境下进行的测试</p>
+<p>    α测试的目的主要是评价软件产品的FLURPS（即功能、局域化、可用性、可靠性、性能和技术支持</p>
+<p>    β（BETA)测试：β测试是由软件的多个用户在一个或多个用户的实际使用环境下进行的测试</p>
+<p>    与α测试不同的是，β测试时开发者通常不在测试现场。因而，β测试是在开发者无法控制的环境下进行的软件现场应用</p>
+<p>    UAT（User Acceptance Test）测试：UAT测试即用户接受度测试。一般用于商业用户验收系统的可用性。</p>
+<p>    一般用于商业用户验证系统的可用性，通常情况由终端用户或利益相关方对被测试对象进行选择性功能验证。</p>
+<p>    也有可能根据法律法规、行业现行标准进行验收测试。</p>
+<ol start="7">
+<li> 描述单元、集成、系统测试的区别？ 测试方法不同：</li>
+</ol>
+<p>    单元测试属于白盒测试范畴<br>   <br>    集成测试属于灰盒测试范畴<br>   <br>    系统测试属于黑盒测试范畴</p>
+<p>   测试对象不同： 单元测试主要测试代码内部的数据结构、逻辑控制、异常处理等</p>
+<p>   集成测试主要测试模块之间的接口和接口数据传递关系，以及模块组合后的整体功能</p>
+<p>   系统测试主要测试整个系统相对于需求的符合度</p>
+<p>   判断标准不同： 单元测试判断标准是详细设计说明书</p>
+<p>   集成测试的判断标准是概要设计说明书</p>
+<p>   系统测试的判断标准是软件需求规格说明书</p>
+<ol start="8">
+<li> 描述α测试和β测试的区别？</li>
+</ol>
+<p>    α测试（Alpha测试）与 β测试（Beta测试）的主要区别在于<strong>测试人员的身份、运行环境以及侧重点</strong>。α测试是由开发组织内部的测试人员、开发人员及员工在<strong>受控的内部环境</strong>中进行的，主要采用黑盒与白盒相结合的方法，旨在尽早发现系统崩溃、核心功能失效等严重Bug，是产品发布前的首轮内部验收。而</p>
+<p>    </p>
+<p>    β 测试则是在 α测试通过后，将软件分发给<strong>外部真实的终端用户</strong>，在他们各自千差万别的<strong>真实生活和工作环境</strong>中进行。它完全依赖黑盒测试，核心目的不再是找深层技术Bug，而是通过用户的自由操作来检验产品的真实体验、易用性、兼容性以及在复杂网络下的表现，从而收集宝贵的外部反馈。简单来说，α测试是”关起门来自己查错”，而 β测试则是”把产品放到真实世界里接受大众检验”。</p>
+<ol start="10">
+<li><p> 软件测试的方法都有哪些？</p>
+<p>    黑盒测试、灰盒测试、白盒测试（按照是否关注内部逻辑划分）</p>
+<p>    黑盒测试：完全不考虑程序内部结构和代码实现，只通过输入与输出验证软件功能是否符合需求。</p>
+<p>    灰盒测试：介于黑盒与白盒之间，对程序内部结构和局部代码有一定了解，但主要基于整体逻辑和接口进行测试。</p>
+<p>    白盒测试：需要了解程序的内部结构、算法和代码逻辑，通过设计测试用例来检查代码分支、路径和状态。</p>
+<p>   静态测试和动态测试（按照是否运行被测对象划分）</p>
+<p>   静态测试：不运行代码，通过人工审查（如代码走查、评审）或使用静态分析工具检查代码、设计文档是否符合规范。</p>
+<p>   动态测试：通过实际运行程序，输入测试数据并观察输出结果来发现软件中的缺陷。</p>
+<p>   手工测试和自动化测试（按照执行方式不同划分）</p>
+<p>   手工测试：由测试人员一步步按照测试用例手动操作软件、观察结果并记录Bug，适合探索性测试和UI体验测试。</p>
+<p>   自动化测试：使用脚本或测试工具代替人工执行测试用例，适合回归测试、性能测试以及重复性高的任务。</p>
+</li>
+<li><p>黑盒、白盒、灰盒测试划分的依据？黑盒、白盒、灰盒测试的区别？</p>
+</li>
+</ol>
+<p>    划分的依据：黑盒、白盒、灰盒测试划分的主要依据是对程序内部结构和代码可见程度（或了解程度）的不同。</p>
+<p>    区别：</p>
+<p>    黑盒测试：完全不考虑程序的内部结构和代码实现，只关注软件的输入与输出，通过验证外部功能是否符合需求来发现缺陷。</p>
+<p>    白盒测试：完全了解程序的内部结构、算法和代码逻辑，通过设计测试用例来直接检查代码的分支、路径和内部状态是否正确。</p>
+<p>    灰盒测试：介于黑盒与白盒之间，测试人员对程序的内部结构和局部代码有一定程度的了解，但主要还是基于整体逻辑、结构和接口来进行测试。</p>
+<ol start="12">
+<li>静态测试、动态测试划分的依据？列举常见的静态测试都有哪些？</li>
+</ol>
+<p>    划分的依据：静态测试和动态测试划分的主要依据是程序是否需要实际运行。静态测试不需要执行程序，而动态测试必须通过运行程序来完成。</p>
+<p>常见的静态测试： 代码走查（Code</p>
+<p>Walkthrough）：由开发人员和评审人员组成小组，对代码进行逐行通读和检查，以发现逻辑错误和不规范之处。</p>
+<p>代码审查（Code Review &#x2F; Peer</p>
+<p>Review）：同行或资深开发人员对编写好的代码进行系统性检查，评估代码质量、可读性和规范性。</p>
+<p>静态代码分析（Static Code Analysis）：使用自动化工具（如</p>
+<p>SonarQube、ESLint</p>
+<p>等）扫描源代码，直接检测出潜在的语法错误、代码异味、安全漏洞以及违背编码规范的地方。</p>
+<p>文档评审（Documentation</p>
+<p>Review）：在编码前或编码阶段，对需求规格说明书、设计文档、架构设计图等进行人工评审，尽早在源头发现设计缺陷和逻辑矛盾。</p>
+<ol start="13">
+<li>人工和自动化测试划分的依据？你如何看待自动化测试？</li>
+</ol>
+<p>    划分的依据：手工测试和自动化测试划分的主要依据是测试执行的主体与方式。手工测试由人类测试人员亲自动手操作、观察并记录结果；而自动化测试则是借助软件工具或编写测试脚本，由机器自动执行测试用例并输出结果。</p>
+<p>如何看待自动化测试</p>
+<p>自动化测试在现代软件开发中扮演着不可或缺的角色，但它并非”万灵药”，需要理性看待其价值与局限性：</p>
+<p>它是效率的加速器（优势）：</p>
+<p>高效回归：在频繁迭代的敏捷开发中，每次修改代码后都需要进行大量的回归测试。自动化测试可以在极短时间内重复执行这些用例，极大地节省了人力成本。</p>
+<p>擅长高强度任务：对于性能测试、压力测试以及需要模拟海量并发数据的场景，手工测试几乎无法完成，必须依赖自动化工具。</p>
+<p>减少人为失误：脚本严格按照既定逻辑执行，避免了人工测试时因疲劳或疏忽导致的漏测。</p>
+<p>它并非全能的替代品（局限）：</p>
+<p>无法完全取代手工测试：探索性测试、UI界面的视觉美观度评估、用户体验（UX）的直观感受等，依然高度依赖人类的直觉和主观判断。</p>
+<p>初期投入成本高：编写和维护测试脚本需要消耗大量的时间和技术成本，如果需求频繁变更，脚本也需要不断重构，可能导致维护成本高于收益。</p>
+<p>不能发现全新的未知问题：自动化脚本只能验证”是否符合预设代码逻辑”，无法像具有创造性思维的手工测试人员那样去发掘意料之外的系统盲点。</p>
+<p>总结：自动化测试是手工测试的强力延伸而非完全替代。理想的测试策略是将两者有机结合——将高频、重复、固定的回归测试交由自动化完成，而将富有探索性、体验性的测试留给人工，从而达到最佳的质量保障效益。</p>
+<ol start="14">
+<li>描述什么是冒烟测试？什么是回归测试？回归测试的策略？</li>
+</ol>
+<p>    什么是冒烟测试：冒烟测试是在软件构建（Build）完成后、进行正式的全面测试之前执行的最基本、最核心的验证测试。</p>
+<p>它的目的类似于硬件工程中的”通电测试”，主要用来确认软件的主干流程和核心功能是否畅通，系统是否存在会导致无法进行后续测试的致命性崩溃或严重缺陷。如果冒烟测试不通过，版本会直接被打回。</p>
+<p>什么是回归测试：</p>
+<p>回归测试是指在软件发生修改（如修复了Bug、修改了代码、增加了新功能或进行了环境调整）之后，重新进行测试的行为。</p>
+<p>它的目的是确认这些代码修改没有引入新的缺陷，也没有破坏原有的、原本运行正常的功用。</p>
+<p>回归测试的策略：</p>
+<p>完全回归测试：执行所有的历史测试用例。这种方法覆盖面最广、最安全，但耗费的时间和人力成本极高，通常只适用于规模较小或生命周期初期的项目。</p>
+<p>选择性回归测试：根据代码修改的影响范围和风险评估，挑选出受影响的模块及核心功能对应的测试用例进行执行。这是最常用的策略，兼顾了效率与风险。</p>
+<p>基于风险的选择：优先测试高风险、高业务价值或修改频繁的区域。</p>
+<p>优先&#x2F;关键测试用例：挑选出能够覆盖核心业务路径的用例集（如冒烟测试用例或关键路径用例）优先执行。</p>
+<p>修改优先策略：重点测试那些近期发生过代码变动或修复过Bug的区域及其周边关联模块。</p>
+<ol start="15">
+<li>描述常见的测试类型？</li>
+</ol>
+<p>    功能测试：验证软件各项功能是否符合需求规格说明书，检查业务逻辑、表单提交和数据流转是否正确。</p>
+<p>性能测试：检查系统在各种条件下的响应速度、吞吐量和效率。</p>
+<p>负载测试：让系统在不同程度的负载（如不断增加用户数或并发数）下运行，观察系统性能变化，找出性能瓶颈。</p>
+<p>压力测试：在超负荷或极限状态下（如远超预期的并发或极少资源）运行系统，测试系统的崩溃点、极限承受能力以及恢复能力。</p>
+<p>容量测试：测试系统在指定的数据规模、存储容量或并发用户数上限下的运行表现。</p>
+<p>稳定性测试（也称可靠性&#x2F;长稳测试）：让系统在正常负载或一定压力下连续运行较长时间，检查系统是否会出现内存泄漏、性能下降或崩溃。</p>
+<p>安全性测试：检查系统防范漏洞、防止越权访问、抵抗恶意攻击及保护数据安全的能力。</p>
+<p>兼容性测试：验证软件在不同的操作系统、浏览器、硬件设备或网络环境下的表现是否一致。</p>
+<p>GUI测试（图形用户界面测试）：检查软件的界面布局、菜单、按钮、字体及交互视觉效果是否美观、规范且符合设计标准。</p>
+<p>可用性测试（易用性测试）：评估软件的操作是否直观、简单、符合用户习惯，用户上手和完成任务的难易程度。</p>
+<p>异常测试：模拟异常场景（如断网、断电、服务器宕机、非法输入等），验证系统的容错能力和错误处理机制是否完善。</p>
+<p>文档测试：检查软件相关的文档（如用户手册、安装指南、帮助文档、需求说明等）的准确性、完整性和易读性。</p>
+<p>安装与卸载测试：验证软件在不同平台上的安装、配置、升级以及干净卸载的过程是否顺利，是否有残留或报错。</p>
+<p>接口测试：测试模块与模块之间、系统与系统之间（如</p>
+<p>API、数据库接口）的数据传输、通信协议和交互是否正确。</p>
+<ol start="16">
+<li>写出以下场景的测试点（按照测试类型进行划分） 1)登录如何测试</li>
+</ol>
+<p>    2)抖音点赞功能如何测试 3)微信私发红包功能如何测试</p>
+<ol>
+<li> 登录功能测试点 功能性 (Functional Suitability)</li>
+</ol>
+<p>正确输入：输入正确的用户名和密码（或手机号加验证码），验证是否能成功登录并跳转至主页。</p>
+<p>错误输入：输入错误的密码、不存在的用户名、格式错误（如邮箱&#x2F;手机号格式不符）的账号，检查系统是否给出明确的错误提示。</p>
+<p>边界与空值：用户名或密码为空、输入框含有非法字符或空格时，系统是否能进行有效拦截。</p>
+<p>状态验证：验证”记住密码”、”自动登录”以及”退出登录”后状态的清除与保存是否正常。</p>
+<p>性能效率 (Performance Efficiency)</p>
+<p>响应时间：测试提交登录请求后，服务器返回结果和页面跳转的速度是否在可接受范围内。</p>
+<p>并发登录：在高并发（如大量用户同时登录）情况下，系统的响应时间和吞吐量表现。</p>
+<p>兼容性 (Compatibility)</p>
+<p>跨平台&#x2F;设备：在不同的操作系统（iOS、Android、Windows、macOS）以及主流浏览器（Chrome、Safari、Edge等）上能否正常登录。</p>
+<p>易用性 (Usability)</p>
+<p>界面交互：输入框、登录按钮布局是否合理，密码是否支持明文&#x2F;密文切换查看，提示信息是否清晰易读。</p>
+<p>可靠性 (Reliability)</p>
+<p>异常恢复：在登录过程中突然断网或服务器宕机，系统是否能妥善处理并允许用户重新发起请求。</p>
+<p>安全性 (Security)</p>
+<p>密码保护：密码在传输和存储时是否经过加密处理（如 HTTPS、不可逆加密）。</p>
+<p>防暴力破解：测试连续输错密码多次后，系统是否会触发锁定账号、限制IP或弹出图形验证码机制。</p>
+<p>可维护性 (Maintainability)</p>
+<p>检查登录模块的日志记录是否规范，以便后续跟踪登录异常或安全审计。</p>
+<p>可移植性 (Portability)</p>
+<p>验证登录功能在迁移至不同运行环境（如云端不同区域服务器）时是否能顺利配置和部署。</p>
+<ol start="2">
+<li> 抖音点赞功能测试点 功能性 (Functional Suitability)</li>
+</ol>
+<p>基础交互：双击视频或点击点赞图标，图标是否高亮变红、点赞数是否实时加1；再次点击是否能成功取消点赞且数字减 1。</p>
+<p>数据持久化：点赞后刷新页面、退出App重新登录或更换设备，点赞状态和点赞总数是否保持一致。</p>
+<p>性能效率 (Performance Efficiency)</p>
+<p>响应延迟：在弱网环境下，用户触发点赞后图标变红及计数更新的反馈速度。</p>
+<p>高赞并发：热门视频在瞬间收到大量用户同时点赞时，服务器的数据处理与计数累加是否准确，有无丢包或延迟严重现象。</p>
+<p>兼容性 (Compatibility)</p>
+<p>不同屏幕尺寸、不同分辨率的手机及平板设备上，点赞按钮的触控区域和动画效果是否正常。</p>
+<p>易用性 (Usability)</p>
+<p>点赞图标的位置、大小是否符合用户单手操作习惯，点赞时的动效反馈是否流畅自然。</p>
+<p>可靠性 (Reliability)</p>
+<p>在网络不稳定的情况下频繁点击点赞&#x2F;取消点赞，系统状态是否会发生错乱（如点赞数与实际状态不符）。</p>
+<p>安全性 (Security)</p>
+<p>防止通过抓包工具恶意篡改点赞请求（如越权帮他人点赞或单账号异常刷赞）。</p>
+<p>可维护性 (Maintainability)</p>
+<p>点赞埋点数据是否准确发送，便于后续进行数据分析。</p>
+<p>可移植性 (Portability)</p>
+<p>点赞功能在不同操作系统（Android 与iOS）客户端上的逻辑和表现是否保持一致。</p>
+<ol start="3">
+<li> 微信私发红包功能测试点 功能性 (Functional Suitability)</li>
+</ol>
+<p>正常收发：输入合法金额（如 0.01元起）和祝福语，成功扣款并生成红包；接收方点击并成功拆开红包，金额正确存入零钱。</p>
+<p>边界值与限制：测试单笔红包金额上限、单日转账&#x2F;红包限额、零钱余额不足时的拦截提示。</p>
+<p>退款机制：普通红包在超过 24</p>
+<p>小时未被领取时，系统是否自动退款至发送方账户。</p>
+<p>性能效率 (Performance Efficiency)</p>
+<p>支付扣款及红包生成过程中的响应时间，确保高峰期（如除夕、节日）抢红包时高并发下的系统流畅度。</p>
+<p>兼容性 (Compatibility)</p>
+<p>不同微信版本、不同手机操作系统间收发红包时的界面渲染和金额对账是否兼容。</p>
+<p>易用性 (Usability)</p>
+<p>发红包的交互流程是否简便，输入金额、选择支付方式的引导是否清晰，避免用户误操作。</p>
+<p>可靠性 (Reliability)</p>
+<p>支付扣款成功但因网络中断导致红包未生成的极端场景下，系统的事务一致性与自动冲正&#x2F;退款机制是否可靠。</p>
+<p>安全性 (Security)</p>
+<p>支付环节的安全验证（如输入支付密码、面容&#x2F;指纹认证），防止资金被盗刷或金额在传输中被篡改。</p>
+<p>可维护性 (Maintainability)</p>
+<p>资金交易日志是否完整、准确且不可篡改，以便出现财务纠纷时进行对账和排查。</p>
+<p>可移植性 (Portability)</p>
+<p>红包核心支付逻辑在不同运行平台和底层支付网关切换时是否具备良好的适应能力。</p>
+</article>
+
+<div class="article-tags"><a class="tag" href="/tags/%E8%BD%AF%E6%B5%8B%E4%BD%9C%E4%B8%9A/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>软测作业</a></div>
+
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/07/26/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day3%E4%BD%9C%E4%B8%9A/">软件测试基础day3作业</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/07/21/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day1%E4%BD%9C%E4%B8%9A/">软件测试基础day1作业</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  window.canonical["param"] = {"permalink":"https://hexo.hanruixuan.com/2026/07/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80day2%E4%BD%9C%E4%B8%9A/","checklink":"/js/plugins/video.js"};
+  // Fix: Ensure page is at the correct top position on data load
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'auto';
+  }
+  (function() {
+    const scrollHandler = () => {
+      // 存在有效锚点时，等待布局稳定后滚动到目标
+      // （浏览器原生锚点滚动发生在布局完成前，长文章的懒加载图片/异步组件会把目标顶偏）
+      const hash = window.location.hash;
+      if (hash.length > 1) {
+        let anchorId = hash.slice(1);
+        try {
+          anchorId = decodeURIComponent(anchorId);
+        } catch (e) {
+          // 片段含非法编码时按原样查找
+        }
+        const anchor = document.getElementById(anchorId);
+        if (anchor) {
+          // #start 锚点贴顶，不预留 offset；其余锚点与 TOC 点击滚动保持一致
+          const offset = anchorId === 'start' ? 0 : 32;
+          const targetY = () => anchor.getBoundingClientRect().top + window.scrollY - offset;
+          let timer = null;
+          let lastY = null;
+          let quiet = 0;
+          let attempts = 0;
+          // 记录最近一次资源加载完成时间，判断异步数据/图片是否仍在改变布局
+          let lastResourceTime = performance.now();
+          let observer = null;
+          try {
+            observer = new PerformanceObserver(function (list) {
+              lastResourceTime = performance.now();
+            });
+            observer.observe({ entryTypes: ['resource'] });
+          } catch (e) {}
+          // 统计进行中的 fetch/XHR 请求，异步组件（timeline 等）未完成前不判定布局稳定
+          let pendingRequests = 0;
+          const trackRequest = (fn) => {
+            pendingRequests++;
+            try {
+              const result = fn();
+              if (result && typeof result.finally === 'function') {
+                result.finally(function () {
+                  pendingRequests = Math.max(0, pendingRequests - 1);
+                });
+              } else {
+                pendingRequests = Math.max(0, pendingRequests - 1);
+              }
+              return result;
+            } catch (e) {
+              pendingRequests = Math.max(0, pendingRequests - 1);
+              throw e;
+            }
+          };
+          if (typeof window.fetch === 'function') {
+            const origFetch = window.fetch.bind(window);
+            window.fetch = function () {
+              const args = arguments;
+              return trackRequest(function () {
+                return origFetch.apply(window, args);
+              });
+            };
+          }
+          if (window.XMLHttpRequest) {
+            const origOpen = window.XMLHttpRequest.prototype.open;
+            const origSend = window.XMLHttpRequest.prototype.send;
+            window.XMLHttpRequest.prototype.open = function () {
+              this.__anchorTracked = true;
+              return origOpen.apply(this, arguments);
+            };
+            window.XMLHttpRequest.prototype.send = function () {
+              if (this.__anchorTracked) {
+                pendingRequests++;
+                const done = () => {
+                  if (this.__anchorTracked) {
+                    this.__anchorTracked = false;
+                    pendingRequests = Math.max(0, pendingRequests - 1);
+                  }
+                };
+                this.addEventListener('loadend', done);
+              }
+              return origSend.apply(this, arguments);
+            };
+          }
+          const cancel = () => {
+            if (timer !== null) {
+              clearInterval(timer);
+              timer = null;
+            }
+            if (observer !== null) {
+              try {
+                observer.disconnect();
+              } catch (e) {}
+            }
+          };
+          const adjust = () => {
+            const y = targetY();
+            const atTarget = Math.abs(window.scrollY - y) <= 2;
+            if (!atTarget || lastY === null || Math.abs(y - lastY) > 2) {
+              window.scrollTo({ top: y, behavior: 'instant' });
+              lastY = y;
+              quiet = 0;
+            } else {
+              quiet++;
+            }
+            attempts++;
+            const resourceQuiet = performance.now() - lastResourceTime > 3000;
+            // 位置连续 1.8 秒无变化、无进行中的请求且最近 3 秒无资源加载才视为稳定；最长等待 30 秒
+            if ((quiet >= 3 && pendingRequests === 0 && resourceQuiet) || attempts >= 50) {
+              cancel();
+            }
+          };
+          requestAnimationFrame(() => {
+            // 锚点链接打开时直接定位，不做动画；用户主动点击（如 TOC）仍走平滑滚动
+            window.scrollTo({ top: targetY(), behavior: 'instant' });
+            timer = setInterval(adjust, 600);
+          });
+          // 用户主动滚动时停止自动校正
+          window.addEventListener('wheel', cancel, { passive: true });
+          window.addEventListener('touchstart', cancel, { passive: true });
+          window.addEventListener('mousedown', cancel, { passive: true });
+          window.addEventListener('keydown', cancel, { passive: true });
+          return;
+        }
+      }
+      // 没有锚点时始终保持页面顶部；Wiki Hero 只在用户显式访问 #start 时定位正文。
+      window.scrollTo(0, 0);
+    };
+    if (document.readyState !== 'loading') scrollHandler();
+    else document.addEventListener('DOMContentLoaded', scrollHandler);
+  })();
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    },
+    // 图标由构建期生成的 /js/stellar-icons.js 填充（defer，早于 DOMContentLoaded 就绪）
+    icons: {},
+    services: {"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"},"rss":{"js":"/js/services/rss.js"}},
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    data_cache: {"enable":true,"default_ttl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"max_entries":200},
+  };
+  const deps = {
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js`
+  }
+
+  // 主题切换提示文案（供 /js/theme.js 使用）
+  window.__STELLAR_I18N__ = {
+    light: `Switched to Light Mode`,
+    dark: `Switched to Dark Mode`,
+    auto: `Switched to Auto Mode`,
+  };
+
+  // 搜索跳转高亮：URL 带 ?kw= 时按需加载，定位正文中的匹配词
+  (function () {
+    try {
+      if (!window.location.search) return;
+      if (!new URLSearchParams(window.location.search).has('kw')) return;
+      document.addEventListener('DOMContentLoaded', function () {
+        // utils 由 /js/utils.js 定义（同时暴露 window.utils）；
+        // 未就绪时由 bootstrap 队列兜底，此处按就绪状态判断
+        if (typeof utils === 'object' && typeof utils.js === 'function') {
+          utils.js('/js/search/highlight.js', { defer: true }).catch(function () {});
+        }
+      });
+    } catch (e) {}
+  })();
+</script>
+
+
+<script>
+  // 插件注册队列：utils.js 尚未就绪时先缓存注册请求，就绪后统一补跑，
+  // 保证解析期注册的插件不因加载时序丢失。
+  window.stellar = window.stellar || {};
+  window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+  window.stellar.initPlugin = function (fn, name, options) {
+    if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+      return utils.initPlugin(fn, name, options);
+    }
+    window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+  };
+  window.stellar._flushPlugins = function () {
+    var pending = window.stellar._pluginQueue.splice(0);
+    if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+    for (var i = 0; i < pending.length; i++) {
+      try {
+        utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+      } catch (e) {
+        console.error('[Stellar] 插件补注册失败:', e);
+      }
+    }
+  };
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof utils === 'object') return;
+    // utils 未就绪时补载；加载成功后由 utils.js 内部补跑插件队列
+    var s = document.createElement('script');
+    // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
+    // （图片懒加载 / 脚本延迟优化器）误改写
+    s.setAttribute('src', '/js/utils.js?v=1.44.0-20260906');
+    s.async = false;
+    s.onerror = function () {
+      console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
+      document.documentElement.classList.add('sr-fallback');
+    };
+    document.head.appendChild(s);
+  });
+</script>
+
+
+<!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
+<script src="/js/utils.js?v=1.44.0-20260906"></script>
+<script>
+  // 解析期检测 utils 是否已就绪；未就绪时同步补载，
+  // 保证「utils 先于页尾插件片段定义」的不变量。
+  if (typeof utils === 'undefined') {
+    document.write('<script src="/js/utils.js?v=1.44.0-20260906"><\/script>');
+  }
+</script>
+<script defer src="/js/stellar-icons.js?v=1.44.0-20260906"></script>
+<!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
+<script defer src="/js/icons.js?v=1.44.0-20260906" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0-20260906"></script>
+<script src="/js/main.js?v=1.44.0-20260906" defer></script>
+<script defer src="/js/theme.js?v=1.44.0-20260906"></script>
+
+
+
+<script>
+  // 先声明配置与初始化监听，再异步加载库：
+  // 保证库执行时 lazyLoadOptions 已就绪，避免 async 脚本抢先执行导致自初始化失败
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      // {% image %} 没有 .lazy-box 包裹，回退到父元素查找加载图标
+      const wrapper = el.closest('.lazy-box') || el.parentElement;
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // 监听初始化事件，获取 LazyLoad 实例
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  // 兜底：动态插入的 .lazy 元素（如站点自定义脚本在 update() 之后追加的图片）
+  // 不会被 vanilla-lazyload 自动扫描，未注册的 img.lazy 会被 CSS opacity:0 永久隐藏。
+  // MutationObserver 检测到新增 .lazy 元素后自动调用 update() 重新注册。
+  if (window.MutationObserver) {
+    window.lazyMutationObserver = new MutationObserver((mutations) => {
+      if (window.lazyMutationObserver._pending) return;
+      const hasLazy = mutations.some((m) =>
+        Array.prototype.some.call(m.addedNodes, (node) =>
+          node.nodeType === 1 &&
+          (node.matches?.('.lazy') || !!node.querySelector?.('.lazy'))
+        )
+      );
+      if (!hasLazy) return;
+      window.lazyMutationObserver._pending = requestAnimationFrame(() => {
+        window.lazyMutationObserver._pending = null;
+        window.lazyLoadInstance?.update();
+      });
+    });
+    window.lazyMutationObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+</script>
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+
+
+<!-- optional -->
+
+
+
+<script defer src="/js/services.js?v=1.44.0-20260906"></script>
+<script>
+  // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
+  // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。
+  if (typeof window.stellar === 'undefined' || typeof window.stellar.initPlugin !== 'function') {
+    window.stellar = window.stellar || {};
+    window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+    window.stellar.initPlugin = function (fn, name, options) {
+      if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+        return utils.initPlugin(fn, name, options);
+      }
+      window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+    };
+    window.stellar._flushPlugins = function () {
+      var pending = window.stellar._pluginQueue.splice(0);
+      if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+      for (var i = 0; i < pending.length; i++) {
+        try {
+          utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+        } catch (e) {
+          console.error('[Stellar] 插件补注册失败:', e);
+        }
+      }
+    };
+  }
+</script>
+
+<script>window.addEventListener('DOMContentLoaded', function () { utils.js('/js/search/shortcut.js', { defer: true }); });</script><script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = Object.assign({}, ctx.search, {
+      path: `/search.json`,
+      local_search: {"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"},
+    });
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script>
+<script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    mode: `auto`,
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  // auto=按需：页面存在可弹窗图片才加载；global=全局：所有页面加载
+  const isGlobal = ctx.fancybox.mode === 'global';
+  // 评论区图片（artalk/twikoo/waline）显示较小，自动支持放大；
+  // 仅绑定各评论服务的评论内容区，编辑器、表情面板等非内容区图片不弹窗
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .tk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .wl-content img:not([atk-emoticon]):not([class*="emo"])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = isGlobal;
+  if (!needFancybox) {
+    needFancybox = document.querySelectorAll(selector).length !== 0;
+    if (!needFancybox) {
+      // 图片型评论系统容器：评论区图片小图需要 fancybox
+      const withFancybox = document.getElementsByClassName('with-fancybox');
+      if (withFancybox != undefined && withFancybox.length > 0) {
+        needFancybox = true;
+      }
+    }
+    if (!needFancybox) {
+      // 动态数据服务：memos 渲染的图片需要 fancybox
+      const memos = document.getElementsByClassName('ds-memos');
+      if (memos != undefined && memos.length > 0) {
+        needFancybox = true;
+      }
+    }
+  }
+  if (needFancybox) {
+    utils.css(`/css/plugins/fancybox.css?v=1.44.0`);
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      if (isGlobal) {
+        // 全局模式：正文所有非内联图片均可弹窗
+        selector += ', .md-text img:not(.inline):not([atk-emoticon])';
+      }
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`/css/plugins/swiper.css?v=1.44.0`);
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  }, 'swiper');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const codeElements = document.querySelectorAll('.code');
+    if (codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js', { defer: true }).then(() => {
+        if (typeof createCopyButtons === 'function') {
+          createCopyButtons(codeElements);
+        }
+      });
+    }
+  }, 'copycode');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-text-adaptive]'));
+    if (els.length === 0) return;
+    utils.js('/js/color.js').then(() => utils.js('/js/plugins/adaptive-text.js')).then(() => {
+      if (typeof applyAdaptiveText === 'function') {
+        applyAdaptiveText(els);
+      }
+    });
+  }, 'adaptive-text');
+</script>
+
+
+
+<!-- inject -->
+
+</div></body></html>
