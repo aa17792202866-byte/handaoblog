@@ -17,22 +17,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>一个新文件 - Hexo</title>
+  <title>三种代理模式的区别 - Hexo</title>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="一个新文件">
-<meta property="og:url" content="https://hexo.hanruixuan.com/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/">
+  <meta name="description" content="这三种代理是三套彼此独立的配置。即使地址都是 127.0.0.1:10808，影响的软件也不一样。    类型 主要影响范围 是否持久 常见使用者    终端环境变量代理 当前终端及从它启动的程序 默认不持久 curl、Git、npm、pip 等   Windows 系统代理 当前 Windows 用户的桌面软件 持久 Edge、Chrome、PowerShell 网络请求等   WinHTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三种代理模式的区别">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2026/09/11/%E4%BB%A3%E7%90%86/%E4%B8%89%E7%A7%8D%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这三种代理是三套彼此独立的配置。即使地址都是 127.0.0.1:10808，影响的软件也不一样。    类型 主要影响范围 是否持久 常见使用者    终端环境变量代理 当前终端及从它启动的程序 默认不持久 curl、Git、npm、pip 等   Windows 系统代理 当前 Windows 用户的桌面软件 持久 Edge、Chrome、PowerShell 网络请求等   WinHTTP">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://hexo.hanruixuan.com/images/Pasted%20image%2020260906152852.png">
-<meta property="article:published_time" content="2026-06-22T14:36:48.000Z">
-<meta property="article:modified_time" content="2026-09-06T09:51:37.024Z">
+<meta property="article:published_time" content="2026-09-11T11:48:43.000Z">
+<meta property="article:modified_time" content="2026-09-11T05:17:43.716Z">
 <meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hexo.hanruixuan.com/images/Pasted%20image%2020260906152852.png"><meta name="twitter:title" content="一个新文件">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="三种代理模式的区别">
   
   
-  
+  <meta name="keywords" content="技术">
 
   <!-- feed -->
   
@@ -45,7 +46,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-06-22T22:36:48+08:00","dateModified":"2026-09-06T17:51:37+08:00","datePublished":"2026-06-22T22:36:48+08:00","description":"\n","headline":"一个新文件","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/","thumbnailUrl":"/../images/Pasted%20image%2020260906152852.png","image":["/../images/Pasted%20image%2020260906152852.png"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-11T19:48:43+08:00","dateModified":"2026-09-11T13:17:43+08:00","datePublished":"2026-09-11T19:48:43+08:00","description":"这三种代理是三套彼此独立的配置。即使地址都是 127.0.0.1:10808，影响的软件也不一样。\n\n\n\n类型\n主要影响范围\n是否持久\n常见使用者\n\n\n\n终端环境变量代理\n当前终端及从它启动的程序\n默认不持久\ncurl、Git、npm、pip 等\n\n\nWindows 系统代理\n当前 Windows 用户的桌面软件\n持久\nEdge、Chrome、PowerShell 网络请求等\n\n\nWinHT...","headline":"三种代理模式的区别","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/11/%E4%BB%A3%E7%90%86/%E4%B8%89%E7%A7%8D%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/11/%E4%BB%A3%E7%90%86/%E4%B8%89%E7%A7%8D%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/","keywords":"技术","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -88,13 +89,157 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/" title="给终端配置代理">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/29/%E4%BB%A3%E7%90%86/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85cloudflare%E9%9A%A7%E9%81%93/" title="如何安装cloudflare隧道">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">如何安装cloudflare隧道</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/11/%E4%BB%A3%E7%90%86/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" title="如何配置反向代理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">如何配置反向代理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/11/%E4%BB%A3%E7%90%86/%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E7%9A%84%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/" title="设置系统代理的快捷命令">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">设置系统代理的快捷命令</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/11/%E4%BB%A3%E7%90%86/%E4%B8%89%E7%A7%8D%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/" title="三种代理模式的区别">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">三种代理模式的区别</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/11/%E4%BB%A3%E7%90%86/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E3%80%81%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E6%88%96WinHTTP%20%E4%BB%A3%E7%90%86/" title="如何查看是否存在系统代理、终端代理或WinHTTP 代理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">如何查看是否存在系统代理、终端代理或WinHTTP 代理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/12/%E5%A6%82%E4%BD%95%E5%A4%87%E4%BB%BDhexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81/" title="如何备份hexo博客源码">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">如何备份hexo博客源码</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/07/27/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="测试图片">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">测试图片</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/21/%E4%BB%A3%E7%90%86/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/" title="给终端配置代理">
   
   
   
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">给终端配置代理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/27/%E7%BB%99windows11%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E8%AE%BF%E9%97%AE%E6%88%91%E7%9A%84r2s/" title="给windows11电脑配置端口转发访问我的r2s">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">给windows11电脑配置端口转发访问我的r2s</span>
       
       
     </span>
@@ -113,150 +258,6 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">for循环如何无限循环</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/python%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0%EF%BC%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88/" title="python中数据类型转换有哪些函数">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">python中数据类型转换有哪些函数</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/18/%E5%AE%89%E8%A3%85GCC%E5%92%8CG++%E7%BC%96%E8%BE%91%E5%99%A8/" title="安装GCC/G++编辑器">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">安装GCC/G++编辑器</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2018/12/12/Hexo-Theme-Sakura/" title="Hexo-Theme-Sakura">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">Hexo-Theme-Sakura</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/29/hello-world/" title="Hello World">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">Hello World</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/14/nginx%E7%9A%84%E4%BD%BF%E7%94%A8/" title="nginx的使用">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">nginx的使用</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/09/python/python%E5%BE%AA%E7%8E%AF/for%E5%92%8Cwhile/" title="for和while">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">for和while</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/09/08/%E9%BB%91%E5%AE%A2/arp%E5%8E%9F%E7%90%86/" title="arp原理">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">arp原理</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/2026/06/11/warp%E9%9A%A7%E9%81%93%E5%87%BA%E7%8E%B0%E7%9A%84ip%E9%97%AE%E9%A2%98/" title="warp隧道出现的ip问题">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">warp隧道出现的ip问题</span>
       
       
     </span>
@@ -287,23 +288,107 @@
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a>
 </div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-06-22T14:36:48.000Z">2026-06-22</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-06T09:51:37.024Z">2026-09-06</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-11T11:48:43.000Z">2026-09-11</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-11T05:17:43.716Z">2026-09-11</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>一个新文件</span></h1>
+        <h1 class="text title"><span>三种代理模式的区别</span></h1>
         
       </div>
     </div>
     
   </div>
   </div></div>
-<article class="md-text content"><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../images/Pasted%20image%2020260906152852.png"></p>
+<article class="md-text content"><p>这三种代理是三套彼此独立的配置。即使地址都是 <code>127.0.0.1:10808</code>，影响的软件也不一样。</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>主要影响范围</th>
+<th>是否持久</th>
+<th>常见使用者</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>终端环境变量代理</td>
+<td>当前终端及从它启动的程序</td>
+<td>默认不持久</td>
+<td>curl、Git、npm、pip 等</td>
+</tr>
+<tr>
+<td>Windows 系统代理</td>
+<td>当前 Windows 用户的桌面软件</td>
+<td>持久</td>
+<td>Edge、Chrome、PowerShell 网络请求等</td>
+</tr>
+<tr>
+<td>WinHTTP 代理</td>
+<td>Windows 服务及使用 WinHTTP 的程序</td>
+<td>持久</td>
+<td>某些系统服务、企业程序、后台服务</td>
+</tr>
+</tbody></table></div>
+<h3 id="1-终端环境变量代理"><a href="#1-终端环境变量代理" class="headerlink" title="1. 终端环境变量代理"></a>1. 终端环境变量代理</h3><p>你之前的 <code>proxy</code> 函数设置的就是这种：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$env:http_proxy="http://127.0.0.1:10808"</span><br><span class="line">$env:https_proxy="http://127.0.0.1:10808"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>一般只对当前 PowerShell 窗口有效。</li>
+<li>关闭窗口后消失。</li>
+<li>从当前终端启动的程序可能继承这些变量。</li>
+<li>不会自动改变浏览器的代理。</li>
+<li>不同程序是否支持这些变量，由程序自己决定。</li>
+</ul>
+<p>查看：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-ChildItem Env:*proxy*</span><br></pre></td></tr></tbody></table></figure>
+
+<p>关闭：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Remove-Item Env:http_proxy,Env:https_proxy,Env:HTTP_PROXY,Env:HTTPS_PROXY -ErrorAction SilentlyContinue</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-Windows-系统代理"><a href="#2-Windows-系统代理" class="headerlink" title="2. Windows 系统代理"></a>2. Windows 系统代理</h3><p>这是 Windows“设置 → 网络和 Internet → 代理”中的代理开关。</p>
+<p>特点：</p>
+<ul>
+<li>对当前 Windows 用户长期有效。</li>
+<li>关闭 PowerShell 后仍然存在。</li>
+<li>Edge、Chrome及许多桌面软件会读取它。</li>
+<li>Clash、v2rayN 的“系统代理”按钮通常控制的就是它。</li>
+<li>代理软件可能在启动时自动重新打开它。</li>
+</ul>
+<p>查看：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$p=Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings"; "开启：$($p.ProxyEnable -eq 1)；地址：$($p.ProxyServer)"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>关闭：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value 0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>你的 <code>unproxy</code> 只删除环境变量，所以此前系统代理仍然存在，<code>ipinfo.io</code> 才继续显示美国 IP。</p>
+<h3 id="3-WinHTTP-代理"><a href="#3-WinHTTP-代理" class="headerlink" title="3. WinHTTP 代理"></a>3. WinHTTP 代理</h3><p>这是 Windows 提供给后台服务和部分系统程序的另一套代理。</p>
+<p>特点：</p>
+<ul>
+<li>与 Windows 系统代理相互独立。</li>
+<li>通常需要管理员权限才能修改。</li>
+<li>浏览器一般不使用它。</li>
+<li>某些系统服务、安装程序和企业软件会使用它。</li>
+<li>设置后会一直保留，直到手动重置。</li>
+</ul>
+<p>查看：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winhttp show proxy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>配置：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winhttp set proxy 127.0.0.1:10808</span><br></pre></td></tr></tbody></table></figure>
+
+<p>关闭：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winhttp reset proxy</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="它们为什么会产生不同结果"><a href="#它们为什么会产生不同结果" class="headerlink" title="它们为什么会产生不同结果"></a>它们为什么会产生不同结果</h3><p>一个程序使用哪种代理，由程序自身决定：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器 ─────────→ Windows 系统代理</span><br><span class="line">curl/Git/npm ───→ 环境变量或程序自己的代理配置</span><br><span class="line">部分系统服务 ───→ WinHTTP 代理</span><br></pre></td></tr></tbody></table></figure>
+
+<p>没有统一的优先级。例如 <code>curl.exe</code> 通常读取代理环境变量，而浏览器通常读取 Windows 系统代理。Git、npm 和 pip 还可能有自己的代理配置。</p>
+<p>另外还有 Clash 的 TUN 模式。TUN 会在更底层接管网络流量，即使以上三种代理全部关闭，流量仍可能经过代理。若需要确认完全直连，还要检查代理软件的 TUN/虚拟网卡模式是否关闭。</p>
 </article>
 
-
+<div class="article-tags"><a class="tag" href="/tags/%E6%8A%80%E6%9C%AF/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>技术</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -315,7 +400,7 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2026/06/24/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E8%AE%BF%E9%97%AE%E4%B8%A4%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/">如何配置双密钥访问两个github账户</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/">给终端配置代理</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/09/11/%E4%BB%A3%E7%90%86/%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E7%9A%84%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/">设置系统代理的快捷命令</a></div></section></div>
 
 
 
@@ -324,7 +409,24 @@
 
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"></aside><div class='float-panel'>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
+
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">On This Page</span>
+      <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BB%88%E7%AB%AF%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%BB%A3%E7%90%86"><span class="toc-text">1. 终端环境变量代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Windows-%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86"><span class="toc-text">2. Windows 系统代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-WinHTTP-%E4%BB%A3%E7%90%86"><span class="toc-text">3. WinHTTP 代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%83%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E4%BA%A7%E7%94%9F%E4%B8%8D%E5%90%8C%E7%BB%93%E6%9E%9C"><span class="toc-text">它们为什么会产生不同结果</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>Scroll to Top</span></a></div>
+</widget>
+
+
+</div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -337,7 +439,7 @@
 
 <script type="text/javascript">
   window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  window.canonical["param"] = {"permalink":"https://hexo.hanruixuan.com/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/","checklink":"/js/plugins/video.js"};
+  window.canonical["param"] = {"permalink":"https://hexo.hanruixuan.com/2026/09/11/%E4%BB%A3%E7%90%86/%E4%B8%89%E7%A7%8D%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/","checklink":"/js/plugins/video.js"};
   // Fix: Ensure page is at the correct top position on data load
   if (history.scrollRestoration) {
     history.scrollRestoration = 'auto';
