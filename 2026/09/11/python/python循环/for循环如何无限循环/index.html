@@ -17,18 +17,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>Hexo - Page 3</title>
+  <title>for循环如何无限循环 - Hexo</title>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://hexo.hanruixuan.com/page/3/">
+  <meta name="description" content="python的for循环是不是只能进行有限循环？不是，Python 的 for 循环完全可以实现无限循环。 虽然 Python 的 for 循环语法上是“遍历一个可迭代对象（Iterable）”，但如果传入一个无限长的可迭代对象（如生成器或迭代器），for 循环就会一直运行下去，直到被手动打断或程序崩溃。 实现无限 for 循环的常见方式1. 使用标准库 itertools.count（最推荐）i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="for循环如何无限循环">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2026/09/11/python/python%E5%BE%AA%E7%8E%AF/for%E5%BE%AA%E7%8E%AF%E5%A6%82%E4%BD%95%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="python的for循环是不是只能进行有限循环？不是，Python 的 for 循环完全可以实现无限循环。 虽然 Python 的 for 循环语法上是“遍历一个可迭代对象（Iterable）”，但如果传入一个无限长的可迭代对象（如生成器或迭代器），for 循环就会一直运行下去，直到被手动打断或程序崩溃。 实现无限 for 循环的常见方式1. 使用标准库 itertools.count（最推荐）i">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-09-11T10:48:04.000Z">
+<meta property="article:modified_time" content="2026-09-11T02:05:48.121Z">
 <meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="for循环如何无限循环">
   
   
-  
+  <meta name="keywords" content="python">
 
   <!-- feed -->
   
@@ -41,7 +46,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://hexo.hanruixuan.com/","author":{"@type":"Person","name":"John Doe","sameAs":[]},"name":"Hexo","description":"","url":"https://hexo.hanruixuan.com/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-11T18:48:04+08:00","dateModified":"2026-09-11T10:05:48+08:00","datePublished":"2026-09-11T18:48:04+08:00","description":"python的for循环是不是只能进行有限循环？不是，Python 的 for 循环完全可以实现无限循环。\n虽然 Python 的 for 循环语法上是“遍历一个可迭代对象（Iterable）”，但如果传入一个无限长的可迭代对象（如生成器或迭代器），for 循环就会一直运行下去，直到被手动打断或程序崩溃。\n实现无限 for 循环的常见方式1. 使用标准库 itertools.count（最推...","headline":"for循环如何无限循环","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/11/python/python%E5%BE%AA%E7%8E%AF/for%E5%BE%AA%E7%8E%AF%E5%A6%82%E4%BD%95%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/11/python/python%E5%BE%AA%E7%8E%AF/for%E5%BE%AA%E7%8E%AF%E5%A6%82%E4%BD%95%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/","keywords":"python","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -56,7 +61,7 @@
 }</style>
   
 </head>
-<body><div id="l_cover"></div><div class="l_body index" id="start" layout="undefined" type="undefined" ><aside class="l_left leftbar-card" data-ui-surface="card"><div class="sidebg"></div><div class="leftbar-container">
+<body><div id="l_cover"></div><div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left leftbar-card" data-ui-surface="card"><div class="sidebg"></div><div class="leftbar-container">
 
 
 
@@ -71,6 +76,8 @@
 
 
 </div>
+
+
 
 <widget class="widget-wrapper recent-widget">
   
@@ -271,61 +278,104 @@
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/"><div class="bg"></div><img no-lazy class="avatar" src="/images/dlam.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">Hexo</div></a></div></header>
 
 
 
 
-
-<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a class="active" href="/">Recent</a><a href="/categories/">Categories</a><a href="/tags/">Tags</a><a href="/archives/">Archives</a></nav></div></div></div>
-
-<div class="post-list post"><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/29/hello-world/">
-<article class="md-text"><h2 class="post-title">Hello World</h2><div class="excerpt"><p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-28T17:00:36.790Z">2026-06-29</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/27/%E7%BB%99windows11%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E8%AE%BF%E9%97%AE%E6%88%91%E7%9A%84r2s/">
-<article class="md-text"><h2 class="post-title">给windows11电脑配置端口转发访问我的r2s</h2><div class="excerpt"><p>因为你的 Ubuntu（192.168.137.170）目前处于 Windows 网络共享（ICS - Internet Connection Sharing）创建的私有局域网内，它的网段（137网段）与你手机所在的网段（1网段）是隔离的。
-你的电脑...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-27T08:48:22.000Z">2026-06-27</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/24/%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
-<article class="md-text"><h2 class="post-title">配置双密钥如何上传文件</h2><div class="excerpt"><p>Here&#39;s something encrypted, password is required to continue reading.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-24T01:56:43.000Z">2026-06-24</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/24/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E8%AE%BF%E9%97%AE%E4%B8%A4%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/">
-<article class="md-text"><h2 class="post-title">如何配置双密钥访问两个github账户</h2><div class="excerpt"><p>Here&#39;s something encrypted, password is required to continue reading.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-24T01:48:43.000Z">2026-06-24</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/22/%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6/">
-<article class="md-text"><h2 class="post-title">一个新文件</h2><div class="excerpt"><p>
-</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-22T14:36:48.000Z">2026-06-22</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/21/%E7%BB%99%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/">
-<article class="md-text"><h2 class="post-title">给终端配置代理</h2><div class="excerpt"><p>在powershell中运行这个命令1notepad $PROFILE
-粘贴以下内容，端口换成你自己的1234567891011121314function proxy {    $env:HTTP_PROXY&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:1...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-21T01:55:50.000Z">2026-06-21</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/21/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/%E4%BF%AE%E6%94%B9git%E5%88%86%E6%94%AF%E5%90%8D%E7%A7%B0/">
-<article class="md-text"><h2 class="post-title">修改git分支名称</h2><div class="excerpt"><p>将 Git 默认上传或初始化的分支从 master 改为 main 非常简单。根据你的实际需求，可以分为以下几种场景来处理：
-1. 修改本地全局默认分支（一劳永逸）如果你希望以后每次执行 git init 初始化新项目时，默认的分支名都是 main，...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-21T01:50:47.000Z">2026-06-21</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/18/%E5%AE%89%E8%A3%85GCC%E5%92%8CG++%E7%BC%96%E8%BE%91%E5%99%A8/">
-<article class="md-text"><h2 class="post-title">安装GCC&#x2F;G++编辑器</h2><div class="excerpt"><p>🛠️ 解决方案：安装并配置 GCC&#x2F;G++ 编译器在 Windows 上，最推荐的方法是使用 MSYS2 来安装 GCC。
-第一步：下载并安装 MSYS2
-访问 MSYS2 官网（https:&#x2F;&#x2F;www.msys2.org&#x2F;）下载安装包。
-
-一路点...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-18T02:02:24.000Z">2026-06-18</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/14/nginx%E7%9A%84%E4%BD%BF%E7%94%A8/">
-<article class="md-text"><h2 class="post-title">nginx的使用</h2><div class="excerpt"><p>启用站点（创建软链接）
-
-1sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;game.hanruixuan.com &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;
-禁用站点（删除软链接，不影响原文件）
-
-1sudo u...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-14T06:30:56.000Z">2026-06-14</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/2026/06/12/%E5%A6%82%E4%BD%95%E5%A4%87%E4%BB%BDhexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81/">
-<article class="md-text"><h2 class="post-title">如何备份hexo博客源码</h2><div class="excerpt"><p>使用 GitHub 备份 Hexo 博客，核心思路是将你的 Hexo 博客源码（不是最终生成的网页文件，而是 Markdown 文件、主题配置文件、_config.yml 等）托管到一个专门的 Git 仓库中。
-以下是实现这一目标的标准化步骤：
-核心...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-06-12T06:56:43.000Z">2026-06-12</time></span></div></article>
-</a></div></div>
-
-  <div class='paginator-wrap dis-select'>
-  <a class="extend prev" rel="prev" href="/page/2/"><svg class="icon" data-icon="default:arrow-left" aria-hidden="true"></svg></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><svg class="icon" data-icon="default:arrow-right" aria-hidden="true"></svg></a>
+<div class="article-banner-wrap"><div class="article banner top">
+  <div class="content">
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-11T10:48:04.000Z">2026-09-11</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-11T02:05:48.121Z">2026-09-11</time></span></div>
+</div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>for循环如何无限循环</span></h1>
+        
+      </div>
+    </div>
+    
   </div>
+  </div></div>
+<article class="md-text content"><p><strong>python的for循环是不是只能进行有限循环？</strong><br><strong>不是，Python 的 <code>for</code> 循环完全可以实现无限循环。</strong></p>
+<p>虽然 Python 的 <code>for</code> 循环语法上是“遍历一个可迭代对象（Iterable）”，但如果传入一个<strong>无限长的可迭代对象（如生成器或迭代器）</strong>，<code>for</code> 循环就会一直运行下去，直到被手动打断或程序崩溃。</p>
+<h3 id="实现无限-for-循环的常见方式"><a href="#实现无限-for-循环的常见方式" class="headerlink" title="实现无限 for 循环的常见方式"></a>实现无限 <code>for</code> 循环的常见方式</h3><h4 id="1-使用标准库-itertools-count（最推荐）"><a href="#1-使用标准库-itertools-count（最推荐）" class="headerlink" title="1. 使用标准库 itertools.count（最推荐）"></a>1. 使用标准库 <code>itertools.count</code>（最推荐）</h4><p><code>itertools.count(start, step)</code> 会从 <code>start</code> 开始，以 <code>step</code> 为步长，源源不断地生成递增的数字，永远不会自动停止。</p>
+<p>Python</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import itertools</span><br><span class="line"></span><br><span class="line"># 从 1 开始，无限循环下去</span><br><span class="line">for i in itertools.count(1):</span><br><span class="line">    print(i)</span><br><span class="line">    if i == 5:</span><br><span class="line">        break  # 如果不加 break，它将永远运行</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="2-使用标准库-itertools-cycle"><a href="#2-使用标准库-itertools-cycle" class="headerlink" title="2. 使用标准库 itertools.cycle"></a>2. 使用标准库 <code>itertools.cycle</code></h4><p><code>itertools.cycle</code> 会将传入的序列无限次重复循环。</p>
+<p>Python</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import itertools</span><br><span class="line"></span><br><span class="line"># 无限循环交替打印 "A", "B", "C"</span><br><span class="line">for item in itertools.cycle(['A', 'B', 'C']):</span><br><span class="line">    print(item)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="3-使用自定义生成器（Generator）"><a href="#3-使用自定义生成器（Generator）" class="headerlink" title="3. 使用自定义生成器（Generator）"></a>3. 使用自定义生成器（Generator）</h4><p>利用 <code>yield</code> 自定义一个永远不会结束的生成器函数。</p>
+<p>Python</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def infinite_generator():</span><br><span class="line">    while True:</span><br><span class="line">        yield "Running..."</span><br><span class="line"></span><br><span class="line"># 这个 for 循环永远不会自动退出</span><br><span class="line">for msg in infinite_generator():</span><br><span class="line">    print(msg)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="总结对比"><a href="#总结对比" class="headerlink" title="总结对比"></a>总结对比</h3><div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th><strong>循环结构</strong></th>
+<th><strong>默认行为</strong></th>
+<th><strong>实现无限循环的方式</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>while</code> 循环</strong></td>
+<td>基于条件控制</td>
+<td>直接设置恒真条件，如 <code>while True:</code></td>
+</tr>
+<tr>
+<td><strong><code>for</code> 循环</strong></td>
+<td>基于迭代器控制</td>
+<td>传入<strong>无限长/不终止</strong>的迭代器（如 <code>itertools.count</code>）</td>
+</tr>
+</tbody></table></div>
+<p>因此，<code>for</code> 循环本身不限制必须是有限的，<strong>循环是否终止取决于它所遍历的对象（Iterable）是否有终点</strong>。</p>
+</article>
+
+<div class="article-tags"><a class="tag" href="/tags/python/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>python</a></div>
+
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">Older</div><a href="/2026/09/09/python/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/">银行家舍入法</a></div></section></div>
+
+
 
 
 
 
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"></aside><div class='float-panel'>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
+
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">On This Page</span>
+      <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%97%A0%E9%99%90-for-%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%B8%B8%E8%A7%81%E6%96%B9%E5%BC%8F"><span class="toc-text">实现无限 for 循环的常见方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93-itertools-count%EF%BC%88%E6%9C%80%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-text">1. 使用标准库 itertools.count（最推荐）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93-itertools-cycle"><span class="toc-text">2. 使用标准库 itertools.cycle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88Generator%EF%BC%89"><span class="toc-text">3. 使用自定义生成器（Generator）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E5%AF%B9%E6%AF%94"><span class="toc-text">总结对比</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>Scroll to Top</span></a></div>
+</widget>
+
+
+</div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -338,7 +388,7 @@
 
 <script type="text/javascript">
   window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  window.canonical["param"] = {"permalink":null,"checklink":"/js/plugins/video.js"};
+  window.canonical["param"] = {"permalink":"https://hexo.hanruixuan.com/2026/09/11/python/python%E5%BE%AA%E7%8E%AF/for%E5%BE%AA%E7%8E%AF%E5%A6%82%E4%BD%95%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/","checklink":"/js/plugins/video.js"};
   // Fix: Ensure page is at the correct top position on data load
   if (history.scrollRestoration) {
     history.scrollRestoration = 'auto';
