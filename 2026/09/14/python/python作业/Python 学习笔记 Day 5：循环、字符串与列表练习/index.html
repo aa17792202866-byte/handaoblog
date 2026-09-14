@@ -27,7 +27,7 @@
 <meta property="og:description" content="整理 while、for、range、字符串和列表的基础用法，并通过 9 道练习巩固筛选、排序、遍历删除和日期计算。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-09-14T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-14T12:32:55.004Z">
+<meta property="article:modified_time" content="2026-09-14T12:36:14.902Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="循环">
@@ -49,7 +49,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-14T12:00:00+08:00","dateModified":"2026-09-14T20:32:55+08:00","datePublished":"2026-09-14T12:00:00+08:00","description":"这篇笔记整理 Python 中的循环、字符串和列表操作，并结合 9 道练习，记录具体写法和容易出错的地方。所有示例均使用 Python 3，代码块可按小节单独运行。","headline":"Python 学习笔记 Day 5：循环、字符串与列表练习","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/","keywords":"Python, 循环, 字符串, 列表","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-09-14T12:00:00+08:00","dateModified":"2026-09-14T20:36:14+08:00","datePublished":"2026-09-14T12:00:00+08:00","description":"这篇笔记整理 Python 中的循环、字符串和列表操作，并结合 9 道练习，记录具体写法和容易出错的地方。所有示例均使用 Python 3，代码块可按小节单独运行。","headline":"Python 学习笔记 Day 5：循环、字符串与列表练习","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/","keywords":"Python, 循环, 字符串, 列表","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -291,7 +291,7 @@
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python 学习笔记</a>
 </div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-14T04:00:00.000Z">2026-09-14</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-14T12:32:55.004Z">2026-09-14</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2026-09-14T04:00:00.000Z">2026-09-14</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-09-14T12:36:14.902Z">2026-09-14</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
@@ -318,19 +318,60 @@
 <h3 id="2-range-：生成整数序列"><a href="#2-range-：生成整数序列" class="headerlink" title="2. range()：生成整数序列"></a>2. range()：生成整数序列</h3><p><code>range()</code> 返回一个表示整数序列的 <code>range</code> 对象，常与 <code>for</code> 配合使用。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">range</span>(stop)</span><br><span class="line"></span><br><span class="line"><span class="built_in">range</span>(start, stop)</span><br><span class="line"></span><br><span class="line"><span class="built_in">range</span>(start, stop, step)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<p>| 参数 | 含义 | 默认值 |</p>
-<p>| — | — | — |</p>
-<p>| <code>start</code> | 开始值，包含在序列内（序列非空时） | <code>0</code> |</p>
-<p>| <code>stop</code> | 结束边界，不包含在序列内 | 必须提供 |</p>
-<p>| <code>step</code> | 步长 | <code>1</code> |</p>
+<div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>参数</th><th>含义</th><th>默认值</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>start</code></td><td>开始值，包含在序列内（序列非空时）</td><td><code>0</code></td></tr>
+
+<tr><td><code>stop</code></td><td>结束边界，不包含在序列内</td><td>必须提供</td></tr>
+
+<tr><td><code>step</code></td><td>步长</td><td><code>1</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
 <p>开始值、结束值可以是正整数、负整数或 <code>0</code>；步长可以为正或负，但不能为 <code>0</code>。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">5</span>))) &nbsp; &nbsp; &nbsp; &nbsp; <span class="comment"># [0, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">2</span>, <span class="number">6</span>))) &nbsp; &nbsp; &nbsp;<span class="comment"># [2, 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">8</span>, <span class="number">2</span>))) &nbsp; <span class="comment"># [1, 3, 5, 7]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">5</span>, <span class="number">0</span>, -<span class="number">1</span>))) &nbsp;<span class="comment"># [5, 4, 3, 2, 1]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">5</span>, <span class="number">0</span>))) &nbsp; &nbsp; &nbsp;<span class="comment"># []</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>记住：<strong>包含开始值，不包含结束值。</strong> 正步长向大数方向递增，负步长向小数方向递减；方向不匹配时，得到空序列。</p>
-<h3 id="3-break-和-continue-的区别"><a href="#3-break-和-continue-的区别" class="headerlink" title="3. break 和 continue 的区别"></a>3. break 和 continue 的区别</h3><p>| 语句 | 作用 |</p>
-<p>| — | — |</p>
-<p>| <code>break</code> | 立即结束所在的最内层循环 |</p>
-<p>| <code>continue</code> | 跳过本轮剩余代码，继续最内层循环的下一轮 |</p>
+<h3 id="3-break-和-continue-的区别"><a href="#3-break-和-continue-的区别" class="headerlink" title="3. break 和 continue 的区别"></a>3. break 和 continue 的区别</h3><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>语句</th><th>作用</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>break</code></td><td>立即结束所在的最内层循环</td></tr>
+
+<tr><td><code>continue</code></td><td>跳过本轮剩余代码，继续最内层循环的下一轮</td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
 <p>使用 <code>break</code>：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> i == <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 依次输出：0、1</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
@@ -345,10 +386,30 @@
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 依次输出：0、1、2</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>两者本质上是同一种语法：<code>for 变量 in 可迭代对象</code>，只是遍历的对象不同。</p>
-<h2 id="二、字符串基础"><a href="#二、字符串基础" class="headerlink" title="二、字符串基础"></a>二、字符串基础</h2><h3 id="1-输入和输出"><a href="#1-输入和输出" class="headerlink" title="1. 输入和输出"></a>1. 输入和输出</h3><p>| 函数 | 用途 | 返回值 |</p>
-<p>| — | — | — |</p>
-<p>| <code>input()</code> | 接收用户输入 | <code>str</code> 类型的字符串 |</p>
-<p>| <code>print()</code> | 输出内容 | <code>None</code> |</p>
+<h2 id="二、字符串基础"><a href="#二、字符串基础" class="headerlink" title="二、字符串基础"></a>二、字符串基础</h2><h3 id="1-输入和输出"><a href="#1-输入和输出" class="headerlink" title="1. 输入和输出"></a>1. 输入和输出</h3><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>函数</th><th>用途</th><th>返回值</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>input()</code></td><td>接收用户输入</td><td><code>str</code> 类型的字符串</td></tr>
+
+<tr><td><code>print()</code></td><td>输出内容</td><td><code>None</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">name = <span class="built_in">input</span>(<span class="string">"请输入姓名："</span>)</span><br><span class="line"></span><br><span class="line">result = <span class="built_in">print</span>(<span class="string">"你好，"</span>, name)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(name)) &nbsp;<span class="comment"># &lt;class 'str'&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result) &nbsp; &nbsp; <span class="comment"># None</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>即使输入的是数字，<code>input()</code> 返回的仍然是字符串。需要进行数值计算或按数值大小排序时，应先转换类型：</p>
@@ -368,25 +429,60 @@
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"abc"</span>[:<span class="number">100</span>]) &nbsp;<span class="comment"># abc</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>字符串不可变，不能使用 <code>s[0] = "p"</code> 修改其中的字符。需要修改内容时，应构造新字符串并重新赋值。</p>
-<h3 id="4-常用字符串函数和方法"><a href="#4-常用字符串函数和方法" class="headerlink" title="4. 常用字符串函数和方法"></a>4. 常用字符串函数和方法</h3><p>| 函数或方法 | 作用 | 示例及结果 |</p>
-<p>| — | — | — |</p>
-<p>| <code>len(s)</code> | 获取长度 | <code>len("hello")</code> → <code>5</code> |</p>
-<p>| <code>s.lower()</code> | 转小写 | <code>"AbC".lower()</code> → <code>"abc"</code> |</p>
-<p>| <code>s.upper()</code> | 转大写 | <code>"AbC".upper()</code> → <code>"ABC"</code> |</p>
-<p>| <code>s.strip()</code> | 去除两端空白字符 | <code>" hi ".strip()</code> → <code>"hi"</code> |</p>
-<p>| <code>s.lstrip()</code> | 去除左端空白字符 | <code>" hi ".lstrip()</code> → <code>"hi "</code> |</p>
-<p>| <code>s.rstrip()</code> | 去除右端空白字符 | <code>" hi ".rstrip()</code> → <code>" hi"</code> |</p>
-<p>| <code>s.replace(old, new)</code> | 替换子字符串 | <code>"a-b".replace("-", ":")</code> → <code>"a:b"</code> |</p>
-<p>| <code>s.split(sep)</code> | 按分隔符拆分为列表 | <code>"a,b".split(",")</code> → <code>["a", "b"]</code> |</p>
-<p>| <code>sep.join(items)</code> | 连接多个字符串 | <code>"-".join(["a", "b"])</code> → <code>"a-b"</code> |</p>
-<p>| <code>s.find(sub)</code> | 查找首次出现的位置，找不到返回 <code>-1</code> | <code>"hello".find("l")</code> → <code>2</code> |</p>
-<p>| <code>s.index(sub)</code> | 查找首次出现的位置，找不到报错 | <code>"hello".index("e")</code> → <code>1</code> |</p>
-<p>| <code>s.count(sub)</code> | 统计不重叠的出现次数 | <code>"hello".count("l")</code> → <code>2</code> |</p>
-<p>| <code>s.startswith(prefix)</code> | 判断是否以指定内容开头 | <code>"hello".startswith("he")</code> → <code>True</code> |</p>
-<p>| <code>s.endswith(suffix)</code> | 判断是否以指定内容结尾 | <code>"hello".endswith("lo")</code> → <code>True</code> |</p>
-<p>| <code>s.isdigit()</code> | 判断是否非空且全部为数字字符 | <code>"123".isdigit()</code> → <code>True</code> |</p>
-<p>| <code>s.isalpha()</code> | 判断是否非空且全部为字母字符 | <code>"abc".isalpha()</code> → <code>True</code> |</p>
-<p>| <code>s.isalnum()</code> | 判断是否非空且全部为字母或数字字符 | <code>"abc123".isalnum()</code> → <code>True</code> |</p>
+<h3 id="4-常用字符串函数和方法"><a href="#4-常用字符串函数和方法" class="headerlink" title="4. 常用字符串函数和方法"></a>4. 常用字符串函数和方法</h3><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>函数或方法</th><th>作用</th><th>示例及结果</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>len(s)</code></td><td>获取长度</td><td><code>len("hello")</code> → <code>5</code></td></tr>
+
+<tr><td><code>s.lower()</code></td><td>转小写</td><td><code>"AbC".lower()</code> → <code>"abc"</code></td></tr>
+
+<tr><td><code>s.upper()</code></td><td>转大写</td><td><code>"AbC".upper()</code> → <code>"ABC"</code></td></tr>
+
+<tr><td><code>s.strip()</code></td><td>去除两端空白字符</td><td><code>" hi ".strip()</code> → <code>"hi"</code></td></tr>
+
+<tr><td><code>s.lstrip()</code></td><td>去除左端空白字符</td><td><code>" hi ".lstrip()</code> → <code>"hi "</code></td></tr>
+
+<tr><td><code>s.rstrip()</code></td><td>去除右端空白字符</td><td><code>" hi ".rstrip()</code> → <code>" hi"</code></td></tr>
+
+<tr><td><code>s.replace(old, new)</code></td><td>替换子字符串</td><td><code>"a-b".replace("-", ":")</code> → <code>"a:b"</code></td></tr>
+
+<tr><td><code>s.split(sep)</code></td><td>按分隔符拆分为列表</td><td><code>"a,b".split(",")</code> → <code>["a", "b"]</code></td></tr>
+
+<tr><td><code>sep.join(items)</code></td><td>连接多个字符串</td><td><code>"-".join(["a", "b"])</code> → <code>"a-b"</code></td></tr>
+
+<tr><td><code>s.find(sub)</code></td><td>查找首次出现的位置，找不到返回 <code>-1</code></td><td><code>"hello".find("l")</code> → <code>2</code></td></tr>
+
+<tr><td><code>s.index(sub)</code></td><td>查找首次出现的位置，找不到报错</td><td><code>"hello".index("e")</code> → <code>1</code></td></tr>
+
+<tr><td><code>s.count(sub)</code></td><td>统计不重叠的出现次数</td><td><code>"hello".count("l")</code> → <code>2</code></td></tr>
+
+<tr><td><code>s.startswith(prefix)</code></td><td>判断是否以指定内容开头</td><td><code>"hello".startswith("he")</code> → <code>True</code></td></tr>
+
+<tr><td><code>s.endswith(suffix)</code></td><td>判断是否以指定内容结尾</td><td><code>"hello".endswith("lo")</code> → <code>True</code></td></tr>
+
+<tr><td><code>s.isdigit()</code></td><td>判断是否非空且全部为数字字符</td><td><code>"123".isdigit()</code> → <code>True</code></td></tr>
+
+<tr><td><code>s.isalpha()</code></td><td>判断是否非空且全部为字母字符</td><td><code>"abc".isalpha()</code> → <code>True</code></td></tr>
+
+<tr><td><code>s.isalnum()</code></td><td>判断是否非空且全部为字母或数字字符</td><td><code>"abc123".isalnum()</code> → <code>True</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
 <p>字符串方法不会修改原字符串。需要保留转换结果时，要接收返回值：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">s = <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">s = s.upper()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s) &nbsp;<span class="comment"># HELLO</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
@@ -437,12 +533,34 @@
 <figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">原列表： [3, 10, 2, 8, 1]</span><br><span class="line"></span><br><span class="line">升序结果： [1, 2, 3, 8, 10]</span><br><span class="line"></span><br><span class="line">原列表逆序： [1, 8, 2, 10, 3]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>需要先用 <code>int()</code> 转换输入，否则排序比较的是字符串：<code>sorted(["2", "10"])</code> 的结果是 <code>["10", "2"]</code>。</p>
-<p>| 写法 | 是否修改原列表 | 返回值 |</p>
-<p>| — | — | — |</p>
-<p>| <code>sorted(numbers)</code> | 否 | 排序后的新列表 |</p>
-<p>| <code>numbers.sort()</code> | 是 | <code>None</code> |</p>
-<p>| <code>numbers[::-1]</code> | 否 | 逆序后的新列表 |</p>
-<p>| <code>numbers.reverse()</code> | 是 | <code>None</code> |</p>
+<div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>写法</th><th>是否修改原列表</th><th>返回值</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>sorted(numbers)</code></td><td>否</td><td>排序后的新列表</td></tr>
+
+<tr><td><code>numbers.sort()</code></td><td>是</td><td><code>None</code></td></tr>
+
+<tr><td><code>numbers[::-1]</code></td><td>否</td><td>逆序后的新列表</td></tr>
+
+<tr><td><code>numbers.reverse()</code></td><td>是</td><td><code>None</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
 <p><strong>逆序是颠倒原来的顺序，不等于降序排序。</strong></p>
 <h3 id="练习-3：随机数列表的统计与平均值之差"><a href="#练习-3：随机数列表的统计与平均值之差" class="headerlink" title="练习 3：随机数列表的统计与平均值之差"></a>练习 3：随机数列表的统计与平均值之差</h3><p><strong>题目：</strong> 随机产生 20 个 100～200 之间的整数，求最大值、最小值和平均值，再将每个元素与平均值的差保存到新列表。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">numbers = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; numbers.append(random.randint(<span class="number">100</span>, <span class="number">200</span>))</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">average = <span class="built_in">sum</span>(numbers) / <span class="built_in">len</span>(numbers)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">differences = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> numbers:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; differences.append(num - average)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"原列表："</span>, numbers)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"最大值："</span>, <span class="built_in">max</span>(numbers))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"最小值："</span>, <span class="built_in">min</span>(numbers))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"平均值：<span class="subst">{average:<span class="number">.2</span>f}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"各元素与平均值的差："</span>, differences)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
@@ -531,29 +649,77 @@
 </ul>
 <p>筛选后仍需去重。例如 <code>n = 2</code> 时，筛选得到 <code>['g', 'g', 'k', 'k', 'h', 'h']</code>，去重后才是 <code>['g', 'k', 'h']</code>。</p>
 <p>字符串不能像列表一样原地删除字符，因此这种“复制后删除”的写法需要转换成列表。若不想转换，使用方法二即可。</p>
-<h4 id="六种写法对比"><a href="#六种写法对比" class="headerlink" title="六种写法对比"></a>六种写法对比</h4><p>| 方法 | 统计次数 | 去重方式 | 是否把字符串转换为列表 |</p>
-<p>| — | — | — | — |</p>
-<p>| 列表推导式 | <code>text.count()</code> | <code>dict.fromkeys()</code> | 否 |</p>
-<p>| <code>for</code> 循环 | <code>text.count()</code> | <code>char not in result</code> | 否 |</p>
-<p>| 索引判断 | <code>text.count()</code> | 只添加首次出现位置的字符 | 否 |</p>
-<p>| <code>while</code> 循环 | <code>text.count()</code> | <code>char not in result</code> | 否 |</p>
-<p>| 字典累计 | 字典保存每个字符的次数 | 字典的键天然不重复 | 否 |</p>
-<p>| 复制列表后删除 | <code>text.count()</code> | 筛选后再判断是否已加入结果 | 是 |</p>
+<h4 id="六种写法对比"><a href="#六种写法对比" class="headerlink" title="六种写法对比"></a>六种写法对比</h4><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>方法</th><th>统计次数</th><th>去重方式</th><th>是否把字符串转换为列表</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>列表推导式</td><td><code>text.count()</code></td><td><code>dict.fromkeys()</code></td><td>否</td></tr>
+
+<tr><td><code>for</code> 循环</td><td><code>text.count()</code></td><td><code>char not in result</code></td><td>否</td></tr>
+
+<tr><td>索引判断</td><td><code>text.count()</code></td><td>只添加首次出现位置的字符</td><td>否</td></tr>
+
+<tr><td><code>while</code> 循环</td><td><code>text.count()</code></td><td><code>char not in result</code></td><td>否</td></tr>
+
+<tr><td>字典累计</td><td>字典保存每个字符的次数</td><td>字典的键天然不重复</td><td>否</td></tr>
+
+<tr><td>复制列表后删除</td><td><code>text.count()</code></td><td>筛选后再判断是否已加入结果</td><td>是</td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
 <p>刚学习循环时，可以先掌握方法二，再理解方法三和方法四；学过字典后，再看方法一和方法五。方法六主要用于练习“遍历副本、修改原列表”。</p>
 <p><strong>不要用无序的集合直接替代有序去重步骤</strong>，否则无法保证题目要求的首次出现顺序。此外，第 <code>m</code> 个字符对应 <code>result[m - 1]</code>，取值之前必须保证 <code>1 &lt;= m &lt;= len(result)</code>。</p>
-<h2 id="五、易错点速查"><a href="#五、易错点速查" class="headerlink" title="五、易错点速查"></a>五、易错点速查</h2><p>| 容易混淆的地方 | 正确理解 |</p>
-<p>| — | — |</p>
-<p>| <code>range()</code> 的结束值 | 不包含在生成的序列中 |</p>
-<p>| <code>break</code> 与 <code>continue</code> | 前者结束循环，后者跳过本轮剩余代码 |</p>
-<p>| <code>input()</code> 输入数字 | 返回的仍是字符串，按数值处理前需要转换 |</p>
-<p>| “同时被 7 和 8 整除” | 使用 <code>and</code>，不是 <code>or</code> |</p>
-<p>| <code>len()</code> 与 <code>enumerate()</code> | 前者返回长度，后者逐次提供编号和元素 |</p>
-<p>| 排序与逆序 | 排序按大小排列，逆序只颠倒已有顺序 |</p>
-<p>| <code>reverse()</code> 的返回值 | 原地修改列表，返回 <code>None</code> |</p>
-<p>| 遍历时删除元素 | 倒序按索引删除可避免元素前移造成漏检 |</p>
-<p>| 列表索引与“第几个” | 索引从 <code>0</code> 开始，第 <code>m</code> 个对应索引 <code>m - 1</code> |</p>
-<p>| 月份与列表索引 | 第 <code>month</code> 月对应索引 <code>month - 1</code> |</p>
-</article>
+<h2 id="五、易错点速查"><a href="#五、易错点速查" class="headerlink" title="五、易错点速查"></a>五、易错点速查</h2><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>容易混淆的地方</th><th>正确理解</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>range()</code> 的结束值</td><td>不包含在生成的序列中</td></tr>
+
+<tr><td><code>break</code> 与 <code>continue</code></td><td>前者结束循环，后者跳过本轮剩余代码</td></tr>
+
+<tr><td><code>input()</code> 输入数字</td><td>返回的仍是字符串，按数值处理前需要转换</td></tr>
+
+<tr><td>“同时被 7 和 8 整除”</td><td>使用 <code>and</code>，不是 <code>or</code></td></tr>
+
+<tr><td><code>len()</code> 与 <code>enumerate()</code></td><td>前者返回长度，后者逐次提供编号和元素</td></tr>
+
+<tr><td>排序与逆序</td><td>排序按大小排列，逆序只颠倒已有顺序</td></tr>
+
+<tr><td><code>reverse()</code> 的返回值</td><td>原地修改列表，返回 <code>None</code></td></tr>
+
+<tr><td>遍历时删除元素</td><td>倒序按索引删除可避免元素前移造成漏检</td></tr>
+
+<tr><td>列表索引与“第几个”</td><td>索引从 <code>0</code> 开始，第 <code>m</code> 个对应索引 <code>m - 1</code></td></tr>
+
+<tr><td>月份与列表索引</td><td>第 <code>month</code> 月对应索引 <code>month - 1</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div></article>
 
 <div class="article-tags"><a class="tag" href="/tags/Python/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Python</a><a class="tag" href="/tags/%E5%BE%AA%E7%8E%AF/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>循环</a><a class="tag" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>字符串</a><a class="tag" href="/tags/%E5%88%97%E8%A1%A8/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>列表</a></div>
 
