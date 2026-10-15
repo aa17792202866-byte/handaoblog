@@ -302,51 +302,102 @@
   </div>
   </div></div>
 <article class="md-text content"><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>2 的一亿次方是多少？详细展示计算过程。</p>
-<h1 id="计算结果"><a href="#计算结果" class="headerlink" title="计算结果"></a>计算结果</h1><p>$$<br>\boxed{2^{100000000}\approx 3.684665936980459\times10^{30102999}}<br>$$</p>
+<h1 id="计算结果"><a href="#计算结果" class="headerlink" title="计算结果"></a>计算结果</h1><div class="math-display" style="overflow-x:auto">$$
+\boxed{2^{100000000}\approx 3.684665936980459\times10^{30102999}}
+$$</div>
 <p>这个整数共有 <strong>30,103,000 位</strong>，即 <strong>三千零一十万三千位</strong>。</p>
 <p>上面的科学计数法保留了 16 位有效数字，是近似值，因此使用 <code>≈</code>，不能写成精确相等的 <code>=</code>。</p>
 <h1 id="把一亿次方写成数学表达式"><a href="#把一亿次方写成数学表达式" class="headerlink" title="把一亿次方写成数学表达式"></a>把一亿次方写成数学表达式</h1><p>一亿等于 100000000。设要求的数为 N，则：</p>
-<p>$$<br>N=2^{100000000}<br>=\underbrace{2\times2\times\cdots\times2}_{100000000\text{ 个 }2}<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+N=2^{100000000}
+=\underbrace{2\times2\times\cdots\times2}_{100000000\text{ 个 }2}
+$$</div>
 <h1 id="取常用对数，确定结果的大小"><a href="#取常用对数，确定结果的大小" class="headerlink" title="取常用对数，确定结果的大小"></a>取常用对数，确定结果的大小</h1><p>常用对数是以 10 为底的对数。根据公式：</p>
-<p>$$<br>\log_{10}(a^b)=b\log_{10}a<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\log_{10}(a^b)=b\log_{10}a
+$$</div>
 <p>得到：</p>
-<p>$$<br>\log_{10}N=100000000\log_{10}2<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\log_{10}N=100000000\log_{10}2
+$$</div>
 <p>使用高精度数值：</p>
-<p>$$<br>\log_{10}2=0.301029995663981195213738894724493\ldots<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\log_{10}2=0.301029995663981195213738894724493\ldots
+$$</div>
 <p>乘以一亿，相当于把小数点向右移动 8 位：</p>
-<p>$$<br>\log_{10}N=30102999.5663981195213738894724493\ldots<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\log_{10}N=30102999.5663981195213738894724493\ldots
+$$</div>
 <h1 id="计算十进制位数"><a href="#计算十进制位数" class="headerlink" title="计算十进制位数"></a>计算十进制位数</h1><p>正整数 N 的十进制位数公式是：</p>
-<p>$$<br>\text{位数}=\lfloor\log_{10}N\rfloor+1<br>$$</p>
-<p>其中，符号 $\lfloor x\rfloor$ 表示向下取整。</p>
+<div class="math-display" style="overflow-x:auto">$$
+\text{位数}=\lfloor\log_{10}N\rfloor+1
+$$</div>
+<p>其中，符号 <span class="math-inline">$\lfloor x\rfloor$</span> 表示向下取整。</p>
 <p>这个公式的原理是：一个 d 位正整数满足：</p>
-<p>$$<br>10^{d-1}\leq N&lt;10^d<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+10^{d-1}\leq N&lt;10^d
+$$</div>
 <p>取常用对数后得到：</p>
-<p>$$<br>d-1\leq\log_{10}N&lt;d<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+d-1\leq\log_{10}N&lt;d
+$$</div>
 <p>因此，本题的位数为：</p>
-<p>$$<br>\lfloor30102999.5663981195\ldots\rfloor+1<br>=30102999+1<br>=\boxed{30103000}<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\lfloor30102999.5663981195\ldots\rfloor+1
+=30102999+1
+=\boxed{30103000}
+$$</div>
 <h1 id="求出科学计数法中的系数"><a href="#求出科学计数法中的系数" class="headerlink" title="求出科学计数法中的系数"></a>求出科学计数法中的系数</h1><p>将对数拆成整数部分和小数部分：</p>
-<p>$$<br>\log_{10}N=30102999+0.56639811952137388947\ldots<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\log_{10}N=30102999+0.56639811952137388947\ldots
+$$</div>
 <p>两边以 10 为底取指数：</p>
-<p>$$<br>\begin{aligned}<br>N<br>&amp;=10^{30102999+0.56639811952137388947\ldots}\<br>&amp;=10^{30102999}\times10^{0.56639811952137388947\ldots}<br>\end{aligned}<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\begin{aligned}
+N
+&amp;=10^{30102999+0.56639811952137388947\ldots}\\
+&amp;=10^{30102999}\times10^{0.56639811952137388947\ldots}
+\end{aligned}
+$$</div>
 <p>计算其中的系数：</p>
-<p>$$<br>10^{0.56639811952137388947\ldots}<br>=3.68466593698045876320909239098422\ldots<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+10^{0.56639811952137388947\ldots}
+=3.68466593698045876320909239098422\ldots
+$$</div>
 <p>保留 16 位有效数字，得到：</p>
-<p>$$<br>\boxed{N\approx3.684665936980459\times10^{30102999}}<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\boxed{N\approx3.684665936980459\times10^{30102999}}
+$$</div>
 <h1 id="查看结果的开头和结尾"><a href="#查看结果的开头和结尾" class="headerlink" title="查看结果的开头和结尾"></a>查看结果的开头和结尾</h1><p>完整整数共有 30,103,000 位。下面展示它的前 60 位和后 60 位，中间省略：</p>
 <figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">368466593698045876320909239098422191506996581226754970849394</span><br><span class="line">……</span><br><span class="line">329964704707576357285681169309839668169204130048177787109376</span><br></pre></td></tr></tbody></table></figure>
 
 <h1 id="如何计算完整的精确整数"><a href="#如何计算完整的精确整数" class="headerlink" title="如何计算完整的精确整数"></a>如何计算完整的精确整数</h1><p>前面的对数方法用于求数量级、位数和科学计数法近似值。如果需要完整的精确整数，可以使用反复平方的方法。</p>
 <p>令：</p>
-<p>$$<br>a_0=2,\qquad a_{k+1}=a_k^2<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+a_0=2,\qquad a_{k+1}=a_k^2
+$$</div>
 <p>每次把上一次的结果平方：</p>
-<p>$$<br>a_1=2^2=4,\quad a_2=2^4=16,\quad a_3=2^8=256,\quad\ldots<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+a_1=2^2=4,\quad a_2=2^4=16,\quad a_3=2^8=256,\quad\ldots
+$$</div>
 <p>一般地：</p>
-<p>$$<br>a_k=2^{2^k}<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+a_k=2^{2^k}
+$$</div>
 <p>将指数 100000000 分解为若干个 2 的幂之和：</p>
-<p>$$<br>\begin{aligned}<br>100000000<br>={}&amp;2^{26}+2^{24}+2^{23}+2^{22}+2^{21}+2^{20}\<br>&amp;+2^{18}+2^{16}+2^{15}+2^{14}+2^{13}+2^8<br>\end{aligned}<br>$$</p>
+<div class="math-display" style="overflow-x:auto">$$
+\begin{aligned}
+100000000
+={}&amp;2^{26}+2^{24}+2^{23}+2^{22}+2^{21}+2^{20}\\
+&amp;+2^{18}+2^{16}+2^{15}+2^{14}+2^{13}+2^8
+\end{aligned}
+$$</div>
 <p>利用同底数幂相乘、指数相加的规则，得到：</p>
-<p>$$<br>N=a_{26}a_{24}a_{23}a_{22}a_{21}a_{20}<br>a_{18}a_{16}a_{15}a_{14}a_{13}a_8<br>$$</p>
-<p>从 $a_0$ 开始进行 <strong>26 次平方</strong>，再将选出的 12 个数进行 <strong>11 次乘法</strong>，就能得到精确结果。</p>
+<div class="math-display" style="overflow-x:auto">$$
+N=a_{26}a_{24}a_{23}a_{22}a_{21}a_{20}
+a_{18}a_{16}a_{15}a_{14}a_{13}a_8
+$$</div>
+<p>从 <span class="math-inline">$a_0$</span> 开始进行 <strong>26 次平方</strong>，再将选出的 12 个数进行 <strong>11 次乘法</strong>，就能得到精确结果。</p>
 <p>这些运算涉及非常大的整数，需要使用任意精度整数；运算次数少，并不意味着每次运算的成本低。</p>
 </article>
 
@@ -900,4 +951,26 @@
 
 <!-- inject -->
 
-</div></body></html>
+</div><script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['</html>
+,'</html>
+], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+</body></html>
