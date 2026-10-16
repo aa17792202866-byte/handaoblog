@@ -1,0 +1,832 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0" theme-name="Stellar" theme-version="2.0.0">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title data-stellar-page-meta="">Day 7 作业笔记：数据库与列表 - Hexo</title>
+  <script data-stellar-script="core">
+    (function () {
+      var key = 'stellar:v2:leftbar-state';
+      var fallback = "expanded";
+      try {
+        var value = localStorage.getItem(key);
+        document.documentElement.dataset.leftbarState = value === 'collapsed' || value === 'expanded' ? value : fallback;
+      } catch (error) {
+        document.documentElement.dataset.leftbarState = fallback;
+      }
+    })();
+  </script>
+
+  <meta name="description" content="一、知识点概览    模块练习核心知识      数据库开户、取款、查余额、销户建表、增删改查、条件更新  数据库计算学生总成绩查询结果、遍历、数值字段、参数化 SQL  数据库生成 100 条邮箱记录for 循环、存储过程、WHILE  列表随机分配老师字典嵌套列表、随机选择、容量限制  列表手动升序排序双重循环、比较交换、冒泡排序  字符串查找第二大数字字符筛选、集合去重、排序" data-stellar-page-meta="">
+<meta property="og:type" content="article" data-stellar-page-meta="">
+<meta property="og:title" content="Day 7 作业笔记：数据库与列表" data-stellar-page-meta="">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2024/09/16/python/python%E4%BD%9C%E4%B8%9A/Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8/" data-stellar-page-meta="">
+<meta property="og:site_name" content="Hexo" data-stellar-page-meta="">
+<meta property="og:description" content="一、知识点概览    模块练习核心知识      数据库开户、取款、查余额、销户建表、增删改查、条件更新  数据库计算学生总成绩查询结果、遍历、数值字段、参数化 SQL  数据库生成 100 条邮箱记录for 循环、存储过程、WHILE  列表随机分配老师字典嵌套列表、随机选择、容量限制  列表手动升序排序双重循环、比较交换、冒泡排序  字符串查找第二大数字字符筛选、集合去重、排序" data-stellar-page-meta="">
+<meta property="og:locale" content="en_US" data-stellar-page-meta="">
+<meta property="article:author" content="John Doe" data-stellar-page-meta="">
+<meta property="article:published_time" content="2024-09-16T04:00:00.000Z" data-stellar-page-meta="">
+<meta property="article:modified_time" content="2026-10-15T16:21:25.000Z" data-stellar-page-meta="">
+<meta property="article:tag" content="Python" data-stellar-page-meta="">
+<meta property="article:tag" content="列表" data-stellar-page-meta="">
+<meta property="article:tag" content="数据库" data-stellar-page-meta="">
+<meta name="twitter:card" content="summary" data-stellar-page-meta=""><meta name="twitter:title" content="Day 7 作业笔记：数据库与列表" data-stellar-page-meta="">
+  
+  
+  <meta name="keywords" content="Python,数据库,列表" data-stellar-page-meta="">
+
+  <!-- feed -->
+  
+
+  <link rel="preload" href="/css/main.css?v=2.0.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=2.0.0-20260906">
+  <style>:root{--text-loading:"Loading";--text-loading-error:"Failed to load. Please try again later."}</style>
+
+
+  
+
+  
+
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2024-09-16T12:00:00+08:00","dateModified":"2026-10-16T00:21:25+08:00","datePublished":"2024-09-16T12:00:00+08:00","description":"一、知识点概览\n\n\n\n模块练习核心知识\n\n\n\n\n\n数据库开户、取款、查余额、销户建表、增删改查、条件更新\n\n数据库计算学生总成绩查询结果、遍历、数值字段、参数化 SQL\n\n数据库生成 100 条邮箱记录for 循环、存储过程、WHILE\n\n列表随机分配老师字典嵌套列表、随机选择、容量限制\n\n列表手动升序排序双重循环、比较交换、冒泡排序\n\n字符串查找第二大数字字符筛选、集合去重、排序\n\n\n\n\n...","headline":"Day 7 作业笔记：数据库与列表","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2024/09/16/python/python%E4%BD%9C%E4%B8%9A/Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2024/09/16/python/python%E4%BD%9C%E4%B8%9A/Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8/","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"],"keywords":"Python, 数据库, 列表","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"}</script>
+  
+
+  <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
+  <link rel="preload" as="script" href="/js/stellar-icons.js?v=39c6ac17e854ffe2">
+  
+  
+</head>
+<body data-page-type="content" data-page-layout="post" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    
+  </header>
+  <div class="site-region__body site-region__zone site-region__zone--body">
+    <div class="widget-instance widget-instance--menu" data-widget-id="leftbar:fixed:menu" data-presentation="leftbar" data-leftbar-rail="">
+
+
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/" title="Blog" aria-current="page">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"></path><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Blog</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/blog/categories/" title="Categories">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor"><path d="M2 6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C22 7.84935 22 9.16554 22 11.7979V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V6.94975Z" opacity=".5"></path><path d="M20 6.23751C19.9992 5.94016 19.9949 5.76263 19.9746 5.60842C19.7974 4.26222 18.7381 3.2029 17.3919 3.02567C17.1969 3 16.9647 3 16.5003 3H9.98828C10.1042 3.10392 10.2347 3.23445 10.45 3.44975L11.0003 4C11.8161 4.81578 12.2239 5.22367 12.7124 5.49543C12.9807 5.64471 13.2653 5.7626 13.5606 5.84678C14.0982 6 14.675 6 15.8287 6H16.2024C17.9814 6 19.1593 6 20 6.23751Z"></path><path fill-rule="evenodd" d="M12.25 10C12.25 9.58579 12.5858 9.25 13 9.25H18C18.4142 9.25 18.75 9.58579 18.75 10C18.75 10.4142 18.4142 10.75 18 10.75H13C12.5858 10.75 12.25 10.4142 12.25 10Z" clip-rule="evenodd"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Categories</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/blog/tags/" title="Tags">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.7226 3.20068C10.8335 2.80158 10.5998 2.38817 10.2007 2.27731C9.80163 2.16645 9.38822 2.40011 9.27736 2.79921L7.76327 8.24995H4C3.58579 8.24995 3.25 8.58573 3.25 8.99995C3.25 9.41416 3.58579 9.74995 4 9.74995H7.3466L5.81882 15.2499H2C1.58579 15.2499 1.25 15.5857 1.25 15.9999C1.25 16.4142 1.58579 16.7499 2 16.7499H5.40216L4.27736 20.7992C4.1665 21.1983 4.40016 21.6117 4.79927 21.7226C5.19837 21.8334 5.61178 21.5998 5.72264 21.2007L6.95895 16.7499H14.4022L13.2774 20.7992C13.1665 21.1983 13.4002 21.6117 13.7993 21.7226C14.1984 21.8334 14.6118 21.5998 14.7226 21.2007L15.959 16.7499H20C20.4142 16.7499 20.75 16.4142 20.75 15.9999C20.75 15.5857 20.4142 15.2499 20 15.2499H16.3756L17.9034 9.74995H22C22.4142 9.74995 22.75 9.41416 22.75 8.99995C22.75 8.58573 22.4142 8.24995 22 8.24995H18.3201L19.7226 3.20068C19.8335 2.80158 19.5998 2.38817 19.2007 2.27731C18.8016 2.16645 18.3882 2.40011 18.2774 2.79921L16.7633 8.24995H9.32006L10.7226 3.20068ZM14.8188 15.2499L16.3466 9.74995H8.9034L7.37562 15.2499H14.8188Z" clip-rule="evenodd"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Tags</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/topic/" title="Topic">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m12 16.068l-3.771 3.905c-.54.559-.81.839-1.04.935c-.52.22-1.099.032-1.373-.448c-.12-.21-.158-.59-.232-1.35c-.043-.43-.064-.644-.128-.824a1.43 1.43 0 0 0-.835-.864c-.173-.067-.38-.089-.795-.133c-.734-.077-1.101-.116-1.305-.24c-.463-.284-.646-.883-.433-1.422c.094-.237.364-.517.904-1.076L5.456 12l1.238-1.238zl5.306-5.306L18.544 12l2.464 2.55c.54.56.81.84.904 1.076c.213.54.03 1.139-.433 1.423c-.204.124-.57.163-1.305.24c-.414.044-.622.066-.795.133c-.389.149-.69.462-.835.864c-.064.18-.085.394-.128.823c-.075.76-.112 1.14-.232 1.351c-.274.48-.853.669-1.374.448c-.228-.096-.498-.376-1.038-.935z" opacity=".5"></path><path fill="currentColor" fill-rule="evenodd" d="M12 16a7 7 0 1 0 0-14a7 7 0 0 0 0 14m0-10c-.284 0-.474.34-.854 1.023l-.098.176c-.108.194-.162.29-.246.354c-.085.064-.19.088-.4.135l-.19.044c-.738.167-1.107.25-1.195.532s.164.577.667 1.165l.13.152c.143.167.215.25.247.354s.021.215 0 .438l-.02.203c-.076.785-.114 1.178.115 1.352c.23.174.576.015 1.267-.303l.178-.082c.197-.09.295-.135.399-.135s.202.045.399.135l.178.082c.691.319 1.037.477 1.267.303s.191-.567.115-1.352l-.02-.203c-.021-.223-.032-.334 0-.438s.104-.187.247-.354l.13-.152c.503-.588.755-.882.667-1.165c-.088-.282-.457-.365-1.195-.532l-.19-.044c-.21-.047-.315-.07-.4-.135c-.084-.064-.138-.16-.246-.354l-.098-.176C12.474 6.34 12.284 6 12 6" clip-rule="evenodd"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Topic</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/blog/archives/" title="Archives">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor"><path d="M6.94028 2C7.35614 2 7.69326 2.32421 7.69326 2.72414V4.18487C8.36117 4.17241 9.10983 4.17241 9.95219 4.17241H13.9681C14.8104 4.17241 15.5591 4.17241 16.227 4.18487V2.72414C16.227 2.32421 16.5641 2 16.98 2C17.3958 2 17.733 2.32421 17.733 2.72414V4.24894C19.178 4.36022 20.1267 4.63333 20.8236 5.30359C21.5206 5.97385 21.8046 6.88616 21.9203 8.27586L22 9H2.92456H2V8.27586C2.11571 6.88616 2.3997 5.97385 3.09665 5.30359C3.79361 4.63333 4.74226 4.36022 6.1873 4.24894V2.72414C6.1873 2.32421 6.52442 2 6.94028 2Z"></path><path d="M21.9995 14.0001V12.0001C21.9995 11.161 21.9963 9.66527 21.9834 9H2.00917C1.99626 9.66527 1.99953 11.161 1.99953 12.0001V14.0001C1.99953 17.7713 1.99953 19.6569 3.1711 20.8285C4.34267 22.0001 6.22829 22.0001 9.99953 22.0001H13.9995C17.7708 22.0001 19.6564 22.0001 20.828 20.8285C21.9995 19.6569 21.9995 17.7713 21.9995 14.0001Z" opacity=".5"></path><path d="M18 17C18 17.5523 17.5523 18 17 18C16.4477 18 16 17.5523 16 17C16 16.4477 16.4477 16 17 16C17.5523 16 18 16.4477 18 17Z"></path><path d="M18 13C18 13.5523 17.5523 14 17 14C16.4477 14 16 13.5523 16 13C16 12.4477 16.4477 12 17 12C17.5523 12 18 12.4477 18 13Z"></path><path d="M13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17Z"></path><path d="M13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13Z"></path><path d="M8 17C8 17.5523 7.55228 18 7 18C6.44772 18 6 17.5523 6 17C6 16.4477 6.44772 16 7 16C7.55228 16 8 16.4477 8 17Z"></path><path d="M8 13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13C6 12.4477 6.44772 12 7 12C7.55228 12 8 12.4477 8 13Z"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Archives</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/friends/" title="Friends">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Friends</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/about/" title="About">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20" opacity=".5"></path><path d="M12 6a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0 7.5c-3.04 0-5.5 1.57-5.5 3.5c0 .65.28 1.26.77 1.77A7.96 7.96 0 0 0 12 20.5a7.96 7.96 0 0 0 4.73-1.73c.49-.51.77-1.12.77-1.77c0-1.93-2.46-3.5-5.5-3.5"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">About</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div>
+
+</nav>
+
+</div>
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--recent" data-widget-id="leftbar:1:recent" data-presentation="leftbar">
+
+<widget class="widget-wrapper slide-up recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">Recent Update</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/clash%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E8%BF%9E%E6%8E%A5xray/" title="Clash 为什么可以连接 Xray？从协议理解客户端与服务端" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">C</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Clash 为什么可以连接 Xray？从协议理解客户端与服务端</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/Windows11%E6%89%B9%E9%87%8F%E8%AE%BE%E7%BD%AEUWP%E5%BA%94%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%9E%E7%8E%AF%E8%B1%81%E5%85%8D/" title="Windows 11 批量设置 UWP 应用本地回环豁免" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">W</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Windows 11 批量设置 UWP 应用本地回环豁免</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/10/16/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/Selenium%E5%92%8CPlaywright%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9A%E8%AF%9E%E7%94%9F%E6%97%B6%E9%97%B4%E4%B8%8E%E5%85%A5%E9%97%A8%E5%8C%BA%E5%88%AB/" title="Selenium 和 Playwright 是什么：诞生时间与入门区别" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">S</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Selenium 和 Playwright 是什么：诞生时间与入门区别</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/MySQL/Windows%E4%B8%8A%E5%A4%9A%E4%B8%AAMySQL%E8%BF%9B%E7%A8%8B%E6%80%8E%E4%B9%88%E6%9F%A5%EF%BC%9A%E7%AB%AF%E5%8F%A3%E3%80%81%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/" title="Windows 上多个 MySQL 进程怎么查：端口、服务与开机启动" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">W</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Windows 上多个 MySQL 进程怎么查：端口、服务与开机启动</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="隐式转换" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">隐</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">隐式转换</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/09/python/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/" title="银行家舍入法" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">银</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">银行家舍入法</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/09/python/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="数据类型" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">数</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">数据类型</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/15/python/python%E5%BE%AA%E7%8E%AF/set%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81%E9%A1%BA%E5%BA%8F/" title="set如何保持顺序" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">S</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">set如何保持顺序</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/11/python/python%E5%BE%AA%E7%8E%AF/for%E5%BE%AA%E7%8E%AF%E5%A6%82%E4%BD%95%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/" title="for循环如何无限循环" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">F</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">for循环如何无限循环</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/09/python/python%E5%BE%AA%E7%8E%AF/for%E5%92%8Cwhile/" title="for和while" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">F</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">for和while</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div></div>
+  </div>
+  <footer class="site-region__footer">
+    
+    <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="Settings" aria-label="Settings" title="Settings">
+  <span class="settings-widget__avatar" aria-hidden="true">
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
+  </span>
+  <span class="settings-widget__name ui-collection__title">Settings</span>
+</a>
+</div></div>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
+    </div>
+  </footer></div></div></aside>
+<main data-stellar-runtime-region="" class="site-main" id="main">
+
+
+<div class="article-banner-wrap slide-up"><div class="article banner top">
+  <div class="content">
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python 学习笔记</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-09-16T04:00:00.000Z">2024-09-16</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-10-15T16:21:25.000Z">2026-10-16</time></span></div>
+</div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Day 7 作业笔记：数据库与列表</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div></div>
+<article class="md-text content slide-up"><h2 id="一、知识点概览"><a href="#一、知识点概览" class="headerlink" title="一、知识点概览" data-stellar-navigation=""></a>一、知识点概览</h2><div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th scope="col">模块</th><th scope="col">练习</th><th scope="col">核心知识</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>数据库</td><td>开户、取款、查余额、销户</td><td>建表、增删改查、条件更新</td></tr>
+
+<tr><td>数据库</td><td>计算学生总成绩</td><td>查询结果、遍历、数值字段、参数化 SQL</td></tr>
+
+<tr><td>数据库</td><td>生成 100 条邮箱记录</td><td><code>for</code> 循环、存储过程、<code>WHILE</code></td></tr>
+
+<tr><td>列表</td><td>随机分配老师</td><td>字典嵌套列表、随机选择、容量限制</td></tr>
+
+<tr><td>列表</td><td>手动升序排序</td><td>双重循环、比较交换、冒泡排序</td></tr>
+
+<tr><td>字符串</td><td>查找第二大数字</td><td>字符筛选、集合去重、排序</td></tr>
+
+</tbody>
+
+</table></div>
+
+  
+
+<h2 id="二、数据库操作准备"><a href="#二、数据库操作准备" class="headerlink" title="二、数据库操作准备" data-stellar-navigation=""></a>二、数据库操作准备</h2><p>以下数据库示例使用 MySQL 和 PyMySQL，假设数据库 <code>ceshi</code> 已经存在。各题示例共用连接对象 <code>con</code> 和游标 <code>cu</code>。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">con = pymysql.connect(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; host=<span class="string">"localhost"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; port=<span class="number">3306</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; user=<span class="string">"root"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; password=<span class="string">"你的数据库密码"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; database=<span class="string">"ceshi"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; charset=<span class="string">"utf8mb4"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; autocommit=<span class="literal">True</span>,</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cu = con.cursor()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th scope="col">写法</th><th scope="col">作用</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>con.cursor()</code></td><td>创建执行 SQL 的游标</td></tr>
+
+<tr><td><code>cu.execute(sql)</code></td><td>执行一条 SQL</td></tr>
+
+<tr><td><code>cu.execute(sql, params)</code></td><td>绑定参数后执行 SQL</td></tr>
+
+<tr><td><code>cu.fetchone()</code></td><td>获取一条查询结果；没有结果时返回 <code>None</code></td></tr>
+
+<tr><td><code>cu.fetchall()</code></td><td>获取所有剩余查询结果</td></tr>
+
+<tr><td><code>autocommit=True</code></td><td>自动提交每条语句的修改</td></tr>
+
+</tbody>
+
+</table></div>
+
+  
+
+<p>默认游标的单条查询结果通常是元组，例如 <code>(800.00,)</code> 的结构。金额使用 <code>DECIMAL</code> 时，Python 中实际得到的值通常是 <code>Decimal</code> 对象。</p>
+<p><strong>参数化 SQL：</strong> SQL 中用 <code>%s</code> 表示数据占位符，实际值通过第二个参数传入。不要给占位符额外加引号，也不要使用字符串拼接把用户输入塞进 SQL。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.execute(<span class="string">"SELECT amount FROM user1 WHERE card = %s"</span>, (<span class="string">"622778899000"</span>,))</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>单元素元组末尾的逗号不能省略。所有数据库练习结束后释放资源：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.close()</span><br><span class="line"></span><br><span class="line">con.close()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>下文按首次建表、首次插入演示。<code>CREATE TABLE IF NOT EXISTS</code> 只避免重复建表，不会更新已有表结构，也不会避免重复插入数据。如果之前已创建原作业中的表，需要先核对字段是否一致。</p>
+</blockquote>
+<h2 id="三、数据库题-1：用户账户的增删改查"><a href="#三、数据库题-1：用户账户的增删改查" class="headerlink" title="三、数据库题 1：用户账户的增删改查" data-stellar-navigation=""></a>三、数据库题 1：用户账户的增删改查</h2><h3 id="1-题目"><a href="#1-题目" class="headerlink" title="1. 题目" data-stellar-navigation=""></a>1. 题目</h3><p>创建表记录用户姓名、卡号、余额，并完成：</p>
+<ol>
+<li><p>开户：<code>xiaoming</code>，卡号 <code>622778899000</code>，余额 <code>1000</code>。</p>
+</li>
+<li><p>取款 <code>200</code>。</p>
+</li>
+<li><p>查询余额。</p>
+</li>
+<li><p>取完余额后销户。</p>
+</li>
+</ol>
+<h3 id="2-建表"><a href="#2-建表" class="headerlink" title="2. 建表" data-stellar-navigation=""></a>2. 建表</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.execute(<span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">CREATE TABLE IF NOT EXISTS user1 (</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; name VARCHAR(10) NOT NULL,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; card VARCHAR(12) NOT NULL UNIQUE,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; amount DECIMAL(10, 2) NOT NULL DEFAULT 0.00</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><p><code>AUTO_INCREMENT</code>：自动生成编号，插入时可以不提供 <code>id</code>。</p>
+</li>
+<li><p><code>VARCHAR</code>：卡号属于标识信息，适合保存为字符串。</p>
+</li>
+<li><p><code>UNIQUE</code>：避免同一卡号重复开户。</p>
+</li>
+<li><p><code>DECIMAL(10, 2)</code>：最多 10 位数字，其中 2 位是小数，适合保存金额。</p>
+</li>
+</ul>
+<h3 id="3-开户"><a href="#3-开户" class="headerlink" title="3. 开户" data-stellar-navigation=""></a>3. 开户</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.execute(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="string">"INSERT INTO user1 (name, card, amount) VALUES (%s, %s, %s)"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; (<span class="string">"xiaoming"</span>, <span class="string">"622778899000"</span>, <span class="number">1000</span>),</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>显式列出字段，比 <code>INSERT INTO user1 VALUES (...)</code> 更容易理解，也无需用 <code>0</code> 代替自增编号。</p>
+<h3 id="4-取款-200"><a href="#4-取款-200" class="headerlink" title="4. 取款 200" data-stellar-navigation=""></a>4. 取款 200</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">affected = cu.execute(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; UPDATE user1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; SET amount = amount - %s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; WHERE card = %s AND amount &gt;= %s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; """</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; (<span class="number">200</span>, <span class="string">"622778899000"</span>, <span class="number">200</span>),</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"取款成功"</span> <span class="keyword">if</span> affected == <span class="number">1</span> <span class="keyword">else</span> <span class="string">"账户不存在或余额不足"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>用唯一卡号定位账户，避免同名用户一起被修改。余额条件用于避免这次扣款将余额减成负数。</p>
+<h3 id="5-查询余额"><a href="#5-查询余额" class="headerlink" title="5. 查询余额" data-stellar-navigation=""></a>5. 查询余额</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.execute(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="string">"SELECT amount FROM user1 WHERE card = %s"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; (<span class="string">"622778899000"</span>,),</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">row = cu.fetchone()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> row <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"账户不存在"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"当前余额：<span class="subst">{row[<span class="number">0</span>]:<span class="number">.2</span>f}</span>"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>按题目顺序首次执行后，余额应为 <code>800.00</code>。</p>
+<h3 id="6-取完余额后销户"><a href="#6-取完余额后销户" class="headerlink" title="6. 取完余额后销户" data-stellar-navigation=""></a>6. 取完余额后销户</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 作业中的简化表达：先清零，表示已取完余额，再删除账户。</span></span><br><span class="line"></span><br><span class="line">cu.execute(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="string">"UPDATE user1 SET amount = 0 WHERE card = %s"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; (<span class="string">"622778899000"</span>,),</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cu.execute(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="string">"DELETE FROM user1 WHERE card = %s AND amount = 0"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; (<span class="string">"622778899000"</span>,),</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>原代码需要注意：</strong> 直接 <code>DELETE</code> 只表示删除记录，没有单独体现“取完余额”。上述代码也只是练习演示；真实取款还需要记录资金流转。若多条操作要求同时成功或失败，应使用事务；当前自动提交模式不会将两条语句合并为一个事务。</p>
+<h2 id="四、数据库题-2：计算学生总成绩"><a href="#四、数据库题-2：计算学生总成绩" class="headerlink" title="四、数据库题 2：计算学生总成绩" data-stellar-navigation=""></a>四、数据库题 2：计算学生总成绩</h2><h3 id="1-原始数据和预期结果"><a href="#1-原始数据和预期结果" class="headerlink" title="1. 原始数据和预期结果" data-stellar-navigation=""></a>1. 原始数据和预期结果</h3><div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th scope="col">学号</th><th scope="col">科目 1</th><th scope="col">科目 2</th><th scope="col">科目 3</th><th scope="col">总成绩</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>a1</td><td>70</td><td>80</td><td>90</td><td>240</td></tr>
+
+<tr><td>a2</td><td>80</td><td>85</td><td>95</td><td>260</td></tr>
+
+<tr><td>a3</td><td>75</td><td>60</td><td>80</td><td>215</td></tr>
+
+</tbody>
+
+</table></div>
+
+  
+
+<p>思路：创建表 → 插入原始成绩 → 查询数据 → 遍历计算总分 → 更新最后一列。</p>
+<h3 id="2-参考代码"><a href="#2-参考代码" class="headerlink" title="2. 参考代码" data-stellar-navigation=""></a>2. 参考代码</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.execute(<span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">CREATE TABLE IF NOT EXISTS grades (</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; id VARCHAR(5) PRIMARY KEY,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; class1 INT NOT NULL,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; class2 INT NOT NULL,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; class3 INT NOT NULL,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; total INT NOT NULL DEFAULT 0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span>)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">students = [</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; (<span class="string">"a1"</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>),</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; (<span class="string">"a2"</span>, <span class="number">80</span>, <span class="number">85</span>, <span class="number">95</span>),</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; (<span class="string">"a3"</span>, <span class="number">75</span>, <span class="number">60</span>, <span class="number">80</span>),</span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> student <span class="keyword">in</span> students:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; cu.execute(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="string">"INSERT INTO grades (id, class1, class2, class3) VALUES (%s, %s, %s, %s)"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; student,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; )</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">cu.execute(<span class="string">"SELECT id, class1, class2, class3 FROM grades"</span>)</span><br><span class="line"></span><br><span class="line">rows = cu.fetchall()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> student_id, score1, score2, score3 <span class="keyword">in</span> rows:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; total = score1 + score2 + score3</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; cu.execute(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="string">"UPDATE grades SET total = %s WHERE id = %s"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; (total, student_id),</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; )</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">cu.execute(<span class="string">"SELECT id, class1, class2, class3, total FROM grades ORDER BY id"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> cu.fetchall():</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(row)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-原解法复盘"><a href="#3-原解法复盘" class="headerlink" title="3. 原解法复盘" data-stellar-navigation=""></a>3. 原解法复盘</h3><ul>
+<li><p>原表将成绩定义为 <code>VARCHAR</code>，因此计算前要转成 <code>float</code>。这道题的成绩都是整数，使用 <code>INT</code> 更合适；若允许小数成绩，可考虑 <code>DECIMAL</code>。</p>
+</li>
+<li><p>原字段名 <code>avg</code> 容易让人理解为“平均分”，总分建议命名为 <code>total</code>。</p>
+</li>
+<li><p>原代码里新增 <code>avg</code> 列的语句被注释掉了。如果表中尚无该字段，直接更新会报错。</p>
+</li>
+<li><p>原代码先保存总分列表，再通过下标找到学生。直接遍历一行数据并更新，关系更清晰。</p>
+</li>
+</ul>
+<p>原失败尝试中的关键问题：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a = zongchengji[-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">sq10 = <span class="string">"UPDATE grades SET avg = a WHERE id = 'a1'"</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>SQL 字符串中的 <code>a</code> 不会自动替换成 Python 变量的值，数据库会把它当成标识符解析。另外，<code>[-1]</code> 始终取最后一个总分，<code>'a1'</code> 始终定位同一名学生。</p>
+<p>正确做法是让总分与学号对应，并绑定参数：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.execute(<span class="string">"UPDATE grades SET total = %s WHERE id = %s"</span>, (total, student_id))</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="4-SQL-简化写法"><a href="#4-SQL-简化写法" class="headerlink" title="4. SQL 简化写法" data-stellar-navigation=""></a>4. SQL 简化写法</h3><p>如果不要求在 Python 中计算，可以直接更新整张表：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> grades <span class="keyword">SET</span> total <span class="operator">=</span> class1 <span class="operator">+</span> class2 <span class="operator">+</span> class3;</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果只需要展示总分，不要求保存最后一列，也可以在查询时计算：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> id, class1, class2, class3,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp;class1 <span class="operator">+</span> class2 <span class="operator">+</span> class3 <span class="keyword">AS</span> total</span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> grades;</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="五、数据库题-3：生成-100-条邮箱记录"><a href="#五、数据库题-3：生成-100-条邮箱记录" class="headerlink" title="五、数据库题 3：生成 100 条邮箱记录" data-stellar-navigation=""></a>五、数据库题 3：生成 100 条邮箱记录</h2><h3 id="1-题目与建表"><a href="#1-题目与建表" class="headerlink" title="1. 题目与建表" data-stellar-navigation=""></a>1. 题目与建表</h3><p>生成 <code>vu1</code> 到 <code>vu100</code>，对应邮箱为 <code>vu1@163.com</code> 到 <code>vu100@163.com</code>。分别使用 Python 循环和 MySQL 存储过程实现。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.execute(<span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">CREATE TABLE IF NOT EXISTS user_mail (</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; name VARCHAR(20) PRIMARY KEY,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; mailbox VARCHAR(50) NOT NULL</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>以下两种方法应分别在空表中练习。连续对同一张表执行会尝试插入相同姓名；本笔记增加了主键，因此会出现重复键错误。原表没有唯一约束，重复运行则会产生重复记录。</p>
+<h3 id="2-方法一：Python-的-for-循环"><a href="#2-方法一：Python-的-for-循环" class="headerlink" title="2. 方法一：Python 的 for 循环" data-stellar-navigation=""></a>2. 方法一：Python 的 for 循环</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">101</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; name = <span class="string">f"vu<span class="subst">{i}</span>"</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; mailbox = <span class="string">f"vu<span class="subst">{i}</span>@163.com"</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; cu.execute(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="string">"INSERT INTO user_mail (name, mailbox) VALUES (%s, %s)"</span>,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; (name, mailbox),</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; )</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>range(1, 101)</code> 左闭右开，实际生成整数 <code>1～100</code>，共 100 个。f-string 用于把编号放进姓名和邮箱。</p>
+<h3 id="3-方法二：MySQL-存储过程"><a href="#3-方法二：MySQL-存储过程" class="headerlink" title="3. 方法二：MySQL 存储过程" data-stellar-navigation=""></a>3. 方法二：MySQL 存储过程</h3><p>下面假设数据库中尚不存在名为 <code>add_users</code> 的存储过程。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sql = <span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">CREATE PROCEDURE add_users()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">BEGIN</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; DECLARE i INT DEFAULT 1;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; WHILE i &lt;= 100 DO</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; &nbsp; &nbsp; INSERT INTO user_mail (name, mailbox)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; &nbsp; &nbsp; VALUES (CONCAT('vu', i), CONCAT('vu', i, '@163.com'));</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; &nbsp; &nbsp; SET i = i + 1;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&nbsp; &nbsp; END WHILE;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">END</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">cu.execute(sql)</span><br><span class="line"></span><br><span class="line">cu.execute(<span class="string">"CALL add_users()"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th scope="col">语句</th><th scope="col">含义</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>CREATE PROCEDURE</code></td><td>创建存储过程，创建本身不会运行其中的插入语句</td></tr>
+
+<tr><td><code>BEGIN ... END</code></td><td>定义过程体</td></tr>
+
+<tr><td><code>DECLARE i INT DEFAULT 1</code></td><td>声明初值为 1 的局部变量</td></tr>
+
+<tr><td><code>WHILE ... DO</code></td><td>条件成立时循环</td></tr>
+
+<tr><td><code>CONCAT(...)</code></td><td>拼接字符串</td></tr>
+
+<tr><td><code>SET i = i + 1</code></td><td>增加编号，避免死循环</td></tr>
+
+<tr><td><code>CALL add_users()</code></td><td>调用存储过程</td></tr>
+
+</tbody>
+
+</table></div>
+
+  
+
+<p>通过 PyMySQL 将整个建过程语句交给 <code>execute()</code> 时，不需要添加 <code>DELIMITER</code>。它是某些 MySQL 客户端使用的命令，不是发送给服务器的 SQL 语句。</p>
+<h3 id="4-验证记录数"><a href="#4-验证记录数" class="headerlink" title="4. 验证记录数" data-stellar-navigation=""></a>4. 验证记录数</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cu.execute(<span class="string">"SELECT COUNT(*) FROM user_mail"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(cu.fetchone()[<span class="number">0</span>]) &nbsp;<span class="comment"># 空表执行其中一种方法后，应为 100</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="六、列表题-1：随机分配-8-名老师"><a href="#六、列表题-1：随机分配-8-名老师" class="headerlink" title="六、列表题 1：随机分配 8 名老师" data-stellar-navigation=""></a>六、列表题 1：随机分配 8 名老师</h2><h3 id="1-题目-1"><a href="#1-题目-1" class="headerlink" title="1. 题目" data-stellar-navigation=""></a>1. 题目</h3><p>将 8 名老师随机分到 3 个办公室，每个办公室最多 3 人。每名老师必须且只能分配一次。</p>
+<p>总容量为 <code>3 × 3 = 9</code>，能够容纳 8 人；本题最终人数一定是 <code>3、3、2</code> 的某种排列。</p>
+<h3 id="2-方法一：从未满的办公室中随机选择"><a href="#2-方法一：从未满的办公室中随机选择" class="headerlink" title="2. 方法一：从未满的办公室中随机选择" data-stellar-navigation=""></a>2. 方法一：从未满的办公室中随机选择</h3><p>原代码通过 <code>while</code> 不断随机抽办公室，抽到未满的办公室才放入老师。下面保留逐人随机分配的思路，直接从未满的办公室里抽取：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">teachers = [<span class="string">"a1"</span>, <span class="string">"a2"</span>, <span class="string">"a3"</span>, <span class="string">"a4"</span>, <span class="string">"a5"</span>, <span class="string">"a6"</span>, <span class="string">"a7"</span>, <span class="string">"a8"</span>]</span><br><span class="line"></span><br><span class="line">office_num = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">max_people = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(teachers) &gt; office_num * max_people:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"办公室数量不足以容纳所有老师"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; offices = {i: [] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, office_num + <span class="number">1</span>)}</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> teacher <span class="keyword">in</span> teachers:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; available = [</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i <span class="keyword">for</span> i <span class="keyword">in</span> offices <span class="keyword">if</span> <span class="built_in">len</span>(offices[i]) &lt; max_people</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; ]</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; office = random.choice(available)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; offices[office].append(teacher)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> office, members <span class="keyword">in</span> offices.items():</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"第<span class="subst">{office}</span>个办公室，共有<span class="subst">{<span class="built_in">len</span>(members)}</span>个老师，分别是<span class="subst">{members}</span>"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-方法二：打乱后均匀分组"><a href="#3-方法二：打乱后均匀分组" class="headerlink" title="3. 方法二：打乱后均匀分组" data-stellar-navigation=""></a>3. 方法二：打乱后均匀分组</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">teachers = [<span class="string">"a1"</span>, <span class="string">"a2"</span>, <span class="string">"a3"</span>, <span class="string">"a4"</span>, <span class="string">"a5"</span>, <span class="string">"a6"</span>, <span class="string">"a7"</span>, <span class="string">"a8"</span>]</span><br><span class="line"></span><br><span class="line">office_num = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">max_people = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(teachers) &gt; office_num * max_people:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"办公室数量不足，无法完成分配"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; random.shuffle(teachers)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; base = <span class="built_in">len</span>(teachers) // office_num</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; remainder = <span class="built_in">len</span>(teachers) % office_num</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; more_offices = random.sample(<span class="built_in">range</span>(<span class="number">1</span>, office_num + <span class="number">1</span>), remainder)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; offices = {}</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; start = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> office <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, office_num + <span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; count = base + (<span class="number">1</span> <span class="keyword">if</span> office <span class="keyword">in</span> more_offices <span class="keyword">else</span> <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; offices[office] = teachers[start:start + count]</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; start += count</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> office, members <span class="keyword">in</span> offices.items():</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"第<span class="subst">{office}</span>个办公室，共有<span class="subst">{<span class="built_in">len</span>(members)}</span>个老师，分别是<span class="subst">{members}</span>"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>本题中，<code>8 // 3 = 2</code>，<code>8 % 3 = 2</code>：每个办公室先分 2 人，再随机选 2 个办公室各多分 1 人。</p>
+<h3 id="4-易错点"><a href="#4-易错点" class="headerlink" title="4. 易错点" data-stellar-navigation=""></a>4. 易错点</h3><ul>
+<li><p>原判断 <code>len(a) &lt; office_num * 3</code> 漏掉了“人数恰好等于容量”的情况。允许分配的条件应为 <code>&lt;=</code>，或用 <code>&gt;</code> 判断容量不足。</p>
+</li>
+<li><p>提前创建所有办公室，人数少时也能显示空办公室，避免编号缺失后按 <code>dict1[j + 1]</code> 访问出错。</p>
+</li>
+<li><p><code>random.shuffle()</code> 原地修改列表，返回 <code>None</code>，不能写成 <code>teachers = random.shuffle(teachers)</code>。</p>
+</li>
+<li><p><code>random.sample()</code> 是不重复抽样，适合选出需要多分 1 人的办公室。</p>
+</li>
+<li><p>切片 <code>teachers[start:start + count]</code> 包含左端，不包含右端。</p>
+</li>
+<li><p>方法二还保证人数尽量均匀；对于其他人数，方法一只保证不超容量。</p>
+</li>
+</ul>
+<h2 id="七、列表题-2：不使用内置排序完成升序排列"><a href="#七、列表题-2：不使用内置排序完成升序排列" class="headerlink" title="七、列表题 2：不使用内置排序完成升序排列" data-stellar-navigation=""></a>七、列表题 2：不使用内置排序完成升序排列</h2><h3 id="1-题目-2"><a href="#1-题目-2" class="headerlink" title="1. 题目" data-stellar-navigation=""></a>1. 题目</h3><p>将下列列表从小到大排序，不能使用 <code>sorted()</code> 或 <code>list.sort()</code>：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">numbers = [<span class="number">45</span>, <span class="number">23</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">45</span>, <span class="number">43</span>, <span class="number">21</span>, <span class="number">66</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-原作业思路"><a href="#2-原作业思路" class="headerlink" title="2. 原作业思路" data-stellar-navigation=""></a>2. 原作业思路</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(numbers)):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(numbers)):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> numbers[i] &lt; numbers[j]:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; numbers[i], numbers[j] = numbers[j], numbers[i]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>原代码通过双重循环比较交换完成排序。它不是标准的“相邻元素比较”冒泡排序，比较范围也有重复。</p>
+<h3 id="3-更便于理解的冒泡排序"><a href="#3-更便于理解的冒泡排序" class="headerlink" title="3. 更便于理解的冒泡排序" data-stellar-navigation=""></a>3. 更便于理解的冒泡排序</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">numbers = [<span class="number">45</span>, <span class="number">23</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">45</span>, <span class="number">43</span>, <span class="number">21</span>, <span class="number">66</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">n = <span class="built_in">len</span>(numbers)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; swapped = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span> - i):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> numbers[j] &gt; numbers[j + <span class="number">1</span>]:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; numbers[j], numbers[j + <span class="number">1</span>] = numbers[j + <span class="number">1</span>], numbers[j]</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; swapped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> <span class="keyword">not</span> swapped:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(numbers)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>预期结果：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[2, 2, 2, 2, 3, 3, 5, 6, 21, 23, 43, 45, 45, 66]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>循环含义：</strong> 每轮比较相邻元素，把较大的值向右移动。一轮结束后，未排序部分的最大值到达右端；右端已排好的部分不再参与下一轮比较。如果整轮没有交换，说明列表已排好序。</p>
+<ul>
+<li><p><code>n - 1 - i</code>：逐轮缩小比较范围，也保证 <code>j + 1</code> 不越界。</p>
+</li>
+<li><p><code>a, b = b, a</code>：交换两个值，无需手动创建临时变量。</p>
+</li>
+<li><p>冒泡排序最坏时间复杂度为 <code>O(n²)</code>；以上提前退出版本在输入已升序时为 <code>O(n)</code>，额外空间为 <code>O(1)</code>。</p>
+</li>
+</ul>
+<h2 id="八、列表题-3：字符串中的第二大数字"><a href="#八、列表题-3：字符串中的第二大数字" class="headerlink" title="八、列表题 3：字符串中的第二大数字" data-stellar-navigation=""></a>八、列表题 3：字符串中的第二大数字</h2><h3 id="1-题意理解"><a href="#1-题意理解" class="headerlink" title="1. 题意理解" data-stellar-navigation=""></a>1. 题意理解</h3><p>按原作业思路，“数字”指字符串中的单个数字字符，“第二大”指去重后的第二大值，并非提取完整的多位整数。</p>
+<p>例如 <code>adv123512</code> 中，不同数字为 <code>1、2、3、5</code>，第二大数字为 <code>3</code>；<code>999</code> 只有一种数字，返回 <code>-1</code>。</p>
+<h3 id="2-参考代码-1"><a href="#2-参考代码-1" class="headerlink" title="2. 参考代码" data-stellar-navigation=""></a>2. 参考代码</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">s = <span class="built_in">input</span>(<span class="string">"请输入任意字符串："</span>)</span><br><span class="line"></span><br><span class="line">nums = <span class="built_in">list</span>({<span class="built_in">int</span>(ch) <span class="keyword">for</span> ch <span class="keyword">in</span> s <span class="keyword">if</span> ch <span class="keyword">in</span> <span class="string">"0123456789"</span>})</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(nums) &lt; <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; nums.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(nums[<span class="number">1</span>])</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里第 2 题的“禁止使用内置排序”不自动扩展到第 3 题，因此本题沿用原作业的排序方法。</p>
+<h3 id="3-解题步骤"><a href="#3-解题步骤" class="headerlink" title="3. 解题步骤" data-stellar-navigation=""></a>3. 解题步骤</h3><ol>
+<li><p>遍历字符串，只保留 <code>0～9</code>。</p>
+</li>
+<li><p>使用 <code>int()</code> 将字符转成整数。</p>
+</li>
+<li><p>使用集合去重。</p>
+</li>
+<li><p>判断不同数字是否至少有 2 个。</p>
+</li>
+<li><p>降序排序后，取下标为 <code>1</code> 的元素。</p>
+</li>
+</ol>
+<h3 id="4-为什么调整-isdigit"><a href="#4-为什么调整-isdigit" class="headerlink" title="4. 为什么调整 isdigit()" data-stellar-navigation=""></a>4. 为什么调整 isdigit()</h3><p>原代码使用 <code>ch.isdigit()</code> 筛选字符。对于常见的 <code>0～9</code> 没问题，但某些字符（例如 <code>²</code>）也会使 <code>isdigit()</code> 返回 <code>True</code>，却不能直接用 <code>int()</code> 转换。这里明确只处理普通数字字符，避免这种情况。</p>
+<h3 id="5-边界示例"><a href="#5-边界示例" class="headerlink" title="5. 边界示例" data-stellar-navigation=""></a>5. 边界示例</h3><div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th scope="col">输入</th><th scope="col">不同数字</th><th scope="col">输出</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>adv123512</code></td><td>1、2、3、5</td><td>3</td></tr>
+
+<tr><td><code>abc</code></td><td>无</td><td>-1</td></tr>
+
+<tr><td><code>999</code></td><td>9</td><td>-1</td></tr>
+
+<tr><td><code>a90b9</code></td><td>0、9</td><td>0</td></tr>
+
+<tr><td><code>1212</code></td><td>1、2</td><td>1</td></tr>
+
+<tr><td>空字符串</td><td>无</td><td>-1</td></tr>
+
+</tbody>
+
+</table></div>
+
+  
+
+<p>集合没有可依赖的排序顺序，不能去重后直接取下标判断大小。</p>
+<h2 id="九、原文件运行状态与复习要点"><a href="#九、原文件运行状态与复习要点" class="headerlink" title="九、原文件运行状态与复习要点" data-stellar-navigation=""></a>九、原文件运行状态与复习要点</h2><p>原文件中大多数解题代码被 <code>#</code> 注释，部分代码位于三引号字符串中，因此不会作为 Python 语句执行。目前会执行的主要内容是：连接数据库、创建 <code>user_mail</code> 表、手动排序并打印结果。如果数据库连接失败，后面的排序也不会运行。</p>
+<p>复习时重点检查：</p>
+<ul>
+<li><p>能否正确区分 <code>INSERT</code>、<code>UPDATE</code>、<code>SELECT</code>、<code>DELETE</code>？</p>
+</li>
+<li><p>SQL 占位符中的值是否通过参数传入？</p>
+</li>
+<li><p>字段类型和名称是否符合含义，例如金额、成绩、总分？</p>
+</li>
+<li><p>循环是否包含正确的起止范围，是否一定能够结束？</p>
+</li>
+<li><p>容量刚好足够、没有数据、只有一种数字时能否正确处理？</p>
+</li>
+<li><p>是否分清原地修改、返回值、去重与排序的区别？</p>
+</li>
+</ul>
+</article>
+<div class="article-tags slide-up"><a class="tag" href="/tags/Python/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>Python</a><a class="tag" href="/tags/%E5%88%97%E8%A1%A8/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>列表</a><a class="tag" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>数据库</a></div>
+
+
+  <div class="article-share slide-up" id="share">
+    <div class="body">
+      <div class="social-wrap dis-select"><a class="social share-item qrcode ui-interactive is-icon-only" onclick="util.toggle(&quot;share-qrcode&quot;)" aria-label="Share: QR Code" title="Share: QR Code"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M10.553 13.447c-.424-.424-.95-.596-1.535-.675c-.553-.074-1.25-.074-2.086-.074H5.827c-.58 0-1.065 0-1.459.037c-.411.04-.795.124-1.146.34c-.345.21-.634.5-.845.844c-.216.352-.3.735-.34 1.147C2 15.459 2 15.944 2 16.525v.068c0 .884 0 1.597.055 2.17c.056.592.175 1.108.459 1.571c.288.47.682.864 1.152 1.152c.463.284.979.403 1.57.46C5.81 22 6.524 22 7.407 22h.07c.58 0 1.064 0 1.458-.037c.412-.04.795-.124 1.147-.34c.344-.21.633-.5.844-.844c.216-.352.3-.736.34-1.147c.037-.394.037-.879.037-1.46v-1.104c0-.836 0-1.533-.074-2.086c-.079-.584-.251-1.111-.675-1.535m-1.62-11.41c.412.04.795.124 1.147.34c.344.21.633.5.844.845c.216.351.3.735.34 1.146c.037.394.037.879.037 1.46v1.104c0 .836 0 1.533-.074 2.086c-.079.584-.251 1.111-.675 1.535s-.95.596-1.535.675c-.553.074-1.25.074-2.086.074H5.827c-.58 0-1.065 0-1.459-.037c-.411-.04-.795-.124-1.146-.34a2.56 2.56 0 0 1-.845-.844c-.216-.352-.3-.735-.34-1.147C2 8.54 2 8.056 2 7.475v-.068c0-.884 0-1.597.055-2.17c.056-.592.175-1.108.459-1.571c.288-.47.682-.864 1.152-1.152c.463-.284.979-.403 1.57-.46C5.81 2 6.524 2 7.407 2h.07c.58 0 1.064 0 1.458.037M16.593 2h-.068c-.58 0-1.065 0-1.46.037c-.41.04-.794.124-1.146.34c-.344.21-.633.5-.844.845c-.216.351-.3.735-.34 1.146c-.037.394-.037.879-.037 1.46v1.104c0 .836 0 1.533.074 2.086c.079.584.251 1.111.675 1.535s.95.596 1.535.675c.553.074 1.25.074 2.086.074h1.105c.58 0 1.065 0 1.459-.037c.411-.04.795-.124 1.146-.34c.345-.21.634-.5.845-.844c.216-.352.3-.735.34-1.147C22 8.54 22 8.056 22 7.475v-.068c0-.884 0-1.597-.055-2.17c-.056-.592-.175-1.108-.459-1.571a3.5 3.5 0 0 0-1.152-1.152c-.463-.284-.979-.403-1.57-.46C18.19 2 17.477 2 16.594 2" opacity=".5"></path><path fill="currentColor" d="M14.093 21.302a.698.698 0 1 1-1.396 0v-2.79h1.396z" opacity=".4"></path><path fill="currentColor" d="M21.302 12.698a.7.7 0 0 0-.697.697v3.256H22v-3.256a.7.7 0 0 0-.698-.697" opacity=".5"></path><path fill="currentColor" d="M16.076 16.617c-.076.184-.076.417-.076.883s0 .699.076.883a1 1 0 0 0 .541.54c.184.077.417.077.883.077s.699 0 .883-.076a1 1 0 0 0 .54-.541c.077-.184.077-.417.077-.883s0-.699-.076-.883a1 1 0 0 0-.541-.54C18.199 16 17.966 16 17.5 16s-.699 0-.883.076a1 1 0 0 0-.54.541"></path><path fill="currentColor" d="M22 18.535v-.023h-1.396c0 .443 0 .74-.016.97c-.015.224-.043.333-.073.405a1.16 1.16 0 0 1-.629.63c-.072.029-.18.056-.405.072c-.23.015-.527.016-.97.016h-1.86V22h1.883c.414 0 .759 0 1.042-.02a2.6 2.6 0 0 0 .844-.175a2.56 2.56 0 0 0 1.384-1.384c.112-.27.156-.549.176-.844c.02-.283.02-.628.02-1.042" opacity=".7"></path><path fill="currentColor" d="M12.697 16.616v.035h1.396c0-.668 0-1.116.035-1.458c.034-.33.093-.482.16-.583a1.2 1.2 0 0 1 .321-.32c.101-.068.254-.128.584-.161c.342-.035.79-.036 1.458-.036h1.86v-1.395h-1.896c-.623 0-1.142 0-1.563.043c-.44.044-.85.142-1.218.388c-.28.187-.519.426-.706.706c-.246.368-.343.777-.388 1.217c-.043.421-.043.94-.043 1.564" opacity=".6"></path><path fill="currentColor" d="M5.508 18.69c.219.155.528.155 1.146.155c.619 0 .928 0 1.146-.155a.8.8 0 0 0 .2-.199c.154-.218.154-.527.154-1.146s0-.927-.155-1.146A.8.8 0 0 0 7.8 16c-.218-.155-.527-.155-1.146-.155s-.927 0-1.146.155a.8.8 0 0 0-.199.2c-.155.218-.155.527-.155 1.145c0 .619 0 .928.155 1.146a.8.8 0 0 0 .2.2M6.654 8.155c-.618 0-.927 0-1.146-.155a.8.8 0 0 1-.199-.2c-.155-.217-.155-.527-.155-1.145c0-.619 0-.928.155-1.146a.8.8 0 0 1 .2-.2c.218-.154.527-.154 1.145-.154c.619 0 .928 0 1.146.155a.8.8 0 0 1 .2.199c.154.218.154.527.154 1.146s0 .928-.155 1.146A.8.8 0 0 1 7.8 8c-.218.155-.527.155-1.146.155M16.2 8c.218.155.527.155 1.146.155s.927 0 1.146-.155a.8.8 0 0 0 .199-.199c.155-.218.155-.528.155-1.146c0-.619 0-.928-.155-1.146a.8.8 0 0 0-.2-.2c-.218-.154-.527-.154-1.145-.154c-.619 0-.928 0-1.146.155a.8.8 0 0 0-.2.199c-.154.218-.154.527-.154 1.146s0 .928.155 1.146A.8.8 0 0 0 16.2 8"></path></svg></span></a><a class="social share-item weibo ui-interactive is-icon-only" href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F16%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FDay%25207%2520%25E4%25BD%259C%25E4%25B8%259A%25E7%25AC%2594%25E8%25AE%25B0%25EF%25BC%259A%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%2F&amp;title=Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8%20-%20Hexo&amp;summary=%E4%B8%80%E3%80%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A6%82%E8%A7%88%0A%0A%0A%0A%E6%A8%A1%E5%9D%97%E7%BB%83%E4%B9%A0%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%0A%0A%0A%0A%0A%0A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E6%88%B7%E3%80%81%E5%8F%96%E6%AC%BE%E3%80%81%E6%9F%A5%E4%BD%99%E9%A2%9D%E3%80%81%E9%94%80%E6%88%B7%E5%BB%BA%E8%A1%A8%E3%80%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E3%80%81%E6%9D%A1%E4%BB%B6%E6%9B%B4%E6%96%B0%0A%0A%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%A1%E7%AE%97%E5%AD%A6%E7%94%9F%E6%80%BB%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E3%80%81%E9%81%8D%E5%8E%86%E3%80%81%E6%95%B0%E5%80%BC%E5%AD%97%E6%AE%B5%E3%80%81%E5%8F%82%E6%95%B0%E5%8C%96%20SQL%0A%0A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%94%9F%E6%88%90%20100%20%E6%9D%A1%E9%82%AE%E7%AE%B1%E8%AE%B0%E5%BD%95for%20%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E3%80%81WHIL..." target="_blank" rel="external nofollow noopener noreferrer" aria-label="Share: Weibo" title="Share: Weibo"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.439l-.002.004zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.18.601l.014-.028zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.57-.18-.405-.615.375-.977.42-1.804 0-2.404-.781-1.112-2.915-1.053-5.364-.03 0 0-.766.331-.571-.271.376-1.217.315-2.224-.27-2.809-1.338-1.337-4.869.045-7.888 3.08C1.309 10.87 0 13.273 0 15.348c0 3.981 5.099 6.395 10.086 6.395 6.536 0 10.888-3.801 10.888-6.82 0-1.822-1.547-2.854-2.915-3.284v.01zm1.908-5.092c-.766-.856-1.908-1.187-2.96-.962-.436.09-.706.511-.616.932.09.42.511.691.932.602.511-.105 1.067.044 1.442.465.376.421.466.977.316 1.473-.136.406.089.856.51.992.405.119.857-.105.992-.512.33-1.021.12-2.178-.646-3.035l.03.045zm2.418-2.195c-1.576-1.757-3.905-2.419-6.054-1.968-.496.104-.812.587-.706 1.081.104.496.586.813 1.082.707 1.532-.331 3.185.15 4.296 1.383 1.112 1.246 1.429 2.943.947 4.416-.165.48.106 1.007.586 1.157.479.165.991-.104 1.157-.586.675-2.088.241-4.478-1.338-6.235l.03.045z"></path></svg></span></a><a class="social share-item x ui-interactive is-icon-only" href="https://x.com/intent/tweet?text=Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8%20-%20Hexo&amp;url=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F16%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FDay%25207%2520%25E4%25BD%259C%25E4%25B8%259A%25E7%25AC%2594%25E8%25AE%25B0%25EF%25BC%259A%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="Share: X" title="Share: X"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"></path></svg></span></a><a class="social share-item telegram ui-interactive is-icon-only" href="https://t.me/share/url?url=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F16%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FDay%25207%2520%25E4%25BD%259C%25E4%25B8%259A%25E7%25AC%2594%25E8%25AE%25B0%25EF%25BC%259A%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%2F&amp;text=Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8%20-%20Hexo" target="_blank" rel="external nofollow noopener noreferrer" aria-label="Share: Telegram" title="Share: Telegram"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345q-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663q5.247-2.286 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635"></path></svg></span></a><a class="social share-item whatsapp ui-interactive is-icon-only" href="https://wa.me/?text=Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8%20-%20Hexo%0Ahttps%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F16%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FDay%25207%2520%25E4%25BD%259C%25E4%25B8%259A%25E7%25AC%2594%25E8%25AE%25B0%25EF%25BC%259A%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="Share: WhatsApp" title="Share: WhatsApp"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"></path></svg></span></a><a class="social share-item email ui-interactive is-icon-only" href="mailto:?subject=Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8%20-%20Hexo&amp;body=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F16%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FDay%25207%2520%25E4%25BD%259C%25E4%25B8%259A%25E7%25AC%2594%25E8%25AE%25B0%25EF%25BC%259A%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%2F" aria-label="Share: Email" title="Share: Email"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M3.172 5.172C2 6.343 2 8.229 2 12s0 5.657 1.172 6.828C4.343 20 6.229 20 10 20h4c3.771 0 5.657 0 6.828-1.172C22 17.657 22 15.771 22 12s0-5.657-1.172-6.828C19.657 4 17.771 4 14 4h-4C6.229 4 4.343 4 3.172 5.172m15.404 2.348a.75.75 0 0 1-.096 1.056l-2.196 1.83c-.887.739-1.605 1.338-2.24 1.746-.66.424-1.303.693-2.044.693s-1.384-.269-2.045-.693c-.634-.408-1.352-1.007-2.239-1.745L5.52 8.576a.75.75 0 1 1 .96-1.152l2.159 1.799c.933.777 1.58 1.315 2.128 1.667.529.34.888.455 1.233.455s.704-.115 1.233-.455c.547-.352 1.195-.89 2.128-1.667l2.159-1.8a.75.75 0 0 1 1.056.097" clip-rule="evenodd"></path></svg></span></a></div>
+      <div class="share-qrcode" id="share-qrcode" style="opacity:0;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F16%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FDay%25207%2520%25E4%25BD%259C%25E4%25B8%259A%25E7%25AC%2594%25E8%25AE%25B0%25EF%25BC%259A%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%2F" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></div>
+    </div>
+  </div>
+
+<div class="article-footer slide-up">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section></div>
+
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> Newer</div><a href="/2024/10/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B%E6%96%B0%E6%97%A7%E5%AF%B9%E6%AF%94-%E5%85%AD%E5%A4%A7%E3%80%81%E5%85%AB%E5%A4%A7%E4%B8%8E%E4%B9%9D%E5%A4%A7%E7%89%B9%E6%80%A7/" data-stellar-navigation="">软件质量模型新旧对比：六大、八大与九大特性</a></div><div class="item" id="next"><div class="note">Older <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/2024/09/15/python/python%E5%BE%AA%E7%8E%AF/set%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81%E9%A1%BA%E5%BA%8F/" data-stellar-navigation="">set如何保持顺序</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer slide-up footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+</main>
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
+
+
+<widget class="widget-wrapper slide-up toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">On This Page</span>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A6%82%E8%A7%88" data-stellar-navigation=""><span class="toc-text">一、知识点概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%87%86%E5%A4%87" data-stellar-navigation=""><span class="toc-text">二、数据库操作准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A2%98-1%EF%BC%9A%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5" data-stellar-navigation=""><span class="toc-text">三、数据库题 1：用户账户的增删改查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E9%A2%98%E7%9B%AE" data-stellar-navigation=""><span class="toc-text">1. 题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%BB%BA%E8%A1%A8" data-stellar-navigation=""><span class="toc-text">2. 建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E5%BC%80%E6%88%B7" data-stellar-navigation=""><span class="toc-text">3. 开户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E5%8F%96%E6%AC%BE-200" data-stellar-navigation=""><span class="toc-text">4. 取款 200</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-%E6%9F%A5%E8%AF%A2%E4%BD%99%E9%A2%9D" data-stellar-navigation=""><span class="toc-text">5. 查询余额</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#6-%E5%8F%96%E5%AE%8C%E4%BD%99%E9%A2%9D%E5%90%8E%E9%94%80%E6%88%B7" data-stellar-navigation=""><span class="toc-text">6. 取完余额后销户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A2%98-2%EF%BC%9A%E8%AE%A1%E7%AE%97%E5%AD%A6%E7%94%9F%E6%80%BB%E6%88%90%E7%BB%A9" data-stellar-navigation=""><span class="toc-text">四、数据库题 2：计算学生总成绩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E5%92%8C%E9%A2%84%E6%9C%9F%E7%BB%93%E6%9E%9C" data-stellar-navigation=""><span class="toc-text">1. 原始数据和预期结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81" data-stellar-navigation=""><span class="toc-text">2. 参考代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E5%8E%9F%E8%A7%A3%E6%B3%95%E5%A4%8D%E7%9B%98" data-stellar-navigation=""><span class="toc-text">3. 原解法复盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-SQL-%E7%AE%80%E5%8C%96%E5%86%99%E6%B3%95" data-stellar-navigation=""><span class="toc-text">4. SQL 简化写法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A2%98-3%EF%BC%9A%E7%94%9F%E6%88%90-100-%E6%9D%A1%E9%82%AE%E7%AE%B1%E8%AE%B0%E5%BD%95" data-stellar-navigation=""><span class="toc-text">五、数据库题 3：生成 100 条邮箱记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E9%A2%98%E7%9B%AE%E4%B8%8E%E5%BB%BA%E8%A1%A8" data-stellar-navigation=""><span class="toc-text">1. 题目与建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9APython-%E7%9A%84-for-%E5%BE%AA%E7%8E%AF" data-stellar-navigation=""><span class="toc-text">2. 方法一：Python 的 for 循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9AMySQL-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B" data-stellar-navigation=""><span class="toc-text">3. 方法二：MySQL 存储过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E9%AA%8C%E8%AF%81%E8%AE%B0%E5%BD%95%E6%95%B0" data-stellar-navigation=""><span class="toc-text">4. 验证记录数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%85%AD%E3%80%81%E5%88%97%E8%A1%A8%E9%A2%98-1%EF%BC%9A%E9%9A%8F%E6%9C%BA%E5%88%86%E9%85%8D-8-%E5%90%8D%E8%80%81%E5%B8%88" data-stellar-navigation=""><span class="toc-text">六、列表题 1：随机分配 8 名老师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E9%A2%98%E7%9B%AE-1" data-stellar-navigation=""><span class="toc-text">1. 题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E4%BB%8E%E6%9C%AA%E6%BB%A1%E7%9A%84%E5%8A%9E%E5%85%AC%E5%AE%A4%E4%B8%AD%E9%9A%8F%E6%9C%BA%E9%80%89%E6%8B%A9" data-stellar-navigation=""><span class="toc-text">2. 方法一：从未满的办公室中随机选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E6%89%93%E4%B9%B1%E5%90%8E%E5%9D%87%E5%8C%80%E5%88%86%E7%BB%84" data-stellar-navigation=""><span class="toc-text">3. 方法二：打乱后均匀分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E6%98%93%E9%94%99%E7%82%B9" data-stellar-navigation=""><span class="toc-text">4. 易错点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%83%E3%80%81%E5%88%97%E8%A1%A8%E9%A2%98-2%EF%BC%9A%E4%B8%8D%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%8D%87%E5%BA%8F%E6%8E%92%E5%88%97" data-stellar-navigation=""><span class="toc-text">七、列表题 2：不使用内置排序完成升序排列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E9%A2%98%E7%9B%AE-2" data-stellar-navigation=""><span class="toc-text">1. 题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%8E%9F%E4%BD%9C%E4%B8%9A%E6%80%9D%E8%B7%AF" data-stellar-navigation=""><span class="toc-text">2. 原作业思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E6%9B%B4%E4%BE%BF%E4%BA%8E%E7%90%86%E8%A7%A3%E7%9A%84%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F" data-stellar-navigation=""><span class="toc-text">3. 更便于理解的冒泡排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%85%AB%E3%80%81%E5%88%97%E8%A1%A8%E9%A2%98-3%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%A4%A7%E6%95%B0%E5%AD%97" data-stellar-navigation=""><span class="toc-text">八、列表题 3：字符串中的第二大数字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E9%A2%98%E6%84%8F%E7%90%86%E8%A7%A3" data-stellar-navigation=""><span class="toc-text">1. 题意理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81-1" data-stellar-navigation=""><span class="toc-text">2. 参考代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E8%A7%A3%E9%A2%98%E6%AD%A5%E9%AA%A4" data-stellar-navigation=""><span class="toc-text">3. 解题步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%B0%83%E6%95%B4-isdigit" data-stellar-navigation=""><span class="toc-text">4. 为什么调整 isdigit()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-%E8%BE%B9%E7%95%8C%E7%A4%BA%E4%BE%8B" data-stellar-navigation=""><span class="toc-text">5. 边界示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B9%9D%E3%80%81%E5%8E%9F%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81%E4%B8%8E%E5%A4%8D%E4%B9%A0%E8%A6%81%E7%82%B9" data-stellar-navigation=""><span class="toc-text">九、原文件运行状态与复习要点</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>Scroll to Top</span></a></div>
+</widget>
+
+
+</div></div></div></div></aside>
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
+  <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
+  </button>
+  <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
+  </button>
+</div>
+</div><div class="site-scripts">
+<script data-stellar-script="core" src="/js/stellar-icons.js?v=39c6ac17e854ffe2"></script>
+
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: "https://hexo.hanruixuan.com/2024/09/16/python/python%E4%BD%9C%E4%B8%9A/Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8/", checklink: ctx.services.video.js};
+  ctx.date_suffix = {"just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago"};
+  if (ctx.search) Object.assign(ctx.search, {"more":"More","no_more":"No more results"});
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
+</script>
+
+
+<!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
+<script data-stellar-script="core" src="/js/utils.js?v=2.0.0-20260906"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0-20260906" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0-20260906"></script>
+
+
+
+
+
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .timenode p\u003eimg"},"config":{"enabled":true,"selector":".timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":800,"interval":200,"distance":8,"blur":4}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"Copy","copied":"Copied!","denied":"Clipboard permission was denied","unsupported":"Clipboard requires a supported browser and HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js","css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&amp;runtime=1"></script>
+
+
+<!-- inject -->
+
+
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0-20260906"></script>
+</div>
+
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://hexo.hanruixuan.com/2024/09/16/python/python%E4%BD%9C%E4%B8%9A/Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8/","signature":"53a492876e713fa57ed07287b913351cfbf2c54837bad48009ce24b2a4f7a764"}</script></body></html>

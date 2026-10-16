@@ -1,0 +1,950 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0" theme-name="Stellar" theme-version="2.0.0">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title data-stellar-page-meta="">Python 学习笔记 Day 5：循环、字符串与列表练习 - Hexo</title>
+  <script data-stellar-script="core">
+    (function () {
+      var key = 'stellar:v2:leftbar-state';
+      var fallback = "expanded";
+      try {
+        var value = localStorage.getItem(key);
+        document.documentElement.dataset.leftbarState = value === 'collapsed' || value === 'expanded' ? value : fallback;
+      } catch (error) {
+        document.documentElement.dataset.leftbarState = fallback;
+      }
+    })();
+  </script>
+
+  <meta name="description" content="整理 while、for、range、字符串和列表的基础用法，并通过 9 道练习巩固筛选、排序、遍历删除和日期计算。" data-stellar-page-meta="">
+<meta property="og:type" content="article" data-stellar-page-meta="">
+<meta property="og:title" content="Python 学习笔记 Day 5：循环、字符串与列表练习" data-stellar-page-meta="">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2024/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/" data-stellar-page-meta="">
+<meta property="og:site_name" content="Hexo" data-stellar-page-meta="">
+<meta property="og:description" content="整理 while、for、range、字符串和列表的基础用法，并通过 9 道练习巩固筛选、排序、遍历删除和日期计算。" data-stellar-page-meta="">
+<meta property="og:locale" content="en_US" data-stellar-page-meta="">
+<meta property="article:author" content="John Doe" data-stellar-page-meta="">
+<meta property="article:published_time" content="2024-09-14T04:00:00.000Z" data-stellar-page-meta="">
+<meta property="article:modified_time" content="2026-10-15T16:21:25.000Z" data-stellar-page-meta="">
+<meta property="article:tag" content="Python" data-stellar-page-meta="">
+<meta property="article:tag" content="列表" data-stellar-page-meta="">
+<meta property="article:tag" content="字符串" data-stellar-page-meta="">
+<meta property="article:tag" content="循环" data-stellar-page-meta="">
+<meta name="twitter:card" content="summary" data-stellar-page-meta=""><meta name="twitter:title" content="Python 学习笔记 Day 5：循环、字符串与列表练习" data-stellar-page-meta="">
+  
+  
+  <meta name="keywords" content="Python,循环,字符串,列表" data-stellar-page-meta="">
+
+  <!-- feed -->
+  
+
+  <link rel="preload" href="/css/main.css?v=2.0.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=2.0.0-20260906">
+  <style>:root{--text-loading:"Loading";--text-loading-error:"Failed to load. Please try again later."}</style>
+
+
+  
+
+  
+
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2024-09-14T12:00:00+08:00","dateModified":"2026-10-16T00:21:25+08:00","datePublished":"2024-09-14T12:00:00+08:00","description":"这篇笔记整理 Python 中的循环、字符串和列表操作，并结合 9 道练习，记录具体写法和容易出错的地方。所有示例均使用 Python 3，代码块可按小节单独运行。","headline":"Python 学习笔记 Day 5：循环、字符串与列表练习","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2024/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2024/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"],"keywords":"Python, 循环, 字符串, 列表","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"}</script>
+  
+
+  <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
+  <link rel="preload" as="script" href="/js/stellar-icons.js?v=39c6ac17e854ffe2">
+  
+  
+</head>
+<body data-page-type="content" data-page-layout="post" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    
+  </header>
+  <div class="site-region__body site-region__zone site-region__zone--body">
+    <div class="widget-instance widget-instance--menu" data-widget-id="leftbar:fixed:menu" data-presentation="leftbar" data-leftbar-rail="">
+
+
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/" title="Blog" aria-current="page">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"></path><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Blog</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/blog/categories/" title="Categories">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor"><path d="M2 6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C22 7.84935 22 9.16554 22 11.7979V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V6.94975Z" opacity=".5"></path><path d="M20 6.23751C19.9992 5.94016 19.9949 5.76263 19.9746 5.60842C19.7974 4.26222 18.7381 3.2029 17.3919 3.02567C17.1969 3 16.9647 3 16.5003 3H9.98828C10.1042 3.10392 10.2347 3.23445 10.45 3.44975L11.0003 4C11.8161 4.81578 12.2239 5.22367 12.7124 5.49543C12.9807 5.64471 13.2653 5.7626 13.5606 5.84678C14.0982 6 14.675 6 15.8287 6H16.2024C17.9814 6 19.1593 6 20 6.23751Z"></path><path fill-rule="evenodd" d="M12.25 10C12.25 9.58579 12.5858 9.25 13 9.25H18C18.4142 9.25 18.75 9.58579 18.75 10C18.75 10.4142 18.4142 10.75 18 10.75H13C12.5858 10.75 12.25 10.4142 12.25 10Z" clip-rule="evenodd"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Categories</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/blog/tags/" title="Tags">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.7226 3.20068C10.8335 2.80158 10.5998 2.38817 10.2007 2.27731C9.80163 2.16645 9.38822 2.40011 9.27736 2.79921L7.76327 8.24995H4C3.58579 8.24995 3.25 8.58573 3.25 8.99995C3.25 9.41416 3.58579 9.74995 4 9.74995H7.3466L5.81882 15.2499H2C1.58579 15.2499 1.25 15.5857 1.25 15.9999C1.25 16.4142 1.58579 16.7499 2 16.7499H5.40216L4.27736 20.7992C4.1665 21.1983 4.40016 21.6117 4.79927 21.7226C5.19837 21.8334 5.61178 21.5998 5.72264 21.2007L6.95895 16.7499H14.4022L13.2774 20.7992C13.1665 21.1983 13.4002 21.6117 13.7993 21.7226C14.1984 21.8334 14.6118 21.5998 14.7226 21.2007L15.959 16.7499H20C20.4142 16.7499 20.75 16.4142 20.75 15.9999C20.75 15.5857 20.4142 15.2499 20 15.2499H16.3756L17.9034 9.74995H22C22.4142 9.74995 22.75 9.41416 22.75 8.99995C22.75 8.58573 22.4142 8.24995 22 8.24995H18.3201L19.7226 3.20068C19.8335 2.80158 19.5998 2.38817 19.2007 2.27731C18.8016 2.16645 18.3882 2.40011 18.2774 2.79921L16.7633 8.24995H9.32006L10.7226 3.20068ZM14.8188 15.2499L16.3466 9.74995H8.9034L7.37562 15.2499H14.8188Z" clip-rule="evenodd"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Tags</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/topic/" title="Topic">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m12 16.068l-3.771 3.905c-.54.559-.81.839-1.04.935c-.52.22-1.099.032-1.373-.448c-.12-.21-.158-.59-.232-1.35c-.043-.43-.064-.644-.128-.824a1.43 1.43 0 0 0-.835-.864c-.173-.067-.38-.089-.795-.133c-.734-.077-1.101-.116-1.305-.24c-.463-.284-.646-.883-.433-1.422c.094-.237.364-.517.904-1.076L5.456 12l1.238-1.238zl5.306-5.306L18.544 12l2.464 2.55c.54.56.81.84.904 1.076c.213.54.03 1.139-.433 1.423c-.204.124-.57.163-1.305.24c-.414.044-.622.066-.795.133c-.389.149-.69.462-.835.864c-.064.18-.085.394-.128.823c-.075.76-.112 1.14-.232 1.351c-.274.48-.853.669-1.374.448c-.228-.096-.498-.376-1.038-.935z" opacity=".5"></path><path fill="currentColor" fill-rule="evenodd" d="M12 16a7 7 0 1 0 0-14a7 7 0 0 0 0 14m0-10c-.284 0-.474.34-.854 1.023l-.098.176c-.108.194-.162.29-.246.354c-.085.064-.19.088-.4.135l-.19.044c-.738.167-1.107.25-1.195.532s.164.577.667 1.165l.13.152c.143.167.215.25.247.354s.021.215 0 .438l-.02.203c-.076.785-.114 1.178.115 1.352c.23.174.576.015 1.267-.303l.178-.082c.197-.09.295-.135.399-.135s.202.045.399.135l.178.082c.691.319 1.037.477 1.267.303s.191-.567.115-1.352l-.02-.203c-.021-.223-.032-.334 0-.438s.104-.187.247-.354l.13-.152c.503-.588.755-.882.667-1.165c-.088-.282-.457-.365-1.195-.532l-.19-.044c-.21-.047-.315-.07-.4-.135c-.084-.064-.138-.16-.246-.354l-.098-.176C12.474 6.34 12.284 6 12 6" clip-rule="evenodd"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Topic</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/blog/archives/" title="Archives">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor"><path d="M6.94028 2C7.35614 2 7.69326 2.32421 7.69326 2.72414V4.18487C8.36117 4.17241 9.10983 4.17241 9.95219 4.17241H13.9681C14.8104 4.17241 15.5591 4.17241 16.227 4.18487V2.72414C16.227 2.32421 16.5641 2 16.98 2C17.3958 2 17.733 2.32421 17.733 2.72414V4.24894C19.178 4.36022 20.1267 4.63333 20.8236 5.30359C21.5206 5.97385 21.8046 6.88616 21.9203 8.27586L22 9H2.92456H2V8.27586C2.11571 6.88616 2.3997 5.97385 3.09665 5.30359C3.79361 4.63333 4.74226 4.36022 6.1873 4.24894V2.72414C6.1873 2.32421 6.52442 2 6.94028 2Z"></path><path d="M21.9995 14.0001V12.0001C21.9995 11.161 21.9963 9.66527 21.9834 9H2.00917C1.99626 9.66527 1.99953 11.161 1.99953 12.0001V14.0001C1.99953 17.7713 1.99953 19.6569 3.1711 20.8285C4.34267 22.0001 6.22829 22.0001 9.99953 22.0001H13.9995C17.7708 22.0001 19.6564 22.0001 20.828 20.8285C21.9995 19.6569 21.9995 17.7713 21.9995 14.0001Z" opacity=".5"></path><path d="M18 17C18 17.5523 17.5523 18 17 18C16.4477 18 16 17.5523 16 17C16 16.4477 16.4477 16 17 16C17.5523 16 18 16.4477 18 17Z"></path><path d="M18 13C18 13.5523 17.5523 14 17 14C16.4477 14 16 13.5523 16 13C16 12.4477 16.4477 12 17 12C17.5523 12 18 12.4477 18 13Z"></path><path d="M13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17Z"></path><path d="M13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13Z"></path><path d="M8 17C8 17.5523 7.55228 18 7 18C6.44772 18 6 17.5523 6 17C6 16.4477 6.44772 16 7 16C7.55228 16 8 16.4477 8 17Z"></path><path d="M8 13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13C6 12.4477 6.44772 12 7 12C7.55228 12 8 12.4477 8 13Z"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Archives</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/friends/" title="Friends">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Friends</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/about/" title="About">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20" opacity=".5"></path><path d="M12 6a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0 7.5c-3.04 0-5.5 1.57-5.5 3.5c0 .65.28 1.26.77 1.77A7.96 7.96 0 0 0 12 20.5a7.96 7.96 0 0 0 4.73-1.73c.49-.51.77-1.12.77-1.77c0-1.93-2.46-3.5-5.5-3.5"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">About</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div>
+
+</nav>
+
+</div>
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--recent" data-widget-id="leftbar:1:recent" data-presentation="leftbar">
+
+<widget class="widget-wrapper slide-up recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">Recent Update</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/clash%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E8%BF%9E%E6%8E%A5xray/" title="Clash 为什么可以连接 Xray？从协议理解客户端与服务端" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">C</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Clash 为什么可以连接 Xray？从协议理解客户端与服务端</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/Windows11%E6%89%B9%E9%87%8F%E8%AE%BE%E7%BD%AEUWP%E5%BA%94%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%9E%E7%8E%AF%E8%B1%81%E5%85%8D/" title="Windows 11 批量设置 UWP 应用本地回环豁免" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">W</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Windows 11 批量设置 UWP 应用本地回环豁免</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/10/16/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/Selenium%E5%92%8CPlaywright%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9A%E8%AF%9E%E7%94%9F%E6%97%B6%E9%97%B4%E4%B8%8E%E5%85%A5%E9%97%A8%E5%8C%BA%E5%88%AB/" title="Selenium 和 Playwright 是什么：诞生时间与入门区别" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">S</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Selenium 和 Playwright 是什么：诞生时间与入门区别</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/MySQL/Windows%E4%B8%8A%E5%A4%9A%E4%B8%AAMySQL%E8%BF%9B%E7%A8%8B%E6%80%8E%E4%B9%88%E6%9F%A5%EF%BC%9A%E7%AB%AF%E5%8F%A3%E3%80%81%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/" title="Windows 上多个 MySQL 进程怎么查：端口、服务与开机启动" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">W</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Windows 上多个 MySQL 进程怎么查：端口、服务与开机启动</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/09/python/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="隐式转换" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">隐</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">隐式转换</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/09/python/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/" title="银行家舍入法" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">银</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">银行家舍入法</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/09/python/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="数据类型" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">数</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">数据类型</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/15/python/python%E5%BE%AA%E7%8E%AF/set%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81%E9%A1%BA%E5%BA%8F/" title="set如何保持顺序" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">S</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">set如何保持顺序</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/11/python/python%E5%BE%AA%E7%8E%AF/for%E5%BE%AA%E7%8E%AF%E5%A6%82%E4%BD%95%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/" title="for循环如何无限循环" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">F</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">for循环如何无限循环</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/09/python/python%E5%BE%AA%E7%8E%AF/for%E5%92%8Cwhile/" title="for和while" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">F</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">for和while</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div></div>
+  </div>
+  <footer class="site-region__footer">
+    
+    <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="Settings" aria-label="Settings" title="Settings">
+  <span class="settings-widget__avatar" aria-hidden="true">
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
+  </span>
+  <span class="settings-widget__name ui-collection__title">Settings</span>
+</a>
+</div></div>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
+    </div>
+  </footer></div></div></aside>
+<main data-stellar-runtime-region="" class="site-main" id="main">
+
+
+<div class="article-banner-wrap slide-up"><div class="article banner top">
+  <div class="content">
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python 学习笔记</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-09-14T04:00:00.000Z">2024-09-14</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2026-10-15T16:21:25.000Z">2026-10-16</time></span></div>
+</div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Python 学习笔记 Day 5：循环、字符串与列表练习</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div></div>
+<article class="md-text content slide-up"><p>这篇笔记整理 Python 中的循环、字符串和列表操作，并结合 9 道练习，记录具体写法和容易出错的地方。所有示例均使用 Python 3，代码块可按小节单独运行。</p>
+<span id="more"></span>
+
+<h2 id="一、循环基础"><a href="#一、循环基础" class="headerlink" title="一、循环基础" data-stellar-navigation=""></a>一、循环基础</h2><h3 id="1-while-循环：根据条件重复执行"><a href="#1-while-循环：根据条件重复执行" class="headerlink" title="1. while 循环：根据条件重复执行" data-stellar-navigation=""></a>1. while 循环：根据条件重复执行</h3><p><code>while</code> 每次执行循环体之前都会判断条件：条件为 <code>True</code> 时继续，为 <code>False</code> 时结束。</p>
+<p>语法格式：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">while 条件:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; 循环体</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>例如，输出 1 到 5：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">5</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; i += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>while</code> 常用于循环次数不确定的场景，例如反复接收用户输入、菜单交互和重试操作。编写时要注意更新条件，或者通过 <code>break</code> 退出，避免意外进入死循环。</p>
+<h3 id="2-range-：生成整数序列"><a href="#2-range-：生成整数序列" class="headerlink" title="2. range()：生成整数序列" data-stellar-navigation=""></a>2. range()：生成整数序列</h3><p><code>range()</code> 返回一个表示整数序列的 <code>range</code> 对象，常与 <code>for</code> 配合使用。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">range</span>(stop)</span><br><span class="line"></span><br><span class="line"><span class="built_in">range</span>(start, stop)</span><br><span class="line"></span><br><span class="line"><span class="built_in">range</span>(start, stop, step)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>参数</th><th>含义</th><th>默认值</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>start</code></td><td>开始值，包含在序列内（序列非空时）</td><td><code>0</code></td></tr>
+
+<tr><td><code>stop</code></td><td>结束边界，不包含在序列内</td><td>必须提供</td></tr>
+
+<tr><td><code>step</code></td><td>步长</td><td><code>1</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
+<p>开始值、结束值可以是正整数、负整数或 <code>0</code>；步长可以为正或负，但不能为 <code>0</code>。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">5</span>))) &nbsp; &nbsp; &nbsp; &nbsp; <span class="comment"># [0, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">2</span>, <span class="number">6</span>))) &nbsp; &nbsp; &nbsp;<span class="comment"># [2, 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">8</span>, <span class="number">2</span>))) &nbsp; <span class="comment"># [1, 3, 5, 7]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">5</span>, <span class="number">0</span>, -<span class="number">1</span>))) &nbsp;<span class="comment"># [5, 4, 3, 2, 1]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">5</span>, <span class="number">0</span>))) &nbsp; &nbsp; &nbsp;<span class="comment"># []</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>记住：<strong>包含开始值，不包含结束值。</strong> 正步长向大数方向递增，负步长向小数方向递减；方向不匹配时，得到空序列。</p>
+<h3 id="3-break-和-continue-的区别"><a href="#3-break-和-continue-的区别" class="headerlink" title="3. break 和 continue 的区别" data-stellar-navigation=""></a>3. break 和 continue 的区别</h3><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>语句</th><th>作用</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>break</code></td><td>立即结束所在的最内层循环</td></tr>
+
+<tr><td><code>continue</code></td><td>跳过本轮剩余代码，继续最内层循环的下一轮</td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
+<p>使用 <code>break</code>：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> i == <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 依次输出：0、1</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用 <code>continue</code>：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> i == <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 依次输出：0、1、3、4</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在 <code>while</code> 中使用 <code>continue</code> 时，要特别留意更新循环条件的语句是否被跳过。</p>
+<h3 id="4-for-循环的两种常见写法"><a href="#4-for-循环的两种常见写法" class="headerlink" title="4. for 循环的两种常见写法" data-stellar-navigation=""></a>4. for 循环的两种常见写法</h3><p>第一种是直接遍历元素：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fruits = [<span class="string">"苹果"</span>, <span class="string">"香蕉"</span>, <span class="string">"橘子"</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(fruit)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>第二种是配合 <code>range()</code> 遍历整数序列：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 依次输出：0、1、2</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>两者本质上是同一种语法：<code>for 变量 in 可迭代对象</code>，只是遍历的对象不同。</p>
+<h2 id="二、字符串基础"><a href="#二、字符串基础" class="headerlink" title="二、字符串基础" data-stellar-navigation=""></a>二、字符串基础</h2><h3 id="1-输入和输出"><a href="#1-输入和输出" class="headerlink" title="1. 输入和输出" data-stellar-navigation=""></a>1. 输入和输出</h3><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>函数</th><th>用途</th><th>返回值</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>input()</code></td><td>接收用户输入</td><td><code>str</code> 类型的字符串</td></tr>
+
+<tr><td><code>print()</code></td><td>输出内容</td><td><code>None</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">name = <span class="built_in">input</span>(<span class="string">"请输入姓名："</span>)</span><br><span class="line"></span><br><span class="line">result = <span class="built_in">print</span>(<span class="string">"你好，"</span>, name)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(name)) &nbsp;<span class="comment"># &lt;class 'str'&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result) &nbsp; &nbsp; <span class="comment"># None</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>即使输入的是数字，<code>input()</code> 返回的仍然是字符串。需要进行数值计算或按数值大小排序时，应先转换类型：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">"请输入年龄："</span>))</span><br><span class="line"></span><br><span class="line">price = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">"请输入价格："</span>))</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-索引：获取单个字符"><a href="#2-索引：获取单个字符" class="headerlink" title="2. 索引：获取单个字符" data-stellar-navigation=""></a>2. 索引：获取单个字符</h3><p>格式为 <code>字符串[索引]</code>。正向索引从 <code>0</code> 开始，负向索引从 <code>-1</code> 开始。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">s = <span class="string">"Python"</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[<span class="number">0</span>]) &nbsp; <span class="comment"># P，第一个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[<span class="number">1</span>]) &nbsp; <span class="comment"># y，第二个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[-<span class="number">1</span>]) &nbsp;<span class="comment"># n，最后一个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[-<span class="number">2</span>]) &nbsp;<span class="comment"># o，倒数第二个字符</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>索引 <code>-1</code> 表示最后一个字符。</strong> 访问超出有效范围的索引会抛出 <code>IndexError</code>。</p>
+<h3 id="3-切片：获取一段字符串"><a href="#3-切片：获取一段字符串" class="headerlink" title="3. 切片：获取一段字符串" data-stellar-navigation=""></a>3. 切片：获取一段字符串</h3><p>格式为：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">字符串[开始索引:结束索引:步长]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>切片包含开始位置，不包含结束位置；步长默认为 <code>1</code>，不能为 <code>0</code>。省略开始或结束索引时，会根据步长方向使用相应的默认边界。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">s = <span class="string">"Python"</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[<span class="number">1</span>:<span class="number">4</span>]) &nbsp; <span class="comment"># yth</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[:<span class="number">3</span>]) &nbsp; &nbsp;<span class="comment"># Pyt</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[<span class="number">3</span>:]) &nbsp; &nbsp;<span class="comment"># hon</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[::<span class="number">2</span>]) &nbsp; <span class="comment"># Pto</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s[::-<span class="number">1</span>]) &nbsp;<span class="comment"># nohtyP，整个字符串逆序</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>切片边界超出字符串范围通常不会报错：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"abc"</span>[:<span class="number">100</span>]) &nbsp;<span class="comment"># abc</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>字符串不可变，不能使用 <code>s[0] = "p"</code> 修改其中的字符。需要修改内容时，应构造新字符串并重新赋值。</p>
+<h3 id="4-常用字符串函数和方法"><a href="#4-常用字符串函数和方法" class="headerlink" title="4. 常用字符串函数和方法" data-stellar-navigation=""></a>4. 常用字符串函数和方法</h3><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>函数或方法</th><th>作用</th><th>示例及结果</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>len(s)</code></td><td>获取长度</td><td><code>len("hello")</code> → <code>5</code></td></tr>
+
+<tr><td><code>s.lower()</code></td><td>转小写</td><td><code>"AbC".lower()</code> → <code>"abc"</code></td></tr>
+
+<tr><td><code>s.upper()</code></td><td>转大写</td><td><code>"AbC".upper()</code> → <code>"ABC"</code></td></tr>
+
+<tr><td><code>s.strip()</code></td><td>去除两端空白字符</td><td><code>" hi ".strip()</code> → <code>"hi"</code></td></tr>
+
+<tr><td><code>s.lstrip()</code></td><td>去除左端空白字符</td><td><code>" hi ".lstrip()</code> → <code>"hi "</code></td></tr>
+
+<tr><td><code>s.rstrip()</code></td><td>去除右端空白字符</td><td><code>" hi ".rstrip()</code> → <code>" hi"</code></td></tr>
+
+<tr><td><code>s.replace(old, new)</code></td><td>替换子字符串</td><td><code>"a-b".replace("-", ":")</code> → <code>"a:b"</code></td></tr>
+
+<tr><td><code>s.split(sep)</code></td><td>按分隔符拆分为列表</td><td><code>"a,b".split(",")</code> → <code>["a", "b"]</code></td></tr>
+
+<tr><td><code>sep.join(items)</code></td><td>连接多个字符串</td><td><code>"-".join(["a", "b"])</code> → <code>"a-b"</code></td></tr>
+
+<tr><td><code>s.find(sub)</code></td><td>查找首次出现的位置，找不到返回 <code>-1</code></td><td><code>"hello".find("l")</code> → <code>2</code></td></tr>
+
+<tr><td><code>s.index(sub)</code></td><td>查找首次出现的位置，找不到报错</td><td><code>"hello".index("e")</code> → <code>1</code></td></tr>
+
+<tr><td><code>s.count(sub)</code></td><td>统计不重叠的出现次数</td><td><code>"hello".count("l")</code> → <code>2</code></td></tr>
+
+<tr><td><code>s.startswith(prefix)</code></td><td>判断是否以指定内容开头</td><td><code>"hello".startswith("he")</code> → <code>True</code></td></tr>
+
+<tr><td><code>s.endswith(suffix)</code></td><td>判断是否以指定内容结尾</td><td><code>"hello".endswith("lo")</code> → <code>True</code></td></tr>
+
+<tr><td><code>s.isdigit()</code></td><td>判断是否非空且全部为数字字符</td><td><code>"123".isdigit()</code> → <code>True</code></td></tr>
+
+<tr><td><code>s.isalpha()</code></td><td>判断是否非空且全部为字母字符</td><td><code>"abc".isalpha()</code> → <code>True</code></td></tr>
+
+<tr><td><code>s.isalnum()</code></td><td>判断是否非空且全部为字母或数字字符</td><td><code>"abc123".isalnum()</code> → <code>True</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
+<p>字符串方法不会修改原字符串。需要保留转换结果时，要接收返回值：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">s = <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">s = s.upper()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s) &nbsp;<span class="comment"># HELLO</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="三、列表的增删改查与遍历"><a href="#三、列表的增删改查与遍历" class="headerlink" title="三、列表的增删改查与遍历" data-stellar-navigation=""></a>三、列表的增删改查与遍历</h2><h3 id="1-增加元素"><a href="#1-增加元素" class="headerlink" title="1. 增加元素" data-stellar-navigation=""></a>1. 增加元素</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nums = [<span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">nums.append(<span class="number">30</span>) &nbsp; &nbsp; &nbsp; &nbsp;<span class="comment"># [10, 20, 30]</span></span><br><span class="line"></span><br><span class="line">nums.extend([<span class="number">40</span>, <span class="number">50</span>]) &nbsp;<span class="comment"># [10, 20, 30, 40, 50]</span></span><br><span class="line"></span><br><span class="line">nums.insert(<span class="number">1</span>, <span class="number">15</span>) &nbsp; &nbsp; <span class="comment"># [10, 15, 20, 30, 40, 50]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>append()</code> 添加一个整体，<code>extend()</code> 逐个追加可迭代对象中的元素：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">a.append([<span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a) &nbsp;<span class="comment"># [1, 2, [3, 4]]</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">b = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">b.extend([<span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(b) &nbsp;<span class="comment"># [1, 2, 3, 4]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-删除元素"><a href="#2-删除元素" class="headerlink" title="2. 删除元素" data-stellar-navigation=""></a>2. 删除元素</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nums = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">20</span>, <span class="number">40</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">nums.remove(<span class="number">20</span>) &nbsp; &nbsp; &nbsp;<span class="comment"># 删除第一个 20，剩余 [10, 30, 20, 40]</span></span><br><span class="line"></span><br><span class="line">last = nums.pop() &nbsp; &nbsp;<span class="comment"># 删除并返回最后一个元素，last 为 40</span></span><br><span class="line"></span><br><span class="line">first = nums.pop(<span class="number">0</span>) &nbsp;<span class="comment"># 删除并返回索引 0 的元素，first 为 10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> nums[<span class="number">0</span>] &nbsp; &nbsp; &nbsp; &nbsp; <span class="comment"># 删除索引 0 的元素，剩余 [20]</span></span><br><span class="line"></span><br><span class="line">nums.clear() &nbsp; &nbsp; &nbsp; &nbsp;<span class="comment"># 清空列表，变为 []</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>remove()</code> 按值删除，找不到指定值会抛出 <code>ValueError</code>；<code>pop()</code> 按索引删除并返回元素，索引无效时会抛出 <code>IndexError</code>。</p>
+<h3 id="3-修改元素"><a href="#3-修改元素" class="headerlink" title="3. 修改元素" data-stellar-navigation=""></a>3. 修改元素</h3><p>列表可变，可以通过索引或切片赋值：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nums = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">nums[<span class="number">1</span>] = <span class="number">99</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="comment"># [10, 99, 30, 40]</span></span><br><span class="line"></span><br><span class="line">nums[<span class="number">1</span>:<span class="number">3</span>] = [<span class="number">7</span>, <span class="number">8</span>] &nbsp;<span class="comment"># [10, 7, 8, 40]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="4-查询元素"><a href="#4-查询元素" class="headerlink" title="4. 查询元素" data-stellar-navigation=""></a>4. 查询元素</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nums = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(nums[<span class="number">0</span>]) &nbsp; &nbsp; &nbsp; &nbsp; <span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(nums[-<span class="number">1</span>]) &nbsp; &nbsp; &nbsp; &nbsp;<span class="comment"># 20</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(nums[<span class="number">1</span>:<span class="number">3</span>]) &nbsp; &nbsp; &nbsp; <span class="comment"># [20, 30]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">20</span> <span class="keyword">in</span> nums) &nbsp; &nbsp; &nbsp;<span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">50</span> <span class="keyword">not</span> <span class="keyword">in</span> nums) &nbsp;<span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(nums.index(<span class="number">20</span>)) &nbsp;<span class="comment"># 1，第一次出现的位置</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(nums.count(<span class="number">20</span>)) &nbsp;<span class="comment"># 2，出现次数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(nums)) &nbsp; &nbsp; &nbsp; <span class="comment"># 4，元素数量</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-遍历列表：len-和-enumerate-怎么选？"><a href="#5-遍历列表：len-和-enumerate-怎么选？" class="headerlink" title="5. 遍历列表：len() 和 enumerate() 怎么选？" data-stellar-navigation=""></a>5. 遍历列表：len() 和 enumerate() 怎么选？</h3><p>只需要元素时，直接遍历即可：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fruits = [<span class="string">"苹果"</span>, <span class="string">"香蕉"</span>, <span class="string">"橘子"</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(fruit)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>需要索引时，可以使用 <code>range(len(...))</code>：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(fruits)):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(i, fruits[i])</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里，<code>len(fruits)</code> 得到整数 <code>3</code>，<code>range(3)</code> 生成索引 <code>0、1、2</code>，再通过 <code>fruits[i]</code> 获取元素。**<code>len()</code> 本身只返回长度，不能直接用来遍历。**</p>
+<p>同时需要编号和元素时，可以使用 <code>enumerate()</code>：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, fruit <span class="keyword">in</span> <span class="built_in">enumerate</span>(fruits):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(i, fruit)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>以上两种写法的输出相同：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">0 苹果</span><br><span class="line"></span><br><span class="line">1 香蕉</span><br><span class="line"></span><br><span class="line">2 橘子</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>不过，二者产生的数据不同：<code>range(len(fruits))</code> 产生整数索引；<code>enumerate(fruits)</code> 逐次产生“编号、元素”二元组。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">enumerate</span>(fruits)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># [(0, '苹果'), (1, '香蕉'), (2, '橘子')]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>enumerate()</code> 默认从 <code>0</code> 编号，也可以指定 <code>start=1</code>。这只改变编号，不会改变列表的实际索引：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> number, fruit <span class="keyword">in</span> <span class="built_in">enumerate</span>(fruits, start=<span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(number, fruit)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1 苹果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2 香蕉</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3 橘子</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用 <code>while</code> 也能完成遍历：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="built_in">len</span>(fruits):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(fruits[i])</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; i += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="四、列表与字符串练习"><a href="#四、列表与字符串练习" class="headerlink" title="四、列表与字符串练习" data-stellar-navigation=""></a>四、列表与字符串练习</h2><p>以下涉及数字输入的示例默认输入可以转换为整数；日期题和字符查找题另外检查了参数范围。</p>
+<h3 id="练习-1：找出同时能被-7-和-8-整除的数"><a href="#练习-1：找出同时能被-7-和-8-整除的数" class="headerlink" title="练习 1：找出同时能被 7 和 8 整除的数" data-stellar-navigation=""></a>练习 1：找出同时能被 7 和 8 整除的数</h3><p><strong>题目：</strong> 找出 100～200 以内同时能被 7 和 8 整除的整数，保存到列表中。本题包含 100 和 200 两个端点。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">numbers = []</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>, <span class="number">201</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> num % <span class="number">7</span> == <span class="number">0</span> <span class="keyword">and</span> num % <span class="number">8</span> == <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; numbers.append(num)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(numbers) &nbsp;<span class="comment"># [112, 168]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>易错点：</strong> “同时满足”使用 <code>and</code>。如果使用 <code>or</code>，表示能被 7 或 8 中任意一个整除，结果就不符合题意。</p>
+<h3 id="练习-2：分别保存排序结果和逆序结果"><a href="#练习-2：分别保存排序结果和逆序结果" class="headerlink" title="练习 2：分别保存排序结果和逆序结果" data-stellar-navigation=""></a>练习 2：分别保存排序结果和逆序结果</h3><p><strong>题目：</strong> 输入 5 个数字，保存到列表中，再分别得到升序排列的新列表和原列表逆序的新列表。这里以整数输入为例。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">numbers = []</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; num = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">f"请输入第 <span class="subst">{i + <span class="number">1</span>}</span> 个整数："</span>))</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; numbers.append(num)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">sorted_numbers = <span class="built_in">sorted</span>(numbers)</span><br><span class="line"></span><br><span class="line">reversed_numbers = numbers[::-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"原列表："</span>, numbers)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"升序结果："</span>, sorted_numbers)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"原列表逆序："</span>, reversed_numbers)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>例如依次输入 <code>3、10、2、8、1</code>：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">原列表： [3, 10, 2, 8, 1]</span><br><span class="line"></span><br><span class="line">升序结果： [1, 2, 3, 8, 10]</span><br><span class="line"></span><br><span class="line">原列表逆序： [1, 8, 2, 10, 3]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>需要先用 <code>int()</code> 转换输入，否则排序比较的是字符串：<code>sorted(["2", "10"])</code> 的结果是 <code>["10", "2"]</code>。</p>
+<div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>写法</th><th>是否修改原列表</th><th>返回值</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>sorted(numbers)</code></td><td>否</td><td>排序后的新列表</td></tr>
+
+<tr><td><code>numbers.sort()</code></td><td>是</td><td><code>None</code></td></tr>
+
+<tr><td><code>numbers[::-1]</code></td><td>否</td><td>逆序后的新列表</td></tr>
+
+<tr><td><code>numbers.reverse()</code></td><td>是</td><td><code>None</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
+<p><strong>逆序是颠倒原来的顺序，不等于降序排序。</strong></p>
+<h3 id="练习-3：随机数列表的统计与平均值之差"><a href="#练习-3：随机数列表的统计与平均值之差" class="headerlink" title="练习 3：随机数列表的统计与平均值之差" data-stellar-navigation=""></a>练习 3：随机数列表的统计与平均值之差</h3><p><strong>题目：</strong> 随机产生 20 个 100～200 之间的整数，求最大值、最小值和平均值，再将每个元素与平均值的差保存到新列表。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">numbers = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; numbers.append(random.randint(<span class="number">100</span>, <span class="number">200</span>))</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">average = <span class="built_in">sum</span>(numbers) / <span class="built_in">len</span>(numbers)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">differences = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> numbers:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; differences.append(num - average)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"原列表："</span>, numbers)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"最大值："</span>, <span class="built_in">max</span>(numbers))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"最小值："</span>, <span class="built_in">min</span>(numbers))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"平均值：<span class="subst">{average:<span class="number">.2</span>f}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"各元素与平均值的差："</span>, differences)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>random.randint(100, 200)</code> 包含 100 和 200 两个端点，生成的数字可能重复。这里计算的是“元素减去平均值”，所以差值可能为负数。<code>:.2f</code> 只控制输出显示为两位小数，不会改变 <code>average</code> 保存的数值。</p>
+<h3 id="练习-4：找出只出现两次的数字"><a href="#练习-4：找出只出现两次的数字" class="headerlink" title="练习 4：找出只出现两次的数字" data-stellar-navigation=""></a>练习 4：找出只出现两次的数字</h3><p><strong>题目：</strong> 找出列表中恰好出现两次的数字，结果去重，并保持这些数字第一次出现的先后顺序。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> numbers:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> numbers.count(num) == <span class="number">2</span> <span class="keyword">and</span> num <span class="keyword">not</span> <span class="keyword">in</span> result:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; result.append(num)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result) &nbsp;<span class="comment"># [1, 2, 3, 4]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>count(num) == 2</code> 判断出现次数，<code>num not in result</code> 防止重复添加。由于按原列表顺序遍历，结果保留第一次出现的顺序。</p>
+<h3 id="练习-5：修改能被-3-整除的元素"><a href="#练习-5：修改能被-3-整除的元素" class="headerlink" title="练习 5：修改能被 3 整除的元素" data-stellar-navigation=""></a>练习 5：修改能被 3 整除的元素</h3><p><strong>题目：</strong> 将列表中能被 3 整除的数减去 2，其他数保持不变。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">numbers = [<span class="number">6</span>, <span class="number">17</span>, <span class="number">81</span>, <span class="number">3</span>, <span class="number">29</span>, <span class="number">12</span>, <span class="number">51</span>, <span class="number">16</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(numbers)):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> numbers[i] % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; numbers[i] -= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(numbers) &nbsp;<span class="comment"># [4, 17, 79, 1, 29, 10, 49, 16]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里通过索引修改原列表。若直接遍历元素，再执行 <code>num -= 2</code>，只是让变量 <code>num</code> 指向计算后的整数，不会替换原列表中的元素。</p>
+<h3 id="练习-6：原地删除包含字符-1-的字符串"><a href="#练习-6：原地删除包含字符-1-的字符串" class="headerlink" title="练习 6：原地删除包含字符 1 的字符串" data-stellar-navigation=""></a>练习 6：原地删除包含字符 1 的字符串</h3><p><strong>题目：</strong> 删除列表中包含字符 <code>"1"</code> 的字符串，直接修改原列表。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">items = [<span class="string">"12"</span>, <span class="string">"13"</span>, <span class="string">"33"</span>, <span class="string">"34"</span>, <span class="string">"1399"</span>, <span class="string">"2315"</span>, <span class="string">"1111"</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(items) - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> <span class="string">"1"</span> <span class="keyword">in</span> items[i]:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; items.pop(i)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(items) &nbsp;<span class="comment"># ['33', '34']</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里从最后一个索引开始倒序遍历，直到索引 <code>0</code>。<code>range()</code> 不包含结束值，所以结束边界写成 <code>-1</code>。</p>
+<p>如果从前往后删除，后面的元素会向前移动，容易漏掉需要检查的元素。倒序按索引删除时，尚未检查的前方元素索引不会受到影响。</p>
+<p>也可以将 <code>items.pop(i)</code> 换成 <code>del items[i]</code>。按索引删除时，优先使用这两种写法。</p>
+<h3 id="练习-7：原地删除小于-33-的元素"><a href="#练习-7：原地删除小于-33-的元素" class="headerlink" title="练习 7：原地删除小于 33 的元素" data-stellar-navigation=""></a>练习 7：原地删除小于 33 的元素</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">numbers = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">88</span>, <span class="number">44</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(numbers) - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> numbers[i] &lt; <span class="number">33</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">del</span> numbers[i]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(numbers) &nbsp;<span class="comment"># [33, 88, 44]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>与上一题相同，采用倒序遍历、按索引删除。题目要求删除“小于 33”的数字，所以 <code>33</code> 本身保留。</p>
+<h3 id="练习-8：计算某一天是这一年的第几天"><a href="#练习-8：计算某一天是这一年的第几天" class="headerlink" title="练习 8：计算某一天是这一年的第几天" data-stellar-navigation=""></a>练习 8：计算某一天是这一年的第几天</h3><p><strong>思路：</strong> 用列表记录每个月的天数，根据闰年调整 2 月，再把当前月之前的天数加上当天的日期。</p>
+<p>闰年判断条件为：能被 4 整除且不能被 100 整除，或者能被 400 整除。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">year = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">"请输入年份："</span>))</span><br><span class="line"></span><br><span class="line">month = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">"请输入月份："</span>))</span><br><span class="line"></span><br><span class="line">day = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">"请输入日期："</span>))</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">month_days = [<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">is_leap_year = (year % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year % <span class="number">100</span> != <span class="number">0</span>) <span class="keyword">or</span> year % <span class="number">400</span> == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> is_leap_year:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; month_days[<span class="number">1</span>] = <span class="number">29</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> year &lt; <span class="number">1</span> <span class="keyword">or</span> <span class="keyword">not</span> <span class="number">1</span> &lt;= month &lt;= <span class="number">12</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"年份或月份不合法"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> <span class="keyword">not</span> <span class="number">1</span> &lt;= day &lt;= month_days[month - <span class="number">1</span>]:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"日期不合法"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; total_days = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(month - <span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; total_days += month_days[i]</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; total_days += day</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"<span class="subst">{year}</span>年<span class="subst">{month}</span>月<span class="subst">{day}</span>日，是这一年的第<span class="subst">{total_days}</span>天"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>例如，2021 年 3 月 5 日：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">31 + 28 + 5 = 64</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>因此，这一天是 2021 年的第 64 天。月份从 1 开始，而列表索引从 0 开始，所以某月的天数通过 <code>month_days[month - 1]</code> 获取。</p>
+<p>熟悉切片以后，也可以把累计部分写成：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">total_days = <span class="built_in">sum</span>(month_days[:month - <span class="number">1</span>]) + day</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="练习-9：找出第-m-个恰好出现-n-次的字符"><a href="#练习-9：找出第-m-个恰好出现-n-次的字符" class="headerlink" title="练习 9：找出第 m 个恰好出现 n 次的字符" data-stellar-navigation=""></a>练习 9：找出第 m 个恰好出现 n 次的字符</h3><p><strong>题目：</strong> 用户输入一个字符串，找出第 <code>m</code> 个恰好出现 <code>n</code> 次的字符。按字符第一次出现的顺序统计，同一个字符只计入候选结果一次。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">"请输入字符串："</span>)</span><br><span class="line"></span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">"要找第几个符合条件的字符："</span>))</span><br><span class="line"></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">"该字符应出现几次："</span>))</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> m &lt; <span class="number">1</span> <span class="keyword">or</span> n &lt; <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"m 和 n 都必须是正整数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; result = []</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> char <span class="keyword">in</span> text:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> text.count(char) == n <span class="keyword">and</span> char <span class="keyword">not</span> <span class="keyword">in</span> result:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; result.append(char)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> <span class="built_in">len</span>(result) &gt;= m:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(result[m - <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"不存在第 <span class="subst">{m}</span> 个出现过 <span class="subst">{n}</span> 次的字符"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>例如输入字符串 <code>gbgkkdehh</code>，并设置 <code>m = 2</code>、<code>n = 1</code>：</p>
+<ul>
+<li><p>恰好出现一次的字符依次为 <code>b、d、e</code>。</p>
+</li>
+<li><p>第 2 个是 <code>d</code>，对应候选列表中的索引 <code>1</code>。</p>
+</li>
+<li><p>因此使用 <code>result[m - 1]</code> 获取结果。</p>
+</li>
+</ul>
+<p>访问前先判断候选数量，可以避免索引越界。练习 4 和练习 9 的写法便于理解，但反复调用 <code>count()</code> 会重复扫描原数据，更适合这里的小规模练习。</p>
+<h4 id="扩展：六种实现方式"><a href="#扩展：六种实现方式" class="headerlink" title="扩展：六种实现方式" data-stellar-navigation=""></a>扩展：六种实现方式</h4><p>下面按六种写法分别实现。它们是同一道题的不同写法，其中普通 <code>for</code> 循环与前面的基础解法属于同一种思路。</p>
+<p>每个方法的主代码块都可以单独运行：输入字符串后，默认查找第 <code>2</code> 个恰好出现 <code>1</code> 次的字符，也可以修改 <code>m</code> 和 <code>n</code>。输入 <code>gbgkkdehh</code> 时，六种方法都会得到 <code>d</code>。</p>
+<p>统一约定：<code>m</code> 和 <code>n</code> 为正整数；候选字符按第一次出现的顺序排列，同一字符只计入一次。示例对 <code>m</code>、<code>n</code> 的取值范围和候选数量进行了检查。</p>
+<h4 id="方法一：列表推导式与-dict-fromkeys"><a href="#方法一：列表推导式与-dict-fromkeys" class="headerlink" title="方法一：列表推导式与 dict.fromkeys()" data-stellar-navigation=""></a>方法一：列表推导式与 dict.fromkeys()</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">"请输入字符串："</span>) &nbsp;<span class="comment"># 例如输入 gbgkkdehh</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">1</span> &nbsp;<span class="comment"># 目标出现次数，可修改</span></span><br><span class="line"></span><br><span class="line">m = <span class="number">2</span> &nbsp;<span class="comment"># 目标第几个，从 1 开始</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> m &lt; <span class="number">1</span> <span class="keyword">or</span> n &lt; <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"m 和 n 都必须是正整数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; result = [char <span class="keyword">for</span> char <span class="keyword">in</span> <span class="built_in">dict</span>.fromkeys(text) <span class="keyword">if</span> text.count(char) == n]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> m &lt;= <span class="built_in">len</span>(result):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"第 <span class="subst">{m}</span> 个只出现过 <span class="subst">{n}</span> 次的字符是：<span class="subst">{result[m - <span class="number">1</span>]}</span>"</span>)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"不存在第 <span class="subst">{m}</span> 个出现过 <span class="subst">{n}</span> 次的字符"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="列表表达式的for循环格式"><a href="#列表表达式的for循环格式" class="headerlink" title="列表表达式的for循环格式" data-stellar-navigation=""></a>列表表达式的for循环格式</h5>  <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  result = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="built_in">dict</span>.fromkeys(text):</span><br><span class="line">    <span class="keyword">if</span> text.count(char) == n:</span><br><span class="line">        result.append(char)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>dict.fromkeys(text)</code> 将字符作为字典的键，重复字符只保留一个键。在 Python 3.7 及以上版本中，字典保证保留插入顺序，因此可以按字符第一次出现的顺序去重。</p>
+<p>例如，<code>list(dict.fromkeys("gbgkkdehh"))</code> 得到 <code>['g', 'b', 'k', 'd', 'e', 'h']</code>。列表推导式再从中筛选出现次数等于 <code>n</code> 的字符。</p>
+<p>这行代码可以读成：“遍历去重后的字符，如果字符出现了 <code>n</code> 次，就把它放入结果列表。”如果暂时看不懂推导式，可以先学习方法二。</p>
+<h4 id="方法二：for-循环与成员判断"><a href="#方法二：for-循环与成员判断" class="headerlink" title="方法二：for 循环与成员判断" data-stellar-navigation=""></a>方法二：for 循环与成员判断</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">"请输入字符串："</span>) &nbsp;<span class="comment"># 例如输入 gbgkkdehh</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">1</span> &nbsp;<span class="comment"># 目标出现次数，可修改</span></span><br><span class="line"></span><br><span class="line">m = <span class="number">2</span> &nbsp;<span class="comment"># 目标第几个，从 1 开始</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> m &lt; <span class="number">1</span> <span class="keyword">or</span> n &lt; <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"m 和 n 都必须是正整数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; result = []</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> char <span class="keyword">in</span> text:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> text.count(char) == n:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> char <span class="keyword">not</span> <span class="keyword">in</span> result:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; result.append(char)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> m &lt;= <span class="built_in">len</span>(result):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"第 <span class="subst">{m}</span> 个只出现过 <span class="subst">{n}</span> 次的字符是：<span class="subst">{result[m - <span class="number">1</span>]}</span>"</span>)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"不存在第 <span class="subst">{m}</span> 个出现过 <span class="subst">{n}</span> 次的字符"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>外层 <code>if</code> 判断出现次数，内层 <code>if</code> 防止重复添加。按原字符串顺序遍历，就能保持字符第一次出现的顺序。</p>
+<p>两个判断也可以合并成 <code>if text.count(char) == n and char not in result:</code>，与前面的基础写法效果相同。这里直接遍历字符串，不需要将字符串转换为列表；<code>result</code> 只是用来保存候选字符。</p>
+<h4 id="方法三：通过-index-判断首次出现的位置"><a href="#方法三：通过-index-判断首次出现的位置" class="headerlink" title="方法三：通过 index() 判断首次出现的位置" data-stellar-navigation=""></a>方法三：通过 index() 判断首次出现的位置</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">"请输入字符串："</span>) &nbsp;<span class="comment"># 例如输入 gbgkkdehh</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">1</span> &nbsp;<span class="comment"># 目标出现次数，可修改</span></span><br><span class="line"></span><br><span class="line">m = <span class="number">2</span> &nbsp;<span class="comment"># 目标第几个，从 1 开始</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> m &lt; <span class="number">1</span> <span class="keyword">or</span> n &lt; <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"m 和 n 都必须是正整数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; result = []</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(text)):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; char = text[i]</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> text.count(char) == n <span class="keyword">and</span> text.index(char) == i:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; result.append(char)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> m &lt;= <span class="built_in">len</span>(result):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"第 <span class="subst">{m}</span> 个只出现过 <span class="subst">{n}</span> 次的字符是：<span class="subst">{result[m - <span class="number">1</span>]}</span>"</span>)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"不存在第 <span class="subst">{m}</span> 个出现过 <span class="subst">{n}</span> 次的字符"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>text.index(char)</code> 返回字符第一次出现的索引。只有当前索引 <code>i</code> 等于这个位置时，才将符合次数要求的字符加入结果。</p>
+<p>例如，<code>g</code> 在示例字符串中的索引为 <code>0</code> 和 <code>2</code>，而 <code>text.index("g")</code> 始终为 <code>0</code>。当 <code>n = 2</code> 时，只会在 <code>i = 0</code> 时添加 <code>g</code>，不会在 <code>i = 2</code> 时再次添加。</p>
+<h4 id="方法四：while-循环"><a href="#方法四：while-循环" class="headerlink" title="方法四：while 循环" data-stellar-navigation=""></a>方法四：while 循环</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">"请输入字符串："</span>) &nbsp;<span class="comment"># 例如输入 gbgkkdehh</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">1</span> &nbsp;<span class="comment"># 目标出现次数，可修改</span></span><br><span class="line"></span><br><span class="line">m = <span class="number">2</span> &nbsp;<span class="comment"># 目标第几个，从 1 开始</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> m &lt; <span class="number">1</span> <span class="keyword">or</span> n &lt; <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"m 和 n 都必须是正整数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; result = []</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(text):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; char = text[i]</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> text.count(char) == n <span class="keyword">and</span> char <span class="keyword">not</span> <span class="keyword">in</span> result:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; result.append(char)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> m &lt;= <span class="built_in">len</span>(result):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"第 <span class="subst">{m}</span> 个只出现过 <span class="subst">{n}</span> 次的字符是：<span class="subst">{result[m - <span class="number">1</span>]}</span>"</span>)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"不存在第 <span class="subst">{m}</span> 个出现过 <span class="subst">{n}</span> 次的字符"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用 <code>i</code> 记录当前位置，通过 <code>text[i]</code> 取出字符，判断方法与普通 <code>for</code> 循环相同。</p>
+<p><strong><code>i += 1</code> 必须在每轮循环中执行。</strong> 这里将它放在 <code>if</code> 外面，避免遇到不符合条件的字符时，索引无法前进而陷入死循环。</p>
+<h4 id="方法五：使用字典累计次数"><a href="#方法五：使用字典累计次数" class="headerlink" title="方法五：使用字典累计次数" data-stellar-navigation=""></a>方法五：使用字典累计次数</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">"请输入字符串："</span>) &nbsp;<span class="comment"># 例如输入 gbgkkdehh</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">1</span> &nbsp;<span class="comment"># 目标出现次数，可修改</span></span><br><span class="line"></span><br><span class="line">m = <span class="number">2</span> &nbsp;<span class="comment"># 目标第几个，从 1 开始</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> m &lt; <span class="number">1</span> <span class="keyword">or</span> n &lt; <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"m 和 n 都必须是正整数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; counts = {}</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> char <span class="keyword">in</span> text:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> char <span class="keyword">in</span> counts:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; counts[char] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; counts[char] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; result = []</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> char <span class="keyword">in</span> counts:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> counts[char] == n:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; result.append(char)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> m &lt;= <span class="built_in">len</span>(result):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"第 <span class="subst">{m}</span> 个只出现过 <span class="subst">{n}</span> 次的字符是：<span class="subst">{result[m - <span class="number">1</span>]}</span>"</span>)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"不存在第 <span class="subst">{m}</span> 个出现过 <span class="subst">{n}</span> 次的字符"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>第一次循环用字典统计每个字符的出现次数。对于 <code>gbgkkdehh</code>，得到：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">{<span class="string">'g'</span>: <span class="number">2</span>, <span class="string">'b'</span>: <span class="number">1</span>, <span class="string">'k'</span>: <span class="number">2</span>, <span class="string">'d'</span>: <span class="number">1</span>, <span class="string">'e'</span>: <span class="number">1</span>, <span class="string">'h'</span>: <span class="number">2</span>}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>第二次循环直接遍历字典的键，挑选出现次数等于 <code>n</code> 的字符。字典的键不会重复，因此不需要再判断 <code>char not in result</code>。</p>
+<p>这里利用 Python 3.7 及以上版本中字典保留插入顺序的特性。与反复调用 <code>text.count()</code> 相比，这种方法只扫描原字符串一次来累计次数，处理较长字符串时更合适。</p>
+<h4 id="方法六：复制列表遍历，删除不符合条件的字符"><a href="#方法六：复制列表遍历，删除不符合条件的字符" class="headerlink" title="方法六：复制列表遍历，删除不符合条件的字符" data-stellar-navigation=""></a>方法六：复制列表遍历，删除不符合条件的字符</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">"请输入字符串："</span>) &nbsp;<span class="comment"># 例如输入 gbgkkdehh</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">1</span> &nbsp;<span class="comment"># 目标出现次数，可修改</span></span><br><span class="line"></span><br><span class="line">m = <span class="number">2</span> &nbsp;<span class="comment"># 目标第几个，从 1 开始</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> m &lt; <span class="number">1</span> <span class="keyword">or</span> n &lt; <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">"m 和 n 都必须是正整数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; chars = <span class="built_in">list</span>(text)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> char <span class="keyword">in</span> chars[:]:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> text.count(char) != n:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; chars.remove(char)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; result = []</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">for</span> char <span class="keyword">in</span> chars:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> char <span class="keyword">not</span> <span class="keyword">in</span> result:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; result.append(char)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">if</span> m &lt;= <span class="built_in">len</span>(result):</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"第 <span class="subst">{m}</span> 个只出现过 <span class="subst">{n}</span> 次的字符是：<span class="subst">{result[m - <span class="number">1</span>]}</span>"</span>)</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; <span class="built_in">print</span>(<span class="string">f"不存在第 <span class="subst">{m}</span> 个出现过 <span class="subst">{n}</span> 次的字符"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这个方法先将字符串转换成列表，再遍历副本、修改原列表：</p>
+<ul>
+<li><p><code>list(text)</code>：将字符串转换为字符列表。</p>
+</li>
+<li><p><code>chars[:]</code>：创建列表的副本，循环遍历的是副本。</p>
+</li>
+<li><p><code>chars.remove(char)</code>：从原列表 <code>chars</code> 中删除一个不符合条件的字符。</p>
+</li>
+<li><p><code>text.count(char)</code>：始终在原字符串中统计次数，避免删除过程改变统计依据。</p>
+</li>
+</ul>
+<p>筛选后仍需去重。例如 <code>n = 2</code> 时，筛选得到 <code>['g', 'g', 'k', 'k', 'h', 'h']</code>，去重后才是 <code>['g', 'k', 'h']</code>。</p>
+<p>字符串不能像列表一样原地删除字符，因此这种“复制后删除”的写法需要转换成列表。若不想转换，使用方法二即可。</p>
+<h4 id="六种写法对比"><a href="#六种写法对比" class="headerlink" title="六种写法对比" data-stellar-navigation=""></a>六种写法对比</h4><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>方法</th><th>统计次数</th><th>去重方式</th><th>是否把字符串转换为列表</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>列表推导式</td><td><code>text.count()</code></td><td><code>dict.fromkeys()</code></td><td>否</td></tr>
+
+<tr><td><code>for</code> 循环</td><td><code>text.count()</code></td><td><code>char not in result</code></td><td>否</td></tr>
+
+<tr><td>索引判断</td><td><code>text.count()</code></td><td>只添加首次出现位置的字符</td><td>否</td></tr>
+
+<tr><td><code>while</code> 循环</td><td><code>text.count()</code></td><td><code>char not in result</code></td><td>否</td></tr>
+
+<tr><td>字典累计</td><td>字典保存每个字符的次数</td><td>字典的键天然不重复</td><td>否</td></tr>
+
+<tr><td>复制列表后删除</td><td><code>text.count()</code></td><td>筛选后再判断是否已加入结果</td><td>是</td></tr>
+
+</tbody>
+
+</table></div>
+
+</div>
+
+  
+
+<p>刚学习循环时，可以先掌握方法二，再理解方法三和方法四；学过字典后，再看方法一和方法五。方法六主要用于练习“遍历副本、修改原列表”。</p>
+<p><strong>不要用无序的集合直接替代有序去重步骤</strong>，否则无法保证题目要求的首次出现顺序。此外，第 <code>m</code> 个字符对应 <code>result[m - 1]</code>，取值之前必须保证 <code>1 &lt;= m &lt;= len(result)</code>。</p>
+<h2 id="五、易错点速查"><a href="#五、易错点速查" class="headerlink" title="五、易错点速查" data-stellar-navigation=""></a>五、易错点速查</h2><div style="overflow-x: auto;">
+
+<div class="md-table-scroll"><table>
+
+<thead>
+
+<tr><th>容易混淆的地方</th><th>正确理解</th></tr>
+
+</thead>
+
+<tbody>
+
+<tr><td><code>range()</code> 的结束值</td><td>不包含在生成的序列中</td></tr>
+
+<tr><td><code>break</code> 与 <code>continue</code></td><td>前者结束循环，后者跳过本轮剩余代码</td></tr>
+
+<tr><td><code>input()</code> 输入数字</td><td>返回的仍是字符串，按数值处理前需要转换</td></tr>
+
+<tr><td>“同时被 7 和 8 整除”</td><td>使用 <code>and</code>，不是 <code>or</code></td></tr>
+
+<tr><td><code>len()</code> 与 <code>enumerate()</code></td><td>前者返回长度，后者逐次提供编号和元素</td></tr>
+
+<tr><td>排序与逆序</td><td>排序按大小排列，逆序只颠倒已有顺序</td></tr>
+
+<tr><td><code>reverse()</code> 的返回值</td><td>原地修改列表，返回 <code>None</code></td></tr>
+
+<tr><td>遍历时删除元素</td><td>倒序按索引删除可避免元素前移造成漏检</td></tr>
+
+<tr><td>列表索引与“第几个”</td><td>索引从 <code>0</code> 开始，第 <code>m</code> 个对应索引 <code>m - 1</code></td></tr>
+
+<tr><td>月份与列表索引</td><td>第 <code>month</code> 月对应索引 <code>month - 1</code></td></tr>
+
+</tbody>
+
+</table></div>
+
+</div></article>
+<div class="article-tags slide-up"><a class="tag" href="/tags/Python/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>Python</a><a class="tag" href="/tags/%E5%BE%AA%E7%8E%AF/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>循环</a><a class="tag" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>字符串</a><a class="tag" href="/tags/%E5%88%97%E8%A1%A8/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>列表</a></div>
+
+
+  <div class="article-share slide-up" id="share">
+    <div class="body">
+      <div class="social-wrap dis-select"><a class="social share-item qrcode ui-interactive is-icon-only" onclick="util.toggle(&quot;share-qrcode&quot;)" aria-label="Share: QR Code" title="Share: QR Code"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M10.553 13.447c-.424-.424-.95-.596-1.535-.675c-.553-.074-1.25-.074-2.086-.074H5.827c-.58 0-1.065 0-1.459.037c-.411.04-.795.124-1.146.34c-.345.21-.634.5-.845.844c-.216.352-.3.735-.34 1.147C2 15.459 2 15.944 2 16.525v.068c0 .884 0 1.597.055 2.17c.056.592.175 1.108.459 1.571c.288.47.682.864 1.152 1.152c.463.284.979.403 1.57.46C5.81 22 6.524 22 7.407 22h.07c.58 0 1.064 0 1.458-.037c.412-.04.795-.124 1.147-.34c.344-.21.633-.5.844-.844c.216-.352.3-.736.34-1.147c.037-.394.037-.879.037-1.46v-1.104c0-.836 0-1.533-.074-2.086c-.079-.584-.251-1.111-.675-1.535m-1.62-11.41c.412.04.795.124 1.147.34c.344.21.633.5.844.845c.216.351.3.735.34 1.146c.037.394.037.879.037 1.46v1.104c0 .836 0 1.533-.074 2.086c-.079.584-.251 1.111-.675 1.535s-.95.596-1.535.675c-.553.074-1.25.074-2.086.074H5.827c-.58 0-1.065 0-1.459-.037c-.411-.04-.795-.124-1.146-.34a2.56 2.56 0 0 1-.845-.844c-.216-.352-.3-.735-.34-1.147C2 8.54 2 8.056 2 7.475v-.068c0-.884 0-1.597.055-2.17c.056-.592.175-1.108.459-1.571c.288-.47.682-.864 1.152-1.152c.463-.284.979-.403 1.57-.46C5.81 2 6.524 2 7.407 2h.07c.58 0 1.064 0 1.458.037M16.593 2h-.068c-.58 0-1.065 0-1.46.037c-.41.04-.794.124-1.146.34c-.344.21-.633.5-.844.845c-.216.351-.3.735-.34 1.146c-.037.394-.037.879-.037 1.46v1.104c0 .836 0 1.533.074 2.086c.079.584.251 1.111.675 1.535s.95.596 1.535.675c.553.074 1.25.074 2.086.074h1.105c.58 0 1.065 0 1.459-.037c.411-.04.795-.124 1.146-.34c.345-.21.634-.5.845-.844c.216-.352.3-.735.34-1.147C22 8.54 22 8.056 22 7.475v-.068c0-.884 0-1.597-.055-2.17c-.056-.592-.175-1.108-.459-1.571a3.5 3.5 0 0 0-1.152-1.152c-.463-.284-.979-.403-1.57-.46C18.19 2 17.477 2 16.594 2" opacity=".5"></path><path fill="currentColor" d="M14.093 21.302a.698.698 0 1 1-1.396 0v-2.79h1.396z" opacity=".4"></path><path fill="currentColor" d="M21.302 12.698a.7.7 0 0 0-.697.697v3.256H22v-3.256a.7.7 0 0 0-.698-.697" opacity=".5"></path><path fill="currentColor" d="M16.076 16.617c-.076.184-.076.417-.076.883s0 .699.076.883a1 1 0 0 0 .541.54c.184.077.417.077.883.077s.699 0 .883-.076a1 1 0 0 0 .54-.541c.077-.184.077-.417.077-.883s0-.699-.076-.883a1 1 0 0 0-.541-.54C18.199 16 17.966 16 17.5 16s-.699 0-.883.076a1 1 0 0 0-.54.541"></path><path fill="currentColor" d="M22 18.535v-.023h-1.396c0 .443 0 .74-.016.97c-.015.224-.043.333-.073.405a1.16 1.16 0 0 1-.629.63c-.072.029-.18.056-.405.072c-.23.015-.527.016-.97.016h-1.86V22h1.883c.414 0 .759 0 1.042-.02a2.6 2.6 0 0 0 .844-.175a2.56 2.56 0 0 0 1.384-1.384c.112-.27.156-.549.176-.844c.02-.283.02-.628.02-1.042" opacity=".7"></path><path fill="currentColor" d="M12.697 16.616v.035h1.396c0-.668 0-1.116.035-1.458c.034-.33.093-.482.16-.583a1.2 1.2 0 0 1 .321-.32c.101-.068.254-.128.584-.161c.342-.035.79-.036 1.458-.036h1.86v-1.395h-1.896c-.623 0-1.142 0-1.563.043c-.44.044-.85.142-1.218.388c-.28.187-.519.426-.706.706c-.246.368-.343.777-.388 1.217c-.043.421-.043.94-.043 1.564" opacity=".6"></path><path fill="currentColor" d="M5.508 18.69c.219.155.528.155 1.146.155c.619 0 .928 0 1.146-.155a.8.8 0 0 0 .2-.199c.154-.218.154-.527.154-1.146s0-.927-.155-1.146A.8.8 0 0 0 7.8 16c-.218-.155-.527-.155-1.146-.155s-.927 0-1.146.155a.8.8 0 0 0-.199.2c-.155.218-.155.527-.155 1.145c0 .619 0 .928.155 1.146a.8.8 0 0 0 .2.2M6.654 8.155c-.618 0-.927 0-1.146-.155a.8.8 0 0 1-.199-.2c-.155-.217-.155-.527-.155-1.145c0-.619 0-.928.155-1.146a.8.8 0 0 1 .2-.2c.218-.154.527-.154 1.145-.154c.619 0 .928 0 1.146.155a.8.8 0 0 1 .2.199c.154.218.154.527.154 1.146s0 .928-.155 1.146A.8.8 0 0 1 7.8 8c-.218.155-.527.155-1.146.155M16.2 8c.218.155.527.155 1.146.155s.927 0 1.146-.155a.8.8 0 0 0 .199-.199c.155-.218.155-.528.155-1.146c0-.619 0-.928-.155-1.146a.8.8 0 0 0-.2-.2c-.218-.154-.527-.154-1.145-.154c-.619 0-.928 0-1.146.155a.8.8 0 0 0-.2.199c-.154.218-.154.527-.154 1.146s0 .928.155 1.146A.8.8 0 0 0 16.2 8"></path></svg></span></a><a class="social share-item weibo ui-interactive is-icon-only" href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F14%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FPython%2520%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0%2520Day%25205%25EF%25BC%259A%25E5%25BE%25AA%25E7%258E%25AF%25E3%2580%2581%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%25E7%25BB%2583%25E4%25B9%25A0%2F&amp;title=Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0%20-%20Hexo&amp;summary=%E6%95%B4%E7%90%86%20while%E3%80%81for%E3%80%81range%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%88%97%E8%A1%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%EF%BC%8C%E5%B9%B6%E9%80%9A%E8%BF%87%209%20%E9%81%93%E7%BB%83%E4%B9%A0%E5%B7%A9%E5%9B%BA%E7%AD%9B%E9%80%89%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E9%81%8D%E5%8E%86%E5%88%A0%E9%99%A4%E5%92%8C%E6%97%A5%E6%9C%9F%E8%AE%A1%E7%AE%97%E3%80%82" target="_blank" rel="external nofollow noopener noreferrer" aria-label="Share: Weibo" title="Share: Weibo"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.439l-.002.004zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.18.601l.014-.028zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.57-.18-.405-.615.375-.977.42-1.804 0-2.404-.781-1.112-2.915-1.053-5.364-.03 0 0-.766.331-.571-.271.376-1.217.315-2.224-.27-2.809-1.338-1.337-4.869.045-7.888 3.08C1.309 10.87 0 13.273 0 15.348c0 3.981 5.099 6.395 10.086 6.395 6.536 0 10.888-3.801 10.888-6.82 0-1.822-1.547-2.854-2.915-3.284v.01zm1.908-5.092c-.766-.856-1.908-1.187-2.96-.962-.436.09-.706.511-.616.932.09.42.511.691.932.602.511-.105 1.067.044 1.442.465.376.421.466.977.316 1.473-.136.406.089.856.51.992.405.119.857-.105.992-.512.33-1.021.12-2.178-.646-3.035l.03.045zm2.418-2.195c-1.576-1.757-3.905-2.419-6.054-1.968-.496.104-.812.587-.706 1.081.104.496.586.813 1.082.707 1.532-.331 3.185.15 4.296 1.383 1.112 1.246 1.429 2.943.947 4.416-.165.48.106 1.007.586 1.157.479.165.991-.104 1.157-.586.675-2.088.241-4.478-1.338-6.235l.03.045z"></path></svg></span></a><a class="social share-item x ui-interactive is-icon-only" href="https://x.com/intent/tweet?text=Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0%20-%20Hexo&amp;url=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F14%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FPython%2520%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0%2520Day%25205%25EF%25BC%259A%25E5%25BE%25AA%25E7%258E%25AF%25E3%2580%2581%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%25E7%25BB%2583%25E4%25B9%25A0%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="Share: X" title="Share: X"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"></path></svg></span></a><a class="social share-item telegram ui-interactive is-icon-only" href="https://t.me/share/url?url=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F14%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FPython%2520%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0%2520Day%25205%25EF%25BC%259A%25E5%25BE%25AA%25E7%258E%25AF%25E3%2580%2581%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%25E7%25BB%2583%25E4%25B9%25A0%2F&amp;text=Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0%20-%20Hexo" target="_blank" rel="external nofollow noopener noreferrer" aria-label="Share: Telegram" title="Share: Telegram"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345q-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663q5.247-2.286 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635"></path></svg></span></a><a class="social share-item whatsapp ui-interactive is-icon-only" href="https://wa.me/?text=Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0%20-%20Hexo%0Ahttps%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F14%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FPython%2520%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0%2520Day%25205%25EF%25BC%259A%25E5%25BE%25AA%25E7%258E%25AF%25E3%2580%2581%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%25E7%25BB%2583%25E4%25B9%25A0%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="Share: WhatsApp" title="Share: WhatsApp"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"></path></svg></span></a><a class="social share-item email ui-interactive is-icon-only" href="mailto:?subject=Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0%20-%20Hexo&amp;body=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F14%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FPython%2520%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0%2520Day%25205%25EF%25BC%259A%25E5%25BE%25AA%25E7%258E%25AF%25E3%2580%2581%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%25E7%25BB%2583%25E4%25B9%25A0%2F" aria-label="Share: Email" title="Share: Email"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M3.172 5.172C2 6.343 2 8.229 2 12s0 5.657 1.172 6.828C4.343 20 6.229 20 10 20h4c3.771 0 5.657 0 6.828-1.172C22 17.657 22 15.771 22 12s0-5.657-1.172-6.828C19.657 4 17.771 4 14 4h-4C6.229 4 4.343 4 3.172 5.172m15.404 2.348a.75.75 0 0 1-.096 1.056l-2.196 1.83c-.887.739-1.605 1.338-2.24 1.746-.66.424-1.303.693-2.044.693s-1.384-.269-2.045-.693c-.634-.408-1.352-1.007-2.239-1.745L5.52 8.576a.75.75 0 1 1 .96-1.152l2.159 1.799c.933.777 1.58 1.315 2.128 1.667.529.34.888.455 1.233.455s.704-.115 1.233-.455c.547-.352 1.195-.89 2.128-1.667l2.159-1.8a.75.75 0 0 1 1.056.097" clip-rule="evenodd"></path></svg></span></a></div>
+      <div class="share-qrcode" id="share-qrcode" style="opacity:0;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fhexo.hanruixuan.com%2F2024%2F09%2F14%2Fpython%2Fpython%25E4%25BD%259C%25E4%25B8%259A%2FPython%2520%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0%2520Day%25205%25EF%25BC%259A%25E5%25BE%25AA%25E7%258E%25AF%25E3%2580%2581%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E4%25B8%258E%25E5%2588%2597%25E8%25A1%25A8%25E7%25BB%2583%25E4%25B9%25A0%2F" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></div>
+    </div>
+  </div>
+
+<div class="article-footer slide-up">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section></div>
+
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> Newer</div><a href="/2024/09/15/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%206%EF%BC%9A%20%E5%AD%97%E5%85%B8%E7%BB%83%E4%B9%A0%E4%BD%9C%E4%B8%9A%E6%95%B4%E7%90%86%E4%B8%8E%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/" data-stellar-navigation="">Python 学习笔记 Day 6： 字典练习作业整理与冒泡排序详解</a></div><div class="item" id="next"><div class="note">Older <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/2024/09/11/python/python%E5%BE%AA%E7%8E%AF/for%E5%BE%AA%E7%8E%AF%E5%A6%82%E4%BD%95%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/" data-stellar-navigation="">for循环如何无限循环</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer slide-up footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+</main>
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
+
+
+<widget class="widget-wrapper slide-up toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">On This Page</span>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81%E5%BE%AA%E7%8E%AF%E5%9F%BA%E7%A1%80" data-stellar-navigation=""><span class="toc-text">一、循环基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-while-%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%A0%B9%E6%8D%AE%E6%9D%A1%E4%BB%B6%E9%87%8D%E5%A4%8D%E6%89%A7%E8%A1%8C" data-stellar-navigation=""><span class="toc-text">1. while 循环：根据条件重复执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-range-%EF%BC%9A%E7%94%9F%E6%88%90%E6%95%B4%E6%95%B0%E5%BA%8F%E5%88%97" data-stellar-navigation=""><span class="toc-text">2. range()：生成整数序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-break-%E5%92%8C-continue-%E7%9A%84%E5%8C%BA%E5%88%AB" data-stellar-navigation=""><span class="toc-text">3. break 和 continue 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-for-%E5%BE%AA%E7%8E%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%B8%B8%E8%A7%81%E5%86%99%E6%B3%95" data-stellar-navigation=""><span class="toc-text">4. for 循环的两种常见写法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9F%BA%E7%A1%80" data-stellar-navigation=""><span class="toc-text">二、字符串基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA" data-stellar-navigation=""><span class="toc-text">1. 输入和输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E7%B4%A2%E5%BC%95%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%8D%95%E4%B8%AA%E5%AD%97%E7%AC%A6" data-stellar-navigation=""><span class="toc-text">2. 索引：获取单个字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E5%88%87%E7%89%87%EF%BC%9A%E8%8E%B7%E5%8F%96%E4%B8%80%E6%AE%B5%E5%AD%97%E7%AC%A6%E4%B8%B2" data-stellar-navigation=""><span class="toc-text">3. 切片：获取一段字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95" data-stellar-navigation=""><span class="toc-text">4. 常用字符串函数和方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E5%88%97%E8%A1%A8%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E4%B8%8E%E9%81%8D%E5%8E%86" data-stellar-navigation=""><span class="toc-text">三、列表的增删改查与遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0" data-stellar-navigation=""><span class="toc-text">1. 增加元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0" data-stellar-navigation=""><span class="toc-text">2. 删除元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0" data-stellar-navigation=""><span class="toc-text">3. 修改元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E6%9F%A5%E8%AF%A2%E5%85%83%E7%B4%A0" data-stellar-navigation=""><span class="toc-text">4. 查询元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%EF%BC%9Alen-%E5%92%8C-enumerate-%E6%80%8E%E4%B9%88%E9%80%89%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">5. 遍历列表：len() 和 enumerate() 怎么选？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BB%83%E4%B9%A0" data-stellar-navigation=""><span class="toc-text">四、列表与字符串练习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-1%EF%BC%9A%E6%89%BE%E5%87%BA%E5%90%8C%E6%97%B6%E8%83%BD%E8%A2%AB-7-%E5%92%8C-8-%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0" data-stellar-navigation=""><span class="toc-text">练习 1：找出同时能被 7 和 8 整除的数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-2%EF%BC%9A%E5%88%86%E5%88%AB%E4%BF%9D%E5%AD%98%E6%8E%92%E5%BA%8F%E7%BB%93%E6%9E%9C%E5%92%8C%E9%80%86%E5%BA%8F%E7%BB%93%E6%9E%9C" data-stellar-navigation=""><span class="toc-text">练习 2：分别保存排序结果和逆序结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-3%EF%BC%9A%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%88%97%E8%A1%A8%E7%9A%84%E7%BB%9F%E8%AE%A1%E4%B8%8E%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B9%8B%E5%B7%AE" data-stellar-navigation=""><span class="toc-text">练习 3：随机数列表的统计与平均值之差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-4%EF%BC%9A%E6%89%BE%E5%87%BA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%A4%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97" data-stellar-navigation=""><span class="toc-text">练习 4：找出只出现两次的数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-5%EF%BC%9A%E4%BF%AE%E6%94%B9%E8%83%BD%E8%A2%AB-3-%E6%95%B4%E9%99%A4%E7%9A%84%E5%85%83%E7%B4%A0" data-stellar-navigation=""><span class="toc-text">练习 5：修改能被 3 整除的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-6%EF%BC%9A%E5%8E%9F%E5%9C%B0%E5%88%A0%E9%99%A4%E5%8C%85%E5%90%AB%E5%AD%97%E7%AC%A6-1-%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2" data-stellar-navigation=""><span class="toc-text">练习 6：原地删除包含字符 1 的字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-7%EF%BC%9A%E5%8E%9F%E5%9C%B0%E5%88%A0%E9%99%A4%E5%B0%8F%E4%BA%8E-33-%E7%9A%84%E5%85%83%E7%B4%A0" data-stellar-navigation=""><span class="toc-text">练习 7：原地删除小于 33 的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-8%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9F%90%E4%B8%80%E5%A4%A9%E6%98%AF%E8%BF%99%E4%B8%80%E5%B9%B4%E7%9A%84%E7%AC%AC%E5%87%A0%E5%A4%A9" data-stellar-navigation=""><span class="toc-text">练习 8：计算某一天是这一年的第几天</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%83%E4%B9%A0-9%EF%BC%9A%E6%89%BE%E5%87%BA%E7%AC%AC-m-%E4%B8%AA%E6%81%B0%E5%A5%BD%E5%87%BA%E7%8E%B0-n-%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6" data-stellar-navigation=""><span class="toc-text">练习 9：找出第 m 个恰好出现 n 次的字符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%89%A9%E5%B1%95%EF%BC%9A%E5%85%AD%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">扩展：六种实现方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%8E-dict-fromkeys" data-stellar-navigation=""><span class="toc-text">方法一：列表推导式与 dict.fromkeys()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%88%97%E8%A1%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84for%E5%BE%AA%E7%8E%AF%E6%A0%BC%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">列表表达式的for循环格式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9Afor-%E5%BE%AA%E7%8E%AF%E4%B8%8E%E6%88%90%E5%91%98%E5%88%A4%E6%96%AD" data-stellar-navigation=""><span class="toc-text">方法二：for 循环与成员判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E9%80%9A%E8%BF%87-index-%E5%88%A4%E6%96%AD%E9%A6%96%E6%AC%A1%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BD%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">方法三：通过 index() 判断首次出现的位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%96%B9%E6%B3%95%E5%9B%9B%EF%BC%9Awhile-%E5%BE%AA%E7%8E%AF" data-stellar-navigation=""><span class="toc-text">方法四：while 循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%96%B9%E6%B3%95%E4%BA%94%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%AD%97%E5%85%B8%E7%B4%AF%E8%AE%A1%E6%AC%A1%E6%95%B0" data-stellar-navigation=""><span class="toc-text">方法五：使用字典累计次数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%96%B9%E6%B3%95%E5%85%AD%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%88%97%E8%A1%A8%E9%81%8D%E5%8E%86%EF%BC%8C%E5%88%A0%E9%99%A4%E4%B8%8D%E7%AC%A6%E5%90%88%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%AD%97%E7%AC%A6" data-stellar-navigation=""><span class="toc-text">方法六：复制列表遍历，删除不符合条件的字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%85%AD%E7%A7%8D%E5%86%99%E6%B3%95%E5%AF%B9%E6%AF%94" data-stellar-navigation=""><span class="toc-text">六种写法对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E6%98%93%E9%94%99%E7%82%B9%E9%80%9F%E6%9F%A5" data-stellar-navigation=""><span class="toc-text">五、易错点速查</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>Scroll to Top</span></a></div>
+</widget>
+
+
+</div></div></div></div></aside>
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
+  <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
+  </button>
+  <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
+  </button>
+</div>
+</div><div class="site-scripts">
+<script data-stellar-script="core" src="/js/stellar-icons.js?v=39c6ac17e854ffe2"></script>
+
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: "https://hexo.hanruixuan.com/2024/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/", checklink: ctx.services.video.js};
+  ctx.date_suffix = {"just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago"};
+  if (ctx.search) Object.assign(ctx.search, {"more":"More","no_more":"No more results"});
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
+</script>
+
+
+<!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
+<script data-stellar-script="core" src="/js/utils.js?v=2.0.0-20260906"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0-20260906" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0-20260906"></script>
+
+
+
+
+
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .timenode p\u003eimg"},"config":{"enabled":true,"selector":".timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":800,"interval":200,"distance":8,"blur":4}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"Copy","copied":"Copied!","denied":"Clipboard permission was denied","unsupported":"Clipboard requires a supported browser and HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js","css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&amp;runtime=1"></script>
+
+
+<!-- inject -->
+
+
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0-20260906"></script>
+</div>
+
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://hexo.hanruixuan.com/2024/09/14/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%205%EF%BC%9A%E5%BE%AA%E7%8E%AF%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%88%97%E8%A1%A8%E7%BB%83%E4%B9%A0/","signature":"b87754f5cabc4d5c11573b0df31d95bc49b8b346cca654c27b9e96050c3bdc20"}</script></body></html>
