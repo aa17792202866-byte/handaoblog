@@ -1,0 +1,967 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0" theme-name="Stellar" theme-version="2.0.0">
+  
+  
+  <meta name="generator" content="Hexo 8.1.2">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title data-stellar-page-meta="">CDN是如何工作的 - Hexo</title>
+  <script data-stellar-script="core">
+    (function () {
+      var key = 'stellar:v2:leftbar-state';
+      var fallback = "expanded";
+      try {
+        var value = localStorage.getItem(key);
+        document.documentElement.dataset.leftbarState = value === 'collapsed' || value === 'expanded' ? value : fallback;
+      } catch (error) {
+        document.documentElement.dataset.leftbarState = fallback;
+      }
+    })();
+  </script>
+
+  <meta name="description" content="Gemini conversation with 24 messages" data-stellar-page-meta="">
+<meta property="og:type" content="article" data-stellar-page-meta="">
+<meta property="og:title" content="CDN是如何工作的" data-stellar-page-meta="">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2026/10/15/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E7%BD%91%E7%BB%9C/cdn/" data-stellar-page-meta="">
+<meta property="og:site_name" content="Hexo" data-stellar-page-meta="">
+<meta property="og:description" content="Gemini conversation with 24 messages" data-stellar-page-meta="">
+<meta property="og:locale" content="zh_CN" data-stellar-page-meta="">
+<meta property="article:author" content="John Doe" data-stellar-page-meta="">
+<meta property="article:published_time" content="2026-10-15T14:07:08.000Z" data-stellar-page-meta="">
+<meta property="article:modified_time" content="2026-10-15T15:35:31.000Z" data-stellar-page-meta="">
+<meta property="article:tag" content="clippings" data-stellar-page-meta="">
+<meta name="twitter:card" content="summary" data-stellar-page-meta=""><meta name="twitter:title" content="CDN是如何工作的" data-stellar-page-meta="">
+  
+  
+  <meta name="keywords" content="clippings" data-stellar-page-meta="">
+
+  <!-- feed -->
+  
+
+  <link rel="preload" href="/css/main.css?v=2.0.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=2.0.0-20260906">
+  <style>:root{--text-loading:"正在加载";--text-loading-error:"加载失败，请稍后重试。"}</style>
+
+
+  
+
+  
+
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-10-15T22:07:08+08:00","dateModified":"2026-10-15T23:35:31+08:00","datePublished":"2026-10-15T22:07:08+08:00","description":"You\ncdn是什么\n\nGemini\nCDN 是 Content Delivery Network （ 内容分发网络 ）的缩写。\n简单来说，它是一组分散在不同地理位置的服务器缓存集群。它的核心目的就是 让用户就近获取内容，从而提高访问速度、降低延迟，并减轻源站服务器的负载 。\n一、 CDN 是如何工作的？为了理解 CDN 的工作原理，我们可以对比一下“没有 CDN”和“有 CDN”的区别：\n...","headline":"CDN是如何工作的","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/10/15/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E7%BD%91%E7%BB%9C/cdn/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/10/15/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E7%BD%91%E7%BB%9C/cdn/","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"],"keywords":"clippings","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"}</script>
+  <link rel="stylesheet" href="/css/math-custom.css?v=1">
+
+  <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
+  <link rel="preload" as="script" href="/js/stellar-icons.js?v=39c6ac17e854ffe2">
+  
+  
+</head>
+<body data-page-type="content" data-page-layout="post" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    <div class="widget-instance widget-instance--brand" data-widget-id="leftbar:fixed:brand" data-presentation="leftbar" data-leftbar-rail="">
+<header class="brand-header brand-header--regular brand-header--site"><div class="brand-wrap"><a class="brand-image brand-image--avatar" href="/about/"><img no-lazy="" src="/images/dlam.jpg" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="/about/"><div class="brand-name">Hexo</div></a></div><div class="brand-search">
+
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<button class="ui-collection__item ui-interactive card-hover card-hover--spotlight search-trigger has-hover-surface" type="button" title="搜索" aria-label="搜索" data-shell-action="open-search" data-search-instance="leftbar-brand-search" data-search-domain="blog" data-search-domain-label="博客" data-search-domain-blog="true">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">搜索</span>
+      
+      
+    </span>
+  
+  <kbd class="search-shortcut" aria-hidden="true">⌘K</kbd>
+
+  
+</button>
+
+  
+</div>
+
+
+</div></header>
+</div>
+  </header>
+  <div class="site-region__body site-region__zone site-region__zone--body">
+    <div class="widget-instance widget-instance--menu" data-widget-id="leftbar:fixed:menu" data-presentation="leftbar" data-leftbar-rail="">
+
+
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/" title="博客" aria-current="page">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"></path><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">博客</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/categories/" title="分类">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor"><path d="M2 6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C22 7.84935 22 9.16554 22 11.7979V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V6.94975Z" opacity=".5"></path><path d="M20 6.23751C19.9992 5.94016 19.9949 5.76263 19.9746 5.60842C19.7974 4.26222 18.7381 3.2029 17.3919 3.02567C17.1969 3 16.9647 3 16.5003 3H9.98828C10.1042 3.10392 10.2347 3.23445 10.45 3.44975L11.0003 4C11.8161 4.81578 12.2239 5.22367 12.7124 5.49543C12.9807 5.64471 13.2653 5.7626 13.5606 5.84678C14.0982 6 14.675 6 15.8287 6H16.2024C17.9814 6 19.1593 6 20 6.23751Z"></path><path fill-rule="evenodd" d="M12.25 10C12.25 9.58579 12.5858 9.25 13 9.25H18C18.4142 9.25 18.75 9.58579 18.75 10C18.75 10.4142 18.4142 10.75 18 10.75H13C12.5858 10.75 12.25 10.4142 12.25 10Z" clip-rule="evenodd"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">分类</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/tags/" title="标签">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.7226 3.20068C10.8335 2.80158 10.5998 2.38817 10.2007 2.27731C9.80163 2.16645 9.38822 2.40011 9.27736 2.79921L7.76327 8.24995H4C3.58579 8.24995 3.25 8.58573 3.25 8.99995C3.25 9.41416 3.58579 9.74995 4 9.74995H7.3466L5.81882 15.2499H2C1.58579 15.2499 1.25 15.5857 1.25 15.9999C1.25 16.4142 1.58579 16.7499 2 16.7499H5.40216L4.27736 20.7992C4.1665 21.1983 4.40016 21.6117 4.79927 21.7226C5.19837 21.8334 5.61178 21.5998 5.72264 21.2007L6.95895 16.7499H14.4022L13.2774 20.7992C13.1665 21.1983 13.4002 21.6117 13.7993 21.7226C14.1984 21.8334 14.6118 21.5998 14.7226 21.2007L15.959 16.7499H20C20.4142 16.7499 20.75 16.4142 20.75 15.9999C20.75 15.5857 20.4142 15.2499 20 15.2499H16.3756L17.9034 9.74995H22C22.4142 9.74995 22.75 9.41416 22.75 8.99995C22.75 8.58573 22.4142 8.24995 22 8.24995H18.3201L19.7226 3.20068C19.8335 2.80158 19.5998 2.38817 19.2007 2.27731C18.8016 2.16645 18.3882 2.40011 18.2774 2.79921L16.7633 8.24995H9.32006L10.7226 3.20068ZM14.8188 15.2499L16.3466 9.74995H8.9034L7.37562 15.2499H14.8188Z" clip-rule="evenodd"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">标签</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/archives/" title="归档">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor"><path d="M6.94028 2C7.35614 2 7.69326 2.32421 7.69326 2.72414V4.18487C8.36117 4.17241 9.10983 4.17241 9.95219 4.17241H13.9681C14.8104 4.17241 15.5591 4.17241 16.227 4.18487V2.72414C16.227 2.32421 16.5641 2 16.98 2C17.3958 2 17.733 2.32421 17.733 2.72414V4.24894C19.178 4.36022 20.1267 4.63333 20.8236 5.30359C21.5206 5.97385 21.8046 6.88616 21.9203 8.27586L22 9H2.92456H2V8.27586C2.11571 6.88616 2.3997 5.97385 3.09665 5.30359C3.79361 4.63333 4.74226 4.36022 6.1873 4.24894V2.72414C6.1873 2.32421 6.52442 2 6.94028 2Z"></path><path d="M21.9995 14.0001V12.0001C21.9995 11.161 21.9963 9.66527 21.9834 9H2.00917C1.99626 9.66527 1.99953 11.161 1.99953 12.0001V14.0001C1.99953 17.7713 1.99953 19.6569 3.1711 20.8285C4.34267 22.0001 6.22829 22.0001 9.99953 22.0001H13.9995C17.7708 22.0001 19.6564 22.0001 20.828 20.8285C21.9995 19.6569 21.9995 17.7713 21.9995 14.0001Z" opacity=".5"></path><path d="M18 17C18 17.5523 17.5523 18 17 18C16.4477 18 16 17.5523 16 17C16 16.4477 16.4477 16 17 16C17.5523 16 18 16.4477 18 17Z"></path><path d="M18 13C18 13.5523 17.5523 14 17 14C16.4477 14 16 13.5523 16 13C16 12.4477 16.4477 12 17 12C17.5523 12 18 12.4477 18 13Z"></path><path d="M13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17Z"></path><path d="M13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13Z"></path><path d="M8 17C8 17.5523 7.55228 18 7 18C6.44772 18 6 17.5523 6 17C6 16.4477 6.44772 16 7 16C7.55228 16 8 16.4477 8 17Z"></path><path d="M8 13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13C6 12.4477 6.44772 12 7 12C7.55228 12 8 12.4477 8 13Z"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">归档</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/about/" title="关于">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20" opacity=".5"></path><path d="M12 6a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0 7.5c-3.04 0-5.5 1.57-5.5 3.5c0 .65.28 1.26.77 1.77A7.96 7.96 0 0 0 12 20.5a7.96 7.96 0 0 0 4.73-1.73c.49-.51.77-1.12.77-1.77c0-1.93-2.46-3.5-5.5-3.5"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">关于</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div>
+
+</nav>
+
+</div>
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--recent" data-widget-id="leftbar:1:recent" data-presentation="leftbar">
+
+<widget class="widget-wrapper recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">最近更新</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/MySQL/Windows%E4%B8%8A%E5%A4%9A%E4%B8%AAMySQL%E8%BF%9B%E7%A8%8B%E6%80%8E%E4%B9%88%E6%9F%A5%EF%BC%9A%E7%AB%AF%E5%8F%A3%E3%80%81%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/" title="Windows 上多个 MySQL 进程怎么查：端口、服务与开机启动" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">W</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Windows 上多个 MySQL 进程怎么查：端口、服务与开机启动</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/3x-ui%20%E4%B8%A4%E5%8F%B0%20VPS%20%E9%93%BE%E5%BC%8F%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/" title="3x-ui 两台 VPS 链式代理配置笔记" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">3</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">3x-ui 两台 VPS 链式代理配置笔记</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/24/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E8%AE%BF%E9%97%AE%E4%B8%A4%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/" title="如何配置双密钥访问两个github账户" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">如</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">如何配置双密钥访问两个github账户</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/07/27/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="测试图片" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">测</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">测试图片</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/17/Git%20%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%20SSH%20%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E3%80%81%E8%B4%A6%E5%8F%B7%E5%92%8C%E5%AF%86%E9%92%A5/" title="Git 如何查看 SSH 连接的远程仓库、账号和密钥" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">G</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Git 如何查看 SSH 连接的远程仓库、账号和密钥</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/12/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E5%B9%82%E7%AD%89%E6%80%A7/" title="幂等性" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">幂</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">幂等性</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/15/%E9%97%B2%E7%9A%84%E6%B2%A1%E4%BA%8B/2%E7%9A%84%E4%B8%80%E4%BA%BF%E6%AC%A1%E6%96%B9%E6%98%AF%E5%A4%9A%E5%B0%91/" title="2的一亿次方是多少" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">2</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">2的一亿次方是多少</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/15/python/python%E4%BD%9C%E4%B8%9A/Python%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Day%206%EF%BC%9A%20%E5%AD%97%E5%85%B8%E7%BB%83%E4%B9%A0%E4%BD%9C%E4%B8%9A%E6%95%B4%E7%90%86%E4%B8%8E%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/" title="Python 学习笔记 Day 6： 字典练习作业整理与冒泡排序详解" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">P</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Python 学习笔记 Day 6： 字典练习作业整理与冒泡排序详解</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/Windows11%E6%89%B9%E9%87%8F%E8%AE%BE%E7%BD%AEUWP%E5%BA%94%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%9E%E7%8E%AF%E8%B1%81%E5%85%8D/" title="Windows 11 批量设置 UWP 应用本地回环豁免" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">W</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Windows 11 批量设置 UWP 应用本地回环豁免</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/10/16/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/Selenium%E5%92%8CPlaywright%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9A%E8%AF%9E%E7%94%9F%E6%97%B6%E9%97%B4%E4%B8%8E%E5%85%A5%E9%97%A8%E5%8C%BA%E5%88%AB/" title="Selenium 和 Playwright 是什么：诞生时间与入门区别" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">S</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Selenium 和 Playwright 是什么：诞生时间与入门区别</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div></div>
+  </div>
+  <footer class="site-region__footer">
+    
+    <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="设置" aria-label="设置" title="设置">
+  <span class="settings-widget__avatar" aria-hidden="true">
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
+  </span>
+  <span class="settings-widget__name ui-collection__title">设置</span>
+</a>
+</div></div>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
+    </div>
+  </footer></div></div></aside>
+<main data-stellar-runtime-region="" class="site-main" id="main">
+
+
+<div class="article-banner-wrap"><div class="article banner top">
+  <div class="content">
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-10-15T14:07:08.000Z">2026-10-15</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-10-15T15:35:31.000Z">2026-10-15</time></span></div>
+</div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>CDN是如何工作的</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div></div>
+<article class="md-text content"><p><strong>You</strong></p>
+<p>cdn是什么</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p><strong>CDN</strong> 是 <strong>Content Delivery Network</strong> （ <strong>内容分发网络</strong> ）的缩写。</p>
+<p>简单来说，它是一组分散在不同地理位置的服务器缓存集群。它的核心目的就是 <strong>让用户就近获取内容，从而提高访问速度、降低延迟，并减轻源站服务器的负载</strong> 。</p>
+<h3 id="一、-CDN-是如何工作的？"><a href="#一、-CDN-是如何工作的？" class="headerlink" title="一、 CDN 是如何工作的？" data-stellar-navigation=""></a>一、 CDN 是如何工作的？</h3><p>为了理解 CDN 的工作原理，我们可以对比一下“没有 CDN”和“有 CDN”的区别：</p>
+<ol>
+<li><strong>没有 CDN 的情况：</strong><ul>
+<li>假设你的服务器（源站）部署在北京。<ul>
+<li>当一个身在广州的用户访问你的网站时，他的电脑发出的请求需要跨越半个中国到达北京，服务器处理后再把数据传回广州。</li>
+<li>这个“长途跋涉”的过程会产生较高的网络延迟，如果访问人数一多，源站服务器还容易被挤瘫痪。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>有 CDN 的情况：</strong><ul>
+<li>CDN 服务商（如 Cloudflare、阿里云、腾讯云等）在全球或全国各地部署了数以万计的 <strong>边缘节点（Edge Nodes）</strong> 。<ul>
+<li>当你接入 CDN 后，用户的请求不再直接到达你的源站，而是先到达离他 <strong>最近的 CDN 节点</strong> 。</li>
+<li>如果该节点上有用户需要的内容（称为 <strong>缓存命中</strong> ），节点会直接把内容发给用户，速度极快。</li>
+<li>如果节点上没有（缓存未命中），CDN 节点才会代为向你的源站请求数据，把数据缓存到本地一份，再传给用户。以后其他同地区的用户访问时，就能直接从这个节点获取了。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、-CDN-的核心优势"><a href="#二、-CDN-的核心优势" class="headerlink" title="二、 CDN 的核心优势" data-stellar-navigation=""></a>二、 CDN 的核心优势</h3><ul>
+<li><strong>加速访问（减少延迟）：</strong> 物理距离越近，光纤传输耗时越短。用户从附近的节点加载网页或图片，体验更加丝滑。</li>
+<li><strong>分担源站压力：</strong> 绝大部分静态资源（图片、CSS、JS、视频等）由 CDN 节点承接，源站只需要处理少量的动态请求，大大降低了服务器带宽和硬件成本。</li>
+<li><strong>提高网站安全性与抗攻击能力：</strong><ul>
+<li>隐藏源站真实 IP 地址，黑客无法直接攻击你的源站服务器。<ul>
+<li>许多 CDN（如 Cloudflare）自带 <strong>DDoS 防护</strong> 和 Web 应用防火墙（WAF），可以拦截恶意流量。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>高可用性（负载均衡）：</strong> 如果某一个 CDN 节点发生故障或网络拥堵，智能 DNS 路由会自动将用户引导至健康的临近节点，保证服务不中断。</li>
+</ul>
+<h3 id="三、-常见的应用场景"><a href="#三、-常见的应用场景" class="headerlink" title="三、 常见的应用场景" data-stellar-navigation=""></a>三、 常见的应用场景</h3><ol>
+<li><strong>网站加速：</strong> 几乎所有大型门户网站、企业官网、博客（如静态博客）都会使用 CDN 来加速静态资源的加载。</li>
+<li><strong>视频点播与直播：</strong> 视频文件体积庞大，通过 CDN 分发可以避免视频卡顿、加载缓慢的问题。</li>
+<li><strong>软件下载 / 应用分发：</strong> 游戏客户端、大文件安装包等通过 CDN 多点下载，大幅提升下载速度。</li>
+</ol>
+<hr>
+<p><strong>You</strong></p>
+<p>可以一个cdn服务器在中转到其他cdn最后回到源站吗</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p>可以，这种做法在技术上完全可行，通常被称为 <strong>多级 CDN（Multi-CDN）</strong> 、 <strong>CDN 级联（CDN Cascading） <strong>或</strong> 分层缓存（Tiered Caching）</strong> 。</p>
+<p>在实际的架构设计中，这种模式非常常见，主要用于特定的大型业务场景。</p>
+<h3 id="一、-为什么要这样做？（应用场景）"><a href="#一、-为什么要这样做？（应用场景）" class="headerlink" title="一、 为什么要这样做？（应用场景）" data-stellar-navigation=""></a>一、 为什么要这样做？（应用场景）</h3><ol>
+<li><strong>极致的回源保护与分流（减轻源站压力）：</strong><ul>
+<li>如果直接让全球几十个甚至上百个边缘节点同时向源站请求数据，源站可能会因为瞬时流量过大而崩溃。<ul>
+<li>通过设置“多级 CDN”，让底层的边缘节点先请求 <strong>中转 CDN（区域汇聚节点）</strong> ，如果中转节点没有，再由中转节点去请求源站。这样可以把原本直接冲击源站的成千上万个请求，收敛成少数几个中转节点的请求。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>跨运营商 / 跨地域网络优化：</strong><ul>
+<li>有时候由于网络运营商之间互联互通的问题（例如小运营商到主流云厂商的主干网络质量不稳定），可以直接用一个小众或本地优化更好的 CDN 作为前置中转，再转发到主流的大厂 CDN（如 Cloudflare、Akamai、阿里云等）回源。</li>
+</ul>
+</li>
+<li><strong>安全清洗与多重防护：</strong><ul>
+<li>前置 CDN 可以用来做第一层的 DDoS 防御、WAF（Web 应用防火墙）过滤或人机验证（如人机挑战、JS 盾），清洗掉垃圾流量后，干净的请求再转发给后端的 CDN 或源站。</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、-它是怎么工作的？"><a href="#二、-它是怎么工作的？" class="headerlink" title="二、 它是怎么工作的？" data-stellar-navigation=""></a>二、 它是怎么工作的？</h3><p>整个链路的走向大致如下：</p>
+<div class="math-display has-jax" style="overflow-x:auto">$$
+\text{用户 (User)} \longrightarrow \text{前置 CDN 边缘节点} \longrightarrow \text{中转 / 汇聚 CDN 节点} \longrightarrow \text{源站服务器 (Origin)}
+$$</div>
+<ul>
+<li><strong>缓存命中逻辑：</strong> 当用户请求一个文件时，如果前置 CDN 节点“未命中”，它不会直接找源站，而是去请求 <strong>中转 CDN</strong> 。如果中转 CDN 缓存了，就返回给前置 CDN；如果中转 CDN 也没有，最后才由中转 CDN 向源站获取。</li>
+</ul>
+<h3 id="三、-这样做的潜在问题与挑战"><a href="#三、-这样做的潜在问题与挑战" class="headerlink" title="三、 这样做的潜在问题与挑战" data-stellar-navigation=""></a>三、 这样做的潜在问题与挑战</h3><p>虽然可行，但如果配置不当也会带来副作用：</p>
+<ol>
+<li><strong>回源延迟增加：</strong> 多了一层中转，意味着如果两级 CDN 都“未命中”（Cache Miss），用户的首次加载时间（TTFB）会变长，因为多了一次网络转发。</li>
+<li><strong>缓存一致性变复杂：</strong> 当源站的内容更新时，你需要同时清理（Purge）前置 CDN 和中转 CDN 的缓存，否则用户可能会看到不同步的旧版本内容。</li>
+<li><strong>配置链路排查变难：</strong> 如果出现 502、504 或其他网络错误，排查时需要逐层检查每个 CDN 的响应头（如 <code>X-Cache</code> 、 <code>Via</code> 等字段），定位具体在哪一层节点出了问题。</li>
+</ol>
+<hr>
+<p><strong>You</strong></p>
+<p>自建翻墙节点用国内vps中转一下有必要吗，可行吗</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p>结论先行： <strong>完全可行，而且在特定情况下“非常有必要”。</strong></p>
+<p>考虑到你平时经常接触各类服务器转发、网络代理以及 VPS 运维（如 RackNerd、Xray、3X-UI 等），这种“国内中转 + 海外节点”的架构不仅能解决痛点，还能带来明显的体验提升。</p>
+<h3 id="一、-为什么要用国内-VPS-做中转？（有什么好处）"><a href="#一、-为什么要用国内-VPS-做中转？（有什么好处）" class="headerlink" title="一、 为什么要用国内 VPS 做中转？（有什么好处）" data-stellar-navigation=""></a>一、 为什么要用国内 VPS 做中转？（有什么好处）</h3><ol>
+<li><strong>改善国际出口网络质量（最核心的原因）</strong><ul>
+<li>如果你的海外 VPS 购买的是普通线路（如搬瓦工普通线路、美西廉价 VPS 等），在晚高峰时段经常会遭遇严重的丢包、高延迟甚至阻断。<ul>
+<li><strong>国内中转的优势：</strong> 国内 VPS 到海外 VPS 之间通常走的是高质量的专线、直连骨干网（如 CN2 GIA、AS9929、IEPL 等，或者靠国内大厂云服务器的优质出口带宽），可以避开海外直连的拥堵节点。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>降低延迟与抖动（流畅度）</strong><ul>
+<li>虽然物理路径变折返了（本地 <span class="math-inline has-jax">$\rightarrow$</span> 国内中转 <span class="math-inline has-jax">$\rightarrow$</span> 海外节点 <span class="math-inline has-jax">$\rightarrow$</span> 目标网站），但因为国内到海外的骨干网带宽冗余度高，实际的丢包率和抖动（Jitter）会大幅下降，TCP 连接更加稳定，特别适合看视频或玩游戏。</li>
+</ul>
+</li>
+<li><strong>隐藏与保护后端节点</strong><ul>
+<li>如果海外节点遭到针对性的封锁或攻击，你可以随时更换国内中转机的 IP，或者通过中转机快速切换到备用海外节点，而不用重新配置客户端。</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、-这种方案有什么缺点和风险？（需要注意什么）"><a href="#二、-这种方案有什么缺点和风险？（需要注意什么）" class="headerlink" title="二、 这种方案有什么缺点和风险？（需要注意什么）" data-stellar-navigation=""></a>二、 这种方案有什么缺点和风险？（需要注意什么）</h3><ol>
+<li><strong>政策与合规风险（最致命的一点）</strong><ul>
+<li><strong>国内 VPS 受到严格的合规监管。</strong> 如果你直接在国内的腾讯云、阿里云、华为云等常规云厂商的轻量或 ECS 上搭建未备案的代理中转服务（如用iptables、gost、rathole等进行流量转发）， <strong>极易触发运营商或云厂商的安全监控，轻则封禁 IP，重则导致服务器被停机甚至面临合规约谈</strong> 。</li>
+</ul>
+</li>
+<li><strong>多了一层转发，存在单点故障</strong><ul>
+<li>如果国内中转机宕机了，整个代理链路就会直接中断。</li>
+</ul>
+</li>
+<li><strong>成本增加</strong><ul>
+<li>需要额外支付国内 VPS 的费用（通常国内带有优质带宽的服务器价格较高）。</li>
+</ul>
+</li>
+</ol>
+<h3 id="三、-常见的中转实现方式"><a href="#三、-常见的中转实现方式" class="headerlink" title="三、 常见的中转实现方式" data-stellar-navigation=""></a>三、 常见的中转实现方式</h3><p>如果你打算动手尝试，通常会用到以下几种主流工具：</p>
+<ul>
+<li><strong>端口转发工具：</strong> <code>gost</code> 、 <code>rathole</code> 、 <code>brook</code> 、 <code>iptables</code> / <code>firewalld</code> （适合纯流量转发）。</li>
+<li><strong>面板集成：</strong> 你熟悉的 <strong>3X-UI</strong> 或 <strong>1Panel</strong> 也经常配合中转规则来统一管理节点。</li>
+</ul>
+<p>如果你准备着手配置或者想了解具体的转发配置方法，可以告诉我你目前使用的海外节点协议类型（如 VLESS-REALITY 等）。</p>
+<hr>
+<p><strong>You</strong></p>
+<p>可以直接链式代理吗</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p>可以直接进行链式代理（Proxy Chaining）。</p>
+<p>链式代理指的是流量从本地客户端出发，依次经过多个代理节点（例如：本地 <span class="math-inline has-jax">$\rightarrow$</span> 节点 A <span class="math-inline has-jax">$\rightarrow$</span> 节点 B <span class="math-inline has-jax">$\rightarrow$</span> 目标网站），最终到达目的地。</p>
+<h3 id="一、-常见应用场景"><a href="#一、-常见应用场景" class="headerlink" title="一、 常见应用场景" data-stellar-navigation=""></a>一、 常见应用场景</h3><ol>
+<li><strong>多重加密与隐私保护：</strong> 通过多个不同国家或地区的节点进行跳转，隐藏真实的入口 IP。</li>
+<li><strong>跨越复杂的网络限制：</strong> 当直连或单层代理因为某些路由阻断无法通行时，利用节点 A 到节点 B 的内网/专线互联来绕过封锁。</li>
+<li><strong>国内中转（你刚刚提到的需求）：</strong><div class="math-display has-jax" style="overflow-x:auto">$$
+\text{本地客户端} \longrightarrow \text{国内中转机（入口节点）} \longrightarrow \text{海外 VPS（落地节点）} \longrightarrow \text{目标网站}
+$$</div>
+ 在这种架构下， <strong>国内中转机与海外 VPS 之间其实就构成了一种形式的链式转发</strong> 。</li>
+</ol>
+<h3 id="二、-常见的实现方式"><a href="#二、-常见的实现方式" class="headerlink" title="二、 常见的实现方式" data-stellar-navigation=""></a>二、 常见的实现方式</h3><p>根据你的技术栈，通常有两种主流的实现方法：</p>
+<ol>
+<li><strong>客户端直连链式（如 v2rayN、Clash 等）：</strong><ul>
+<li>在客户端软件中配置多个节点，设定路由规则让流量“串联”起来（Node 1 <span class="math-inline has-jax">$\rightarrow$</span> Node 2）。<ul>
+<li><strong>优点：</strong> 配置直观，不需要在服务器上做复杂修改。</li>
+<li><strong>缺点：</strong> 所有的中转流量都要从本地客户端“发出并再次上传”，如果本地上传带宽较小，可能会影响速度。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>服务端中转转发（推荐）：</strong><ul>
+<li>本地连接 <strong>国内中转机</strong> ，中转机通过 <code>gost</code> 、 <code>rathole</code> 或 <code>iptables</code> 将流量 <strong>直接转发</strong> 给海外 VPS。<ul>
+<li><strong>优点：</strong> 本地只需连接国内服务器，对本地网络环境要求低，延迟更稳定。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>You</strong></p>
+<p>这个网速目前多快</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p>根据您提供的服务器面板截图，当前的网络实时速率（即上传和下载速度）显示为：</p>
+<ul>
+<li><strong>上传速度 (<span class="math-inline has-jax">$\uparrow$</span>)：</strong> <span class="math-inline has-jax">$11\text{ KB/s}$</span></li>
+<li><strong>下载速度 (<span class="math-inline has-jax">$\downarrow$</span>)：</strong> <span class="math-inline has-jax">$11\text{ KB/s}$</span></li>
+</ul>
+<p>这个数值代表的是 <strong>当前瞬间</strong> 的流量吞吐量，说明服务器当前并没有在大规模传输数据或进行测速，处于几乎没有业务流量负载的空闲状态。</p>
+<hr>
+<p><strong>You</strong></p>
+<p>这是在我的vps上跑的脚本bash &lt;(curl -Ls <a target="_blank" rel="noopener" href="https://check.place/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>https://Check.Place</a>) -N，分析一下我在陕西的网速</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p>从你提供的 <code>Check.Place</code> (NetQuality) 测试脚本结果来看，这台 VPS 位于 <strong>美国（US）</strong> ，机房/注册信息显示在特拉华州（HostPapa / ARIN）。</p>
+<p>针对你在陕西的使用场景，结合各项核心数据，分析如下：</p>
+<h3 id="一、-三网-TCP-大包延迟表现（第四模块）"><a href="#一、-三网-TCP-大包延迟表现（第四模块）" class="headerlink" title="一、 三网 TCP 大包延迟表现（第四模块）" data-stellar-navigation=""></a>一、 三网 TCP 大包延迟表现（第四模块）</h3><p>该测试通过 1000 字节的 TCP 包进行，比普通 Ping 更贴近真实网络负载情况（电信、联通、移动三列数据分别对应）：</p>
+<ul>
+<li><strong>陕西本地延迟（第 4 行倒数第二列“陕”）：</strong><ul>
+<li>电信： <span class="math-inline has-jax">$\sim 169\text{ ms}$</span><br>  JPG<ul>
+<li>联通： <span class="math-inline has-jax">$\sim 184\text{ ms}$</span><br>  JPG</li>
+<li>移动： <span class="math-inline has-jax">$\sim 249\text{ ms}$</span><br>  JPG</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>整体分析：</strong><ul>
+<li>陕西电信和联通的延迟在 <span class="math-inline has-jax">$170\sim 180\text{ ms}$</span> 左右，属于典型的美西普通线路延迟。<ul>
+<li>陕西移动表现较差（接近 <span class="math-inline has-jax">$250\text{ ms}$</span> ），说明移动到该机房的路由绕路或者没有直连优化。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、-回程路由与国际互联（第五、七模块）"><a href="#二、-回程路由与国际互联（第五、七模块）" class="headerlink" title="二、 回程路由与国际互联（第五、七模块）" data-stellar-navigation=""></a>二、 回程路由与国际互联（第五、七模块）</h3><ul>
+<li><strong>回程路由（第五部分）：</strong><ul>
+<li>北京、上海、广州等地的回程部分显示了 <code>Arelion</code> 、 <code>163</code> 等常规国际骨干网，部分运营商节点显示 <code>NoData</code> 或走的是普通公网，没有骨干直连优化（如 CN2 GIA 或 AS9929）。</li>
+</ul>
+</li>
+<li><strong>国际互联与丢包（第七部分）：</strong><ul>
+<li>洛杉矶本地延迟极低（ <span class="math-inline has-jax">$8\text{ ms}$</span> ），说明这台 VPS 本身位于美西机房。<ul>
+<li>但看 <strong>回国和跨国丢包/重传</strong> ：洛杉矶到国内或其他国际节点的丢包率和重传数据较高（例如洛杉矶重传有 <span class="math-inline has-jax">$1\text{k}$</span> ），在晚高峰或国际出口拥堵时，这种普通美西线路容易出现卡顿和丢包。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、-总结与是否需要“中转”的建议"><a href="#三、-总结与是否需要“中转”的建议" class="headerlink" title="三、 总结与是否需要“中转”的建议" data-stellar-navigation=""></a>三、 总结与是否需要“中转”的建议</h3><ol>
+<li><strong>直连体验：</strong> 这台美西 VPS 如果直接在陕西使用， <strong>延迟在 <span class="math-inline has-jax">$170\sim 250\text{ ms}$</span> 之间，且缺乏优质回程线路</strong> 。平时看普通网页或轻度使用勉强可以，但如果用来流畅看高码率视频（如 YouTube 4K）、打游戏或进行实时互动，体验会比较差，容易频繁卡顿。</li>
+<li><strong>是否有必要用国内 VPS 中转？</strong><ul>
+<li><strong>非常建议使用国内 VPS 或优质专线进行中转。</strong><ul>
+<li>正如前面探讨的，如果用一台质量较好的国内中转机（或港台低延迟/优化线路节点）来进行链式转发或代理中转，可以把“陕西 <span class="math-inline has-jax">$\rightarrow$</span> 美西”的劣质直连，变成“陕西 <span class="math-inline has-jax">$\rightarrow$</span> 国内中转机 <span class="math-inline has-jax">$\rightarrow$</span> 美西 VPS”。这样能够大幅压低丢包率，让连接变得极其稳定。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>You</strong></p>
+<p>iis是啥服务器</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p><strong>IIS</strong> 是 <strong>Internet Information Services</strong> （ <strong>互联网信息服务</strong> ）的缩写。</p>
+<p>它是微软公司开发的一个 <strong>官方 Web 服务器软件</strong> （类似于 Linux 系统上常见的 Apache 或 Nginx），主要用于在 Windows 操作系统（包括 Windows Server 以及部分 Windows 桌面版）上托管和发布网站、Web 应用程序以及 API 接口。</p>
+<h3 id="一、-IIS-的核心特点"><a href="#一、-IIS-的核心特点" class="headerlink" title="一、 IIS 的核心特点" data-stellar-navigation=""></a>一、 IIS 的核心特点</h3><ol>
+<li><strong>深度集成 Windows 系统：</strong> 作为微软自家产品，IIS 与 Windows 操作系统、Active Directory（域服务）以及.NET 开发框架无缝集成，管理和配置非常直观。</li>
+<li><strong>主要用于托管微软技术栈：</strong> 它最常用于运行基于 <strong>ASP.NET</strong> 、 <strong>ASP.NET Core</strong> 框架开发的网站和应用程序，同时也支持静态网页（HTML、CSS、JS）以及 PHP 等语言。</li>
+<li><strong>图形化管理界面：</strong> 提供可视化的“Internet Information Services (IIS) 管理器”，管理员可以通过鼠标点选来配置站点、绑定域名、设置 SSL 证书和权限，而不需要纯靠修改配置文件。</li>
+</ol>
+<hr>
+<p><strong>You</strong></p>
+<p>iis要钱吗</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p>简短解答： <strong>IIS 本身是免费的，但它依赖的 Windows 系统可能需要授权成本。</strong></p>
+<p>具体可以分为以下两种情况来理解：</p>
+<h3 id="1-IIS-软件本身（免费组件）"><a href="#1-IIS-软件本身（免费组件）" class="headerlink" title="1. IIS 软件本身（免费组件）" data-stellar-navigation=""></a>1. IIS 软件本身（免费组件）</h3><ul>
+<li>IIS 是 Windows 操作系统中的一个内置功能组件（或者开发专用的 IIS Express）。</li>
+<li>微软 <strong>不会</strong> 针对 IIS 软件本身单独收取任何许可费或订阅费。</li>
+</ul>
+<h3 id="2-系统许可与部署成本（可能产生费用）"><a href="#2-系统许可与部署成本（可能产生费用）" class="headerlink" title="2. 系统许可与部署成本（可能产生费用）" data-stellar-navigation=""></a>2. 系统许可与部署成本（可能产生费用）</h3><p>虽然 IIS 软件不收额外费用，但在实际部署和使用时，成本取决于你运行它的系统环境：</p>
+<ul>
+<li><strong>个人电脑 / 测试环境（Windows 10/11）：</strong><ul>
+<li>如果你只是在本地电脑上勾选开启“Internet Information Services”用来测试或开发， <strong>无需支付任何额外费用</strong> 。</li>
+</ul>
+</li>
+<li><strong>生产环境 / 云服务器（Windows Server）：</strong><ul>
+<li>如果你需要将网站部署到公网服务器，必须运行在 <strong>Windows Server</strong> 系统上。<ul>
+<li><strong>Windows Server 操作系统授权是需要付费的</strong> （按 CPU 核心数收费，或在购买腾讯云/阿里云等 Windows 系统 VPS 时，镜像费用已包含在服务器租金中）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结比较"><a href="#总结比较" class="headerlink" title="总结比较" data-stellar-navigation=""></a>总结比较</h3><ul>
+<li><strong>对比 Linux（Nginx / Apache）：</strong> 系统开源免费，Web 服务软件也免费。</li>
+<li><strong>对比 Windows（IIS）：</strong> Web 服务软件（IIS）免费，但底层的 Windows 操作系统（如果在云端部署）通常比 Linux 服务器多出一份系统授权费用。</li>
+</ul>
+<hr>
+<p><strong>You</strong></p>
+<p>https是端到端加密吗</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p><strong>严格意义上讲：不是。</strong> HTTPS <strong>不是</strong> 端到端加密（End-to-End Encryption，简称 E2EE）。</p>
+<p>HTTPS 的加密本质上是“点对点”或“跳到跳”（Hop-by-Hop） <strong>的加密，更准确地说是</strong> 客户端（浏览器）与服务器之间的加密。</p>
+<h3 id="一、-为什么-HTTPS-不是端到端加密？"><a href="#一、-为什么-HTTPS-不是端到端加密？" class="headerlink" title="一、 为什么 HTTPS 不是端到端加密？" data-stellar-navigation=""></a>一、 为什么 HTTPS 不是端到端加密？</h3><p>端到端加密的标准定义是： <strong>只有通信的双方（发送方和接收方）能够读取消息，中间的任何节点（包括路由器、代理服务器、ISP、甚至云服务商）都无法解密。</strong></p>
+<p>但在 HTTPS 的链路中，情况有所不同：</p>
+<ol>
+<li><strong>中间代理与 CDN 的解密（常见场景）：</strong><ul>
+<li>如果你在网站前配置了 <strong>CDN</strong> （如 Cloudflare）、 <strong>反向代理</strong> （如 Nginx）或者 <strong>WAF（Web 应用防火墙）</strong> ，HTTPS 的加密连接其实是在 <strong>边缘节点/代理服务器</strong> 终结的。<ul>
+<li>也就是说，用户的浏览器和 CDN 节点之间是加密的；但是 <strong>CDN 节点到你的源站服务器之间</strong> ，如果不额外配置，往往是明文传输（或者是重新加密的另一条连接）。在这期间，CDN 服务商或中间设备是可以看到明文数据的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>企业网管或防火墙的拦截（SSL 解密）：</strong><ul>
+<li>在一些企业或学校的网络环境中，网管可以通过在本地电脑安装受信任的根证书，进行 <strong>SSL/TLS 深度包检测（MITM 中间人攻击）</strong> 。他们可以解密并检查你所有的 HTTPS 流量，然后再重新加密发往目标服务器。</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、-HTTPS-加密了什么？"><a href="#二、-HTTPS-加密了什么？" class="headerlink" title="二、 HTTPS 加密了什么？" data-stellar-navigation=""></a>二、 HTTPS 加密了什么？</h3><p>HTTPS（HTTP + TLS/SSL）保护的是 <strong>传输通道的安全性</strong> ：</p>
+<div class="math-display has-jax" style="overflow-x:auto">$$
+\text{用户浏览器 (Client)} \stackrel{\text{加密通道 (TLS)}}{\longleftrightarrow} \text{Web 服务器 / CDN 边缘节点 (Server)}
+$$</div>
+<ul>
+<li><strong>能防止什么：</strong> 防止中间人窃听（Sniffing）、防止数据被篡改（Tampering）、防止流量被劫持。</li>
+<li><strong>不能防止什么：</strong> 不能防止数据到达服务器后，在服务器的存储或后台被管理员查看。</li>
+</ul>
+<h3 id="三、-什么是真正的端到端加密？"><a href="#三、-什么是真正的端到端加密？" class="headerlink" title="三、 什么是真正的端到端加密？" data-stellar-navigation=""></a>三、 什么是真正的端到端加密？</h3><p>真正的端到端加密例子包括：</p>
+<ul>
+<li><strong>聊天软件：</strong> 如 <strong>Signal</strong> 或 <strong>WhatsApp</strong> 的消息传输。消息在你的手机上加密，只有对方的手机才能解密，中间的服务器完全看不到内容。</li>
+<li><strong>密码管理器与网盘：</strong> 如 <strong>Bitwarden</strong> 或 <strong>Zero-Knowledge 零知识网盘</strong> 。数据在本地客户端加密后才上传到云端，云服务商因为没有你的主密钥，也无法解密你的数据。</li>
+</ul>
+<p><strong>总结：</strong> HTTPS 保护的是“在互联网传输途中的安全” <strong>，而端到端加密保护的是</strong> “从发件人到收件人全链路的安全”。</p>
+<hr>
+<p><strong>You</strong></p>
+<p>ssl和tls有啥区别</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p><strong>SSL</strong> 和 <strong>TLS</strong> 的核心区别在于： <strong>TLS 是 SSL 的升级版和标准化后续版本。</strong></p>
+<p>它们本质上是同一种东西——用于在互联网上提供安全通信和数据加密的协议，但经历不同的发展阶段后改了名字。</p>
+<h3 id="一、-它们的演变历史（为什么名字不同？）"><a href="#一、-它们的演变历史（为什么名字不同？）" class="headerlink" title="一、 它们的演变历史（为什么名字不同？）" data-stellar-navigation=""></a>一、 它们的演变历史（为什么名字不同？）</h3><ol>
+<li><strong>SSL（Secure Sockets Layer，安全套接层）：</strong><ul>
+<li><strong>SSL 1.0：</strong> 由 Netscape（网景）公司设计，但从未公开发布（存在严重安全漏洞）。<ul>
+<li><strong>SSL 2.0：</strong> 1995年发布，很快被发现存在重大安全缺陷。</li>
+<li><strong>SSL 3.0：</strong> 1996年发布，修复了之前版本的问题，奠定了现代网页加密的基础。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>TLS（Transport Layer Security，传输层安全）：</strong><ul>
+<li><strong>TLS 1.0：</strong> 1999年发布，作为 SSL 3.0 的升级版。IETF（互联网工程任务组）接管了这个标准，并将其改名为 TLS，以避免和网景公司的商标产生冲突。<ul>
+<li><strong>TLS 1.1 / TLS 1.2：</strong> 随着时间推移，不断修复漏洞、提升加密强度（目前网页端使用最广泛的是 <strong>TLS 1.2</strong> ）。</li>
+<li><strong>TLS 1.3：</strong> 2018年发布最新版本，大幅简化了握手过程，连接速度更快，安全性更高，去除了所有旧的不安全加密算法。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、-核心区别对比"><a href="#二、-核心区别对比" class="headerlink" title="二、 核心区别对比" data-stellar-navigation=""></a>二、 核心区别对比</h3><div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>SSL (Secure Sockets Layer)</th>
+<th>TLS (Transport Layer Security)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>状态</strong></td>
+<td><strong>已被彻底淘汰（Deprecated）</strong> 。由于存在严重安全漏洞（如 POODLE、Heartbleed 等衍生问题），现代浏览器已全面禁用。</td>
+<td><strong>现代标准</strong> 。目前所有安全网站、HTTPS、邮件加密等底层都在使用 TLS。</td>
+</tr>
+<tr>
+<td><strong>安全性</strong></td>
+<td>较低。旧版本的加密算法容易被破解或遭遇中间人攻击。</td>
+<td>极高。支持现代强大的加密套件，抵御攻击能力强。</td>
+</tr>
+<tr>
+<td><strong>握手速度</strong></td>
+<td>较慢。建立连接需要的网络往返（RTT）次数较多。</td>
+<td>更快。TLS 1.3 甚至只需 1 次往返（1-RTT）就能建立加密连接。</td>
+</tr>
+</tbody></table></div>
+<h3 id="三、-为什么大家现在还经常说“SSL证书”？"><a href="#三、-为什么大家现在还经常说“SSL证书”？" class="headerlink" title="三、 为什么大家现在还经常说“SSL证书”？" data-stellar-navigation=""></a>三、 为什么大家现在还经常说“SSL证书”？</h3><p>虽然技术上在十几年前就已经全面进入 <strong>TLS</strong> 时代，但因为 <strong>SSL</strong> 这个词在互联网早期流传太广、深入人心，导致习惯性称呼一直延续了下来：</p>
+<ul>
+<li>比如我们平时买的保护网站安全的证书，依然被行业俗称为 <strong>“SSL证书”</strong> 。</li>
+<li>很多服务器配置文件或专业软件里，也依然写着 <code>SSL/TLS</code> 或 <code>SSLEngine</code> 。</li>
+</ul>
+<p><strong>一句话总结：</strong> 你现在访问的所有安全的 <code>https://</code> 网站，背后用的全部都是 <strong>TLS</strong> 技术，已经没有人在用古老的 SSL 了。</p>
+<hr>
+<p><strong>You</strong></p>
+<p>那现在的源站证书其实是tls证书吗</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p>是的，现代网站源站配置的证书本质上就是 <strong>TLS 证书</strong> （虽然行业内外依然习惯叫它“SSL 证书”）。</p>
+<p>无论是直接安装在源站服务器上的证书，还是托管在 CDN（如 Cloudflare）边缘节点上的证书，它们遵循的底层加密标准全部都是 <strong>TLS 协议</strong> （目前主流使用的是 TLS 1.2 或 TLS 1.3）。</p>
+<p>因此，当你为源站配置 HTTPS 时，你申请、安装和配置的实际上就是一个 <strong>TLS 证书</strong> 。</p>
+<hr>
+<p><strong>You</strong></p>
+<p>tls1.3和tls1.2有啥区别</p>
+<hr>
+<p><strong>Gemini</strong></p>
+<p><strong>TLS 1.3</strong> 是在 2018 年发布的 TLS 协议最新版本（由 RFC 8446 定义），相比于老牌的 <strong>TLS 1.2</strong> （发布于 2008 年），它在安全性、隐私保护和连接速度（延迟）上都有了革命性的提升。</p>
+<p>它们的核心区别主要体现在以下几个方面：</p>
+<h3 id="一、-握手速度更快（延迟极低）"><a href="#一、-握手速度更快（延迟极低）" class="headerlink" title="一、 握手速度更快（延迟极低）" data-stellar-navigation=""></a>一、 握手速度更快（延迟极低）</h3><p>这是用户在浏览网页时最直观能感受到的区别：</p>
+<ul>
+<li><strong>TLS 1.2：</strong> 正常情况下需要 <strong>2 个往返（2-RTT）</strong> 才能完成握手并开始传输加密数据（如果算上 TCP 握手，等待时间会更长）。</li>
+<li><strong>TLS 1.3：</strong> 将握手过程精简到了 <strong>1 个往返（1-RTT）</strong> 。<ul>
+<li>更厉害的是，它支持 <strong>0-RTT（零往返）模式</strong> ：如果客户端以前和这个服务器建立过连接，再次访问时可以直接在第一条请求中附带加密数据，实现“瞬间打开”，几乎没有额外的加密握手延迟。</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、-安全性大幅提升（砍掉不安全的旧算法）"><a href="#二、-安全性大幅提升（砍掉不安全的旧算法）" class="headerlink" title="二、 安全性大幅提升（砍掉不安全的旧算法）" data-stellar-navigation=""></a>二、 安全性大幅提升（砍掉不安全的旧算法）</h3><p>TLS 1.2 历年修修补补，历史包袱较重，支持很多老旧、不安全的加密算法（比如支持不安全的加密模式、RSA 密钥交换等），容易给中间人攻击或降级攻击留出隐患。</p>
+<ul>
+<li><strong>TLS 1.3：</strong><ul>
+<li><strong>强制移除了所有不安全的陈旧算法</strong> （如 RC4、DES、3DES、MD5、SHA-1 以及不安全的 CBC 模式）。<ul>
+<li><strong>全面废除 RSA 密钥交换：</strong> 不再允许直接用 RSA 证书做密钥交换，强制使用更加安全的 <strong>ECDHE（椭圆曲线 Diffie-Hellman）</strong> ，这保证了“前向安全”（Forward Secrecy）——即使服务器以后的私钥泄露，黑客也无法解密以前截获并保存的历史加密流量。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、-更好的隐私保护（加密更多握手内容）"><a href="#三、-更好的隐私保护（加密更多握手内容）" class="headerlink" title="三、 更好的隐私保护（加密更多握手内容）" data-stellar-navigation=""></a>三、 更好的隐私保护（加密更多握手内容）</h3><ul>
+<li><strong>TLS 1.2：</strong> 在握手阶段，证书信息（包括服务器的域名/SNI）是 <strong>明文传输</strong> 的。这意味着虽然中间人看不到你传输的具体网页内容，但他们能轻易看到你访问的是哪个具体网站。</li>
+<li><strong>TLS 1.3：</strong> 对握手协议进行了重构， <strong>将服务器证书及相关敏感信息也进行了加密</strong> ，极大增强了用户的浏览隐私，防止网关或运营商窥探具体的访问目标。</li>
+</ul>
+<h3 id="四、-核心对比一览表"><a href="#四、-核心对比一览表" class="headerlink" title="四、 核心对比一览表" data-stellar-navigation=""></a>四、 核心对比一览表</h3><div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>比较维度</th>
+<th>TLS 1.2 (2008年)</th>
+<th>TLS 1.3 (2018年)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>标准握手延迟</strong></td>
+<td><span class="math-inline has-jax">$2\text{-RTT}$</span> （2次往返）</td>
+<td><strong><span class="math-inline has-jax">$1\text{-RTT}$</span></strong> （1次往返）</td>
+</tr>
+<tr>
+<td><strong>0-RTT 支持</strong></td>
+<td>不支持（或需要扩展）</td>
+<td><strong>原生支持</strong> （再次连接时零延迟）</td>
+</tr>
+<tr>
+<td><strong>支持的密钥交换</strong></td>
+<td>RSA、DH、ECDHE 等（包含不安全选项）</td>
+<td><strong>仅保留现代安全的 DH / 椭圆曲线算法</strong></td>
+</tr>
+<tr>
+<td><strong>前向安全性 (FS)</strong></td>
+<td>可选（取决于配置，部分旧配置不具备）</td>
+<td><strong>强制要求</strong> （所有连接默认具备）</td>
+</tr>
+<tr>
+<td><strong>SNI（域名）隐私</strong></td>
+<td>明文传输，可被旁路监听</td>
+<td>加密传输（结合 ECH/ESNI 进一步保护）</td>
+</tr>
+</tbody></table></div>
+<p><strong>总结：</strong> TLS 1.3 就像是一个“精简、现代、武装到牙齿”的升级版。目前绝大多数现代浏览器、CDN（如 Cloudflare）以及主流 Web 服务器（如 Nginx）都已经全面支持 TLS 1.3。在配置 HTTPS 时， <strong>强烈建议同时开启 TLS 1.2 和 TLS 1.3</strong> ，以兼顾极致的速度、安全以及对极少数老旧客户端的兼容性。</p>
+</article>
+<div class="article-tags"><a class="tag" href="/tags/clippings/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>clippings</a></div>
+
+
+
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section></div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 较新文章</div><a href="/2026/10/15/hello-world/" data-stellar-navigation="">Hello World</a></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/2026/10/15/%E9%97%B2%E7%9A%84%E6%B2%A1%E4%BA%8B/2%E7%9A%84%E4%B8%80%E4%BA%BF%E6%AC%A1%E6%96%B9%E6%98%AF%E5%A4%9A%E5%B0%91/" data-stellar-navigation="">2的一亿次方是多少</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+</main>
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-CDN-%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">一、 CDN 是如何工作的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81-CDN-%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8A%BF" data-stellar-navigation=""><span class="toc-text">二、 CDN 的核心优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF" data-stellar-navigation=""><span class="toc-text">三、 常见的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%99%E6%A0%B7%E5%81%9A%EF%BC%9F%EF%BC%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%89" data-stellar-navigation=""><span class="toc-text">一、 为什么要这样做？（应用场景）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81-%E5%AE%83%E6%98%AF%E6%80%8E%E4%B9%88%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">二、 它是怎么工作的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81-%E8%BF%99%E6%A0%B7%E5%81%9A%E7%9A%84%E6%BD%9C%E5%9C%A8%E9%97%AE%E9%A2%98%E4%B8%8E%E6%8C%91%E6%88%98" data-stellar-navigation=""><span class="toc-text">三、 这样做的潜在问题与挑战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E5%9B%BD%E5%86%85-VPS-%E5%81%9A%E4%B8%AD%E8%BD%AC%EF%BC%9F%EF%BC%88%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%89" data-stellar-navigation=""><span class="toc-text">一、 为什么要用国内 VPS 做中转？（有什么好处）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81-%E8%BF%99%E7%A7%8D%E6%96%B9%E6%A1%88%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9%E5%92%8C%E9%A3%8E%E9%99%A9%EF%BC%9F%EF%BC%88%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%89" data-stellar-navigation=""><span class="toc-text">二、 这种方案有什么缺点和风险？（需要注意什么）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%AD%E8%BD%AC%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">三、 常见的中转实现方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF" data-stellar-navigation=""><span class="toc-text">一、 常见应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">二、 常见的实现方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-%E4%B8%89%E7%BD%91-TCP-%E5%A4%A7%E5%8C%85%E5%BB%B6%E8%BF%9F%E8%A1%A8%E7%8E%B0%EF%BC%88%E7%AC%AC%E5%9B%9B%E6%A8%A1%E5%9D%97%EF%BC%89" data-stellar-navigation=""><span class="toc-text">一、 三网 TCP 大包延迟表现（第四模块）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81-%E5%9B%9E%E7%A8%8B%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%EF%BC%88%E7%AC%AC%E4%BA%94%E3%80%81%E4%B8%83%E6%A8%A1%E5%9D%97%EF%BC%89" data-stellar-navigation=""><span class="toc-text">二、 回程路由与国际互联（第五、七模块）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81-%E6%80%BB%E7%BB%93%E4%B8%8E%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E2%80%9C%E4%B8%AD%E8%BD%AC%E2%80%9D%E7%9A%84%E5%BB%BA%E8%AE%AE" data-stellar-navigation=""><span class="toc-text">三、 总结与是否需要“中转”的建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-IIS-%E7%9A%84%E6%A0%B8%E5%BF%83%E7%89%B9%E7%82%B9" data-stellar-navigation=""><span class="toc-text">一、 IIS 的核心特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-IIS-%E8%BD%AF%E4%BB%B6%E6%9C%AC%E8%BA%AB%EF%BC%88%E5%85%8D%E8%B4%B9%E7%BB%84%E4%BB%B6%EF%BC%89" data-stellar-navigation=""><span class="toc-text">1. IIS 软件本身（免费组件）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E7%B3%BB%E7%BB%9F%E8%AE%B8%E5%8F%AF%E4%B8%8E%E9%83%A8%E7%BD%B2%E6%88%90%E6%9C%AC%EF%BC%88%E5%8F%AF%E8%83%BD%E4%BA%A7%E7%94%9F%E8%B4%B9%E7%94%A8%EF%BC%89" data-stellar-navigation=""><span class="toc-text">2. 系统许可与部署成本（可能产生费用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E6%80%BB%E7%BB%93%E6%AF%94%E8%BE%83" data-stellar-navigation=""><span class="toc-text">总结比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-%E4%B8%BA%E4%BB%80%E4%B9%88-HTTPS-%E4%B8%8D%E6%98%AF%E7%AB%AF%E5%88%B0%E7%AB%AF%E5%8A%A0%E5%AF%86%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">一、 为什么 HTTPS 不是端到端加密？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81-HTTPS-%E5%8A%A0%E5%AF%86%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">二、 HTTPS 加密了什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81-%E4%BB%80%E4%B9%88%E6%98%AF%E7%9C%9F%E6%AD%A3%E7%9A%84%E7%AB%AF%E5%88%B0%E7%AB%AF%E5%8A%A0%E5%AF%86%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">三、 什么是真正的端到端加密？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-%E5%AE%83%E4%BB%AC%E7%9A%84%E6%BC%94%E5%8F%98%E5%8E%86%E5%8F%B2%EF%BC%88%E4%B8%BA%E4%BB%80%E4%B9%88%E5%90%8D%E5%AD%97%E4%B8%8D%E5%90%8C%EF%BC%9F%EF%BC%89" data-stellar-navigation=""><span class="toc-text">一、 它们的演变历史（为什么名字不同？）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81-%E6%A0%B8%E5%BF%83%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94" data-stellar-navigation=""><span class="toc-text">二、 核心区别对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A4%A7%E5%AE%B6%E7%8E%B0%E5%9C%A8%E8%BF%98%E7%BB%8F%E5%B8%B8%E8%AF%B4%E2%80%9CSSL%E8%AF%81%E4%B9%A6%E2%80%9D%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">三、 为什么大家现在还经常说“SSL证书”？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81-%E6%8F%A1%E6%89%8B%E9%80%9F%E5%BA%A6%E6%9B%B4%E5%BF%AB%EF%BC%88%E5%BB%B6%E8%BF%9F%E6%9E%81%E4%BD%8E%EF%BC%89" data-stellar-navigation=""><span class="toc-text">一、 握手速度更快（延迟极低）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81-%E5%AE%89%E5%85%A8%E6%80%A7%E5%A4%A7%E5%B9%85%E6%8F%90%E5%8D%87%EF%BC%88%E7%A0%8D%E6%8E%89%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E6%97%A7%E7%AE%97%E6%B3%95%EF%BC%89" data-stellar-navigation=""><span class="toc-text">二、 安全性大幅提升（砍掉不安全的旧算法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81-%E6%9B%B4%E5%A5%BD%E7%9A%84%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%EF%BC%88%E5%8A%A0%E5%AF%86%E6%9B%B4%E5%A4%9A%E6%8F%A1%E6%89%8B%E5%86%85%E5%AE%B9%EF%BC%89" data-stellar-navigation=""><span class="toc-text">三、 更好的隐私保护（加密更多握手内容）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81-%E6%A0%B8%E5%BF%83%E5%AF%B9%E6%AF%94%E4%B8%80%E8%A7%88%E8%A1%A8" data-stellar-navigation=""><span class="toc-text">四、 核心对比一览表</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a></div>
+</widget>
+
+
+</div></div></div></div></aside>
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
+  <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
+  </button>
+  <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
+  </button>
+</div>
+
+<dialog data-stellar-runtime-region="" class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+  <div class="search-dialog__panel search-wrapper" id="site-search-wrapper" searching="false">
+    <div class="search-dialog__header">
+      <div class="search-form" role="search">
+        <span class="search-button" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+        <input type="search" class="search-input" id="site-search-input" aria-labelledby="site-search-title" placeholder="搜索">
+      </div>
+      <button type="button" class="search-dialog__close" data-shell-action="close-search" aria-label="关闭搜索">×</button>
+    </div>
+    
+      <div class="search-dialog__scope" role="radiogroup" aria-labelledby="site-search-title" hidden="">
+        <label class="search-dialog__scope-option" data-search-scope-option="all">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="all">
+          <span>全站</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="blog" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="blog">
+          <span>博客</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="current" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="current">
+          <span data-search-scope-current-label=""></span>
+        </label>
+      </div>
+    
+    <h2 class="search-dialog__title" id="site-search-title">站内搜索</h2>
+    <div class="search-result" id="site-search-result"></div>
+    <div class="search-no-result">没有找到内容！</div>
+  </div>
+</dialog>
+</div><div class="site-scripts">
+<script data-stellar-script="core" src="/js/stellar-icons.js?v=39c6ac17e854ffe2"></script>
+
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: "https://hexo.hanruixuan.com/2026/10/15/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E7%BD%91%E7%BB%9C/cdn/", checklink: ctx.services.video.js};
+  ctx.date_suffix = {"just":"刚刚","min":"分钟前","hour":"小时前","day":"天前"};
+  if (ctx.search) Object.assign(ctx.search, {"more":"更多","no_more":"没有更多了"});
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
+</script>
+
+
+<!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
+<script data-stellar-script="core" src="/js/utils.js?v=2.0.0-20260906"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0-20260906" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0-20260906"></script>
+
+
+
+
+
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .timenode p\u003eimg"},"config":{"enabled":true,"selector":".timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"mathjax","module":"/js/runtime/extensions/mathjax.js","scope":"region","when":{"selector":".has-jax, script[type^='math/tex']"},"config":{"options":{},"asset":"/js/vendor/mathjax/tex-mml-chtml.js"}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js","css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&amp;runtime=1"></script>
+
+
+<!-- inject -->
+
+
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0-20260906"></script>
+</div>
+
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://hexo.hanruixuan.com/2026/10/15/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E7%BD%91%E7%BB%9C/cdn/","signature":"4de17f3cde21ee269d904fd1671ee086abc2d6b351e9874f0050fdf82e89bd8e"}</script></body></html>
