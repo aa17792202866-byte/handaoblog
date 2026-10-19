@@ -1430,7 +1430,7 @@ a.button.start.gradient {
   -moz-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
-  border-radius: calc(12px + 4px);
+  border-radius: calc(8px + 4px);
   corner-shape: superellipse(1.25);
   box-shadow: 0 0 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
   transition: all 0.2s ease-out;
@@ -1449,7 +1449,7 @@ a.button.start.gradient {
   right: 0;
   top: 0;
   bottom: 0;
-  border-radius: calc(12px + 4px);
+  border-radius: calc(8px + 4px);
   corner-shape: superellipse(1.25);
 }
 .site-dock:before {
@@ -1512,7 +1512,7 @@ a.button.start.gradient {
   padding: 0.25rem 0.75rem;
   line-height: 2;
   font-size: calc(var(--fs-content-base) - 2px);
-  border-radius: 12px;
+  border-radius: 8px;
   corner-shape: superellipse(1.25);
   font-weight: 500;
   white-space: nowrap;
@@ -1600,7 +1600,7 @@ a.button.start.gradient {
   cursor: pointer;
   list-style: none;
   outline: none;
-  border-radius: 12px;
+  border-radius: 8px;
   color: var(--text-p2);
   text-decoration: none;
   white-space: nowrap;
@@ -1820,7 +1820,7 @@ pre:not([class]):has(>code) {
 .md-text .highlight >table::-webkit-scrollbar-thumb {
   background: transparent;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 .md-text .highlight >table:hover::-webkit-scrollbar-thumb {
   background: var(--text-meta);
@@ -2646,7 +2646,7 @@ div.toast.show {
   min-height: var(--ui-item-min-height);
   padding: var(--ui-item-padding-y) var(--ui-item-padding-x);
   padding-left: calc(var(--ui-item-padding-x) + var(--ui-item-depth) * var(--gap-base));
-  border-radius: 12px;
+  border-radius: 8px;
   color: var(--text-p2);
   display: flex;
   align-items: center;
@@ -3801,7 +3801,7 @@ button.ui-collection__item:not(.is-icon-only) {
 .listing-nav__surface {
   margin: 0 1rem;
   position: relative;
-  border-radius: calc(12px + 4px);
+  border-radius: calc(8px + 4px);
   corner-shape: superellipse(1.25);
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -3810,7 +3810,7 @@ button.ui-collection__item:not(.is-icon-only) {
 }
 .listing-nav__viewport {
   max-width: 100%;
-  border-radius: calc(12px + 4px);
+  border-radius: calc(8px + 4px);
   overflow: scroll visible;
 }
 .listing-nav__viewport::-webkit-scrollbar {
@@ -3842,7 +3842,7 @@ button.ui-collection__item:not(.is-icon-only) {
   padding: 0.25rem 0.75rem;
   line-height: 2;
   font-size: calc(var(--fs-content-base) - 2px);
-  border-radius: 12px;
+  border-radius: 8px;
   corner-shape: superellipse(1.25);
   font-weight: 500;
   white-space: nowrap;
@@ -3893,7 +3893,7 @@ button.ui-collection__item:not(.is-icon-only) {
   font-size: 1rem;
   font-weight: 700;
   background: var(--card);
-  border-radius: calc(12px + 4px);
+  border-radius: calc(8px + 4px);
   overflow: hidden;
   box-shadow: 0 2px 8px 0px rgba(0,0,0,0.03);
   color: var(--text-p3);
@@ -4061,7 +4061,7 @@ button.ui-collection__item:not(.is-icon-only) {
 }
 .related-wrap a.more {
   padding: 0.25rem 0.5rem;
-  border-radius: 12px;
+  border-radius: 8px;
   color: var(--text-p1);
 }
 article.md-text.content+.related-wrap {
@@ -4606,7 +4606,7 @@ a.tag-plugin.button:hover {
 .md-text .tag-plugin.chat >.content::-webkit-scrollbar-thumb {
   background: transparent;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 .md-text .tag-plugin.chat >.content:hover::-webkit-scrollbar-thumb {
   background: var(--text-meta);
@@ -5455,7 +5455,7 @@ a.tag-plugin.button:hover {
   justify-content: space-between;
   box-sizing: border-box;
   background: var(--card);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--block-border);
   overflow: hidden;
   width: 100%;
@@ -5486,7 +5486,7 @@ a.tag-plugin.button:hover {
 }
 .md-text .tag-plugin.copy button.copy-btn {
   margin: 0;
-  border-radius: calc(12px - 2px);
+  border-radius: calc(8px - 2px);
   display: inline-block;
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -7943,7 +7943,7 @@ aside .tag-plugin.timeline[data-api] .body .lazy-box {
   width: max-content;
   max-width: 18rem;
   padding: 0.35rem 0.7rem;
-  border-radius: 12px;
+  border-radius: 8px;
   corner-shape: superellipse(1.25);
   box-shadow: 0 0 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
   transition: all 0.2s ease-out;
@@ -7971,7 +7971,7 @@ aside .tag-plugin.timeline[data-api] .body .lazy-box {
   right: 0;
   top: 0;
   bottom: 0;
-  border-radius: 12px;
+  border-radius: 8px;
   corner-shape: superellipse(1.25);
 }
 .tag-plugin.tip .tip-bubble:before {
@@ -8450,7 +8450,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   bottom: 0;
   left: 1rem;
   right: 1rem;
-  border-radius: 12px;
+  border-radius: 8px;
   z-index: 0;
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -8464,7 +8464,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   bottom: 0;
   left: 1rem;
   right: 1rem;
-  border-radius: 12px;
+  border-radius: 8px;
   background: linear-gradient(to right, #04f3ff, #08ffc6, #ddf730, #ffbd19, #ff1fe0, #c418ff, #3b5bff, #04f3ff);
   background-size: 200%;
   animation: search-glow 20s linear infinite;
@@ -8507,7 +8507,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   }
 }
 .search-wrapper .search-button {
-  border-radius: 12px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8534,7 +8534,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   max-height: 60vh;
   overflow: auto;
   scrollbar-width: none;
-  border-radius: 12px;
+  border-radius: 8px;
   mask: linear-gradient(#fff, 90%, transparent);
   -webkit-mask: linear-gradient(#fff, 90%, transparent);
 }
@@ -8578,7 +8578,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   text-align: center;
   margin: 0;
   padding: 0.75rem 1rem;
-  border-radius: 12px;
+  border-radius: 8px;
   font-family: system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
   font-size: calc(var(--fs-content-base) - 2px);
   color: var(--text-p1);
@@ -8816,7 +8816,7 @@ html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .s
   width: 40px;
   height: 40px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 8px;
   color: var(--text-p2);
   background: var(--block);
   font-size: 24px;
@@ -9154,7 +9154,7 @@ html[data-search-open] body {
   display: none;
 }
 .site-region--leftbar .site-region__viewport >.widgets {
-  border-radius: 12px;
+  border-radius: 8px;
   mask: linear-gradient(#fff, 90%, transparent);
   -webkit-mask: linear-gradient(#fff, 90%, transparent);
 }
@@ -9656,7 +9656,7 @@ html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .s
   opacity: 0.5;
   display: block;
   position: relative;
-  border-radius: 12px;
+  border-radius: 8px;
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
@@ -9884,7 +9884,7 @@ html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .s
   color: inherit;
   font-size: calc(var(--fs-content-base) - 2px);
   padding: 8px var(--gap-base);
-  border-radius: 12px;
+  border-radius: 8px;
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
@@ -10105,7 +10105,7 @@ html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .s
 .post-list #cats a.cat {
   display: flex;
   padding: 0.5em 1rem;
-  border-radius: 12px;
+  border-radius: 8px;
   color: var(--text-p2);
   align-items: center;
   justify-content: space-between;
@@ -11180,7 +11180,7 @@ html[data-leftbar-state='collapsed'] .site-shell[data-regions~='leftbar'] {
   min-height: 40px;
   padding: 8px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 8px;
   color: var(--text-p2);
   cursor: pointer;
 }

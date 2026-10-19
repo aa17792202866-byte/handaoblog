@@ -1,0 +1,8 @@
+/* Formula sizes relative to the surrounding article text. */
+article.md-text .math-inline {
+  font-size: 110%;
+}
+
+article.md-text .math-display {
+  font-size: 120%;
+}

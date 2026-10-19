@@ -211,7 +211,7 @@ body[data-page-layout='index_wiki'] {
   display: block;
 }
 .cmt-body.artalk .atk-notify-wrap .atk-notify {
-  border-radius: 12px;
+  border-radius: 8px;
   margin: 8px;
 }
 .cmt-body.artalk .atk-editor-plug-emoticons>.atk-grp-wrap>.atk-grp {

@@ -1,0 +1,953 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0" theme-name="Stellar" theme-version="2.0.0">
+  
+  
+  <meta name="generator" content="Hexo 8.1.2">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title data-stellar-page-meta="">从零理清 PassWall：旁路由、住宅出口、1070 与 1081 和自动切换 - Hexo</title>
+  <script data-stellar-script="core">
+    (function () {
+      var key = 'stellar:v2:leftbar-state';
+      var fallback = "expanded";
+      try {
+        var value = localStorage.getItem(key);
+        document.documentElement.dataset.leftbarState = value === 'collapsed' || value === 'expanded' ? value : fallback;
+      } catch (error) {
+        document.documentElement.dataset.leftbarState = fallback;
+      }
+    })();
+  </script>
+
+  <meta name="description" content="这篇笔记整理一次 iStoreOS 配置实践：先安装 PassWall，再让多个 VLESS 节点作为住宅 SOCKS5 的前置线路，并向局域网提供两个不同出口的代理端口。重点是解释每项配置为什么这样填，而不只是照着操作。 记录环境是 iStoreOS 25.12.5、PassWall 26.10.16-r2。菜单名称以这次界面为准，后续版本可能变化。本文保留实际使用的局域网地址与端口，省略订阅令" data-stellar-page-meta="">
+<meta property="og:type" content="article" data-stellar-page-meta="">
+<meta property="og:title" content="从零理清 PassWall：旁路由、住宅出口、1070 与 1081 和自动切换" data-stellar-page-meta="">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/%E4%BB%8E%E9%9B%B6%E7%90%86%E6%B8%85PassWall-%E6%97%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BD%8F%E5%AE%85%E5%87%BA%E5%8F%A3/" data-stellar-page-meta="">
+<meta property="og:site_name" content="Hexo" data-stellar-page-meta="">
+<meta property="og:description" content="这篇笔记整理一次 iStoreOS 配置实践：先安装 PassWall，再让多个 VLESS 节点作为住宅 SOCKS5 的前置线路，并向局域网提供两个不同出口的代理端口。重点是解释每项配置为什么这样填，而不只是照着操作。 记录环境是 iStoreOS 25.12.5、PassWall 26.10.16-r2。菜单名称以这次界面为准，后续版本可能变化。本文保留实际使用的局域网地址与端口，省略订阅令" data-stellar-page-meta="">
+<meta property="og:locale" content="zh_CN" data-stellar-page-meta="">
+<meta property="article:author" content="John Doe" data-stellar-page-meta="">
+<meta property="article:published_time" content="2026-10-17T15:23:08.000Z" data-stellar-page-meta="">
+<meta property="article:modified_time" content="2026-10-19T04:16:55.000Z" data-stellar-page-meta="">
+<meta property="article:tag" content="OpenWrt" data-stellar-page-meta="">
+<meta property="article:tag" content="PassWall" data-stellar-page-meta="">
+<meta property="article:tag" content="技术" data-stellar-page-meta="">
+<meta property="article:tag" content="网络" data-stellar-page-meta="">
+<meta name="twitter:card" content="summary" data-stellar-page-meta=""><meta name="twitter:title" content="从零理清 PassWall：旁路由、住宅出口、1070 与 1081 和自动切换" data-stellar-page-meta="">
+  
+  
+  <meta name="keywords" content="技术,OpenWrt,PassWall,网络" data-stellar-page-meta="">
+
+  <!-- feed -->
+  
+
+  <link rel="preload" href="/css/main.css?v=2.0.0-20260906" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=2.0.0-20260906">
+  <style>:root{--text-loading:"正在加载";--text-loading-error:"加载失败，请稍后重试。"}</style>
+
+
+  
+
+  
+
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-10-17T23:23:08+08:00","dateModified":"2026-10-19T12:16:55+08:00","datePublished":"2026-10-17T23:23:08+08:00","description":"这篇笔记整理一次 iStoreOS 配置实践：先安装 PassWall，再让多个 VLESS 节点作为住宅 SOCKS5 的前置线路，并向局域网提供两个不同出口的代理端口。重点是解释每项配置为什么这样填，而不只是照着操作。\n记录环境是 iStoreOS 25.12.5、PassWall 26.10.16-r2。菜单名称以这次界面为准，后续版本可能变化。本文保留实际使用的局域网地址与端口，省略...","headline":"从零理清 PassWall：旁路由、住宅出口、1070 与 1081 和自动切换","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/%E4%BB%8E%E9%9B%B6%E7%90%86%E6%B8%85PassWall-%E6%97%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BD%8F%E5%AE%85%E5%87%BA%E5%8F%A3/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/%E4%BB%8E%E9%9B%B6%E7%90%86%E6%B8%85PassWall-%E6%97%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BD%8F%E5%AE%85%E5%87%BA%E5%8F%A3/","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"],"keywords":"技术, OpenWrt, PassWall, 网络","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"}</script>
+  <link rel="stylesheet" href="/css/math-custom.css?v=1">
+
+  <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
+  <link rel="preload" as="script" href="/js/stellar-icons.js?v=39c6ac17e854ffe2">
+  
+  
+</head>
+<body data-page-type="content" data-page-layout="post" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    <div class="widget-instance widget-instance--brand" data-widget-id="leftbar:fixed:brand" data-presentation="leftbar" data-leftbar-rail="">
+<header class="brand-header brand-header--regular brand-header--site"><div class="brand-wrap"><a class="brand-image brand-image--avatar" href="/about/"><img no-lazy="" src="/images/dlam.jpg" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="/about/"><div class="brand-name">Hexo</div></a></div><div class="brand-search">
+
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<button class="ui-collection__item ui-interactive card-hover card-hover--spotlight search-trigger has-hover-surface" type="button" title="搜索" aria-label="搜索" data-shell-action="open-search" data-search-instance="leftbar-brand-search" data-search-domain="blog" data-search-domain-label="博客" data-search-domain-blog="true">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">搜索</span>
+      
+      
+    </span>
+  
+  <kbd class="search-shortcut" aria-hidden="true">⌘K</kbd>
+
+  
+</button>
+
+  
+</div>
+
+
+</div></header>
+</div>
+  </header>
+  <div class="site-region__body site-region__zone site-region__zone--body">
+    <div class="widget-instance widget-instance--menu" data-widget-id="leftbar:fixed:menu" data-presentation="leftbar" data-leftbar-rail="">
+
+
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/" title="博客" aria-current="page">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"></path><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">博客</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/categories/" title="分类">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor"><path d="M2 6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C22 7.84935 22 9.16554 22 11.7979V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V6.94975Z" opacity=".5"></path><path d="M20 6.23751C19.9992 5.94016 19.9949 5.76263 19.9746 5.60842C19.7974 4.26222 18.7381 3.2029 17.3919 3.02567C17.1969 3 16.9647 3 16.5003 3H9.98828C10.1042 3.10392 10.2347 3.23445 10.45 3.44975L11.0003 4C11.8161 4.81578 12.2239 5.22367 12.7124 5.49543C12.9807 5.64471 13.2653 5.7626 13.5606 5.84678C14.0982 6 14.675 6 15.8287 6H16.2024C17.9814 6 19.1593 6 20 6.23751Z"></path><path fill-rule="evenodd" d="M12.25 10C12.25 9.58579 12.5858 9.25 13 9.25H18C18.4142 9.25 18.75 9.58579 18.75 10C18.75 10.4142 18.4142 10.75 18 10.75H13C12.5858 10.75 12.25 10.4142 12.25 10Z" clip-rule="evenodd"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">分类</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/tags/" title="标签">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.7226 3.20068C10.8335 2.80158 10.5998 2.38817 10.2007 2.27731C9.80163 2.16645 9.38822 2.40011 9.27736 2.79921L7.76327 8.24995H4C3.58579 8.24995 3.25 8.58573 3.25 8.99995C3.25 9.41416 3.58579 9.74995 4 9.74995H7.3466L5.81882 15.2499H2C1.58579 15.2499 1.25 15.5857 1.25 15.9999C1.25 16.4142 1.58579 16.7499 2 16.7499H5.40216L4.27736 20.7992C4.1665 21.1983 4.40016 21.6117 4.79927 21.7226C5.19837 21.8334 5.61178 21.5998 5.72264 21.2007L6.95895 16.7499H14.4022L13.2774 20.7992C13.1665 21.1983 13.4002 21.6117 13.7993 21.7226C14.1984 21.8334 14.6118 21.5998 14.7226 21.2007L15.959 16.7499H20C20.4142 16.7499 20.75 16.4142 20.75 15.9999C20.75 15.5857 20.4142 15.2499 20 15.2499H16.3756L17.9034 9.74995H22C22.4142 9.74995 22.75 9.41416 22.75 8.99995C22.75 8.58573 22.4142 8.24995 22 8.24995H18.3201L19.7226 3.20068C19.8335 2.80158 19.5998 2.38817 19.2007 2.27731C18.8016 2.16645 18.3882 2.40011 18.2774 2.79921L16.7633 8.24995H9.32006L10.7226 3.20068ZM14.8188 15.2499L16.3466 9.74995H8.9034L7.37562 15.2499H14.8188Z" clip-rule="evenodd"></path></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">标签</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/archives/" title="归档">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor"><path d="M6.94028 2C7.35614 2 7.69326 2.32421 7.69326 2.72414V4.18487C8.36117 4.17241 9.10983 4.17241 9.95219 4.17241H13.9681C14.8104 4.17241 15.5591 4.17241 16.227 4.18487V2.72414C16.227 2.32421 16.5641 2 16.98 2C17.3958 2 17.733 2.32421 17.733 2.72414V4.24894C19.178 4.36022 20.1267 4.63333 20.8236 5.30359C21.5206 5.97385 21.8046 6.88616 21.9203 8.27586L22 9H2.92456H2V8.27586C2.11571 6.88616 2.3997 5.97385 3.09665 5.30359C3.79361 4.63333 4.74226 4.36022 6.1873 4.24894V2.72414C6.1873 2.32421 6.52442 2 6.94028 2Z"></path><path d="M21.9995 14.0001V12.0001C21.9995 11.161 21.9963 9.66527 21.9834 9H2.00917C1.99626 9.66527 1.99953 11.161 1.99953 12.0001V14.0001C1.99953 17.7713 1.99953 19.6569 3.1711 20.8285C4.34267 22.0001 6.22829 22.0001 9.99953 22.0001H13.9995C17.7708 22.0001 19.6564 22.0001 20.828 20.8285C21.9995 19.6569 21.9995 17.7713 21.9995 14.0001Z" opacity=".5"></path><path d="M18 17C18 17.5523 17.5523 18 17 18C16.4477 18 16 17.5523 16 17C16 16.4477 16.4477 16 17 16C17.5523 16 18 16.4477 18 17Z"></path><path d="M18 13C18 13.5523 17.5523 14 17 14C16.4477 14 16 13.5523 16 13C16 12.4477 16.4477 12 17 12C17.5523 12 18 12.4477 18 13Z"></path><path d="M13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17Z"></path><path d="M13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13Z"></path><path d="M8 17C8 17.5523 7.55228 18 7 18C6.44772 18 6 17.5523 6 17C6 16.4477 6.44772 16 7 16C7.55228 16 8 16.4477 8 17Z"></path><path d="M8 13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13C6 12.4477 6.44772 12 7 12C7.55228 12 8 12.4477 8 13Z"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">归档</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/about/" title="关于">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20" opacity=".5"></path><path d="M12 6a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0 7.5c-3.04 0-5.5 1.57-5.5 3.5c0 .65.28 1.26.77 1.77A7.96 7.96 0 0 0 12 20.5a7.96 7.96 0 0 0 4.73-1.73c.49-.51.77-1.12.77-1.77c0-1.93-2.46-3.5-5.5-3.5"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">关于</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div>
+
+</nav>
+
+</div>
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--recent" data-widget-id="leftbar:1:recent" data-presentation="leftbar">
+
+<widget class="widget-wrapper recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">最近更新</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/19/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E7%AC%94%E8%AE%B0/" title="软件测试面试项目介绍笔记" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">软</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件测试面试项目介绍笔记</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/09/16/python/python%E4%BD%9C%E4%B8%9A/Day%207%20%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%88%97%E8%A1%A8/" title="Day 7 作业笔记：数据库与列表" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">D</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Day 7 作业笔记：数据库与列表</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/24/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E8%AE%BF%E9%97%AE%E4%B8%A4%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/" title="如何配置双密钥访问两个github账户" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">如</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">如何配置双密钥访问两个github账户</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/06/24/%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%AF%86%E9%92%A5%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" title="配置双密钥如何上传文件" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">配</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">配置双密钥如何上传文件</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/15/%E9%97%B2%E7%9A%84%E6%B2%A1%E4%BA%8B/2%E7%9A%84%E4%B8%80%E4%BA%BF%E6%AC%A1%E6%96%B9%E6%98%AF%E5%A4%9A%E5%B0%91/" title="2的一亿次方是多少" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">2</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">2的一亿次方是多少</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/07/27/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="测试图片" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">测</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">测试图片</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/16/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E8%B0%83%E5%92%8C%E5%88%86%E6%9E%90/%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90/%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0/%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%EF%BC%9A%E6%8A%8A%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E6%8B%86%E8%A7%A3%E4%B8%BA%E6%AD%A3%E5%BC%A6%E6%B3%A2/" title="傅里叶级数：把周期信号拆解为正弦波" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">傅</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">傅里叶级数：把周期信号拆解为正弦波</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E3%80%81%E9%93%BE%E5%BC%8F%E4%BB%A3%E7%90%86%E4%B8%8EVPS%E4%B8%AD%E8%BD%AC%E6%80%8E%E4%B9%88%E9%80%89/" title="端口转发、链式代理与 VPS 中转怎么选" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">端</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">端口转发、链式代理与 VPS 中转怎么选</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/%E4%BB%8E%E9%9B%B6%E7%90%86%E6%B8%85PassWall-%E6%97%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BD%8F%E5%AE%85%E5%87%BA%E5%8F%A3/" title="从零理清 PassWall：旁路由、住宅出口、1070 与 1081 和自动切换" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">从</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">从零理清 PassWall：旁路由、住宅出口、1070 与 1081 和自动切换</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/18/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/v2rayN%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E6%AD%A3%E5%B8%B8%E4%BD%86TUN%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%9A%84%E4%BF%AE%E5%A4%8D%E8%AE%B0%E5%BD%95/" title="v2rayN 系统代理正常，但 TUN 无法联网的修复记录" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">V</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">v2rayN 系统代理正常，但 TUN 无法联网的修复记录</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div></div>
+  </div>
+  <footer class="site-region__footer">
+    
+    <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="设置" aria-label="设置" title="设置">
+  <span class="settings-widget__avatar" aria-hidden="true">
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
+  </span>
+  <span class="settings-widget__name ui-collection__title">设置</span>
+</a>
+</div></div>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
+    </div>
+  </footer></div></div></aside>
+<main data-stellar-runtime-region="" class="site-main" id="main">
+
+
+<div class="article-banner-wrap"><div class="article banner top">
+  <div class="content">
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-10-17T15:23:08.000Z">2026-10-17</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-10-19T04:16:55.000Z">2026-10-19</time></span></div>
+</div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>从零理清 PassWall：旁路由、住宅出口、1070 与 1081 和自动切换</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div></div>
+<article class="md-text content"><p>这篇笔记整理一次 iStoreOS 配置实践：先安装 PassWall，再让多个 VLESS 节点作为住宅 SOCKS5 的前置线路，并向局域网提供两个不同出口的代理端口。重点是解释每项配置为什么这样填，而不只是照着操作。</p>
+<p>记录环境是 iStoreOS 25.12.5、PassWall 26.10.16-r2。菜单名称以这次界面为准，后续版本可能变化。本文保留实际使用的局域网地址与端口，省略订阅令牌、UUID、代理账号、密码和公网出口地址。照搬到其他网络时，需要替换局域网地址。</p>
+<h2 id="1-先记住实际配置的全貌"><a href="#1-先记住实际配置的全貌" class="headerlink" title="1. 先记住实际配置的全貌" data-stellar-navigation=""></a>1. 先记住实际配置的全貌</h2><p>旁路由地址是 <code>192.168.31.165</code>，它提供两个 SOCKS5 入口：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">其他设备连接 192.168.31.165:1081</span><br><span class="line">    → 旁路由选择当前可用的 VLESS 线路</span><br><span class="line">    → VLESS 远端服务器</span><br><span class="line">    → 目标网站</span><br><span class="line">    网站看到：VLESS 的出口 IP</span><br><span class="line"></span><br><span class="line">其他设备连接 192.168.31.165:1070</span><br><span class="line">    → 旁路由的“住宅出口”节点</span><br><span class="line">    → 借助本机 1081 提供的 VLESS 线路连接住宅代理</span><br><span class="line">    → 住宅 SOCKS5 服务器</span><br><span class="line">    → 目标网站</span><br><span class="line">    网站看到：住宅代理的出口 IP</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其中“住宅出口节点”是路由器上的一份配置，不是流量先到住宅服务器再到 VLESS。实际远端连接顺序始终是：<strong>先经过 VLESS，再由住宅代理访问网站。</strong></p>
+<h2 id="2-地址、端口、节点、核心分别是什么"><a href="#2-地址、端口、节点、核心分别是什么" class="headerlink" title="2. 地址、端口、节点、核心分别是什么" data-stellar-navigation=""></a>2. 地址、端口、节点、核心分别是什么</h2><p>可以把旁路由想成一座有多个服务窗口的建筑：IP 地址找到建筑，端口找到窗口，窗口后面的规则决定怎么办理请求。</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>在本次配置中的含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IP 地址</td>
+<td><code>192.168.31.165</code> 是局域网中旁路由的位置</td>
+</tr>
+<tr>
+<td>端口</td>
+<td><code>1070</code> 和 <code>1081</code> 是旁路由上两个不同的服务入口</td>
+</tr>
+<tr>
+<td>监听</td>
+<td>某个程序正在等待其他设备连接这个端口</td>
+</tr>
+<tr>
+<td>节点</td>
+<td>一份连接配置，包括协议、远端地址、端口、认证及前置代理等</td>
+</tr>
+<tr>
+<td>Xray 核心</td>
+<td>真正执行代理协议和连接转发的程序</td>
+</tr>
+<tr>
+<td>PassWall</td>
+<td>管理核心、节点、路由和规则的配置界面及配套脚本</td>
+</tr>
+<tr>
+<td>出口 IP</td>
+<td>目标网站看到的发起连接一方的公网地址</td>
+</tr>
+</tbody></table></div>
+<p>1070 并不天生代表住宅，1081 也不天生代表普通代理。<strong>它们的用途由绑定的节点决定。</strong> 如果以后修改主页面的代理节点，1070 对应的出口也会变化。</p>
+<p>同样，路由器的本地入口端口，与住宅代理商提供的远端端口，是两件事：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">手机连接：192.168.31.165:1070</span><br><span class="line">路由器连接住宅代理：代理商提供的地址:代理商提供的端口</span><br></pre></td></tr></tbody></table></figure>
+
+<p>手机不需要填写住宅代理商的账号密码，是因为认证由路由器上保存的住宅节点配置完成。这不代表所有 SOCKS 服务都不需要认证。</p>
+<h2 id="3-VLESS、XHTTP、TLS-和-SOCKS5-的关系"><a href="#3-VLESS、XHTTP、TLS-和-SOCKS5-的关系" class="headerlink" title="3. VLESS、XHTTP、TLS 和 SOCKS5 的关系" data-stellar-navigation=""></a>3. VLESS、XHTTP、TLS 和 SOCKS5 的关系</h2><p>这次前置节点使用 VLESS + XHTTP + TLS：</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>部分</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>VLESS</td>
+<td>代理协议，包含用户身份等连接信息</td>
+</tr>
+<tr>
+<td>XHTTP</td>
+<td>传输方式，决定代理数据如何通过 HTTP 相关连接传送</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>保护这段连接，并验证对端证书身份</td>
+</tr>
+<tr>
+<td>SNI</td>
+<td>TLS 连接中的服务器名称，需要与服务端配置对应</td>
+</tr>
+<tr>
+<td>Host、Path、Mode</td>
+<td>XHTTP 相关参数，需要按节点提供的信息填写</td>
+</tr>
+<tr>
+<td>ECH、Extra</td>
+<td>链接可能附带的额外配置，导入后应检查是否完整保留</td>
+</tr>
+<tr>
+<td>SOCKS5</td>
+<td>客户端请求代理服务器代为连接目标的一种协议</td>
+</tr>
+</tbody></table></div>
+<p>SOCKS5 本身不提供传输加密；HTTPS 网站的 TLS 是另一个层次，不能与代理协议混为一谈。前置 VLESS 也不会自动把整条链路变成一种新的协议。</p>
+<p>PassWall 页面可以打开，并不代表 Xray 核心已经安装。本次曾出现链接导入后没有有效节点的情况，后来检查发现系统未安装 <code>xray-core</code>。这是一条排查线索，不能据此断言所有导入失败都由缺核心引起。</p>
+<h2 id="4-什么是前置代理和住宅落地"><a href="#4-什么是前置代理和住宅落地" class="headerlink" title="4. 什么是前置代理和住宅落地" data-stellar-navigation=""></a>4. 什么是前置代理和住宅落地</h2><p>“前置代理”解决的是：<strong>当前节点通过哪条代理线路去连接它自己的远端服务器。</strong></p>
+<p>在住宅节点里选择 VLESS 作为前置后：</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">路由器 → VLESS 服务器 → 住宅代理服务器 → 网站</span><br></pre></td></tr></tbody></table></figure>
+
+<p>VLESS 承担前面的连接线路，住宅代理是最后访问目标网站的代理，所以网站看到住宅代理的出口。</p>
+<p>本次测试中，1070 返回的公网 IP 与填写的住宅代理地址一致，但这只是这一次结果。代理商也可能使用网关地址、轮换出口或会话绑定机制，<strong>连接地址与最终出口 IP 不一定永远相同</strong>。仅凭 IP 相同，也不能独立证明其运营商分类一定是住宅。</p>
+<h2 id="5-本次三个关键位置应该怎样对应"><a href="#5-本次三个关键位置应该怎样对应" class="headerlink" title="5. 本次三个关键位置应该怎样对应" data-stellar-navigation=""></a>5. 本次三个关键位置应该怎样对应</h2><h3 id="5-1-主页面：选择住宅出口，提供-1070"><a href="#5-1-主页面：选择住宅出口，提供-1070" class="headerlink" title="5.1 主页面：选择住宅出口，提供 1070" data-stellar-navigation=""></a>5.1 主页面：选择住宅出口，提供 1070</h3><div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>本次设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主开关</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>代理节点</td>
+<td>Xray Socks：住宅出口</td>
+</tr>
+<tr>
+<td>节点 Socks 监听端口</td>
+<td>1070</td>
+</tr>
+<tr>
+<td>节点 Socks 本机监听</td>
+<td>局域网其他设备要连接时不勾选</td>
+</tr>
+</tbody></table></div>
+<p>因此局域网软件连接 <code>192.168.31.165:1070</code>，会使用住宅节点。</p>
+<h3 id="5-2-住宅节点：把-1081-当作前置入口"><a href="#5-2-住宅节点：把-1081-当作前置入口" class="headerlink" title="5.2 住宅节点：把 1081 当作前置入口" data-stellar-navigation=""></a>5.2 住宅节点：把 1081 当作前置入口</h3><div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>本次设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型</td>
+<td>Xray</td>
+</tr>
+<tr>
+<td>协议名称</td>
+<td>Socks</td>
+</tr>
+<tr>
+<td>地址、端口、用户名、密码</td>
+<td>住宅代理商提供的信息</td>
+</tr>
+<tr>
+<td>链式代理</td>
+<td>前置代理节点</td>
+</tr>
+<tr>
+<td>前置代理节点</td>
+<td>Socks 配置 [1081端口]</td>
+</tr>
+</tbody></table></div>
+<p>这里选本机 1081，是为了复用它的 VLESS 自动切换能力。</p>
+<h3 id="5-3-下方-Socks-配置：1081-负责选择-VLESS"><a href="#5-3-下方-Socks-配置：1081-负责选择-VLESS" class="headerlink" title="5.3 下方 Socks 配置：1081 负责选择 VLESS" data-stellar-navigation=""></a>5.3 下方 Socks 配置：1081 负责选择 VLESS</h3><div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>本次设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启用</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>节点</td>
+<td>一个已验证可用的主用 VLESS</td>
+</tr>
+<tr>
+<td>Socks 监听端口</td>
+<td>1081</td>
+</tr>
+<tr>
+<td>HTTP 监听端口</td>
+<td>0，表示不启用 HTTP 入口</td>
+</tr>
+<tr>
+<td>本机监听</td>
+<td>因为局域网设备也要用，所以不勾选</td>
+</tr>
+<tr>
+<td>自动切换</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>后备节点添加方式</td>
+<td>手动</td>
+</tr>
+<tr>
+<td>备用节点列表</td>
+<td>其他可用 VLESS，不包含住宅出口</td>
+</tr>
+</tbody></table></div>
+<p>保存配置后，还要在概览页面“保存并应用”。</p>
+<p><strong>避免循环：1081 的主节点和备用列表都不能选住宅出口。</strong> 否则住宅出口依赖 1081，而 1081 又依赖住宅出口，连接无法正常建立。</p>
+<p>如果不需要局域网直接使用 1081，可以将它限制为本机监听，1070 仍可通过本机连接它。这里保留局域网访问，是本次使用需求，而不是住宅链式代理的必要条件。</p>
+<h2 id="6-为什么两个端口都能受益于自动切换"><a href="#6-为什么两个端口都能受益于自动切换" class="headerlink" title="6. 为什么两个端口都能受益于自动切换" data-stellar-navigation=""></a>6. 为什么两个端口都能受益于自动切换</h2><p>自动切换实际配置在 1081 入口上。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">平时：1081 → VLESS A</span><br><span class="line">A 故障并被检测到：1081 → VLESS B</span><br><span class="line"></span><br><span class="line">1070 住宅节点始终借助 1081，所以也会跟着使用 B。</span><br></pre></td></tr></tbody></table></figure>
+
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>故障位置</th>
+<th>1081 的表现</th>
+<th>1070 的表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>当前 VLESS 不通，备用可用</td>
+<td>检测后切换到备用</td>
+<td>后续连接借用切换后的前置线路</td>
+</tr>
+<tr>
+<td>住宅代理不通、到期或认证失败</td>
+<td>可能仍正常</td>
+<td>仍失败，备用 VLESS 无法替代住宅服务</td>
+</tr>
+<tr>
+<td>所有 VLESS 都不通</td>
+<td>失败</td>
+<td>前置线路不可用，通常也失败</td>
+</tr>
+<tr>
+<td>住宅 IP 被某个网站拒绝</td>
+<td>普通出口可能仍能访问</td>
+<td>更换前置未必有用，最终出口没有改变</td>
+</tr>
+</tbody></table></div>
+<p>检测用的是 Google 等探测网址，并不代表对每个目标都做了健康检查。某网站单独故障，也未必触发切换。</p>
+<p>本次建议的检测值为 60 秒一次、超时 5 秒、重试 2 次，作为减少误判的起点，并非所有网络的最优值。实际切换时间还受检测脚本与节点数量影响，不能简单保证几秒内恢复。</p>
+<p>“恢复切换”决定主节点恢复后是否切回。暂不勾选可以减少不稳定时的来回切换。已有连接可能中断，切换主要帮助重新建立的连接，并不是无缝迁移。</p>
+<h2 id="7-自动切换、负载均衡、分流不是一回事"><a href="#7-自动切换、负载均衡、分流不是一回事" class="headerlink" title="7. 自动切换、负载均衡、分流不是一回事" data-stellar-navigation=""></a>7. 自动切换、负载均衡、分流不是一回事</h2><div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>回答的问题</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自动切换</td>
+<td>当前节点坏了怎么办？</td>
+<td>A 不通后改用 B</td>
+</tr>
+<tr>
+<td>负载均衡</td>
+<td>多条可用线路如何分担连接？</td>
+<td>不同连接分别交给 A、B</td>
+</tr>
+<tr>
+<td>分流</td>
+<td>访问什么目标时走哪里？</td>
+<td>国内直连，某些网站走住宅，其余走 VLESS</td>
+</tr>
+<tr>
+<td>链式代理</td>
+<td>同一个连接依次经过哪些代理？</td>
+<td>VLESS → 住宅 SOCKS5</td>
+</tr>
+</tbody></table></div>
+<p>“Xray 分流总节点”本身是一份按规则选择出口的配置，不是额外的一台服务器，也不会因加入多个节点就自动故障切换。</p>
+<p>本次已经使用 Socks 配置里的自动切换，<strong>不需要再开启 HAProxy 负载均衡</strong>。HAProxy 装着但未运行，不影响当前这套配置。也不要把 VLESS 和住宅节点放进同一个轮询列表：它们原本是串联关系，并不是两个等价的最终出口。</p>
+<p>单次下载一般也不会因为负载均衡而自动叠加两条线路的带宽。</p>
+<h2 id="8-其他设备使用旁路由的两种方式"><a href="#8-其他设备使用旁路由的两种方式" class="headerlink" title="8. 其他设备使用旁路由的两种方式" data-stellar-navigation=""></a>8. 其他设备使用旁路由的两种方式</h2><h3 id="8-1-在软件里明确填写-SOCKS5"><a href="#8-1-在软件里明确填写-SOCKS5" class="headerlink" title="8.1 在软件里明确填写 SOCKS5" data-stellar-navigation=""></a>8.1 在软件里明确填写 SOCKS5</h3><p>想使用住宅出口时：</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>填写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型</td>
+<td>SOCKS5</td>
+</tr>
+<tr>
+<td>服务器</td>
+<td>192.168.31.165</td>
+</tr>
+<tr>
+<td>端口</td>
+<td>1070</td>
+</tr>
+<tr>
+<td>用户名、密码</td>
+<td>本次入口未配置认证，留空</td>
+</tr>
+<tr>
+<td>通过代理解析域名</td>
+<td>软件提供时开启</td>
+</tr>
+</tbody></table></div>
+<p>想直接使用 VLESS 出口，就把端口改为 1081。</p>
+<p>这种方式只作用于确实采用该代理设置的软件或连接。手机 Wi-Fi 页面中的普通“HTTP 代理”不能直接当成 SOCKS5 配置；本次 1081 的 HTTP 端口为 0，也没有启用对应 HTTP 服务。</p>
+<h3 id="8-2-修改设备网关和-DNS"><a href="#8-2-修改设备网关和-DNS" class="headerlink" title="8.2 修改设备网关和 DNS" data-stellar-navigation=""></a>8.2 修改设备网关和 DNS</h3><p>这属于通过旁路由转发，并由 PassWall 透明代理规则处理，不需要在设备上填写 1070 或 1081。</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>本次网络中的设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设备 IP</td>
+<td>保留设备自己的 192.168.31.x，不能与旁路由或其他设备重复</td>
+</tr>
+<tr>
+<td>子网掩码 / 前缀</td>
+<td>本次按 255.255.255.0 / 24 配置，其他网络应沿用实际值</td>
+</tr>
+<tr>
+<td>IPv4 网关</td>
+<td>192.168.31.165</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>192.168.31.165，前提是旁路由正在提供可访问的 DNS 服务</td>
+</tr>
+</tbody></table></div>
+<p>改网关只是把相应流量送到旁路由，并不保证所有应用、所有协议都会走住宅代理。还要看 IPv6 路由、访问控制、分流规则、TCP/UDP 支持等。</p>
+<p><strong>DNS 负责查询地址，网关负责转发数据。只改 DNS 不等于建立代理。</strong></p>
+<h2 id="9-如何验证，为什么不能只看绿色状态"><a href="#9-如何验证，为什么不能只看绿色状态" class="headerlink" title="9. 如何验证，为什么不能只看绿色状态" data-stellar-navigation=""></a>9. 如何验证，为什么不能只看绿色状态</h2><p>在路由器 Linux 终端分别执行：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --proxy socks5h://127.0.0.1:1081 --connect-timeout 10 --max-time 25 https://api.ipify.org</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --proxy socks5h://127.0.0.1:1070 --connect-timeout 10 --max-time 25 https://api.ipify.org</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>127.0.0.1</code> 表示当前执行命令的设备，所以这些命令是在路由器上运行。若在另一台电脑测试，需要改为 <code>192.168.31.165</code>。</p>
+<p><code>socks5h</code> 表示让 SOCKS 代理端处理目标域名解析。服务返回出口 IP 后可能直接与终端提示符相连，这是因为响应不一定包含换行。</p>
+<p>本次两个命令均返回公网地址：1081 是普通出口，1070 与住宅代理配置地址一致。这验证了当时两个入口的 HTTPS/TCP 请求可用，<strong>没有验证 UDP、所有 App、IPv6 或故障切换全过程</strong>。</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>现象</th>
+<th>优先排查</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1081 成功，1070 失败</td>
+<td>住宅账号、端口、服务状态，以及住宅节点的前置设置</td>
+</tr>
+<tr>
+<td>两个都失败</td>
+<td>当前 VLESS、Xray 日志及网络连通性</td>
+</tr>
+<tr>
+<td>路由器本机成功，其他设备 SOCKS 失败</td>
+<td>本机监听限制、LAN 防火墙、客户端填错代理类型或端口</td>
+</tr>
+<tr>
+<td>浏览器成功，App 失败</td>
+<td>App 的 TCP/UDP、QUIC、IPv6、DNS 和分流差异</td>
+</tr>
+</tbody></table></div>
+<p>“端口正在监听”只代表程序在等待连接；“TCP/UDP 运行中”只代表相关进程状态。主页网站测试也只是一种探测。本次曾出现主页探测失败、但两个端口实际请求均成功的情况，不能单凭一块状态卡判断整条线路。</p>
+<h2 id="10-浏览器能访问，但电视或手机-App-不行"><a href="#10-浏览器能访问，但电视或手机-App-不行" class="headerlink" title="10. 浏览器能访问，但电视或手机 App 不行" data-stellar-navigation=""></a>10. 浏览器能访问，但电视或手机 App 不行</h2><p>本次曾观察到浏览器能打开 Google 和 YouTube，但 App 不能使用。该问题在记录中没有完成定位，不能写成已经修好。</p>
+<p>可能原因包括：</p>
+<ul>
+<li>App 使用 UDP/QUIC，而住宅 SOCKS5 服务没有可用的 UDP 转发能力。</li>
+<li>只修改 IPv4 网关，IPv6 仍使用另一条路径。</li>
+<li>浏览器使用的目标域名、DNS 或传输方式与 App 不同。</li>
+<li>PassWall 的访问控制或分流规则没有覆盖相关流量。</li>
+</ul>
+<p>可逐项对照测试：先确认同一设备、同一网络，关闭设备自身 VPN 以免混淆；核对 App 的错误日志；再检查 IPv6 和 UDP。屏蔽代理 UDP 443 可以作为促使部分 QUIC 应用回退 TCP 的实验，但并非所有 App 都会回退，也不能直接当成通用修复。</p>
+<h2 id="11-安装期间遇到的报错速记"><a href="#11-安装期间遇到的报错速记" class="headerlink" title="11. 安装期间遇到的报错速记" data-stellar-navigation=""></a>11. 安装期间遇到的报错速记</h2><div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>报错 / 现象</th>
+<th>本次含义与处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>file format is invalid or inconsistent</td>
+<td>文件不能按当前 apk 格式解析，检查下载内容；不能把 ipk 改后缀当 apk</td>
+</tr>
+<tr>
+<td>UNTRUSTED signature</td>
+<td>系统未信任包签名；优先按来源说明导入公钥</td>
+</tr>
+<tr>
+<td>/tmp/upload.apk 不存在</td>
+<td>网页临时上传路径已失效，改用实际存在的文件路径</td>
+</tr>
+<tr>
+<td>chinadns-ng、dns2socks、tcping no such package</td>
+<td>缺少可用依赖源，添加匹配版本与架构的软件源</td>
+</tr>
+<tr>
+<td>failed to extract / Connection aborted</td>
+<td>本次下载中断，不能把最后有包数量统计当成成功</td>
+</tr>
+<tr>
+<td>OK 且没有错误</td>
+<td>安装命令完成，随后还应确认核心和功能</td>
+</tr>
+</tbody></table></div>
+<p>本次 iStoreOS 25.12 使用 apk。PassWall 主插件、中文翻译包及 Xray 核心是不同组件。依赖源配置参考 <a target="_blank" rel="noopener" href="https://github.com/moetayuko/openwrt-passwall-build" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>PassWall 构建仓库的 APK 安装说明</a>，软件包版本和架构要匹配设备，不要跨固件混装。</p>
+<p>在路由器终端检查、安装核心：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apk info -e xray-core</span><br><span class="line">apk add xray-core</span><br><span class="line">xray version</span><br></pre></td></tr></tbody></table></figure>
+
+<p>只有来源已确认、需要手动安装本地第三方包时，才按发布方说明使用 <code>--allow-untrusted</code>；它跳过包签名信任检查，不等于修复格式或缺失依赖。本地包路径应替换为实际文件路径。参考 <a target="_blank" rel="noopener" href="https://github.com/Openwrt-Passwall/openwrt-passwall/releases" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>PassWall 发布页</a>。</p>
+<p>若下载必须临时借用电脑代理，可以在同一个路由器终端中设置：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例电脑地址和 HTTP/mixed 端口，需要改成实际值</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">"http://192.168.31.100:10808"</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">"<span class="variable">$http_proxy</span>"</span></span><br><span class="line">apk add xray-core</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用完取消</span></span><br><span class="line"><span class="built_in">unset</span> http_proxy https_proxy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>电脑代理需允许局域网连接且防火墙放行。这里需要 HTTP 或 mixed 入口，不能把纯 SOCKS 端口直接填给这些环境变量。设置只影响当前 shell 及继承环境的程序，不会自动代理整台路由器的所有服务。</p>
+<h2 id="12-最后用四个问题检查自己是否理解"><a href="#12-最后用四个问题检查自己是否理解" class="headerlink" title="12. 最后用四个问题检查自己是否理解" data-stellar-navigation=""></a>12. 最后用四个问题检查自己是否理解</h2><p><strong>为什么 1070 是住宅出口？</strong> 因为它绑定了住宅节点；住宅节点借助 1081 去连接住宅服务器。</p>
+<p><strong>为什么 1081 是普通出口？</strong> 因为它绑定的是 VLESS，直接连接它就不会再经过住宅节点。</p>
+<p><strong>为什么两者都能用备用 VLESS？</strong> 因为自动切换发生在 1081，而 1070 也依赖这个入口；住宅服务本身并没有备用。</p>
+<p><strong>为什么当前不需要负载均衡？</strong> 因为目标是前置故障后切换，Socks 自动切换已经承担这个任务。</p>
+<p>局域网共享这些入口时，仅允许可信网络访问，不在主路由上向公网转发未认证的代理端口。文章或截图也不要包含订阅令牌、UUID 和代理密码。</p>
+</article>
+<div class="article-tags"><a class="tag" href="/tags/%E6%8A%80%E6%9C%AF/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>技术</a><a class="tag" href="/tags/%E7%BD%91%E7%BB%9C/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>网络</a><a class="tag" href="/tags/OpenWrt/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>OpenWrt</a><a class="tag" href="/tags/PassWall/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>PassWall</a></div>
+
+
+
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section></div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 较新文章</div><a href="/2026/10/18/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/v2rayN%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E6%AD%A3%E5%B8%B8%E4%BD%86TUN%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%9A%84%E4%BF%AE%E5%A4%8D%E8%AE%B0%E5%BD%95/" data-stellar-navigation="">v2rayN 系统代理正常，但 TUN 无法联网的修复记录</a></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/Web%E6%9C%8D%E5%8A%A1/IIS%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9AWindows%E7%BD%91%E7%AB%99%E6%89%98%E7%AE%A1%E4%B8%8E%E9%83%A8%E7%BD%B2%E6%88%90%E6%9C%AC/" data-stellar-navigation="">IIS 是什么：Windows 网站托管与部署成本</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">John Doe</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+</main>
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#1-%E5%85%88%E8%AE%B0%E4%BD%8F%E5%AE%9E%E9%99%85%E9%85%8D%E7%BD%AE%E7%9A%84%E5%85%A8%E8%B2%8C" data-stellar-navigation=""><span class="toc-text">1. 先记住实际配置的全貌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#2-%E5%9C%B0%E5%9D%80%E3%80%81%E7%AB%AF%E5%8F%A3%E3%80%81%E8%8A%82%E7%82%B9%E3%80%81%E6%A0%B8%E5%BF%83%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88" data-stellar-navigation=""><span class="toc-text">2. 地址、端口、节点、核心分别是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3-VLESS%E3%80%81XHTTP%E3%80%81TLS-%E5%92%8C-SOCKS5-%E7%9A%84%E5%85%B3%E7%B3%BB" data-stellar-navigation=""><span class="toc-text">3. VLESS、XHTTP、TLS 和 SOCKS5 的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#4-%E4%BB%80%E4%B9%88%E6%98%AF%E5%89%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E5%92%8C%E4%BD%8F%E5%AE%85%E8%90%BD%E5%9C%B0" data-stellar-navigation=""><span class="toc-text">4. 什么是前置代理和住宅落地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#5-%E6%9C%AC%E6%AC%A1%E4%B8%89%E4%B8%AA%E5%85%B3%E9%94%AE%E4%BD%8D%E7%BD%AE%E5%BA%94%E8%AF%A5%E6%80%8E%E6%A0%B7%E5%AF%B9%E5%BA%94" data-stellar-navigation=""><span class="toc-text">5. 本次三个关键位置应该怎样对应</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-1-%E4%B8%BB%E9%A1%B5%E9%9D%A2%EF%BC%9A%E9%80%89%E6%8B%A9%E4%BD%8F%E5%AE%85%E5%87%BA%E5%8F%A3%EF%BC%8C%E6%8F%90%E4%BE%9B-1070" data-stellar-navigation=""><span class="toc-text">5.1 主页面：选择住宅出口，提供 1070</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-2-%E4%BD%8F%E5%AE%85%E8%8A%82%E7%82%B9%EF%BC%9A%E6%8A%8A-1081-%E5%BD%93%E4%BD%9C%E5%89%8D%E7%BD%AE%E5%85%A5%E5%8F%A3" data-stellar-navigation=""><span class="toc-text">5.2 住宅节点：把 1081 当作前置入口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-3-%E4%B8%8B%E6%96%B9-Socks-%E9%85%8D%E7%BD%AE%EF%BC%9A1081-%E8%B4%9F%E8%B4%A3%E9%80%89%E6%8B%A9-VLESS" data-stellar-navigation=""><span class="toc-text">5.3 下方 Socks 配置：1081 负责选择 VLESS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#6-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%A4%E4%B8%AA%E7%AB%AF%E5%8F%A3%E9%83%BD%E8%83%BD%E5%8F%97%E7%9B%8A%E4%BA%8E%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2" data-stellar-navigation=""><span class="toc-text">6. 为什么两个端口都能受益于自动切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#7-%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E3%80%81%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E3%80%81%E5%88%86%E6%B5%81%E4%B8%8D%E6%98%AF%E4%B8%80%E5%9B%9E%E4%BA%8B" data-stellar-navigation=""><span class="toc-text">7. 自动切换、负载均衡、分流不是一回事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#8-%E5%85%B6%E4%BB%96%E8%AE%BE%E5%A4%87%E4%BD%BF%E7%94%A8%E6%97%81%E8%B7%AF%E7%94%B1%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">8. 其他设备使用旁路由的两种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#8-1-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E9%87%8C%E6%98%8E%E7%A1%AE%E5%A1%AB%E5%86%99-SOCKS5" data-stellar-navigation=""><span class="toc-text">8.1 在软件里明确填写 SOCKS5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#8-2-%E4%BF%AE%E6%94%B9%E8%AE%BE%E5%A4%87%E7%BD%91%E5%85%B3%E5%92%8C-DNS" data-stellar-navigation=""><span class="toc-text">8.2 修改设备网关和 DNS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#9-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%9C%8B%E7%BB%BF%E8%89%B2%E7%8A%B6%E6%80%81" data-stellar-navigation=""><span class="toc-text">9. 如何验证，为什么不能只看绿色状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#10-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%83%BD%E8%AE%BF%E9%97%AE%EF%BC%8C%E4%BD%86%E7%94%B5%E8%A7%86%E6%88%96%E6%89%8B%E6%9C%BA-App-%E4%B8%8D%E8%A1%8C" data-stellar-navigation=""><span class="toc-text">10. 浏览器能访问，但电视或手机 App 不行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#11-%E5%AE%89%E8%A3%85%E6%9C%9F%E9%97%B4%E9%81%87%E5%88%B0%E7%9A%84%E6%8A%A5%E9%94%99%E9%80%9F%E8%AE%B0" data-stellar-navigation=""><span class="toc-text">11. 安装期间遇到的报错速记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#12-%E6%9C%80%E5%90%8E%E7%94%A8%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98%E6%A3%80%E6%9F%A5%E8%87%AA%E5%B7%B1%E6%98%AF%E5%90%A6%E7%90%86%E8%A7%A3" data-stellar-navigation=""><span class="toc-text">12. 最后用四个问题检查自己是否理解</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a></div>
+</widget>
+
+
+</div></div></div></div></aside>
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
+  <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
+  </button>
+  <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
+  </button>
+</div>
+
+<dialog data-stellar-runtime-region="" class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+  <div class="search-dialog__panel search-wrapper" id="site-search-wrapper" searching="false">
+    <div class="search-dialog__header">
+      <div class="search-form" role="search">
+        <span class="search-button" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+        <input type="search" class="search-input" id="site-search-input" aria-labelledby="site-search-title" placeholder="搜索">
+      </div>
+      <button type="button" class="search-dialog__close" data-shell-action="close-search" aria-label="关闭搜索">×</button>
+    </div>
+    
+      <div class="search-dialog__scope" role="radiogroup" aria-labelledby="site-search-title" hidden="">
+        <label class="search-dialog__scope-option" data-search-scope-option="all">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="all">
+          <span>全站</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="blog" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="blog">
+          <span>博客</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="current" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="current">
+          <span data-search-scope-current-label=""></span>
+        </label>
+      </div>
+    
+    <h2 class="search-dialog__title" id="site-search-title">站内搜索</h2>
+    <div class="search-result" id="site-search-result"></div>
+    <div class="search-no-result">没有找到内容！</div>
+  </div>
+</dialog>
+</div><div class="site-scripts">
+<script data-stellar-script="core" src="/js/stellar-icons.js?v=39c6ac17e854ffe2"></script>
+
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: "https://hexo.hanruixuan.com/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/%E4%BB%8E%E9%9B%B6%E7%90%86%E6%B8%85PassWall-%E6%97%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BD%8F%E5%AE%85%E5%87%BA%E5%8F%A3/", checklink: ctx.services.video.js};
+  ctx.date_suffix = {"just":"刚刚","min":"分钟前","hour":"小时前","day":"天前"};
+  if (ctx.search) Object.assign(ctx.search, {"more":"更多","no_more":"没有更多了"});
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
+</script>
+
+
+<!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
+<script data-stellar-script="core" src="/js/utils.js?v=2.0.0-20260906"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0-20260906" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0-20260906"></script>
+
+
+
+
+
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .timenode p\u003eimg"},"config":{"enabled":true,"selector":".timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"mathjax","module":"/js/runtime/extensions/mathjax.js","scope":"region","when":{"selector":".has-jax, script[type^='math/tex']"},"config":{"options":{},"asset":"/js/vendor/mathjax/tex-mml-chtml.js"}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js","css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&amp;runtime=1"></script>
+
+
+<!-- inject -->
+
+
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0-20260906"></script>
+</div>
+
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://hexo.hanruixuan.com/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/%E4%BB%8E%E9%9B%B6%E7%90%86%E6%B8%85PassWall-%E6%97%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BD%8F%E5%AE%85%E5%87%BA%E5%8F%A3/","signature":"9d02983238b5f551ac3c7e04ef4e59a6733b13876094d31122cbe3072819d653"}</script></body></html>
