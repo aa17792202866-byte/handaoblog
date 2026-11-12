@@ -32,19 +32,19 @@
   <meta name="description" content="这篇笔记整理 10 月 30 日的课堂练习。先准备登录账号和会话数据，再通过聚合报告观察响应时间，最后复习控制器和测试元件的作用域。 准备登录账号和会话数据课堂先用正则提取网页标题，复习提取器的表达式、模板、匹配序号和缺省值。  ShopXO 登录练习用 Python 的 requests 发送登录表单，检查响应 JSON 中的 msg 是否为「登录成功」，再从响应的 Cookie 中读取 PHP" data-stellar-page-meta="">
 <meta property="og:type" content="article" data-stellar-page-meta="">
 <meta property="og:title" content="ShopXO 登录压测的数据准备与 JMeter 控制器" data-stellar-page-meta="">
-<meta property="og:url" content="https://hexo.hanruixuan.com/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/" data-stellar-page-meta="">
+<meta property="og:url" content="https://hexo.hanruixuan.com/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/" data-stellar-page-meta="">
 <meta property="og:site_name" content="Hexo" data-stellar-page-meta="">
 <meta property="og:description" content="这篇笔记整理 10 月 30 日的课堂练习。先准备登录账号和会话数据，再通过聚合报告观察响应时间，最后复习控制器和测试元件的作用域。 准备登录账号和会话数据课堂先用正则提取网页标题，复习提取器的表达式、模板、匹配序号和缺省值。  ShopXO 登录练习用 Python 的 requests 发送登录表单，检查响应 JSON 中的 msg 是否为「登录成功」，再从响应的 Cookie 中读取 PHP" data-stellar-page-meta="">
 <meta property="og:locale" content="zh_CN" data-stellar-page-meta="">
-<meta property="og:image" content="https://hexo.hanruixuan.com/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png" data-stellar-page-meta="">
+<meta property="og:image" content="https://hexo.hanruixuan.com/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png" data-stellar-page-meta="">
 <meta property="article:author" content="John Doe" data-stellar-page-meta="">
-<meta property="article:published_time" content="2026-11-05T06:25:35.000Z" data-stellar-page-meta="">
-<meta property="article:modified_time" content="2026-11-05T06:25:35.000Z" data-stellar-page-meta="">
+<meta property="article:published_time" content="2024-11-05T06:25:35.000Z" data-stellar-page-meta="">
+<meta property="article:modified_time" content="2026-11-12T15:44:14.000Z" data-stellar-page-meta="">
 <meta property="article:tag" content="JMeter" data-stellar-page-meta="">
 <meta property="article:tag" content="ShopXO" data-stellar-page-meta="">
 <meta property="article:tag" content="性能测试" data-stellar-page-meta="">
 <meta name="twitter:card" content="summary" data-stellar-page-meta="">
-<meta name="twitter:image" content="https://hexo.hanruixuan.com/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png" data-stellar-page-meta=""><meta name="twitter:title" content="ShopXO 登录压测的数据准备与 JMeter 控制器" data-stellar-page-meta="">
+<meta name="twitter:image" content="https://hexo.hanruixuan.com/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png" data-stellar-page-meta=""><meta name="twitter:title" content="ShopXO 登录压测的数据准备与 JMeter 控制器" data-stellar-page-meta="">
   
   
   <meta name="keywords" content="JMeter,ShopXO,性能测试" data-stellar-page-meta="">
@@ -61,7 +61,7 @@
 
   
 
-  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2026-11-05T14:25:35+08:00","dateModified":"2026-11-05T14:25:35+08:00","datePublished":"2026-11-05T14:25:35+08:00","description":"这篇笔记整理 10 月 30 日的课堂练习。先准备登录账号和会话数据，再通过聚合报告观察响应时间，最后复习控制器和测试元件的作用域。\n准备登录账号和会话数据课堂先用正则提取网页标题，复习提取器的表达式、模板、匹配序号和缺省值。\n\nShopXO 登录练习用 Python 的 requests 发送登录表单，检查响应 JSON 中的 msg 是否为「登录成功」，再从响应的 Cookie 中读取 ...","headline":"ShopXO 登录压测的数据准备与 JMeter 控制器","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/","image":["/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png"],"keywords":"JMeter, ShopXO, 性能测试","thumbnailUrl":"/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png"}</script>
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":[]},"dateCreated":"2024-11-05T14:25:35+08:00","dateModified":"2026-11-12T23:44:14+08:00","datePublished":"2024-11-05T14:25:35+08:00","description":"这篇笔记整理 10 月 30 日的课堂练习。先准备登录账号和会话数据，再通过聚合报告观察响应时间，最后复习控制器和测试元件的作用域。\n准备登录账号和会话数据课堂先用正则提取网页标题，复习提取器的表达式、模板、匹配序号和缺省值。\n\nShopXO 登录练习用 Python 的 requests 发送登录表单，检查响应 JSON 中的 msg 是否为「登录成功」，再从响应的 Cookie 中读取 ...","headline":"ShopXO 登录压测的数据准备与 JMeter 控制器","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexo.hanruixuan.com/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":[]},"url":"https://hexo.hanruixuan.com/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/","image":["/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png"],"keywords":"JMeter, ShopXO, 性能测试","thumbnailUrl":"/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png"}</script>
   <link rel="stylesheet" href="/css/math-custom.css?v=1">
 
   <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
@@ -215,6 +215,60 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-29/JMeter%20%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E8%B0%83%E8%AF%95%E7%AC%94%E8%AE%B0/" title="JMeter 聚合报告与测试数据调试笔记" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">J</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">JMeter 聚合报告与测试数据调试笔记</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30%E4%BD%9C%E4%B8%9A/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E4%BD%9C%E4%B8%9A%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/" title="ShopXO 登录压测作业与数据库连接报错记录" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">S</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">ShopXO 登录压测作业与数据库连接报错记录</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/" title="ShopXO 登录压测的数据准备与 JMeter 控制器" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">S</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">ShopXO 登录压测的数据准备与 JMeter 控制器</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
 <a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/10/17/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/%E8%8A%82%E7%82%B9/%E4%BB%8E%E9%9B%B6%E7%90%86%E6%B8%85PassWall-%E6%97%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BD%8F%E5%AE%85%E5%87%BA%E5%8F%A3/" title="从零理清 PassWall：旁路由、住宅出口、1070 与 1081 和自动切换" data-stellar-navigation="">
   
   
@@ -287,24 +341,6 @@
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30%E4%BD%9C%E4%B8%9A/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E4%BD%9C%E4%B8%9A%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/" title="ShopXO 登录压测作业与数据库连接报错记录" data-stellar-navigation="">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">S</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">ShopXO 登录压测作业与数据库连接报错记录</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
 <a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-31/JMeter%20%E5%8E%8B%E6%B5%8B%E6%8A%A5%E5%91%8A%E3%80%81%E7%9B%AE%E6%A0%87%20QPS%20%E4%BC%B0%E7%AE%97%E4%B8%8E%E7%93%B6%E9%A2%88%E6%8E%92%E6%9F%A5/" title="JMeter 压测报告、目标 QPS 估算与瓶颈排查" data-stellar-navigation="">
   
   
@@ -313,42 +349,6 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">JMeter 压测报告、目标 QPS 估算与瓶颈排查</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-29/JMeter%20%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E8%B0%83%E8%AF%95%E7%AC%94%E8%AE%B0/" title="JMeter 聚合报告与测试数据调试笔记" data-stellar-navigation="">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">J</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">JMeter 聚合报告与测试数据调试笔记</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/" title="ShopXO 登录压测的数据准备与 JMeter 控制器" data-stellar-navigation="">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">S</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">ShopXO 登录压测的数据准备与 JMeter 控制器</span>
       
       
     </span>
@@ -424,7 +424,7 @@
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a>
 </div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-11-05T06:25:35.000Z">2026-11-05</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-11-05T06:25:35.000Z">2026-11-05</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-11-05T06:25:35.000Z">2024-11-05</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-11-12T15:44:14.000Z">2026-11-12</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
@@ -439,31 +439,31 @@
   </div></div>
 <article class="md-text content"><p>这篇笔记整理 10 月 30 日的课堂练习。先准备登录账号和会话数据，再通过聚合报告观察响应时间，最后复习控制器和测试元件的作用域。</p>
 <h2 id="准备登录账号和会话数据"><a href="#准备登录账号和会话数据" class="headerlink" title="准备登录账号和会话数据" data-stellar-navigation=""></a>准备登录账号和会话数据</h2><p>课堂先用正则提取网页标题，复习提取器的表达式、模板、匹配序号和缺省值。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png" alt="提取网页标题的正则配置" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030091935.png" alt="提取网页标题的正则配置" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <p>ShopXO 登录练习用 Python 的 <code>requests</code> 发送登录表单，检查响应 JSON 中的 <code>msg</code> 是否为「登录成功」，再从响应的 Cookie 中读取 <code>PHPSESSID</code>。批量准备数据时，对各测试账号重复这个过程，把成功取得的会话按 <code>PHPSESSID=&lt;会话值&gt;</code> 的格式逐行保存，供后续压测脚本读取。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030095656.png" alt="用 Python 发送 ShopXO 登录请求" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030095756.png" alt="从登录响应读取 Cookie" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030100102.png" alt="循环登录并整理会话数据" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030095656.png" alt="用 Python 发送 ShopXO 登录请求" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030095756.png" alt="从登录响应读取 Cookie" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030100102.png" alt="循环登录并整理会话数据" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <p>另一个截图记录了用存储过程向实验库的 <code>s_user</code> 表生成测试用户的思路。先保证用户名可区分，再核对生成的数据量与后续登录脚本是否一致。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030105302.png" alt="生成实验库测试用户的存储过程" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030105302.png" alt="生成实验库测试用户的存储过程" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <h2 id="看吞吐量和响应时间分位数"><a href="#看吞吐量和响应时间分位数" class="headerlink" title="看吞吐量和响应时间分位数" data-stellar-navigation=""></a>看吞吐量和响应时间分位数</h2><p>课堂记录表把用户数、QPS、响应时间和错误率放在同一张表里，方便对照各个负载档位。另一张登录聚合报告记录了 6,266 个样本，平均响应时间为 3,000 ms，中位数为 160 ms，P95 为 24,478 ms，错误率为 0%，吞吐量约为每秒 175 个样本。错误率为零时仍要看分位数，这轮测试中慢请求和中位数之间的差距很大。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030114904.png" alt="各负载档位的课堂记录" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030130305.png" alt="用户登录压测的聚合报告" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030114904.png" alt="各负载档位的课堂记录" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030130305.png" alt="用户登录压测的聚合报告" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <h2 id="用-If-和-ForEach-控制请求流程"><a href="#用-If-和-ForEach-控制请求流程" class="headerlink" title="用 If 和 ForEach 控制请求流程" data-stellar-navigation=""></a>用 If 和 ForEach 控制请求流程</h2><ul>
 <li><strong>If 控制器</strong>根据条件决定是否执行子节点。启用「将条件解释为变量表达式」时，让变量或函数求值后返回 <code>true</code> 或 <code>false</code>。</li>
 <li><strong>ForEach 控制器</strong>依次读取带编号的同名前缀变量。例如，输入前缀设为 <code>text</code>、输出变量设为 <code>item</code> 时，子请求用 <code>${item}</code> 引用本轮的值。</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030140351.png" alt="If 控制器的条件设置" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030142642.png" alt="ForEach 的变量前缀和输出变量" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030140351.png" alt="If 控制器的条件设置" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030142642.png" alt="ForEach 的变量前缀和输出变量" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <h2 id="核对作用域和执行顺序"><a href="#核对作用域和执行顺序" class="headerlink" title="核对作用域和执行顺序" data-stellar-navigation=""></a>核对作用域和执行顺序</h2><p>只想给一个请求加断言或定时器时，把元件放在该请求下面。要让同组多个请求使用一份配置时，把元件放在共同的上级节点，并核对它覆盖了哪些请求。</p>
 <p>对适用的取样器，可以按「配置元件 → 前置处理器 → 定时器 → 取样器 → 后置处理器 → 断言 → 监听器」理解执行过程。定时器在取样之前生效。例如，要模拟查看商品后等待再下单，可以把固定定时器放在下单请求下。作用域和执行顺序见 <a target="_blank" rel="noopener" href="https://jmeter.apache.org/usermanual/test_plan.html#executionorder" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Apache JMeter 测试计划手册</a>。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030154243.png" alt="定时器与元件作用域课堂笔记" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030154627.png" alt="JMeter 元件执行顺序" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030155202.png" alt="逻辑控制器与元件作用域" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030154243.png" alt="定时器与元件作用域课堂笔记" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030154627.png" alt="JMeter 元件执行顺序" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030155202.png" alt="逻辑控制器与元件作用域" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <p>课堂最后还记录了插件管理器中的图表、线程组、吞吐量控制和服务器资源监控插件。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030165113.png" alt="JMeter 插件管理器" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/attachments/Pasted%20image%2020261030165113.png" alt="JMeter 插件管理器" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 </article>
-<div class="article-tags"><a class="tag" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>性能测试</a><a class="tag" href="/tags/JMeter/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>JMeter</a><a class="tag" href="/tags/ShopXO/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>ShopXO</a></div>
+<div class="article-tags"><a class="tag" href="/tags/JMeter/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>JMeter</a><a class="tag" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>性能测试</a><a class="tag" href="/tags/ShopXO/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>ShopXO</a></div>
 
 
 
@@ -474,7 +474,7 @@
 </div>
     </section></div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 较新文章</div><a href="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-29/JMeter%20%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E8%B0%83%E8%AF%95%E7%AC%94%E8%AE%B0/" data-stellar-navigation="">JMeter 聚合报告与测试数据调试笔记</a></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30%E4%BD%9C%E4%B8%9A/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E4%BD%9C%E4%B8%9A%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/" data-stellar-navigation="">ShopXO 登录压测作业与数据库连接报错记录</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 较新文章</div><a href="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-29/JMeter%20%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E8%B0%83%E8%AF%95%E7%AC%94%E8%AE%B0/" data-stellar-navigation="">JMeter 聚合报告与测试数据调试笔记</a></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30%E4%BD%9C%E4%B8%9A/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E4%BD%9C%E4%B8%9A%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/" data-stellar-navigation="">ShopXO 登录压测作业与数据库连接报错记录</a></div></section></div>
 
 
 
@@ -545,7 +545,7 @@
 <script data-stellar-script="defines">
   window.canonical = window.stellarClientData.canonical;
   const ctx = window.stellarClientData.ctx;
-  window.canonical.param = {permalink: "https://hexo.hanruixuan.com/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/", checklink: ctx.services.video.js};
+  window.canonical.param = {permalink: "https://hexo.hanruixuan.com/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/", checklink: ctx.services.video.js};
   ctx.date_suffix = {"just":"刚刚","min":"分钟前","hour":"小时前","day":"天前"};
   if (ctx.search) Object.assign(ctx.search, {"more":"更多","no_more":"没有更多了"});
   const def = window.stellarClientData.def;
@@ -573,4 +573,4 @@
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0-20260906"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://hexo.hanruixuan.com/2026/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/","signature":"c031f325e8602bd3213542fa32c5b3daead5e9f4c2b4ef2f8430fd8825363cf3"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://hexo.hanruixuan.com/2024/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/10-30/ShopXO%20%E7%99%BB%E5%BD%95%E5%8E%8B%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%20JMeter%20%E6%8E%A7%E5%88%B6%E5%99%A8/","signature":"aab9eac6f2dc3781d8da2f4f543e50801ae96808d2947df57581172aa2cfd3a3"}</script></body></html>
